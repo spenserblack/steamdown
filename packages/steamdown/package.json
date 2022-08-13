@@ -1,0 +1,31 @@
+{
+  "name": "@steamdown/core",
+  "version": "1.0.0",
+  "author": "Spenser Black <spenserblack01@gmail.com>",
+  "license": "MIT",
+  "description": "A Markdown-like language that renders to Steam's markup language.",
+  "keywords": [
+    "steam",
+    "markdown"
+  ],
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "bugs": {
+    "url": "https://github.com/spenserblack/steamdown/issues"
+  },
+  "homepage": "https://github.com/spenserblack/steamdown#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spenserblack/steamdown.git"
+  },
+  "dependencies": {
+    "escape-string-regexp": "^5.0.0"
+  }
+}

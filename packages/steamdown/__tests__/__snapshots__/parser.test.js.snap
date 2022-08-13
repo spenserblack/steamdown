@@ -1,0 +1,2338 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parser parse() .tree backslashes in noparse are not escapes 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "\\{no escape\\",
+          "type": "noparse-span",
+        },
+        {
+          "text": "}",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree blank lines 1`] = `
+{
+  "nodes": [],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree blank lines followed by paragraph 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Hello, World!",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree bold 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "Bold text",
+              "type": "text",
+            },
+          ],
+          "type": "bold",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree bold and italicized 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "Bold and italicized text",
+              "type": "text",
+            },
+          ],
+          "type": "bold-italics",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree braces can be used in noparse with space 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "{optional inner space for delimiting}",
+          "type": "noparse-span",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree code block 1`] = `
+{
+  "nodes": [
+    {
+      "text": "This is a code block",
+      "type": "code-block",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree complex list 1`] = `
+{
+  "nodes": [
+    {
+      "items": [
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "item one:",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+            {
+              "items": [
+                {
+                  "nodes": [
+                    {
+                      "nodes": [
+                        {
+                          "text": "sub-item one",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "list-item",
+                },
+                {
+                  "nodes": [
+                    {
+                      "nodes": [
+                        {
+                          "text": "sub-item two",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "list-item",
+                },
+              ],
+              "ordered": false,
+              "type": "list",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "author": undefined,
+              "nodes": [
+                {
+                  "nodes": [
+                    {
+                      "text": "a quote in a list",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "paragraph",
+                },
+              ],
+              "type": "quote",
+            },
+          ],
+          "type": "list-item",
+        },
+      ],
+      "ordered": false,
+      "type": "list",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree escaped asterisks 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "character": "*",
+          "type": "escaped",
+        },
+        {
+          "text": "escaped",
+          "type": "text",
+        },
+        {
+          "character": "*",
+          "type": "escaped",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree escaped asterisks in bold 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "bold ",
+              "type": "text",
+            },
+            {
+              "character": "*",
+              "type": "escaped",
+            },
+            {
+              "text": "escaped",
+              "type": "text",
+            },
+            {
+              "character": "*",
+              "type": "escaped",
+            },
+          ],
+          "type": "bold",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree escaped asterisks in italics 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "italics ",
+              "type": "text",
+            },
+            {
+              "character": "*",
+              "type": "escaped",
+            },
+            {
+              "text": "escaped",
+              "type": "text",
+            },
+            {
+              "character": "*",
+              "type": "escaped",
+            },
+          ],
+          "type": "italics",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree escaped backslash 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Use a ",
+          "type": "text",
+        },
+        {
+          "character": "\\",
+          "type": "escaped",
+        },
+        {
+          "text": " to escape special characters",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree heading 1`] = `
+{
+  "nodes": [
+    {
+      "level": 1,
+      "nodes": [
+        {
+          "text": "Heading 1",
+          "type": "text",
+        },
+      ],
+      "type": "heading",
+    },
+    {
+      "level": 2,
+      "nodes": [
+        {
+          "text": "Heading 2",
+          "type": "text",
+        },
+      ],
+      "type": "heading",
+    },
+    {
+      "level": 3,
+      "nodes": [
+        {
+          "text": "Heading 3",
+          "type": "text",
+        },
+      ],
+      "type": "heading",
+    },
+    {
+      "level": 4,
+      "nodes": [
+        {
+          "text": "Heading 4",
+          "type": "text",
+        },
+      ],
+      "type": "heading",
+    },
+    {
+      "level": 5,
+      "nodes": [
+        {
+          "text": "Heading 5",
+          "type": "text",
+        },
+      ],
+      "type": "heading",
+    },
+    {
+      "level": 6,
+      "nodes": [
+        {
+          "text": "Heading 6",
+          "type": "text",
+        },
+      ],
+      "type": "heading",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree heading alternative 1`] = `
+{
+  "nodes": [
+    {
+      "level": 1,
+      "nodes": [
+        {
+          "text": "Alt heading 1",
+          "type": "text",
+        },
+      ],
+      "type": "heading",
+    },
+    {
+      "level": 2,
+      "nodes": [
+        {
+          "text": "Alt heading 2",
+          "type": "text",
+        },
+      ],
+      "type": "heading",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree heading alternative followed by paragraph 1`] = `
+{
+  "nodes": [
+    {
+      "level": 1,
+      "nodes": [
+        {
+          "text": "Alt heading 1",
+          "type": "text",
+        },
+      ],
+      "type": "heading",
+    },
+    {
+      "nodes": [
+        {
+          "text": "Paragraph",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+    {
+      "level": 1,
+      "nodes": [
+        {
+          "text": "Alt heading 1",
+          "type": "text",
+        },
+      ],
+      "type": "heading",
+    },
+    {
+      "nodes": [
+        {
+          "text": "Paragraph",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree heading alternative with style 1`] = `
+{
+  "nodes": [
+    {
+      "level": 1,
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "styled alt heading 1",
+              "type": "text",
+            },
+          ],
+          "type": "italics",
+        },
+      ],
+      "type": "heading",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree heading followed by paragraph 1`] = `
+{
+  "nodes": [
+    {
+      "level": 1,
+      "nodes": [
+        {
+          "text": "Heading",
+          "type": "text",
+        },
+      ],
+      "type": "heading",
+    },
+    {
+      "nodes": [
+        {
+          "text": "Paragraph",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+    {
+      "level": 2,
+      "nodes": [
+        {
+          "text": "Heading",
+          "type": "text",
+        },
+      ],
+      "type": "heading",
+    },
+    {
+      "nodes": [
+        {
+          "text": "Paragraph",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree heading with style 1`] = `
+{
+  "nodes": [
+    {
+      "level": 1,
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "styled heading",
+              "type": "text",
+            },
+          ],
+          "type": "italics",
+        },
+      ],
+      "type": "heading",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree horizontal rule 1`] = `
+{
+  "nodes": [
+    {
+      "type": "horizontal-rule",
+    },
+    {
+      "type": "horizontal-rule",
+    },
+    {
+      "type": "horizontal-rule",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree imbalanced strike leaning left 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "~~strike~",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree imbalanced strike leaning right 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "strike",
+              "type": "text",
+            },
+          ],
+          "type": "strike",
+        },
+        {
+          "text": "~",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree invalid italicized text broken into two paragraphs 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Invalid *italicized",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+    {
+      "nodes": [
+        {
+          "text": "text* with newlines",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree invalid italics with spaces 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Invalid * italicized * text with spaces",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree italicized text 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "Italicized text",
+              "type": "text",
+            },
+          ],
+          "type": "italics",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree italics inside word 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "a",
+          "type": "text",
+        },
+        {
+          "nodes": [
+            {
+              "text": "b",
+              "type": "text",
+            },
+          ],
+          "type": "italics",
+        },
+        {
+          "text": "c",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree italics plain then more italics 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "Italics",
+              "type": "text",
+            },
+          ],
+          "type": "italics",
+        },
+        {
+          "text": " and ",
+          "type": "text",
+        },
+        {
+          "nodes": [
+            {
+              "text": "more italics",
+              "type": "text",
+            },
+          ],
+          "type": "italics",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree mixed lists 1`] = `
+{
+  "nodes": [
+    {
+      "items": [
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "using an asterisk",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+      ],
+      "ordered": false,
+      "type": "list",
+    },
+    {
+      "items": [
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "using a dash",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+      ],
+      "ordered": false,
+      "type": "list",
+    },
+    {
+      "items": [
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "using a number",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+      ],
+      "ordered": true,
+      "type": "list",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree nested italicized text 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Nested ",
+          "type": "text",
+        },
+        {
+          "nodes": [
+            {
+              "text": "italicized",
+              "type": "text",
+            },
+          ],
+          "type": "italics",
+        },
+        {
+          "text": " text",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree noparse block 1`] = `
+{
+  "nodes": [
+    {
+      "text": "not parsed",
+      "type": "noparse-block",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree noparse block followed by paragraph 1`] = `
+{
+  "nodes": [
+    {
+      "text": "noparse",
+      "type": "noparse-block",
+    },
+    {
+      "nodes": [
+        {
+          "text": "paragraph",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+    {
+      "text": "noparse",
+      "type": "noparse-block",
+    },
+    {
+      "nodes": [
+        {
+          "text": "paragraph",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree noparse block with inner braces 1`] = `
+{
+  "nodes": [
+    {
+      "text": "{{{
+here's how to noparse
+}}}",
+      "type": "noparse-block",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree noparse inline 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "not parsed",
+          "type": "noparse-span",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree noparse inline and another noparse inline 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "not parsed",
+          "type": "noparse-span",
+        },
+        {
+          "text": " ",
+          "type": "text",
+        },
+        {
+          "text": "also not parsed",
+          "type": "noparse-span",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree noparse inline with special contents 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "*not italicized*",
+          "type": "noparse-span",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree noparse inline with two braces 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "not parsed",
+          "type": "noparse-span",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree ordered list 1`] = `
+{
+  "nodes": [
+    {
+      "items": [
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "one",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "two",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "three",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+      ],
+      "ordered": true,
+      "type": "list",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree ordered list with deep indentation 1`] = `
+{
+  "nodes": [
+    {
+      "items": [
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "a line
+that continues.",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "Two paragraphs...",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+            {
+              "nodes": [
+                {
+                  "text": "One item.",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "10 uses
+extra indentation",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+      ],
+      "ordered": true,
+      "type": "list",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree paragraph and another paragraph 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "One paragraph",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+    {
+      "nodes": [
+        {
+          "text": "Another paragraph",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree paragraph spanning lines 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "one
+paragraph
+spanning lines",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree paragraph with extra newlines 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "paragraph with extra newlines",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree paragraph without trailing newline 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "paragraph without trailing newline",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree paragraphs separated by horizontal rule 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Text before a horizontal rule",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+    {
+      "type": "horizontal-rule",
+    },
+    {
+      "nodes": [
+        {
+          "text": "Text after a horizontal rule",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree plain text followed by url 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "plain text followed by ",
+          "type": "text",
+        },
+        {
+          "link": "https://example.com",
+          "nodes": [
+            {
+              "text": "url",
+              "type": "text",
+            },
+          ],
+          "type": "link-url",
+        },
+        {
+          "text": ".",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree quote 1`] = `
+{
+  "nodes": [
+    {
+      "author": undefined,
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "This is a quote.",
+              "type": "text",
+            },
+          ],
+          "type": "paragraph",
+        },
+        {
+          "nodes": [
+            {
+              "text": "It quotes things.",
+              "type": "text",
+            },
+          ],
+          "type": "paragraph",
+        },
+      ],
+      "type": "quote",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree quote nested 1`] = `
+{
+  "nodes": [
+    {
+      "author": undefined,
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "You said...",
+              "type": "text",
+            },
+          ],
+          "type": "paragraph",
+        },
+        {
+          "author": undefined,
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "This is a test.",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "quote",
+        },
+        {
+          "nodes": [
+            {
+              "text": "I said...",
+              "type": "text",
+            },
+          ],
+          "type": "paragraph",
+        },
+        {
+          "author": undefined,
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "Yes it is.",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "quote",
+        },
+      ],
+      "type": "quote",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree quote with author 1`] = `
+{
+  "nodes": [
+    {
+      "author": [
+        "me",
+        undefined,
+      ],
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "I hope quotes work...",
+              "type": "text",
+            },
+          ],
+          "type": "paragraph",
+        },
+      ],
+      "type": "quote",
+    },
+    {
+      "author": [
+        "me",
+        "123",
+      ],
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "I hope they work with post IDs, too...",
+              "type": "text",
+            },
+          ],
+          "type": "paragraph",
+        },
+      ],
+      "type": "quote",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree reference 1`] = `
+{
+  "nodes": [
+    {
+      "id": "reference",
+      "type": "reference",
+      "url": "https://example.com",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree reference after paragraph 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "paragraph",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+    {
+      "id": "reference",
+      "type": "reference",
+      "url": "https://example.com",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree reference before paragraph 1`] = `
+{
+  "nodes": [
+    {
+      "id": "reference",
+      "type": "reference",
+      "url": "https://example.com",
+    },
+    {
+      "nodes": [
+        {
+          "text": "paragraph",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree simple 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Hello, World!",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree spoiler 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": ">!spoiler<!",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree strike with one tilde 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "strike",
+              "type": "text",
+            },
+          ],
+          "type": "strike",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree strike with two tilde 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "strike",
+              "type": "text",
+            },
+          ],
+          "type": "strike",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree table 1`] = `
+{
+  "nodes": [
+    {
+      "attributes": {
+        "equalCells": false,
+        "noBorder": false,
+        "type": "table-attribute-row",
+      },
+      "body": [
+        {
+          "cells": [
+            {
+              "nodes": [
+                {
+                  "text": "a",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+            {
+              "nodes": [
+                {
+                  "text": "b",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+          ],
+          "type": "table-row",
+        },
+      ],
+      "head": {
+        "cells": [
+          {
+            "nodes": [
+              {
+                "text": "one",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+          {
+            "nodes": [
+              {
+                "text": "two",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+        ],
+        "type": "table-row",
+      },
+      "type": "table",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree table equalcells 1`] = `
+{
+  "nodes": [
+    {
+      "attributes": {
+        "equalCells": true,
+        "noBorder": false,
+        "type": "table-attribute-row",
+      },
+      "body": [
+        {
+          "cells": [
+            {
+              "nodes": [
+                {
+                  "text": "a",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+            {
+              "nodes": [
+                {
+                  "text": "b",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+          ],
+          "type": "table-row",
+        },
+      ],
+      "head": {
+        "cells": [
+          {
+            "nodes": [
+              {
+                "text": "one",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+          {
+            "nodes": [
+              {
+                "text": "two",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+        ],
+        "type": "table-row",
+      },
+      "type": "table",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree table equalcells noborder 1`] = `
+{
+  "nodes": [
+    {
+      "attributes": {
+        "equalCells": true,
+        "noBorder": true,
+        "type": "table-attribute-row",
+      },
+      "body": [
+        {
+          "cells": [
+            {
+              "nodes": [
+                {
+                  "text": "a",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+            {
+              "nodes": [
+                {
+                  "text": "b",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+          ],
+          "type": "table-row",
+        },
+      ],
+      "head": {
+        "cells": [
+          {
+            "nodes": [
+              {
+                "text": "one",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+          {
+            "nodes": [
+              {
+                "text": "two",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+        ],
+        "type": "table-row",
+      },
+      "type": "table",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree table extra head 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "|  one  |  two |
+| three | four |
+| ----- | ---- |",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree table no attributes 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "| one | two |
+|  a  |  b  |",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree table no body 1`] = `
+{
+  "nodes": [
+    {
+      "attributes": {
+        "equalCells": false,
+        "noBorder": false,
+        "type": "table-attribute-row",
+      },
+      "body": [],
+      "head": {
+        "cells": [
+          {
+            "nodes": [
+              {
+                "text": "one",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+          {
+            "nodes": [
+              {
+                "text": "two",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+        ],
+        "type": "table-row",
+      },
+      "type": "table",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree table noborder 1`] = `
+{
+  "nodes": [
+    {
+      "attributes": {
+        "equalCells": false,
+        "noBorder": true,
+        "type": "table-attribute-row",
+      },
+      "body": [
+        {
+          "cells": [
+            {
+              "nodes": [
+                {
+                  "text": "a",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+            {
+              "nodes": [
+                {
+                  "text": "b",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+          ],
+          "type": "table-row",
+        },
+      ],
+      "head": {
+        "cells": [
+          {
+            "nodes": [
+              {
+                "text": "one",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+          {
+            "nodes": [
+              {
+                "text": "two",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+        ],
+        "type": "table-row",
+      },
+      "type": "table",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree table with multiple rows 1`] = `
+{
+  "nodes": [
+    {
+      "attributes": {
+        "equalCells": false,
+        "noBorder": false,
+        "type": "table-attribute-row",
+      },
+      "body": [
+        {
+          "cells": [
+            {
+              "nodes": [
+                {
+                  "text": "a",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+            {
+              "nodes": [
+                {
+                  "text": "b",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+          ],
+          "type": "table-row",
+        },
+        {
+          "cells": [
+            {
+              "nodes": [
+                {
+                  "text": "c",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+            {
+              "nodes": [
+                {
+                  "text": "d",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+          ],
+          "type": "table-row",
+        },
+        {
+          "cells": [
+            {
+              "nodes": [
+                {
+                  "text": "e",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+            {
+              "nodes": [
+                {
+                  "text": "f",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+          ],
+          "type": "table-row",
+        },
+      ],
+      "head": {
+        "cells": [
+          {
+            "nodes": [
+              {
+                "text": "one",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+          {
+            "nodes": [
+              {
+                "text": "two",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+        ],
+        "type": "table-row",
+      },
+      "type": "table",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree two paragraphs 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Foo",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+    {
+      "nodes": [
+        {
+          "text": "Bar",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree underlined 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "Underlined text",
+              "type": "text",
+            },
+          ],
+          "type": "underline",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree underlined in italicized 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "Italicized and ",
+              "type": "text",
+            },
+            {
+              "nodes": [
+                {
+                  "text": "underlined",
+                  "type": "text",
+                },
+              ],
+              "type": "underline",
+            },
+          ],
+          "type": "italics",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree unordered list with asterisks 1`] = `
+{
+  "nodes": [
+    {
+      "items": [
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "1",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "2",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "3",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+      ],
+      "ordered": false,
+      "type": "list",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree unordered list with dashes 1`] = `
+{
+  "nodes": [
+    {
+      "items": [
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "1",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "2",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "3",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+      ],
+      "ordered": false,
+      "type": "list",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree url link 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "link": "https://example.com",
+          "nodes": [
+            {
+              "text": "url with link",
+              "type": "text",
+            },
+          ],
+          "type": "link-url",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree url link with style 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "link": "https://example.com",
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "styled url",
+                  "type": "text",
+                },
+              ],
+              "type": "italics",
+            },
+            {
+              "text": " with link",
+              "type": "text",
+            },
+          ],
+          "type": "link-url",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree url ref with id 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "id": "id",
+          "nodes": [
+            {
+              "text": "url with id",
+              "type": "text",
+            },
+          ],
+          "type": "id-url",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree url ref with id and style 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "id": "id",
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "styled url",
+                  "type": "text",
+                },
+              ],
+              "type": "italics",
+            },
+            {
+              "text": " with id",
+              "type": "text",
+            },
+          ],
+          "type": "id-url",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree url ref without id 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "id": "plain-url",
+          "nodes": [
+            {
+              "text": "plain-url",
+              "type": "text",
+            },
+          ],
+          "type": "id-url",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree url ref without id with style 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "id": "*styled url*",
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "styled url",
+                  "type": "text",
+                },
+              ],
+              "type": "italics",
+            },
+          ],
+          "type": "id-url",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree valid italicized text with a newline 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Valid ",
+          "type": "text",
+        },
+        {
+          "nodes": [
+            {
+              "text": "italicized
+text",
+              "type": "text",
+            },
+          ],
+          "type": "italics",
+        },
+        {
+          "text": " with a newline",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;

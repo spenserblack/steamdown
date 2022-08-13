@@ -1,0 +1,2 @@
+# Prevent line ending conversion of test assets
+*.test.txt -text

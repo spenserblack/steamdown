@@ -1,0 +1,8 @@
+table.noborder {
+  border-collapse: collapse;
+  border: none;
+}
+
+table.equalcells {
+  /* TODO */
+}

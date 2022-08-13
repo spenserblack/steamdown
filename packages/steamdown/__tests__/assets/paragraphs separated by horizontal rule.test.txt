@@ -1,0 +1,5 @@
+Text before a horizontal rule
+
+*****************************
+
+Text after a horizontal rule

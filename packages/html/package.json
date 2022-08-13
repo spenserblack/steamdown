@@ -1,0 +1,33 @@
+{
+  "name": "@steamdown/html",
+  "version": "1.0.0",
+  "author": "Spenser Black <spenserblack01@gmail.com>",
+  "license": "MIT",
+  "description": "Generate HTML from Steamdown",
+  "keywords": [
+    "steam",
+    "markdown",
+    "html"
+  ],
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "steamdown.css"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "bugs": {
+    "url": "https://github.com/spenserblack/steamdown/issues"
+  },
+  "homepage": "https://github.com/spenserblack/steamdown#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spenserblack/steamdown.git"
+  },
+  "dependencies": {
+    "@steamdown/core": "workspace:^"
+  }
+}

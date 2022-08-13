@@ -1,0 +1,2 @@
+Valid *italicized
+text* with a newline
