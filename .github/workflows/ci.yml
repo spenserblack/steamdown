@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+    paths: [ "packages/steamdown/**" ]
+  pull_request:
+    branches: [ "main" ]
+    paths: [ "packages/steamdown/**" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x]
+
+    defaults:
+      run:
+        working-directory: packages/steamdown
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: yarn
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+
+      - run: yarn build
+      - run: yarn test

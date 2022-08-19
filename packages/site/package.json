@@ -1,0 +1,26 @@
+{
+  "name": "@steamdown/site",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "yarn build:steamdown && vite",
+    "build": "yarn build:steamdown && vite build",
+    "build:steamdown": "yarn workspace steamdown build:esm",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@inkline/inkline": "^3.1.4",
+    "debounce": "^1.2.1",
+    "steamdown": "0.1.0",
+    "vue": "^3.2.37"
+  },
+  "devDependencies": {
+    "@types/debounce": "^1.2.1",
+    "@vitejs/plugin-vue": "^3.0.3",
+    "sass": "^1.54.4",
+    "typescript": "^4.6.4",
+    "vite": "^3.0.7",
+    "vue-tsc": "^0.39.5"
+  }
+}

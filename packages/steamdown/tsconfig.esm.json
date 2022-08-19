@@ -1,0 +1,10 @@
+{
+  "extends": "@tsconfig/esm/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "src",
+    "outDir": "dist/esm",
+    "moduleResolution": "node"
+  },
+  "include": ["src"]
+}

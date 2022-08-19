@@ -1,0 +1,52 @@
+{
+  "name": "steamdown",
+  "version": "0.1.0",
+  "description": "Convert Markdown to Steam's markup",
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "bin": {
+    "steamdown": "bin/steamdown.js",
+    "stmd": "bin/steamdown.js"
+  },
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "scripts": {
+    "build": "yarn build:base && yarn build:esm",
+    "build:base": "tsc",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "test": "jest",
+    "prePublishOnly": "yarn build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spenserblack/steamdown.git"
+  },
+  "keywords": [
+    "steam",
+    "text",
+    "formatting",
+    "markdown"
+  ],
+  "author": "Spenser Black <spenserblack01@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spenserblack/steamdown/issues"
+  },
+  "homepage": "https://github.com/spenserblack/steamdown#readme",
+  "devDependencies": {
+    "@jest/globals": "^28.1.3",
+    "@tsconfig/esm": "^1.0.2",
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/marked": "^4.0.3",
+    "@types/node": "^18.7.5",
+    "jest": "^28.1.3",
+    "ts-jest": "^28.0.7",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "marked": "^4.0.18"
+  }
+}
