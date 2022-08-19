@@ -31,4 +31,10 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - run: yarn build
-      - run: yarn test
+      - name: Test and Generate Coverage
+        run: yarn test
+      - name: Upload Coverage Report
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          working-directory: packages/steamdown
