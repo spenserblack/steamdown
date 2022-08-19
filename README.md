@@ -1,5 +1,7 @@
 # steamdown
 
+[![CI](https://github.com/spenserblack/steamdown/actions/workflows/ci.yml/badge.svg)](https://github.com/spenserblack/steamdown/actions/workflows/ci.yml)
+
 Converts Markdown to [Steam's markup][format].
 
 ## Usage
