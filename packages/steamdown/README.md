@@ -1,4 +1,4 @@
-# steamdown
+# [steamdown][demo]
 
 [![npm](https://img.shields.io/npm/v/steamdown)](https://www.npmjs.com/package/steamdown)
 [![CI](https://github.com/spenserblack/steamdown/actions/workflows/ci.yml/badge.svg)](https://github.com/spenserblack/steamdown/actions/workflows/ci.yml)
@@ -92,6 +92,7 @@ any parsing.
 Steam supports tables with no borders (`[table noborder=1]`) and equal-width cells
 (`[table equalcells=1]`). These are not currently supported. Syntax proposals welcome!
 
+[demo]: https://steamdown.vercel.app/
 [format]: https://steamcommunity.com/comment/Guide/formattinghelp
 [basic input]: /packages/steamdown/__tests__/input/basic.md
 [snapshots]: /packages/steamdown/__tests__/__snapshots__/
