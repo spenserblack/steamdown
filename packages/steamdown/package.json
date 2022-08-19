@@ -1,6 +1,6 @@
 {
   "name": "steamdown",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Convert Markdown to Steam's markup",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
