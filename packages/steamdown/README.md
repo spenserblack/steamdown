@@ -35,7 +35,7 @@ example.
 
 ### Images
 
-Images are *not* supported, render to links. For example,
+Images are *not* supported. They render to links. For example,
 `![example](/image.png)` becomes `[url=/image.png]example[/url]`.
 
 ### Underlines (`[u]`)
