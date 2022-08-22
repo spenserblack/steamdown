@@ -75,14 +75,13 @@ const spoiler: Extension = {
         type: 'spoiler',
         raw: match[0],
         text: match[1],
-        // NOTE This also seems like a typing bug.
-        tokens: this.lexer.inlineTokens(match[1], undefined as any),
+        tokens: this.lexer.inlineTokens(match[1]),
       };
     }
   },
   renderer(token: GenericToken) {
     const { tokens } = token as SpoilerToken;
-    return `[spoiler]${this.parser.parseInline(tokens, undefined as any)}[/spoiler]`;
+    return `[spoiler]${this.parser.parseInline(tokens)}[/spoiler]`;
   },
 };
 
