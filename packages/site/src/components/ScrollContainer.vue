@@ -46,12 +46,5 @@ onBeforeUnmount(() => {
 <style lang="scss">
   .scroll-container {
     overflow-y: auto;
-
-    // TODO Use contenteditable instead of textarea
-    textarea {
-      overflow: hidden;
-      resize: none;
-      height: 100rem;
-    }
   }
 </style>
