@@ -19,13 +19,13 @@ const props = withDefaults(defineProps<Props>(), {
 const root = ref<HTMLElement | null>(null);
 
 const onScroll = debounce(function emitScroll() {
-  const scroll = root.value!.scrollTop;
+  const scroll = root.value!.scrollTop / root.value!.scrollHeight;
   emit('scroll', scroll);
   emit('update:modelValue', scroll);
 }, 100);
 
 watch(() => props.modelValue, function scrollY(value) {
-  root.value!.scrollTop = value;
+  root.value!.scrollTop = value * root.value!.scrollHeight;
 })
 
 onMounted(() => {
