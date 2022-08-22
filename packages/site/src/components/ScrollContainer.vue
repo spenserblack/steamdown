@@ -25,7 +25,12 @@ const onScroll = debounce(function emitScroll() {
 }, 100);
 
 watch(() => props.modelValue, function scrollY(value) {
-  root.value!.scrollTop = value * root.value!.scrollHeight;
+  const currentScrollTop = root.value!.scrollTop;
+  const newScrollTop = value * root.value!.scrollHeight;
+  if (Math.abs(currentScrollTop - newScrollTop) < 1) {
+    return;
+  }
+  root.value!.scrollTop = newScrollTop;
 })
 
 onMounted(() => {
