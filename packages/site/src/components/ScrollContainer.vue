@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, watch } from 'vue';
-import { debounce } from 'debounce';
 
 interface Props {
   modelValue?: number;
@@ -18,11 +17,11 @@ const props = withDefaults(defineProps<Props>(), {
 
 const root = ref<HTMLElement | null>(null);
 
-const onScroll = debounce(function emitScroll() {
+function onScroll() {
   const scroll = root.value!.scrollTop / root.value!.scrollHeight;
   emit('scroll', scroll);
   emit('update:modelValue', scroll);
-}, 100);
+};
 
 watch(() => props.modelValue, function scrollY(value) {
   const currentScrollTop = root.value!.scrollTop;
