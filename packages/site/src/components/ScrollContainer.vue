@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, watch } from 'vue';
-import { debounce } from 'debounce';
 
 interface Props {
   modelValue?: number;
@@ -18,14 +17,19 @@ const props = withDefaults(defineProps<Props>(), {
 
 const root = ref<HTMLElement | null>(null);
 
-const onScroll = debounce(function emitScroll() {
-  const scroll = root.value!.scrollTop;
+function onScroll() {
+  const scroll = root.value!.scrollTop / root.value!.scrollHeight;
   emit('scroll', scroll);
   emit('update:modelValue', scroll);
-}, 100);
+};
 
 watch(() => props.modelValue, function scrollY(value) {
-  root.value!.scrollTop = value;
+  const currentScrollTop = root.value!.scrollTop;
+  const newScrollTop = value * root.value!.scrollHeight;
+  if (Math.abs(currentScrollTop - newScrollTop) < 1) {
+    return;
+  }
+  root.value!.scrollTop = newScrollTop;
 })
 
 onMounted(() => {
@@ -46,12 +50,5 @@ onBeforeUnmount(() => {
 <style lang="scss">
   .scroll-container {
     overflow-y: auto;
-
-    // TODO Use contenteditable instead of textarea
-    textarea {
-      overflow: hidden;
-      resize: none;
-      height: 100rem;
-    }
   }
 </style>
