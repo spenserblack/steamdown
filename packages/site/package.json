@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@inkline/inkline": "^3.1.4",
+    "@primer/octicons": "^17.4.1",
     "steamdown": "0.1.1",
     "vue": "^3.2.37"
   },

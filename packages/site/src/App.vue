@@ -1,10 +1,15 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, nextTick } from 'vue';
+import * as octicons from '@primer/octicons';
 import parse from 'steamdown';
 import { version } from '../package.json';
 import Preview from './components/ParsedPreview.vue';
 import ScrollContainer from './components/ScrollContainer.vue';
 import defaultMd from './default-demo.md?raw';
+
+const ghIcon = octicons['mark-github'].toSVG({
+  'aria-label': 'Repository',
+});
 
 const md = ref(defaultMd);
 const previewPlacement = ref<'none' | 'right' | 'bottom'>('right');
@@ -79,7 +84,13 @@ const textareaStyle = computed(() => ({
     <i-layout-footer>
       <i-container>
         <i-row>
-          <i-column xs="1" offset="11"><span class="text-version">v{{ version }}</span></i-column>
+          <i-column xs="2">
+            <a href="https://github.com/spenserblack/steamdown">
+              <span v-html="ghIcon"></span>
+              GitHub
+            </a>
+          </i-column>
+          <i-column xs="1" offset="9"><span class="text-version">v{{ version }}</span></i-column>
         </i-row>
       </i-container>
     </i-layout-footer>
