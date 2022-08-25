@@ -32,42 +32,50 @@ const textareaStyle = computed(() => ({
 </script>
 
 <template>
-  <i-container>
-    <i-row>
-      <i-column><h1>Steamdown</h1></i-column>
-    </i-row>
-    <i-row>
-      <i-column><h2>Demo</h2></i-column>
-    </i-row>
-    <i-row>
-      <i-column>
-        <i-radio-group v-model="previewPlacement">
-          <i-radio value="none" native>None</i-radio>
-          <i-radio value="right" native>Right</i-radio>
-          <i-radio value="bottom" native>Bottom</i-radio>
-        </i-radio-group>
-      </i-column>
-    </i-row>
-    <i-row>
-      <i-column>
-        <ScrollContainer class="steamdown-view" v-model="previewScroll">
-          <i-textarea :style="textareaStyle" @input="onInput" class="monospace" v-model="md" />
-        </ScrollContainer>
-      </i-column>
-      <i-column v-if="previewPlacement === 'right'">
-        <ScrollContainer class="steamdown-view" v-model="previewScroll">
-          <Preview :content="steamdown" />
-        </ScrollContainer>
-      </i-column>
-    </i-row>
-    <i-row v-if="previewPlacement === 'bottom'" class="_margin-top:1/2">
-      <i-column>
-        <ScrollContainer class="steamdown-view" v-model="previewScroll">
-          <Preview :content="steamdown" />
-        </ScrollContainer>
-      </i-column>
-    </i-row>
-  </i-container>
+  <i-layout>
+    <i-layout-header>
+      <i-container>
+        <i-row>
+          <i-column><h1>Steamdown</h1></i-column>
+        </i-row>
+      </i-container>
+    </i-layout-header>
+    <i-layout-content>
+      <i-container>
+        <i-row>
+          <i-column><h2>Demo</h2></i-column>
+        </i-row>
+        <i-row>
+          <i-column>
+            <i-radio-group v-model="previewPlacement">
+              <i-radio value="none" native>None</i-radio>
+              <i-radio value="right" native>Right</i-radio>
+              <i-radio value="bottom" native>Bottom</i-radio>
+            </i-radio-group>
+          </i-column>
+        </i-row>
+        <i-row>
+          <i-column>
+            <ScrollContainer class="steamdown-view" v-model="previewScroll">
+              <i-textarea :style="textareaStyle" @input="onInput" class="monospace" v-model="md" />
+            </ScrollContainer>
+          </i-column>
+          <i-column v-if="previewPlacement === 'right'">
+            <ScrollContainer class="steamdown-view" v-model="previewScroll">
+              <Preview :content="steamdown" />
+            </ScrollContainer>
+          </i-column>
+        </i-row>
+        <i-row v-if="previewPlacement === 'bottom'" class="_margin-top:1/2">
+          <i-column>
+            <ScrollContainer class="steamdown-view" v-model="previewScroll">
+              <Preview :content="steamdown" />
+            </ScrollContainer>
+          </i-column>
+        </i-row>
+      </i-container>
+    </i-layout-content>
+  </i-layout>
 </template>
 
 <style lang="scss">
