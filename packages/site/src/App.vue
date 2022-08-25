@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, nextTick } from 'vue';
 import parse from 'steamdown';
+import { version } from '../package.json';
 import Preview from './components/ParsedPreview.vue';
 import ScrollContainer from './components/ScrollContainer.vue';
 import defaultMd from './default-demo.md?raw';
@@ -75,6 +76,13 @@ const textareaStyle = computed(() => ({
         </i-row>
       </i-container>
     </i-layout-content>
+    <i-layout-footer>
+      <i-container>
+        <i-row>
+          <i-column xs="1" offset="11"><span class="text-version">v{{ version }}</span></i-column>
+        </i-row>
+      </i-container>
+    </i-layout-footer>
   </i-layout>
 </template>
 
@@ -82,4 +90,13 @@ const textareaStyle = computed(() => ({
 .steamdown-view {
   height: 20rem;
 };
+</style>
+
+<style lang="scss" scoped>
+.text-version {
+  font-size: 0.9rem;
+  font-style: italic;
+  font-family: monospace;
+  color: var(--color--dark-50);
+}
 </style>
