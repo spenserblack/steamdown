@@ -38,7 +38,7 @@ const textareaStyle = computed(() => ({
 </script>
 
 <template>
-  <i-layout>
+  <i-layout class="main">
     <i-layout-header>
       <i-container>
         <i-row>
@@ -104,6 +104,10 @@ const textareaStyle = computed(() => ({
 </style>
 
 <style lang="scss" scoped>
+.main {
+  height: 100vh;
+}
+
 .text-version {
   font-size: 0.9rem;
   font-style: italic;
