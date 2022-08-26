@@ -8,6 +8,12 @@
 
 - Binary failing to parse multi-line syntax correctly
 
+### site
+
+#### Added
+
+- Footer with version and link to repository
+
 ## [0.1.1]
 
 ### steamdown
