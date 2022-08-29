@@ -582,10 +582,10 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.5.tgz#db5a11bf66bdab39569719555b0f76e138d7bd64"
   integrity sha512-9X2obfABZuDVLCgPK9aX0a/x4jaOEweTTWE2+9sr0Qqqevj2Uv5XorvusThmc9XGYpS9yI+fhh8RTafBtGposw==
 
-"@primer/octicons@^17.4.1":
-  version "17.4.1"
-  resolved "https://registry.yarnpkg.com/@primer/octicons/-/octicons-17.4.1.tgz#278dd5d9c24e503746ab94856622820b8a1c5bf6"
-  integrity sha512-DPlnpsARphzx9+kQexKsfLafOa+3FL3MKxaIPxz/isXiiZWgOuNTV8awHZ2Mm1M45mPqsBerucrFE8z2zVCbrg==
+"@primer/octicons@^17.5.0":
+  version "17.5.0"
+  resolved "https://registry.yarnpkg.com/@primer/octicons/-/octicons-17.5.0.tgz#a89a658c54524adb0b0eae95b0eb5a98a904097b"
+  integrity sha512-Bx/IfCMXZSq0YBPspoRoALVou5LiAdSg4yNtwEoYDZ137aq238Glnb6SBE5BtRSyzegTv7wFp/uYUPXMXT2MRg==
   dependencies:
     object-assign "^4.1.1"
 
@@ -2084,7 +2084,7 @@ makeerror@1.0.12:
   dependencies:
     tmpl "1.0.5"
 
-marked@^4.0.19:
+marked@^4.0.18, marked@^4.0.19:
   version "4.0.19"
   resolved "https://registry.yarnpkg.com/marked/-/marked-4.0.19.tgz#d36198d1ac1255525153c351c68c75bc1d7aee46"
   integrity sha512-rgQF/OxOiLcvgUAj1Q1tAf4Bgxn5h5JZTp04Fx4XUkVhs7B+7YA9JEWJhJpoO8eJt8MkZMwqLCNeNqj1bCREZQ==
@@ -2411,6 +2411,13 @@ stack-utils@^2.0.3:
   integrity sha512-xrQcmYhOsn/1kX+Vraq+7j4oE2j/6BFscZ0etmYg81xuM8Gq0022Pxb8+IqgOFUIaxHs0KaSb7T1+OegiNrNFA==
   dependencies:
     escape-string-regexp "^2.0.0"
+
+steamdown@0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/steamdown/-/steamdown-0.1.1.tgz#61d0b06beb1ae1cdde4cdbf6467f3d0a8c598418"
+  integrity sha512-DJ4BrHwhTR1FdCU5nnNNP+l/8O0I0zi4Vyel/v0ZZYlRMoinAcTvjo2OPCUzWoFN7YZ1rvbS8puRS0MwlzoX4Q==
+  dependencies:
+    marked "^4.0.18"
 
 string-length@^4.0.1:
   version "4.0.2"
