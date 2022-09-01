@@ -18,7 +18,7 @@
   "devDependencies": {
     "@types/debounce": "^1.2.1",
     "@vitejs/plugin-vue": "^3.0.3",
-    "sass": "^1.54.6",
+    "sass": "^1.54.8",
     "typescript": "^4.8.2",
     "vite": "^3.0.9",
     "vue-tsc": "^0.40.4"
