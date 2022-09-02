@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, watch } from 'vue';
+import { ref, onMounted, onBeforeUnmount, watch } from "vue";
 
 interface Props {
   modelValue?: number;
 }
 
 interface Emits {
-  (e: 'scroll', y: number): void;
-  (e: 'update:modelValue', y: number): void;
+  (e: "scroll", y: number): void;
+  (e: "update:modelValue", y: number): void;
 }
 
 const emit = defineEmits<Emits>();
@@ -19,25 +19,28 @@ const root = ref<HTMLElement | null>(null);
 
 function onScroll() {
   const scroll = root.value!.scrollTop / root.value!.scrollHeight;
-  emit('scroll', scroll);
-  emit('update:modelValue', scroll);
-};
+  emit("scroll", scroll);
+  emit("update:modelValue", scroll);
+}
 
-watch(() => props.modelValue, function scrollY(value) {
-  const currentScrollTop = root.value!.scrollTop;
-  const newScrollTop = value * root.value!.scrollHeight;
-  if (Math.abs(currentScrollTop - newScrollTop) < 1) {
-    return;
-  }
-  root.value!.scrollTop = newScrollTop;
-})
+watch(
+  () => props.modelValue,
+  function scrollY(value) {
+    const currentScrollTop = root.value!.scrollTop;
+    const newScrollTop = value * root.value!.scrollHeight;
+    if (Math.abs(currentScrollTop - newScrollTop) < 1) {
+      return;
+    }
+    root.value!.scrollTop = newScrollTop;
+  },
+);
 
 onMounted(() => {
-  root.value!.addEventListener('scroll', onScroll);
+  root.value!.addEventListener("scroll", onScroll);
 });
 
 onBeforeUnmount(() => {
-  root.value!.removeEventListener('scroll', onScroll);
+  root.value!.removeEventListener("scroll", onScroll);
 });
 </script>
 
@@ -48,7 +51,7 @@ onBeforeUnmount(() => {
 </template>
 
 <style lang="scss">
-  .scroll-container {
-    overflow-y: auto;
-  }
+.scroll-container {
+  overflow-y: auto;
+}
 </style>
