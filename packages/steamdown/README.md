@@ -41,7 +41,7 @@ Images are *not* supported. They render to links. For example,
 
 ### Underlines (`[u]`)
 
-Wrapping text with `__` does *not* make it italicized, but makes it underlined
+Wrapping text with `__` does *not* make it bold, but makes it underlined
 (`__underlined text__`).
 
 ### Spoiler Text (`[spoiler]`)
