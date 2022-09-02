@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, nextTick } from 'vue';
-import * as octicons from '@primer/octicons';
-import parse from 'steamdown';
-import { version } from '../package.json';
-import Preview from './components/ParsedPreview.vue';
-import ScrollContainer from './components/ScrollContainer.vue';
-import defaultMd from './default-demo.md?raw';
+import { ref, computed, onMounted, nextTick } from "vue";
+import * as octicons from "@primer/octicons";
+import parse from "steamdown";
+import { version } from "../package.json";
+import Preview from "./components/ParsedPreview.vue";
+import ScrollContainer from "./components/ScrollContainer.vue";
+import defaultMd from "./default-demo.md?raw";
 
-const ghIcon = octicons['mark-github'].toSVG({
-  'aria-label': 'Repository',
+const ghIcon = octicons["mark-github"].toSVG({
+  "aria-label": "Repository",
 });
 
 const md = ref(defaultMd);
-const previewPlacement = ref<'none' | 'right' | 'bottom'>('right');
+const previewPlacement = ref<"none" | "right" | "bottom">("right");
 const steamdown = computed(() => parse(md.value));
 
 const elementHeight = ref(0);
@@ -28,12 +28,14 @@ function onInput(e: Event) {
   });
 }
 onMounted(() => {
-  elementHeight.value = (document.querySelector('textarea') as HTMLTextAreaElement).scrollHeight;
+  elementHeight.value = (
+    document.querySelector("textarea") as HTMLTextAreaElement
+  ).scrollHeight;
 });
 const textareaStyle = computed(() => ({
-  height: resizing.value ? 'auto' : `${elementHeight.value}px`,
-  resize: 'none',
-  overflowY: 'hidden',
+  height: resizing.value ? "auto" : `${elementHeight.value}px`,
+  resize: "none",
+  overflowY: "hidden",
 }));
 </script>
 
@@ -63,7 +65,12 @@ const textareaStyle = computed(() => ({
         <i-row>
           <i-column>
             <ScrollContainer class="steamdown-view" v-model="previewScroll">
-              <i-textarea :style="textareaStyle" @input="onInput" class="monospace" v-model="md" />
+              <i-textarea
+                :style="textareaStyle"
+                @input="onInput"
+                class="monospace"
+                v-model="md"
+              />
             </ScrollContainer>
           </i-column>
           <i-column v-if="previewPlacement === 'right'">
@@ -90,7 +97,9 @@ const textareaStyle = computed(() => ({
               GitHub
             </a>
           </i-column>
-          <i-column xs="1" offset="9"><span class="text-version">v{{ version }}</span></i-column>
+          <i-column xs="1" offset="9"
+            ><span class="text-version">v{{ version }}</span></i-column
+          >
         </i-row>
       </i-container>
     </i-layout-footer>
@@ -100,7 +109,7 @@ const textareaStyle = computed(() => ({
 <style lang="scss">
 .steamdown-view {
   height: 20rem;
-};
+}
 </style>
 
 <style lang="scss" scoped>

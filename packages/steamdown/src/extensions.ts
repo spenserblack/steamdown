@@ -1,60 +1,60 @@
 import type {
   Extension,
-    GenericToken,
-    MarkedToken,
-    StrongToken,
-    HrToken,
-} from './types';
+  GenericToken,
+  MarkedToken,
+  StrongToken,
+  HrToken,
+} from "./types";
 
 export type SpoilerToken = {
-  type: 'spoiler',
-  raw: string,
-  text: string,
-  tokens: MarkedToken[],
+  type: "spoiler";
+  raw: string;
+  text: string;
+  tokens: MarkedToken[];
 };
 
 export type NoparseToken = {
-  type: 'noparse',
-  raw: string,
-  text: string,
+  type: "noparse";
+  raw: string;
+  text: string;
 };
 
 export type NoparsespanToken = {
-  type: 'noparsespan',
-  raw: string,
-  text: string,
+  type: "noparsespan";
+  raw: string;
+  text: string;
 };
 
 export type BlockquoteToken = {
-  type: 'blockquote',
-  raw: string,
-  tokens: MarkedToken[],
-  author?: string | null | undefined,
+  type: "blockquote";
+  raw: string;
+  tokens: MarkedToken[];
+  author?: string | null | undefined;
 };
 
-
-const wrapped = (s: string, wrapper: string): boolean => s.startsWith(wrapper) && s.endsWith(wrapper);
+const wrapped = (s: string, wrapper: string): boolean =>
+  s.startsWith(wrapper) && s.endsWith(wrapper);
 
 const space = {
-  name: 'space',
+  name: "space",
   renderer({ raw }: GenericToken) {
     return raw;
   },
 };
 const text = {
-  name: 'text',
+  name: "text",
   renderer({ raw }: GenericToken) {
     return raw;
-  }
+  },
 };
 
 const underline = {
-  name: 'strong',
+  name: "strong",
   renderer(token: GenericToken) {
     const { raw, text } = token as StrongToken;
-    if (wrapped(raw, '__')) {
+    if (wrapped(raw, "__")) {
       return `[u]${text}[/u]`;
-    } else if (wrapped(raw, '**')) {
+    } else if (wrapped(raw, "**")) {
       return `[b]${text}[/b]`;
     }
     return false;
@@ -62,8 +62,8 @@ const underline = {
 };
 
 const spoiler: Extension = {
-  name: 'spoiler',
-  level: 'inline',
+  name: "spoiler",
+  level: "inline",
   start(src: string): number {
     // TODO Remove this hack once @types package is updated
     return src.match(/!!!/)?.index as number;
@@ -72,7 +72,7 @@ const spoiler: Extension = {
     const match = src.match(/^!!!((?:.+\n|.*)*[^\n])!!!/);
     if (match) {
       return {
-        type: 'spoiler',
+        type: "spoiler",
         raw: match[0],
         text: match[1],
         tokens: this.lexer.inlineTokens(match[1]),
@@ -86,8 +86,8 @@ const spoiler: Extension = {
 };
 
 const noparse: Extension = {
-  name: 'noparse',
-  level: 'block',
+  name: "noparse",
+  level: "block",
   start(src: string): number {
     return src.match(/\{\{\{\n/)?.index as number;
   },
@@ -95,7 +95,7 @@ const noparse: Extension = {
     const match = src.match(/^\{\{\{\n((?:.|\n)*\n)\}\}\}\n?/);
     if (match) {
       return {
-        type: 'noparse',
+        type: "noparse",
         raw: match[0],
         text: match[1],
       };
@@ -108,8 +108,8 @@ const noparse: Extension = {
 };
 
 const noparsespan: Extension = {
-  name: 'noparsespan',
-  level: 'inline',
+  name: "noparsespan",
+  level: "inline",
   start(src: string): number {
     // TODO And this too
     return src.match(/\{\{\{[^\n]/)?.index as number;
@@ -118,7 +118,7 @@ const noparsespan: Extension = {
     const match = src.match(/^\{\{\{(.*)\}\}\}/);
     if (match) {
       return {
-        type: 'noparsespan',
+        type: "noparsespan",
         raw: match[0],
         text: match[1],
       };
@@ -131,15 +131,15 @@ const noparsespan: Extension = {
 };
 
 const hr = {
-  name: 'hr',
+  name: "hr",
   renderer() {
-    return '[hr][/hr]\n\n';
+    return "[hr][/hr]\n\n";
   },
 };
 
 const blockquote: Extension = {
-  name: 'blockquote',
-  level: 'block',
+  name: "blockquote",
+  level: "block",
   start(src: string): number {
     return src.match(/(?:^|\n)> ?.*(?:\n|$)/)?.index as number;
   },
@@ -147,9 +147,12 @@ const blockquote: Extension = {
     const match = src.match(/^((?:> ?.*(?:\n|$))+)(?:\((.*)\)(?:\n|$))?/);
     if (match) {
       const [raw, text, author] = match as [string, string, string | undefined];
-      const tokens = this.lexer.blockTokens(text.replace(/^> ?/mg, ''), undefined as any);
+      const tokens = this.lexer.blockTokens(
+        text.replace(/^> ?/gm, ""),
+        undefined as any,
+      );
       return {
-        type: 'blockquote',
+        type: "blockquote",
         raw,
         author,
         tokens,
@@ -159,7 +162,7 @@ const blockquote: Extension = {
   renderer(token: GenericToken) {
     const { tokens, author } = token as BlockquoteToken;
     const parsed = this.parser.parse(tokens);
-    return `[quote${author ? `=${author}` : ''}]${parsed}[/quote]\n\n`;
+    return `[quote${author ? `=${author}` : ""}]${parsed}[/quote]\n\n`;
   },
 };
 

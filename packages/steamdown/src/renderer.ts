@@ -1,4 +1,4 @@
-import type { marked } from 'marked';
+import type { marked } from "marked";
 
 type Renderer = marked.RendererObject;
 
@@ -7,7 +7,7 @@ const renderer: Renderer = {
     return text;
   },
   br() {
-    return '\n';
+    return "\n";
   },
   heading(text: string, level: number) {
     return `[h${level}]${text}[/h${level}]\n\n`;
@@ -25,7 +25,7 @@ const renderer: Renderer = {
     return `[url=${href}]${text}[/url]`;
   },
   list(body: string, ordered: boolean) {
-    const tag = ordered ? 'olist' : 'list';
+    const tag = ordered ? "olist" : "list";
     return `[${tag}]\n${body}[/${tag}]`;
   },
   listitem(text: string) {
@@ -44,7 +44,7 @@ const renderer: Renderer = {
     return `  [tr]\n${content}  [/tr]\n`;
   },
   tablecell(content: string, flags: { header: boolean }) {
-    const tag = flags.header ? 'th' : 'td';
+    const tag = flags.header ? "th" : "td";
     return `    [${tag}]${content}[/${tag}]\n`;
   },
 };
