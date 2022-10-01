@@ -1,3 +1,4 @@
 *.md
 dist
 coverage
+.yarn
