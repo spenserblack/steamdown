@@ -307,10 +307,10 @@
   resolved "https://registry.yarnpkg.com/@esbuild/linux-loong64/-/linux-loong64-0.15.7.tgz#1ec4af4a16c554cbd402cc557ccdd874e3f7be53"
   integrity sha512-IKznSJOsVUuyt7cDzzSZyqBEcZe+7WlBqTVXiF1OXP/4Nm387ToaXZ0fyLwI1iBlI/bzpxVq411QE2/Bt2XWWw==
 
-"@inkline/inkline@^3.1.4":
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/@inkline/inkline/-/inkline-3.1.4.tgz#6f58d12fa3a670c13d05b6267d483c8ad243bda2"
-  integrity sha512-xSTBVPKseUVKZRkcZIEQ9wQFrA9vFNGdW0a72pVHpRFuOPeq1M3def41wJ3kIoWVTRGLWsRu1hEFFFFknC8Iug==
+"@inkline/inkline@^3.1.5":
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/@inkline/inkline/-/inkline-3.1.5.tgz#8772f967c79a94c01fe541320110cb2db9aecb77"
+  integrity sha512-+b+z7RZlV8fZaCujGEHaLqhHV/Si9ZG8Cl7Wep8zMu+Zj0w92NhSRxRSHTWpenCgAZ6JGI4ulX1rA4LIRn4g7Q==
   dependencies:
     "@popperjs/core" "2.11.5"
 
@@ -705,10 +705,10 @@
   dependencies:
     "@types/yargs-parser" "*"
 
-"@vitejs/plugin-vue@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@vitejs/plugin-vue/-/plugin-vue-3.1.0.tgz#3a423ea6943a450e806da412a911150e928598ed"
-  integrity sha512-fmxtHPjSOEIRg6vHYDaem+97iwCUg/uSIaTzp98lhELt2ISOQuDo2hbkBdXod0g15IhfPMQmAxh4heUks2zvDA==
+"@vitejs/plugin-vue@^3.1.2":
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/@vitejs/plugin-vue/-/plugin-vue-3.1.2.tgz#3cd52114e8871a0b5e7bd7d837469c032e503036"
+  integrity sha512-3zxKNlvA3oNaKDYX0NBclgxTQ1xaFdL7PzwF6zj9tGFziKwmBa3Q/6XcJQxudlT81WxDjEhHmevvIC4Orc1LhQ==
 
 "@volar/code-gen@0.40.13":
   version "0.40.13"
