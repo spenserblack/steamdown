@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@inkline/inkline": "^3.1.4",
+    "@inkline/inkline": "^3.1.7",
     "@primer/octicons": "^17.5.0",
     "steamdown": "0.1.1",
     "vue": "^3.2.40"
