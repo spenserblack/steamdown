@@ -13,7 +13,7 @@
     "@inkline/inkline": "^3.1.4",
     "@primer/octicons": "^17.5.0",
     "steamdown": "0.1.1",
-    "vue": "^3.2.40"
+    "vue": "^3.2.41"
   },
   "devDependencies": {
     "@types/debounce": "^1.2.1",
