@@ -312,10 +312,10 @@
   resolved "https://registry.yarnpkg.com/@esbuild/linux-loong64/-/linux-loong64-0.15.10.tgz#78a42897c2cf8db9fd5f1811f7590393b77774c7"
   integrity sha512-w0Ou3Z83LOYEkwaui2M8VwIp+nLi/NA60lBLMvaJ+vXVMcsARYdEzLNE7RSm4+lSg4zq4d7fAVuzk7PNQ5JFgg==
 
-"@inkline/inkline@^3.1.4":
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/@inkline/inkline/-/inkline-3.1.4.tgz#6f58d12fa3a670c13d05b6267d483c8ad243bda2"
-  integrity sha512-xSTBVPKseUVKZRkcZIEQ9wQFrA9vFNGdW0a72pVHpRFuOPeq1M3def41wJ3kIoWVTRGLWsRu1hEFFFFknC8Iug==
+"@inkline/inkline@^3.1.8":
+  version "3.1.8"
+  resolved "https://registry.yarnpkg.com/@inkline/inkline/-/inkline-3.1.8.tgz#6c1be34128afe179e200732ae6bed7a8a4017c58"
+  integrity sha512-b62fPy2QjXftbpT918eMl+47VxecBRTas+/dN44YrRjUbV/27ko6HAN949pQCvjFyK/s0+tJv47izgGh69SL3w==
   dependencies:
     "@popperjs/core" "2.11.5"
 
