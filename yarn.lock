@@ -2115,7 +2115,7 @@ makeerror@1.0.12:
   dependencies:
     tmpl "1.0.5"
 
-marked@^4.0.18, marked@^4.2.2:
+marked@^4.2.2:
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/marked/-/marked-4.2.2.tgz#1d2075ad6cdfe42e651ac221c32d949a26c0672a"
   integrity sha512-JjBTFTAvuTgANXx82a5vzK9JLSMoV6V3LBVn4Uhdso6t7vXrGx7g1Cd2r6NYSsxrYbQGFCMqBDhFHyK5q2UvcQ==
@@ -2459,13 +2459,6 @@ stack-utils@^2.0.3:
   integrity sha512-xrQcmYhOsn/1kX+Vraq+7j4oE2j/6BFscZ0etmYg81xuM8Gq0022Pxb8+IqgOFUIaxHs0KaSb7T1+OegiNrNFA==
   dependencies:
     escape-string-regexp "^2.0.0"
-
-steamdown@0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/steamdown/-/steamdown-0.1.1.tgz#61d0b06beb1ae1cdde4cdbf6467f3d0a8c598418"
-  integrity sha512-DJ4BrHwhTR1FdCU5nnNNP+l/8O0I0zi4Vyel/v0ZZYlRMoinAcTvjo2OPCUzWoFN7YZ1rvbS8puRS0MwlzoX4Q==
-  dependencies:
-    marked "^4.0.18"
 
 string-length@^4.0.1:
   version "4.0.2"
