@@ -1,0 +1,15 @@
+{
+    "name": "Node.js",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": { "VARIANT": "18-buster" }
+    },
+    "portsAttributes": {
+        "3000": {
+            "label": "Site",
+            "onAutoForward": "notify"
+        }
+    },
+    "postCreateCommand": "yarn install",
+    "remoteUser": "vscode"
+}

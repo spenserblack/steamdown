@@ -13,3 +13,9 @@ indent_style = none
 indent_size = none
 trim_trailing_whitespace = false
 insert_final_newline = false
+
+[Dockerfile]
+indent_size = 4
+
+[.devcontainer/*.json]
+indent_size = 4
