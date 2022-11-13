@@ -11,5 +11,5 @@
         }
     },
     "postCreateCommand": "yarn install",
-    "remoteUser": "vscode"
+    "remoteUser": "node"
 }
