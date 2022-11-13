@@ -1,15 +1,20 @@
 {
-    "name": "Node.js",
-    "build": {
-        "dockerfile": "Dockerfile",
-        "args": { "VARIANT": "16-buster" }
-    },
-    "portsAttributes": {
-        "3000": {
-            "label": "Site",
-            "onAutoForward": "notify"
-        }
-    },
-    "postCreateCommand": "yarn install",
-    "remoteUser": "node"
+  "name": "Node.js",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": { "VARIANT": "16-buster" }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["EditorConfig.EditorConfig", "esbenp.prettier-vscode"]
+    }
+  },
+  "portsAttributes": {
+    "3000": {
+      "label": "Site",
+      "onAutoForward": "notify"
+    }
+  },
+  "postCreateCommand": "yarn install",
+  "remoteUser": "node"
 }
