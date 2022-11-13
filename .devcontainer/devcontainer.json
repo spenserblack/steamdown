@@ -10,8 +10,8 @@
     }
   },
   "portsAttributes": {
-    "3000": {
-      "label": "Site",
+    "5173": {
+      "label": "Site (dev)",
       "onAutoForward": "notify"
     }
   },
