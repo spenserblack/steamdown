@@ -15,6 +15,6 @@
       "onAutoForward": "notify"
     }
   },
-  "postCreateCommand": "yarn install",
+  "postCreateCommand": ".devcontainer/postCreate.sh",
   "remoteUser": "node"
 }
