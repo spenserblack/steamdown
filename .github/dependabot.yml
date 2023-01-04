@@ -1,7 +1,7 @@
 version: 2
 updates:
   - package-ecosystem: npm
-    directory: "/"
+    directory: "/packages/steamdown"
     schedule:
       interval: daily
   - package-ecosystem: github-actions
