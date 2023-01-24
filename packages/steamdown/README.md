@@ -9,6 +9,10 @@ Converts Markdown to [Steam's markup][format].
 
 ## Usage
 
+### Website
+
+Go to http://steamdown.vercel.app/
+
 ### Library
 
 ```typescript
