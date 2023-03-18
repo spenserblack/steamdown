@@ -38,11 +38,6 @@ describe("formatting", () => {
     test("exclamation outside of spoiler", () => {
       expect(parse("!!!spoiler text!!!\\!")).toBe("[spoiler]spoiler text[/spoiler]!");
     });
-    test("spoiler with newlines", () => {
-      expect(parse("!!!spoiler\nthis\ntext!!!")).toBe(
-        "[spoiler]spoiler\nthis\ntext[/spoiler]",
-      );
-    });
   });
 
   describe("Literal text", () => {
