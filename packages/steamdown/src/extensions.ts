@@ -69,7 +69,7 @@ const spoiler: Extension = {
     return src.match(/!!!/)?.index as number;
   },
   tokenizer(src: string): SpoilerToken | void {
-    const match = src.match(/^!!!((?:.+\n|.*)*[^\n])!!!/);
+    const match = src.match(/^!!!([^\n]*)!!!/);
     if (match) {
       return {
         type: "spoiler",
