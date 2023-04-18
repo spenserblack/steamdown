@@ -78,3 +78,11 @@ newlines
 
 are preserved"
 `;
+
+exports[`parse spec list-items 1`] = `
+"[list]
+    [*][url=https://example.com]link[/url]
+    [*][i]emphasis[/i]
+    [*][b]strong[/b]
+[/list]"
+`;

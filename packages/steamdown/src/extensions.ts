@@ -41,12 +41,6 @@ const space = {
     return raw;
   },
 };
-const text = {
-  name: "text",
-  renderer({ raw }: GenericToken) {
-    return raw;
-  },
-};
 
 const underline = {
   name: "strong",
@@ -168,7 +162,6 @@ const blockquote: Extension = {
 
 const extensions: Extension[] = [
   space,
-  text,
   underline,
   spoiler,
   noparse,
