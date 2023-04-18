@@ -47,6 +47,9 @@ const renderer: Renderer = {
     const tag = flags.header ? "th" : "td";
     return `    [${tag}]${content}[/${tag}]\n`;
   },
+  // text(text: string) {
+  //   return text;
+  // },
 };
 
 export default renderer;
