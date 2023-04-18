@@ -62,6 +62,7 @@ const renderer: Renderer = {
     return `    [${tag}]${content}[/${tag}]\n`;
   },
   text(text: string) {
+    // TODO: Switch hack with something better (marked option, custom tokenizer, etc.)
     return unescape(text);
   },
 };
