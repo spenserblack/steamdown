@@ -81,8 +81,8 @@ are preserved"
 
 exports[`parse spec list-items 1`] = `
 "[list]
-    [*][link](https://example.com)
-    [*]*emphasis*
-    [*]**strong**
+    [*][url=https://example.com]link[/url]
+    [*][i]emphasis[/i]
+    [*][b]strong[/b]
 [/list]"
 `;

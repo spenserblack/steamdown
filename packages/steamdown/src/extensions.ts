@@ -168,7 +168,7 @@ const blockquote: Extension = {
 
 const extensions: Extension[] = [
   space,
-  text,
+  // text,
   underline,
   spoiler,
   noparse,
