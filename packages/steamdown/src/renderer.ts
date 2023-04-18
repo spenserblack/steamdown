@@ -2,6 +2,20 @@ import type { marked } from "marked";
 
 type Renderer = marked.RendererObject;
 
+// HACK: Even with the `sanitize: false`, `mangle: false`, and `sanitizer: (html) => ''` options,
+//       marked still escapes some characters. This is a workaround for that.
+const unescapes = {
+  "&amp;": "&",
+  "&lt;": "<",
+  "&gt;": ">",
+  "&quot;": '"',
+  "&#39;": "'",
+};
+const unescape = (text: string) => {
+  const regexp = new RegExp(Object.keys(unescapes).join("|"), "g");
+  return text.replace(regexp, (match) => unescapes[match as keyof typeof unescapes]);
+};
+
 const renderer: Renderer = {
   paragraph(text: string) {
     return text;
@@ -46,6 +60,10 @@ const renderer: Renderer = {
   tablecell(content: string, flags: { header: boolean }) {
     const tag = flags.header ? "th" : "td";
     return `    [${tag}]${content}[/${tag}]\n`;
+  },
+  text(text: string) {
+    // TODO: Switch hack with something better (marked option, custom tokenizer, etc.)
+    return unescape(text);
   },
 };
 
