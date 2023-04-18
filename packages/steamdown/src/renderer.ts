@@ -14,7 +14,7 @@ const unescapes = {
 const unescape = (text: string) => {
   const regexp = new RegExp(Object.keys(unescapes).join("|"), "g");
   return text.replace(regexp, (match) => unescapes[match as keyof typeof unescapes]);
-}
+};
 
 const renderer: Renderer = {
   paragraph(text: string) {
