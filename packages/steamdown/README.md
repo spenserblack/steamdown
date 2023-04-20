@@ -27,7 +27,7 @@ console.log(parse(text));
 # read from STDIN
 steamdown -
 # or
-cat file.md | steamdown
+steamdown < file.md
 
 # read from file
 steamdown file.md
