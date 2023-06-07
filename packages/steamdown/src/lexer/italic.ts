@@ -25,6 +25,7 @@ export default class Italic extends InlineToken {
     if (/\s$/.test(text)) {
       return null;
     }
+    // TODO: Parse tokens in text for nested syntax.
     return [new Italic(text, literal), md.slice(literal.length)];
   }
 }
