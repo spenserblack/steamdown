@@ -1,8 +1,9 @@
 import Token from "./token";
 import Heading from "./heading";
+import Italic from "./italic";
 import { LexError } from "./errors";
 
-export { Token, Heading, LexError };
+export { Token, Heading, Italic, LexError };
 
 /**
  * Returns true if the Markdown should likely be lexed.
