@@ -1,6 +1,6 @@
-import Token from "./token";
+import BlockToken from "./block-token";
 
-export default class Heading extends Token {
+export default class Heading extends BlockToken {
   level(): number {
     return this.literal.length;
   }
