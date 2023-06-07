@@ -2,7 +2,7 @@ import InlineToken from "./inline-token";
 
 export default class Italic extends InlineToken {
   private static readonly regexes = ["\\*", "_"].map(
-    (delim) => new RegExp(`${delim}([^\n]+?(?:\n[^\n]+?)*)${delim}(?=\\s|$)`),
+    (delim) => new RegExp(`^${delim}([^\n]+?(?:\n[^\n]+?)*)${delim}(?=\\s|$)`),
   );
   private constructor(public readonly text: string, literal: string) {
     super(literal);
