@@ -2,24 +2,9 @@ import Token from "./token";
 import Heading from "./heading";
 import Italic from "./italic";
 import { LexError } from "./errors";
+import type { Lexer } from './token';
 
 export { Token, Heading, Italic, LexError };
-
-/**
- * Returns true if the Markdown should likely be lexed.
- */
-type HintFn = (md: string) => boolean;
-
-/**
- * Returns the lexed token and the remainder of the markdown. Should return null if
- * the markdown could not be lexed.
- */
-type LexerFn = (md: string) => [token: Token, remainder: string] | null;
-
-interface Lexer {
-  hint: HintFn;
-  lex: LexerFn;
-}
 
 const lexers: Lexer[] = [Heading];
 function reduceLexers(md: string): [token: Token, remainder: string] {
