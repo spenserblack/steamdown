@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Italic lex(*a
+b*) 1`] = `
+[
+  Text {
+    "content": "a
+b",
+    "literal": "a
+b",
+    "scope": "inline",
+  },
+]
+`;
+
+exports[`Italic lex(*a_b*) 1`] = `
+[
+  Text {
+    "content": "a_b",
+    "literal": "a_b",
+    "scope": "inline",
+  },
+]
+`;
+
+exports[`Italic lex(*foo* bar) 1`] = `
+[
+  Text {
+    "content": "foo",
+    "literal": "foo",
+    "scope": "inline",
+  },
+]
+`;
+
+exports[`Italic lex(*foo*) 1`] = `
+[
+  Text {
+    "content": "foo",
+    "literal": "foo",
+    "scope": "inline",
+  },
+]
+`;
+
+exports[`Italic lex(_foo_) 1`] = `
+[
+  Text {
+    "content": "foo",
+    "literal": "foo",
+    "scope": "inline",
+  },
+]
+`;

@@ -21,8 +21,10 @@ describe("Italic", () => {
     expect(result).not.toBeNull();
     const [token, remainder] = result!;
     expect(token).toBeInstanceOf(Italic);
-    expect((token as Italic).literal).toBe(expectedLiteral);
-    expect((token as Italic).text).toBe(expectedText);
+    const italic = token as Italic;
+    expect(italic.literal).toBe(expectedLiteral);
+    expect(italic.text).toBe(expectedText);
+    expect(italic.tokens).toMatchSnapshot();
     expect(remainder).toBe(expectedRemainder);
   });
 

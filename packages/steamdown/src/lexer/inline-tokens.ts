@@ -5,11 +5,14 @@ export abstract class InlineToken extends Token {
 }
 
 export class Italic extends InlineToken {
+  public readonly tokens: InlineToken[];
   private static readonly regexes = ["\\*", "_"].map(
     (delim) => new RegExp(`^${delim}([^\n]+?(?:\n[^\n]+?)*)${delim}(?=\\s|$)`),
   );
+
   private constructor(public readonly text: string, literal: string) {
     super(literal);
+    this.tokens = lexInline(text);
   }
 
   static hint(md: string): boolean {
@@ -51,4 +54,30 @@ export class Text extends InlineToken {
   static lex(md: string): [token: Text, remainder: string] {
     return [new Text(md), ''];
   }
+}
+
+const tokenTypes = [Italic, Text];
+
+function lexToken(md: string): [token: InlineToken, remainder: string] {
+  const hinted = tokenTypes.filter((t) => t.hint(md));
+  for (let i = 0; i < hinted.length; ++i) {
+    const lexer = hinted[i];
+    const lexed = lexer.lex(md);
+    if (lexed) {
+      return lexed;
+    }
+  }
+  // NOTE: Text should always be lexed if nothing else matches.
+  throw new Error('Unreachable');
+}
+
+export function lexInline(md: string): InlineToken[] {
+  const tokens: InlineToken[] = [];
+  let toLex: string = md;
+  while (toLex !== '') {
+    const [token, remainder] = lexToken(toLex);
+    tokens.push(token);
+    toLex = remainder;
+  }
+  return tokens;
 }
