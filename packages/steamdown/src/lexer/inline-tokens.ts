@@ -1,6 +1,10 @@
-import InlineToken from "./inline-token";
+import Token from "./token";
 
-export default class Italic extends InlineToken {
+export abstract class InlineToken extends Token {
+  public readonly scope = "inline";
+}
+
+export class Italic extends InlineToken {
   private static readonly regexes = ["\\*", "_"].map(
     (delim) => new RegExp(`^${delim}([^\n]+?(?:\n[^\n]+?)*)${delim}(?=\\s|$)`),
   );
@@ -27,5 +31,24 @@ export default class Italic extends InlineToken {
     }
     // TODO: Parse tokens in text for nested syntax.
     return [new Italic(text, literal), md.slice(literal.length)];
+  }
+}
+
+/**
+ * A text token.
+ *
+ * Always is plain text containing no styling.
+ */
+export class Text extends InlineToken {
+  private constructor(public readonly content: string) {
+    super(content);
+  }
+
+  static hint(md: string): boolean {
+    return md !== '';
+  }
+
+  static lex(md: string): [token: Text, remainder: string] {
+    return [new Text(md), ''];
   }
 }

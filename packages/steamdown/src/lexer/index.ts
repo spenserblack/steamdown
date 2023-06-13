@@ -1,11 +1,10 @@
 import Token from "./token";
 import Heading from "./heading";
-import Italic from "./italic";
-import Text from "./text";
 import { LexError } from "./errors";
 import type { Lexer } from './token';
+export { Italic, Text } from "./inline-tokens";
 
-export { Token, Heading, Italic, Text, LexError };
+export { Token, Heading, LexError };
 
 const lexers: Lexer[] = [Heading];
 function reduceLexers(md: string): [token: Token, remainder: string] {
