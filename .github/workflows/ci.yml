@@ -3,10 +3,8 @@ name: CI
 on:
   push:
     branches: ["main"]
-    paths: ["packages/steamdown/**"]
   pull_request:
     branches: ["main"]
-    paths: ["packages/steamdown/**"]
 
 jobs:
   build:
@@ -39,3 +37,19 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           working-directory: packages/steamdown
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: yarn
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Check Format
+        run: yarn format-check
