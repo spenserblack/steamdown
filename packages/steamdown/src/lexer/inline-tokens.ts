@@ -49,11 +49,11 @@ export class Text extends InlineToken {
   }
 
   static hint(md: string): boolean {
-    return md !== '';
+    return md !== "";
   }
 
   static lex(md: string): [token: Text, remainder: string] {
-    return [new Text(md), ''];
+    return [new Text(md), ""];
   }
 }
 
@@ -69,13 +69,13 @@ function lexToken(md: string): [token: InlineToken, remainder: string] {
     }
   }
   // NOTE: Text should always be lexed if nothing else matches.
-  throw new Error('Unreachable');
+  throw new Error("Unreachable");
 }
 
 export function lexInline(md: string): InlineToken[] {
   const tokens: InlineToken[] = [];
   let toLex: string = md;
-  while (toLex !== '') {
+  while (toLex !== "") {
     const [token, remainder] = lexToken(toLex);
     tokens.push(token);
     toLex = remainder;

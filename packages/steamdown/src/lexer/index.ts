@@ -1,7 +1,7 @@
 import Token from "./token";
 import Heading from "./heading";
 import { LexError } from "./errors";
-import type { Lexer } from './token';
+import type { Lexer } from "./token";
 export { Italic, Text, lexInline } from "./inline-tokens";
 
 export { Token, Heading, LexError };

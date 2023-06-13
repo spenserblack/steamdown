@@ -9,7 +9,7 @@ describe("Text", () => {
     expect(Text.hint(md)).toBe(expected);
   });
 
-  test('It lexes the whole string', () => {
+  test("It lexes the whole string", () => {
     const md = "foo";
     const result = Text.lex(md);
     expect(result).not.toBeNull();
@@ -17,6 +17,6 @@ describe("Text", () => {
     expect(token).toBeInstanceOf(Text);
     expect((token as Text).literal).toBe(md);
     expect((token as Text).content).toBe(md);
-    expect(remainder).toBe('');
+    expect(remainder).toBe("");
   });
 });
