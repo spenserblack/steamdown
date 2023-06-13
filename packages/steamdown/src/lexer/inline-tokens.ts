@@ -7,7 +7,8 @@ export abstract class InlineToken extends Token {
 export class Italic extends InlineToken {
   public readonly tokens: InlineToken[];
   private static readonly regexes = ["\\*", "_"].map(
-    (delim) => new RegExp(`^${delim}([^\n]+?(?:\n[^\n]+?)*)${delim}(?=\\s|$)`),
+    // TODO: Handle escaped delimiters.
+    (delim) => new RegExp(`^${delim}((?:[^\n])+?(?:\n[^\n]+?)*)${delim}(?=\\s|$)`),
   );
 
   private constructor(public readonly text: string, literal: string) {

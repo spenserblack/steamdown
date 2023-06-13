@@ -16,6 +16,7 @@ describe("Italic", () => {
     ["*a\nb*", "*a\nb*", "a\nb", ""],
     ["*a_b*", "*a_b*", "a_b", ""],
     ["*foo* bar", "*foo*", "foo", " bar"],
+    ["*foo \\* bar*", "*foo \\* bar*", "foo \\* bar", ""],
   ])("lex(%s)", (md, expectedLiteral, expectedText, expectedRemainder) => {
     const result = Italic.lex(md);
     expect(result).not.toBeNull();
