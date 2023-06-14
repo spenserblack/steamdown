@@ -1,16 +1,37 @@
 import Token from "./token";
 
+/**
+ * Scans the given string for inline tokens for the given character.
+ *
+ * @param md The string to scan.
+ * @param char The character to scan for. Note that this must be escaped if it
+ * is a special character in a regex.
+ *
+ * @returns The index and string sliced at the index if it is valid, or null if it is not.
+ */
+function scanInline(md: string, char: string): [index: number, slice: string] | null {
+  // NOTE: Cannot be preceded by a backslash (means the character is escaped)
+  //       or whitespace.
+  const re = new RegExp(`[^\\\\\\s]${char}(?=\\s|$)`);
+  const index = md.match(re)?.index;
+  if (index == null) {
+    return null;
+  }
+  const slice = md.slice(0, index + 1);
+  // NOTE: Invalid if it contains an empty line.
+  if (/\n\n/.test(slice)) {
+    return null;
+  }
+  return [index, slice];
+}
+
 export abstract class InlineToken extends Token {
   public readonly scope = "inline";
 }
 
 export class Italic extends InlineToken {
   public readonly tokens: InlineToken[];
-  private static readonly regexes = ["\\*", "_"].map(
-    // TODO: Handle escaped delimiters.
-    (delim) => new RegExp(`^${delim}((?:[^\n])+?(?:\n[^\n]+?)*)${delim}(?=\\s|$)`),
-  );
-
+  // Regex for text wrapped in * or _.
   private constructor(public readonly text: string, literal: string) {
     super(literal);
     this.tokens = lexInline(text);
@@ -21,25 +42,24 @@ export class Italic extends InlineToken {
   }
 
   static lex(md: string): [token: Italic, remainder: string] | null {
-    const match = Italic.regexes
-      .map((regex) => md.match(regex))
-      .find((match) => match !== null);
-    if (!match) {
+    const delim = md[0] as '*' | '_';
+    const escapedDelim = `\\${delim}`;
+    const scan = scanInline(md.slice(1), escapedDelim);
+    if (!scan) {
       return null;
     }
-    const [literal, text] = match;
-    // NOTE: If the text ends in whitespace, it is not italicized.
-    // TODO: Put this in the regex?
-    if (/\s$/.test(text)) {
-      return null;
-    }
-    return [new Italic(text, literal), md.slice(literal.length)];
+    const [index, text] = scan;
+    // NOTE: Off by 1 because scan starts at index 1, regex index
+    //       is the start of the match (so the first valid character before
+    //       the delimiter), and 1 more to account for the delimiter itself.
+    const literal = md.slice(0, index + 3);
+    const remainder = md.slice(index + 3);
+    return [new Italic(text, literal), remainder];
   }
 }
 
 export class Bold extends InlineToken {
   public readonly tokens: InlineToken[];
-  private static readonly regex = /^\*\*((?:[^\n])+?(?:\n[^\n]+?)*)\*\*(?=\s|$)/;
 
   private constructor(public readonly text: string, literal: string) {
     super(literal);
@@ -51,17 +71,17 @@ export class Bold extends InlineToken {
   }
 
   static lex(md: string): [token: Bold, remainder: string] | null {
-    const match = md.match(Bold.regex);
-    if (!match) {
+    const scan = scanInline(md.slice(2), "\\*\\*");
+    if (!scan) {
       return null;
     }
-    const [literal, text] = match;
-    // NOTE: If the text ends in whitespace, it is not bold.
-    // TODO: Put this in the regex?
-    if (/\s$/.test(text)) {
-      return null;
-    }
-    return [new Bold(text, literal), md.slice(literal.length)];
+    const [index, text] = scan;
+    // NOTE: Off by 2 because scan starts at index 2, regex index
+    //      is the start of the match (so the first valid character before
+    //      the delimiter), and 2 more to account for the delimiter itself.
+    const literal = md.slice(0, index + 5);
+    const remainder = md.slice(index + 5);
+    return [new Bold(text, literal), remainder];
   }
 }
 

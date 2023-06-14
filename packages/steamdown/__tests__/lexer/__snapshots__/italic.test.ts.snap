@@ -23,6 +23,16 @@ exports[`Italic lex(*a_b*) 1`] = `
 ]
 `;
 
+exports[`Italic lex(*foo \\* bar*) 1`] = `
+[
+  Text {
+    "content": "foo \\* bar",
+    "literal": "foo \\* bar",
+    "scope": "inline",
+  },
+]
+`;
+
 exports[`Italic lex(*foo* bar) 1`] = `
 [
   Text {
