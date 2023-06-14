@@ -53,4 +53,4 @@ jobs:
       - name: Check Format
         run: yarn format-check
       - name: Lint
-        run: yarn lint
+        run: yarn lint --max-warnings 0
