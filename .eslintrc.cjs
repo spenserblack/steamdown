@@ -3,4 +3,12 @@ module.exports = {
   parser: "@typescript-eslint/parser",
   plugins: ["@typescript-eslint"],
   root: true,
+  overrides: [
+    {
+      files: ["**/bin/*.js"],
+      env: {
+        node: true,
+      },
+    },
+  ],
 };
