@@ -37,6 +37,34 @@ export class Italic extends InlineToken {
   }
 }
 
+export class Bold extends InlineToken {
+  public readonly tokens: InlineToken[];
+  private static readonly regex = /^\*\*((?:[^\n])+?(?:\n[^\n]+?)*)\*\*(?=\s|$)/;
+
+  private constructor(public readonly text: string, literal: string) {
+    super(literal);
+    this.tokens = lexInline(text);
+  }
+
+  static hint(md: string): boolean {
+    return md.startsWith("**");
+  }
+
+  static lex(md: string): [token: Bold, remainder: string] | null {
+    const match = md.match(Bold.regex);
+    if (!match) {
+      return null;
+    }
+    const [literal, text] = match;
+    // NOTE: If the text ends in whitespace, it is not bold.
+    // TODO: Put this in the regex?
+    if (/\s$/.test(text)) {
+      return null;
+    }
+    return [new Bold(text, literal), md.slice(literal.length)];
+  }
+}
+
 /**
  * A text token.
  *
@@ -56,7 +84,7 @@ export class Text extends InlineToken {
   }
 }
 
-const tokenTypes = [Italic, Text];
+const tokenTypes = [Bold, Italic, Text];
 
 function lexToken(md: string): [token: InlineToken, remainder: string] {
   const hinted = tokenTypes.filter((t) => t.hint(md));

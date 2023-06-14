@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Bold lex(**a
+b**) 1`] = `
+[
+  Text {
+    "content": "a
+b",
+    "literal": "a
+b",
+    "scope": "inline",
+  },
+]
+`;
+
+exports[`Bold lex(**a*b**) 1`] = `
+[
+  Text {
+    "content": "a*b",
+    "literal": "a*b",
+    "scope": "inline",
+  },
+]
+`;
+
+exports[`Bold lex(**foo \\*\\* bar**) 1`] = `
+[
+  Text {
+    "content": "foo \\*\\* bar",
+    "literal": "foo \\*\\* bar",
+    "scope": "inline",
+  },
+]
+`;
+
+exports[`Bold lex(**foo** bar) 1`] = `
+[
+  Text {
+    "content": "foo",
+    "literal": "foo",
+    "scope": "inline",
+  },
+]
+`;
+
+exports[`Bold lex(**foo**) 1`] = `
+[
+  Text {
+    "content": "foo",
+    "literal": "foo",
+    "scope": "inline",
+  },
+]
+`;
