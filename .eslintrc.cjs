@@ -18,7 +18,9 @@ const baseRules = {
   'object-shorthand': 'warn',
   'one-var': ['error', 'never'],
   'prefer-const': 'warn',
-  'prefer-destructuring': 'warn',
+  'prefer-destructuring': ['warn', {
+    'array': false,
+  }],
   'prefer-object-spread': 'warn',
   'prefer-rest-params': 'warn',
   'prefer-spread': 'warn',
