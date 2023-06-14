@@ -1,10 +1,4 @@
-import type {
-  Extension,
-  GenericToken,
-  MarkedToken,
-  StrongToken,
-  HrToken,
-} from "./types";
+import type { Extension, GenericToken, MarkedToken, StrongToken } from "./types";
 
 export type SpoilerToken = {
   type: "spoiler";
