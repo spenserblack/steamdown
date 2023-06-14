@@ -3,7 +3,6 @@ import type {
   GenericToken,
   MarkedToken,
   StrongToken,
-  HrToken,
 } from "./types";
 
 export type SpoilerToken = {

@@ -1,6 +1,6 @@
+import extensions from "./extensions";
 import { marked } from "marked";
 import renderer from "./renderer";
-import extensions from "./extensions";
 
 marked.setOptions({ breaks: true });
 marked.use({ renderer, extensions });

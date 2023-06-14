@@ -1,7 +1,7 @@
+import { describe, expect, test } from "@jest/globals";
 import { readFile } from "fs/promises";
-import { resolve } from "path";
-import { describe, test, expect } from "@jest/globals";
 import render from "../src/index";
+import { resolve } from "path";
 
 describe("parse spec", () => {
   const tests = ["basic", "list-items"].map((name) => [name]);

@@ -1,6 +1,5 @@
-import { readFileSync } from "fs";
-import { createInterface } from "readline";
 import parse from "./index";
+import { readFileSync } from "fs";
 
 const inputArg = process.argv[2];
 
