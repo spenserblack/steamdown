@@ -31,7 +31,6 @@ export abstract class InlineToken extends Token {
 
 export class Italic extends InlineToken {
   public readonly tokens: InlineToken[];
-  // Regex for text wrapped in * or _.
   private constructor(public readonly text: string, literal: string) {
     super(literal);
     this.tokens = lexInline(text);
