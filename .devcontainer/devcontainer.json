@@ -6,7 +6,10 @@
   },
   "customizations": {
     "vscode": {
-      "extensions": ["EditorConfig.EditorConfig", "esbenp.prettier-vscode"]
+      "extensions": ["EditorConfig.EditorConfig", "esbenp.prettier-vscode"],
+      "settings": {
+        "prettier.prettierPath": "./node_modules/prettier"
+      }
     }
   },
   "portsAttributes": {
