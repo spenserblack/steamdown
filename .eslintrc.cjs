@@ -24,7 +24,6 @@ const baseRules = {
   'prefer-spread': 'warn',
   'radix': 'error',
   'sort-imports': 'warn',
-  'sort-keys': 'warn',
   'yoda': 'warn',
   'arrow-parens': 'error',
   // Assume the developer knows what they're doing
