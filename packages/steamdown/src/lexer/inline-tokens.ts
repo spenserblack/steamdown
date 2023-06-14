@@ -42,7 +42,7 @@ export class Italic extends InlineToken {
   }
 
   static lex(md: string): [token: Italic, remainder: string] | null {
-    const delim = md[0] as '*' | '_';
+    const delim = md[0] as "*" | "_";
     const escapedDelim = `\\${delim}`;
     const scan = scanInline(md.slice(1), escapedDelim);
     if (!scan) {

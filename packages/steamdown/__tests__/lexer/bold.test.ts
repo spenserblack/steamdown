@@ -28,10 +28,7 @@ describe("Bold", () => {
     expect(remainder).toBe(expectedRemainder);
   });
 
-  test.each([["**foo"], ["**foo*"], ["**foo **"], ["**foo**bar"]])(
-    "lex(%s)",
-    (md) => {
-      expect(Bold.lex(md)).toBeNull();
-    },
-  );
+  test.each([["**foo"], ["**foo*"], ["**foo **"], ["**foo**bar"]])("lex(%s)", (md) => {
+    expect(Bold.lex(md)).toBeNull();
+  });
 });
