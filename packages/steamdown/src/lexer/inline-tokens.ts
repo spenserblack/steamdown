@@ -1,6 +1,4 @@
 import Token from "./token";
-// TODO These implementations of #render are repetitive, and should be refactored
-//      using inheritance.
 
 /**
  * Scans the given string for inline tokens for the given character.
@@ -35,7 +33,17 @@ export abstract class InlineToken extends Token {
   public readonly scope = "inline";
 }
 
-export class Italic extends InlineToken {
+abstract class TaggedToken extends InlineToken {
+  public abstract readonly tag: string;
+  public abstract readonly tokens: InlineToken[];
+
+  public override render(): string {
+    return `[${this.tag}]${this.tokens.map((token) => token.render()).join("")}[/${this.tag}]`;
+  }
+}
+
+export class Italic extends TaggedToken {
+  public readonly tag = "i";
   public readonly tokens: InlineToken[];
   private constructor(public readonly text: string, literal: string) {
     super(literal);
@@ -61,13 +69,10 @@ export class Italic extends InlineToken {
     const remainder = md.slice(index + 3);
     return [new Italic(text, literal), remainder];
   }
-
-  public override render(): string {
-    return `[i]${this.tokens.map((t) => t.render()).join("")}[/i]`;
-  }
 }
 
-export class Bold extends InlineToken {
+export class Bold extends TaggedToken {
+  public readonly tag = "b";
   public readonly tokens: InlineToken[];
 
   private constructor(public readonly text: string, literal: string) {
@@ -92,10 +97,6 @@ export class Bold extends InlineToken {
     const remainder = md.slice(index + 5);
     return [new Bold(text, literal), remainder];
   }
-
-  public override render(): string {
-    return `[b]${this.tokens.map((t) => t.render()).join("")}[/b]`;
-  }
 }
 
 /**
@@ -117,7 +118,6 @@ export class Text extends InlineToken {
   }
 
   public override render(): string {
-    // return this.content;
     return InlineToken.escapes.reduce((str, escape) => str.replace(escape, "$1"), this.content);
   }
 }
