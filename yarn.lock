@@ -664,10 +664,10 @@
   dependencies:
     "@sinonjs/commons" "^3.0.0"
 
-"@tsconfig/esm@^1.0.2":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@tsconfig/esm/-/esm-1.0.3.tgz#a32d35b93eeb5851881094444a1aca9acd064df7"
-  integrity sha512-Gp56rIc3R8ab032nXMUitmc7YIb4nAi8DQ6Qt47tuL0Ssn9LIOm+o2FQmqPu3jX4z0TsqgzWwkmVygxcq+yHYg==
+"@tsconfig/esm@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@tsconfig/esm/-/esm-1.0.2.tgz#6eef523398527915d63e3825204789cf1dbd6f28"
+  integrity sha512-awiISx+G4L+7k97nKnfA5QF6rukawiuycMPfASFHG/0fqjrUlYBuNISy3Yjl1SHIpVi57lYf7dc6L/FoQQCKcA==
 
 "@tsconfig/recommended@^1.0.1":
   version "1.0.2"
