@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Bold lex(**a
-b**) 1`] = `
+exports[`Bold lex("**a
+b**") .render() 1`] = `
+"[b]a
+b[/b]"
+`;
+
+exports[`Bold lex("**a
+b**") .tokens 1`] = `
 [
   Text {
     "content": "a
@@ -13,13 +19,9 @@ b",
 ]
 `;
 
-exports[`Bold lex(**a
-b**) 2`] = `
-"[b]a
-b[/b]"
-`;
+exports[`Bold lex("**a*b**") .render() 1`] = `"[b]a*b[/b]"`;
 
-exports[`Bold lex(**a*b**) 1`] = `
+exports[`Bold lex("**a*b**") .tokens 1`] = `
 [
   Text {
     "content": "a*b",
@@ -29,9 +31,9 @@ exports[`Bold lex(**a*b**) 1`] = `
 ]
 `;
 
-exports[`Bold lex(**a*b**) 2`] = `"[b]a*b[/b]"`;
+exports[`Bold lex("**foo \\*\\* bar**") .render() 1`] = `"[b]foo ** bar[/b]"`;
 
-exports[`Bold lex(**foo \\*\\* bar**) 1`] = `
+exports[`Bold lex("**foo \\*\\* bar**") .tokens 1`] = `
 [
   Text {
     "content": "foo \\*\\* bar",
@@ -41,9 +43,9 @@ exports[`Bold lex(**foo \\*\\* bar**) 1`] = `
 ]
 `;
 
-exports[`Bold lex(**foo \\*\\* bar**) 2`] = `"[b]foo ** bar[/b]"`;
+exports[`Bold lex("**foo** bar") .render() 1`] = `"[b]foo[/b]"`;
 
-exports[`Bold lex(**foo** bar) 1`] = `
+exports[`Bold lex("**foo** bar") .tokens 1`] = `
 [
   Text {
     "content": "foo",
@@ -53,9 +55,9 @@ exports[`Bold lex(**foo** bar) 1`] = `
 ]
 `;
 
-exports[`Bold lex(**foo** bar) 2`] = `"[b]foo[/b]"`;
+exports[`Bold lex("**foo**") .render() 1`] = `"[b]foo[/b]"`;
 
-exports[`Bold lex(**foo**) 1`] = `
+exports[`Bold lex("**foo**") .tokens 1`] = `
 [
   Text {
     "content": "foo",
@@ -64,5 +66,3 @@ exports[`Bold lex(**foo**) 1`] = `
   },
 ]
 `;
-
-exports[`Bold lex(**foo**) 2`] = `"[b]foo[/b]"`;

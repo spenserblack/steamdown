@@ -5,7 +5,7 @@ describe("Text", () => {
   test.each([
     ["not empty", true],
     ["", false],
-  ])(".hint(%p)", (md, expected) => {
+  ])('.hint("%s")', (md, expected) => {
     expect(Text.hint(md)).toBe(expected);
   });
 

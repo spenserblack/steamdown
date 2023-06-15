@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Underline lex(__a
-b__) 1`] = `
+exports[`Underline lex("__a
+b__") .render() 1`] = `
+"[u]a
+b[/u]"
+`;
+
+exports[`Underline lex("__a
+b__") .tokens 1`] = `
 [
   Text {
     "content": "a
@@ -13,13 +19,9 @@ b",
 ]
 `;
 
-exports[`Underline lex(__a
-b__) 2`] = `
-"[u]a
-b[/u]"
-`;
+exports[`Underline lex("__a_b__") .render() 1`] = `"[u]a_b[/u]"`;
 
-exports[`Underline lex(__a_b__) 1`] = `
+exports[`Underline lex("__a_b__") .tokens 1`] = `
 [
   Text {
     "content": "a_b",
@@ -29,9 +31,9 @@ exports[`Underline lex(__a_b__) 1`] = `
 ]
 `;
 
-exports[`Underline lex(__a_b__) 2`] = `"[u]a_b[/u]"`;
+exports[`Underline lex("__foo \\_\\_ bar__") .render() 1`] = `"[u]foo __ bar[/u]"`;
 
-exports[`Underline lex(__foo \\_\\_ bar__) 1`] = `
+exports[`Underline lex("__foo \\_\\_ bar__") .tokens 1`] = `
 [
   Text {
     "content": "foo \\_\\_ bar",
@@ -41,9 +43,9 @@ exports[`Underline lex(__foo \\_\\_ bar__) 1`] = `
 ]
 `;
 
-exports[`Underline lex(__foo \\_\\_ bar__) 2`] = `"[u]foo __ bar[/u]"`;
+exports[`Underline lex("__foo__ bar") .render() 1`] = `"[u]foo[/u]"`;
 
-exports[`Underline lex(__foo__ bar) 1`] = `
+exports[`Underline lex("__foo__ bar") .tokens 1`] = `
 [
   Text {
     "content": "foo",
@@ -53,9 +55,9 @@ exports[`Underline lex(__foo__ bar) 1`] = `
 ]
 `;
 
-exports[`Underline lex(__foo__ bar) 2`] = `"[u]foo[/u]"`;
+exports[`Underline lex("__foo__") .render() 1`] = `"[u]foo[/u]"`;
 
-exports[`Underline lex(__foo__) 1`] = `
+exports[`Underline lex("__foo__") .tokens 1`] = `
 [
   Text {
     "content": "foo",
@@ -64,5 +66,3 @@ exports[`Underline lex(__foo__) 1`] = `
   },
 ]
 `;
-
-exports[`Underline lex(__foo__) 2`] = `"[u]foo[/u]"`;

@@ -6,30 +6,50 @@ describe("Bold", () => {
     ["**foo**", true],
     ["__foo__", false],
     ["foo", false],
-  ])(".hint(%s)", (md, expected) => {
+  ])('.hint("%s")', (md, expected) => {
     expect(Bold.hint(md)).toBe(expected);
   });
 
-  test.each([
+  describe.each([
     ["**foo**", "**foo**", "foo", ""],
     ["**a\nb**", "**a\nb**", "a\nb", ""],
     ["**a*b**", "**a*b**", "a*b", ""],
     ["**foo** bar", "**foo**", "foo", " bar"],
     ["**foo \\*\\* bar**", "**foo \\*\\* bar**", "foo \\*\\* bar", ""],
-  ])("lex(%s)", (md, expectedLiteral, expectedText, expectedRemainder) => {
+  ])('lex("%s")', (md, expectedLiteral, expectedText, expectedRemainder) => {
     const result = Bold.lex(md);
-    expect(result).not.toBeNull();
-    const [token, remainder] = result!;
-    expect(token).toBeInstanceOf(Bold);
-    const bold = token as Bold;
-    expect(bold.literal).toBe(expectedLiteral);
-    expect(bold.text).toBe(expectedText);
-    expect(bold.tokens).toMatchSnapshot();
-    expect(remainder).toBe(expectedRemainder);
-    expect(bold.render()).toMatchSnapshot();
+    test('remainder', () => {
+      expect(result).not.toBeNull();
+      const [, remainder] = result!;
+      expect(remainder).toBe(expectedRemainder);
+    });
+
+    test('.literal', () => {
+      expect(result).not.toBeNull();
+      const [token] = result!;
+      expect(token.literal).toBe(expectedLiteral);
+    });
+
+    test('.text', () => {
+      expect(result).not.toBeNull();
+      const [token] = result!;
+      expect(token.text).toBe(expectedText);
+    });
+
+    test('.tokens', () => {
+      expect(result).not.toBeNull();
+      const [token] = result!;
+      expect(token.tokens).toMatchSnapshot();
+    });
+
+    test('.render()', () => {
+      expect(result).not.toBeNull();
+      const [token] = result!;
+      expect(token.render()).toMatchSnapshot();
+    });
   });
 
-  test.each([["**foo"], ["**foo*"], ["**foo **"], ["**foo**bar"]])("lex(%s)", (md) => {
+  test.each([["**foo"], ["**foo*"], ["**foo **"], ["**foo**bar"]])('lex("%s")', (md) => {
     expect(Bold.lex(md)).toBeNull();
   });
 });
