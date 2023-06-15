@@ -38,7 +38,9 @@ abstract class TaggedToken extends InlineToken {
   public abstract readonly tokens: InlineToken[];
 
   public override render(): string {
-    return `[${this.tag}]${this.tokens.map((token) => token.render()).join("")}[/${this.tag}]`;
+    return `[${this.tag}]${this.tokens.map((token) => token.render()).join("")}[/${
+      this.tag
+    }]`;
   }
 }
 
@@ -118,7 +120,10 @@ export class Text extends InlineToken {
   }
 
   public override render(): string {
-    return InlineToken.escapes.reduce((str, escape) => str.replace(escape, "$1"), this.content);
+    return InlineToken.escapes.reduce(
+      (str, escape) => str.replace(escape, "$1"),
+      this.content,
+    );
   }
 }
 
