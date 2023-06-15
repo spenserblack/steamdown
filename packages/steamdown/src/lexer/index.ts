@@ -7,7 +7,6 @@ import type { Lexer } from "./token";
 import Text from "./text";
 import Token from "./token";
 
-
 [Bold, Italic, Text].forEach((token, index) => {
   InlineToken.use(token, index);
 });

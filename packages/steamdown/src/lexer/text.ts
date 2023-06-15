@@ -1,4 +1,3 @@
-
 import InlineToken from "./inline-token";
 /**
  * A text token.

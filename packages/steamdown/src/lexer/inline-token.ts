@@ -40,7 +40,10 @@ export default abstract class InlineToken extends Token {
    *
    * @returns The index and string sliced at the index if it is valid, or null if it is not.
    */
-  protected static scan(md: string, char: string): [index: number, slice: string] | null {
+  protected static scan(
+    md: string,
+    char: string,
+  ): [index: number, slice: string] | null {
     // NOTE Cannot be preceded by a backslash (means the character is escaped)
     //       or whitespace.
     const re = new RegExp(`[^\\\\\\s]${char}(?=\\s|$)`);
