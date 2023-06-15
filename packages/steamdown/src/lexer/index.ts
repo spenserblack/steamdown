@@ -6,12 +6,13 @@ import { LexError } from "./errors";
 import type { Lexer } from "./token";
 import Text from "./text";
 import Token from "./token";
+import Underline from "./underline";
 
-[Bold, Italic, Text].forEach((token, index) => {
+[Bold, Underline, Italic, Text].forEach((token, index) => {
   InlineToken.use(token, index);
 });
 
-export { Bold, Heading, Italic, LexError, Text, Token };
+export { Bold, Heading, Italic, LexError, Text, Token, Underline };
 
 const lexers: Lexer[] = [Heading];
 function reduceLexers(md: string): [token: Token, remainder: string] {

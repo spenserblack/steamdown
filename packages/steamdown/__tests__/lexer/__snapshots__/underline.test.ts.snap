@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Underline lex(__a
+b__) 1`] = `
+[
+  Text {
+    "content": "a
+b",
+    "literal": "a
+b",
+    "scope": "inline",
+  },
+]
+`;
+
+exports[`Underline lex(__a
+b__) 2`] = `
+"[u]a
+b[/u]"
+`;
+
+exports[`Underline lex(__a_b__) 1`] = `
+[
+  Text {
+    "content": "a_b",
+    "literal": "a_b",
+    "scope": "inline",
+  },
+]
+`;
+
+exports[`Underline lex(__a_b__) 2`] = `"[u]a_b[/u]"`;
+
+exports[`Underline lex(__foo \\_\\_ bar__) 1`] = `
+[
+  Text {
+    "content": "foo \\_\\_ bar",
+    "literal": "foo \\_\\_ bar",
+    "scope": "inline",
+  },
+]
+`;
+
+exports[`Underline lex(__foo \\_\\_ bar__) 2`] = `"[u]foo __ bar[/u]"`;
+
+exports[`Underline lex(__foo__ bar) 1`] = `
+[
+  Text {
+    "content": "foo",
+    "literal": "foo",
+    "scope": "inline",
+  },
+]
+`;
+
+exports[`Underline lex(__foo__ bar) 2`] = `"[u]foo[/u]"`;
+
+exports[`Underline lex(__foo__) 1`] = `
+[
+  Text {
+    "content": "foo",
+    "literal": "foo",
+    "scope": "inline",
+  },
+]
+`;
+
+exports[`Underline lex(__foo__) 2`] = `"[u]foo[/u]"`;
