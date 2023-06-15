@@ -23,4 +23,6 @@ export default abstract class Token {
   public toString(): string {
     return this.literal;
   }
+
+  public abstract render(): string;
 }

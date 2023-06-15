@@ -18,5 +18,6 @@ describe("Text", () => {
     expect((token as Text).literal).toBe(md);
     expect((token as Text).content).toBe(md);
     expect(remainder).toBe("");
+    expect(token.render()).toBe("foo");
   });
 });

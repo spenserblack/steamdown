@@ -27,6 +27,7 @@ describe("Italic", () => {
     expect(italic.text).toBe(expectedText);
     expect(italic.tokens).toMatchSnapshot();
     expect(remainder).toBe(expectedRemainder);
+    expect(italic.render()).toMatchSnapshot();
   });
 
   test.each([["*foo"], ["*foo_"], ["*foo *"], ["*foo_"], ["*foo*bar"]])(

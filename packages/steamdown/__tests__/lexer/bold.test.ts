@@ -26,6 +26,7 @@ describe("Bold", () => {
     expect(bold.text).toBe(expectedText);
     expect(bold.tokens).toMatchSnapshot();
     expect(remainder).toBe(expectedRemainder);
+    expect(bold.render()).toMatchSnapshot();
   });
 
   test.each([["**foo"], ["**foo*"], ["**foo **"], ["**foo**bar"]])("lex(%s)", (md) => {

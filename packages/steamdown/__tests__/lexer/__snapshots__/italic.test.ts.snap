@@ -13,6 +13,12 @@ b",
 ]
 `;
 
+exports[`Italic lex(*a
+b*) 2`] = `
+"[i]a
+b[/i]"
+`;
+
 exports[`Italic lex(*a_b*) 1`] = `
 [
   Text {
@@ -22,6 +28,8 @@ exports[`Italic lex(*a_b*) 1`] = `
   },
 ]
 `;
+
+exports[`Italic lex(*a_b*) 2`] = `"[i]a_b[/i]"`;
 
 exports[`Italic lex(*foo \\* bar*) 1`] = `
 [
@@ -33,6 +41,8 @@ exports[`Italic lex(*foo \\* bar*) 1`] = `
 ]
 `;
 
+exports[`Italic lex(*foo \\* bar*) 2`] = `"[i]foo \\* bar[/i]"`;
+
 exports[`Italic lex(*foo* bar) 1`] = `
 [
   Text {
@@ -42,6 +52,8 @@ exports[`Italic lex(*foo* bar) 1`] = `
   },
 ]
 `;
+
+exports[`Italic lex(*foo* bar) 2`] = `"[i]foo[/i]"`;
 
 exports[`Italic lex(*foo*) 1`] = `
 [
@@ -53,6 +65,8 @@ exports[`Italic lex(*foo*) 1`] = `
 ]
 `;
 
+exports[`Italic lex(*foo*) 2`] = `"[i]foo[/i]"`;
+
 exports[`Italic lex(_foo_) 1`] = `
 [
   Text {
@@ -62,3 +76,5 @@ exports[`Italic lex(_foo_) 1`] = `
   },
 ]
 `;
+
+exports[`Italic lex(_foo_) 2`] = `"[i]foo[/i]"`;

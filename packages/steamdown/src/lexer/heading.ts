@@ -27,4 +27,8 @@ export default class Heading extends BlockToken {
     return this.literal.length;
   }
 
+  public override render(): string {
+    // TODO
+    return "";
+  }
 }

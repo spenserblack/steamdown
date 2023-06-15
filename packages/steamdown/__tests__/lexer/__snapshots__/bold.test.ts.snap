@@ -13,6 +13,12 @@ b",
 ]
 `;
 
+exports[`Bold lex(**a
+b**) 2`] = `
+"[b]a
+b[/b]"
+`;
+
 exports[`Bold lex(**a*b**) 1`] = `
 [
   Text {
@@ -22,6 +28,8 @@ exports[`Bold lex(**a*b**) 1`] = `
   },
 ]
 `;
+
+exports[`Bold lex(**a*b**) 2`] = `"[b]a*b[/b]"`;
 
 exports[`Bold lex(**foo \\*\\* bar**) 1`] = `
 [
@@ -33,6 +41,8 @@ exports[`Bold lex(**foo \\*\\* bar**) 1`] = `
 ]
 `;
 
+exports[`Bold lex(**foo \\*\\* bar**) 2`] = `"[b]foo \\*\\* bar[/b]"`;
+
 exports[`Bold lex(**foo** bar) 1`] = `
 [
   Text {
@@ -43,6 +53,8 @@ exports[`Bold lex(**foo** bar) 1`] = `
 ]
 `;
 
+exports[`Bold lex(**foo** bar) 2`] = `"[b]foo[/b]"`;
+
 exports[`Bold lex(**foo**) 1`] = `
 [
   Text {
@@ -52,3 +64,5 @@ exports[`Bold lex(**foo**) 1`] = `
   },
 ]
 `;
+
+exports[`Bold lex(**foo**) 2`] = `"[b]foo[/b]"`;

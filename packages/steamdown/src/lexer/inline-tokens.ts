@@ -1,4 +1,6 @@
 import Token from "./token";
+// TODO These implementations of #render are repetitive, and should be refactored
+//      using inheritance.
 
 /**
  * Scans the given string for inline tokens for the given character.
@@ -55,6 +57,10 @@ export class Italic extends InlineToken {
     const remainder = md.slice(index + 3);
     return [new Italic(text, literal), remainder];
   }
+
+  public override render(): string {
+    return `[i]${this.tokens.map((t) => t.render()).join("")}[/i]`;
+  }
 }
 
 export class Bold extends InlineToken {
@@ -82,6 +88,10 @@ export class Bold extends InlineToken {
     const remainder = md.slice(index + 5);
     return [new Bold(text, literal), remainder];
   }
+
+  public override render(): string {
+    return `[b]${this.tokens.map((t) => t.render()).join("")}[/b]`;
+  }
 }
 
 /**
@@ -100,6 +110,10 @@ export class Text extends InlineToken {
 
   public static lex(md: string): [token: Text, remainder: string] {
     return [new Text(md), ""];
+  }
+
+  public override render(): string {
+    return this.content;
   }
 }
 
