@@ -10,7 +10,7 @@ import Token from "./token";
  * @returns The index and string sliced at the index if it is valid, or null if it is not.
  */
 function scanInline(md: string, char: string): [index: number, slice: string] | null {
-  // NOTE: Cannot be preceded by a backslash (means the character is escaped)
+  // NOTE Cannot be preceded by a backslash (means the character is escaped)
   //       or whitespace.
   const re = new RegExp(`[^\\\\\\s]${char}(?=\\s|$)`);
   const index = md.match(re)?.index;
@@ -18,7 +18,7 @@ function scanInline(md: string, char: string): [index: number, slice: string] | 
     return null;
   }
   const slice = md.slice(0, index + 1);
-  // NOTE: Invalid if it contains an empty line.
+  // NOTE Invalid if it contains an empty line.
   if (/\n\n/.test(slice)) {
     return null;
   }
@@ -62,7 +62,7 @@ export class Italic extends TaggedToken {
       return null;
     }
     const [index, text] = scan;
-    // NOTE: Off by 1 because scan starts at index 1, regex index
+    // NOTE Off by 1 because scan starts at index 1, regex index
     //       is the start of the match (so the first valid character before
     //       the delimiter), and 1 more to account for the delimiter itself.
     const literal = md.slice(0, index + 3);
@@ -90,7 +90,7 @@ export class Bold extends TaggedToken {
       return null;
     }
     const [index, text] = scan;
-    // NOTE: Off by 2 because scan starts at index 2, regex index
+    // NOTE Off by 2 because scan starts at index 2, regex index
     //      is the start of the match (so the first valid character before
     //      the delimiter), and 2 more to account for the delimiter itself.
     const literal = md.slice(0, index + 5);
@@ -133,7 +133,7 @@ function lexToken(md: string): [token: InlineToken, remainder: string] {
       return lexed;
     }
   }
-  // NOTE: Text should always be lexed if nothing else matches.
+  // NOTE Text should always be lexed if nothing else matches.
   throw new Error("Unreachable");
 }
 
