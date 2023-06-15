@@ -41,7 +41,7 @@ exports[`Italic lex(*foo \\* bar*) 1`] = `
 ]
 `;
 
-exports[`Italic lex(*foo \\* bar*) 2`] = `"[i]foo \\* bar[/i]"`;
+exports[`Italic lex(*foo \\* bar*) 2`] = `"[i]foo * bar[/i]"`;
 
 exports[`Italic lex(*foo* bar) 1`] = `
 [

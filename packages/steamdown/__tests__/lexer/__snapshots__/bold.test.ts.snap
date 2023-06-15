@@ -41,7 +41,7 @@ exports[`Bold lex(**foo \\*\\* bar**) 1`] = `
 ]
 `;
 
-exports[`Bold lex(**foo \\*\\* bar**) 2`] = `"[b]foo \\*\\* bar[/b]"`;
+exports[`Bold lex(**foo \\*\\* bar**) 2`] = `"[b]foo ** bar[/b]"`;
 
 exports[`Bold lex(**foo** bar) 1`] = `
 [

@@ -28,6 +28,10 @@ function scanInline(md: string, char: string): [index: number, slice: string] | 
 }
 
 export abstract class InlineToken extends Token {
+  /**
+   * Lists the characters that can be escaped in inline tokens.
+   */
+  protected static readonly escapes = [/\\(\\)/g, /\\(\*)/g, /\\(_)/g];
   public readonly scope = "inline";
 }
 
@@ -113,7 +117,8 @@ export class Text extends InlineToken {
   }
 
   public override render(): string {
-    return this.content;
+    // return this.content;
+    return InlineToken.escapes.reduce((str, escape) => str.replace(escape, "$1"), this.content);
   }
 }
 
