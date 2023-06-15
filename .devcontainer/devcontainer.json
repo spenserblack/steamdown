@@ -8,6 +8,7 @@
     "vscode": {
       "extensions": ["EditorConfig.EditorConfig", "esbenp.prettier-vscode"],
       "settings": {
+        "editor.formatOnSave": true,
         "prettier.prettierPath": "./node_modules/prettier"
       }
     }
