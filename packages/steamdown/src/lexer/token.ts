@@ -16,11 +16,11 @@ export interface Lexer {
 }
 
 export default abstract class Token {
-  public abstract readonly scope: "inline" | "block";
+  public abstract readonly scope: "block" | "inline";
 
-  constructor(public readonly literal: string) {}
+  protected constructor(public readonly literal: string) {}
 
-  toString(): string {
+  public toString(): string {
     return this.literal;
   }
 }

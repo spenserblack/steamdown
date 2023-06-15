@@ -1,7 +1,7 @@
-import Token from "./token";
 import Heading from "./heading";
 import { LexError } from "./errors";
 import type { Lexer } from "./token";
+import Token from "./token";
 export { Bold, Italic, Text, lexInline } from "./inline-tokens";
 
 export { Token, Heading, LexError };
@@ -20,7 +20,7 @@ function reduceLexers(md: string): [token: Token, remainder: string] {
 }
 
 export default function lex(md: string): Token[] {
-  let tokens: Token[] = [];
+  const tokens: Token[] = [];
   let toLex: string = md;
   while (toLex.trimEnd() !== "") {
     const [token, remainder] = reduceLexers(toLex);

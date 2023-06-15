@@ -36,12 +36,12 @@ export class Italic extends InlineToken {
     this.tokens = lexInline(text);
   }
 
-  static hint(md: string): boolean {
+  public static hint(md: string): boolean {
     return md.startsWith("*") || md.startsWith("_");
   }
 
-  static lex(md: string): [token: Italic, remainder: string] | null {
-    const delim = md[0] as "*" | "_";
+  public static lex(md: string): [token: Italic, remainder: string] | null {
+    const delim = md[0] as "_" | "*";
     const escapedDelim = `\\${delim}`;
     const scan = scanInline(md.slice(1), escapedDelim);
     if (!scan) {
@@ -65,11 +65,11 @@ export class Bold extends InlineToken {
     this.tokens = lexInline(text);
   }
 
-  static hint(md: string): boolean {
+  public static hint(md: string): boolean {
     return md.startsWith("**");
   }
 
-  static lex(md: string): [token: Bold, remainder: string] | null {
+  public static lex(md: string): [token: Bold, remainder: string] | null {
     const scan = scanInline(md.slice(2), "\\*\\*");
     if (!scan) {
       return null;
@@ -94,11 +94,11 @@ export class Text extends InlineToken {
     super(content);
   }
 
-  static hint(md: string): boolean {
+  public static hint(md: string): boolean {
     return md !== "";
   }
 
-  static lex(md: string): [token: Text, remainder: string] {
+  public static lex(md: string): [token: Text, remainder: string] {
     return [new Text(md), ""];
   }
 }
