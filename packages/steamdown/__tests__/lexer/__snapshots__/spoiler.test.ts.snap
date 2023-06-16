@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spoiler lex("!!!a
+b!!!") .render() 1`] = `
+"[spoiler]a
+b[/spoiler]"
+`;
+
+exports[`Spoiler lex("!!!a
+b!!!") .tokens 1`] = `
+[
+  Text {
+    "content": "a
+b",
+    "literal": "a
+b",
+    "scope": "inline",
+  },
+]
+`;
+
+exports[`Spoiler lex("!!!a!b!!!") .render() 1`] = `"[spoiler]a!b[/spoiler]"`;
+
+exports[`Spoiler lex("!!!a!b!!!") .tokens 1`] = `
+[
+  Text {
+    "content": "a!b",
+    "literal": "a!b",
+    "scope": "inline",
+  },
+]
+`;
+
+exports[`Spoiler lex("!!!foo \\!\\!\\! bar!!!") .render() 1`] = `"[spoiler]foo \\!\\!\\! bar[/spoiler]"`;
+
+exports[`Spoiler lex("!!!foo \\!\\!\\! bar!!!") .tokens 1`] = `
+[
+  Text {
+    "content": "foo \\!\\!\\! bar",
+    "literal": "foo \\!\\!\\! bar",
+    "scope": "inline",
+  },
+]
+`;
+
+exports[`Spoiler lex("!!!foo!!! bar") .render() 1`] = `"[spoiler]foo[/spoiler]"`;
+
+exports[`Spoiler lex("!!!foo!!! bar") .tokens 1`] = `
+[
+  Text {
+    "content": "foo",
+    "literal": "foo",
+    "scope": "inline",
+  },
+]
+`;
+
+exports[`Spoiler lex("!!!foo!!!") .render() 1`] = `"[spoiler]foo[/spoiler]"`;
+
+exports[`Spoiler lex("!!!foo!!!") .tokens 1`] = `
+[
+  Text {
+    "content": "foo",
+    "literal": "foo",
+    "scope": "inline",
+  },
+]
+`;
+
+exports[`Spoiler lex("!!!foo\\!!!!") .render() 1`] = `"[spoiler]foo\\![/spoiler]"`;
+
+exports[`Spoiler lex("!!!foo\\!!!!") .tokens 1`] = `
+[
+  Text {
+    "content": "foo\\!",
+    "literal": "foo\\!",
+    "scope": "inline",
+  },
+]
+`;
