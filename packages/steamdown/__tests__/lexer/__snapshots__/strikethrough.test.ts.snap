@@ -31,7 +31,7 @@ exports[`Strikethrough lex("~~a~b~~") .tokens 1`] = `
 ]
 `;
 
-exports[`Strikethrough lex("~~foo \\~\\~ bar~~") .render() 1`] = `"[strike]foo \\~\\~ bar[/strike]"`;
+exports[`Strikethrough lex("~~foo \\~\\~ bar~~") .render() 1`] = `"[strike]foo ~~ bar[/strike]"`;
 
 exports[`Strikethrough lex("~~foo \\~\\~ bar~~") .tokens 1`] = `
 [

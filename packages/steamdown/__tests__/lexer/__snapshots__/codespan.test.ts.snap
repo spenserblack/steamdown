@@ -19,7 +19,7 @@ b",
 ]
 `;
 
-exports[`Codespan lex("\`foo \\\` bar\`") .render() 1`] = `"[code]foo \\\` bar[/code]"`;
+exports[`Codespan lex("\`foo \\\` bar\`") .render() 1`] = `"[code]foo \` bar[/code]"`;
 
 exports[`Codespan lex("\`foo \\\` bar\`") .tokens 1`] = `
 [

@@ -18,7 +18,7 @@ export default abstract class InlineToken extends Token {
   /**
    * Lists the characters that can be escaped in inline tokens.
    */
-  protected static readonly escapes = [/\\(\\)/g, /\\(\*)/g, /\\(_)/g];
+  protected static readonly escapes = [/\\(\\)/g, /\\(\*)/g, /\\(_)/g, /\\(`)/g, /\\(~)/g];
   private static types: Lexable[] = [];
   public readonly scope = "inline";
 
