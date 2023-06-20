@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Codespan lex("\`a
+b\`") .render() 1`] = `
+"[code]a
+b[/code]"
+`;
+
+exports[`Codespan lex("\`a
+b\`") .tokens 1`] = `
+[
+  Text {
+    "content": "a
+b",
+    "literal": "a
+b",
+    "scope": "inline",
+  },
+]
+`;
+
+exports[`Codespan lex("\`foo \\\` bar\`") .render() 1`] = `"[code]foo \\\` bar[/code]"`;
+
+exports[`Codespan lex("\`foo \\\` bar\`") .tokens 1`] = `
+[
+  Text {
+    "content": "foo \\\` bar",
+    "literal": "foo \\\` bar",
+    "scope": "inline",
+  },
+]
+`;
+
+exports[`Codespan lex("\`foo\` bar") .render() 1`] = `"[code]foo[/code]"`;
+
+exports[`Codespan lex("\`foo\` bar") .tokens 1`] = `
+[
+  Text {
+    "content": "foo",
+    "literal": "foo",
+    "scope": "inline",
+  },
+]
+`;
+
+exports[`Codespan lex("\`foo\`") .render() 1`] = `"[code]foo[/code]"`;
+
+exports[`Codespan lex("\`foo\`") .tokens 1`] = `
+[
+  Text {
+    "content": "foo",
+    "literal": "foo",
+    "scope": "inline",
+  },
+]
+`;

@@ -1,4 +1,5 @@
 import Bold from "./bold";
+import Codespan from "./codespan";
 import Heading from "./heading";
 import InlineToken from "./inline-token";
 import Italic from "./italic";
@@ -9,11 +10,11 @@ import Text from "./text";
 import Token from "./token";
 import Underline from "./underline";
 
-[Spoiler, Bold, Underline, Italic, Text].forEach((token, index) => {
+[Spoiler, Bold, Underline, Italic, Codespan, Text].forEach((token, index) => {
   InlineToken.use(token, index);
 });
 
-export { Bold, Heading, Italic, LexError, Spoiler, Text, Token, Underline };
+export { Bold, Codespan, Heading, Italic, LexError, Spoiler, Text, Token, Underline };
 
 const lexers: Lexer[] = [Heading];
 function reduceLexers(md: string): [token: Token, remainder: string] {
