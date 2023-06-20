@@ -6,7 +6,11 @@
   },
   "customizations": {
     "vscode": {
-      "extensions": ["EditorConfig.EditorConfig", "esbenp.prettier-vscode"],
+      "extensions": [
+        "EditorConfig.EditorConfig",
+        "esbenp.prettier-vscode",
+        "Orta.vscode-jest"
+      ],
       "settings": {
         "editor.formatOnSave": true,
         "prettier.prettierPath": "./node_modules/prettier"
