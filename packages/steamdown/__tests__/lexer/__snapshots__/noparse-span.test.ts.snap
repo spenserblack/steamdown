@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NoparseSpan lex("{{{*foo*}}}") .render() 1`] = `"*foo*"`;
+
+exports[`NoparseSpan lex("{{{a
+b}}}") .render() 1`] = `
+"a
+b"
+`;
+
+exports[`NoparseSpan lex("{{{a}b}}}") .render() 1`] = `"a}b"`;
+
+exports[`NoparseSpan lex("{{{foo}}} bar") .render() 1`] = `"foo"`;
+
+exports[`NoparseSpan lex("{{{foo}}}") .render() 1`] = `"foo"`;

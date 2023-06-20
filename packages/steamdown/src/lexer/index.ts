@@ -5,13 +5,14 @@ import InlineToken from "./inline-token";
 import Italic from "./italic";
 import { LexError } from "./errors";
 import type { Lexer } from "./token";
+import NoparseSpan from "./noparse-span";
 import Spoiler from "./spoiler";
 import Strikethrough from "./strikethrough";
 import Text from "./text";
 import Token from "./token";
 import Underline from "./underline";
 
-[Spoiler, Bold, Underline, Strikethrough, Italic, Codespan, Text].forEach(
+[Spoiler, NoparseSpan, Bold, Underline, Strikethrough, Italic, Codespan, Text].forEach(
   (token, index) => {
     InlineToken.use(token, index);
   },
@@ -23,6 +24,7 @@ export {
   Heading,
   Italic,
   LexError,
+  NoparseSpan,
   Spoiler,
   Strikethrough,
   Text,
