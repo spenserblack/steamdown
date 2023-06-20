@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Strikethrough lex("~~a
+b~~") .render() 1`] = `
+"[strike]a
+b[/strike]"
+`;
+
+exports[`Strikethrough lex("~~a
+b~~") .tokens 1`] = `
+[
+  Text {
+    "content": "a
+b",
+    "literal": "a
+b",
+    "scope": "inline",
+  },
+]
+`;
+
+exports[`Strikethrough lex("~~a~b~~") .render() 1`] = `"[strike]a~b[/strike]"`;
+
+exports[`Strikethrough lex("~~a~b~~") .tokens 1`] = `
+[
+  Text {
+    "content": "a~b",
+    "literal": "a~b",
+    "scope": "inline",
+  },
+]
+`;
+
+exports[`Strikethrough lex("~~foo \\~\\~ bar~~") .render() 1`] = `"[strike]foo \\~\\~ bar[/strike]"`;
+
+exports[`Strikethrough lex("~~foo \\~\\~ bar~~") .tokens 1`] = `
+[
+  Text {
+    "content": "foo \\~\\~ bar",
+    "literal": "foo \\~\\~ bar",
+    "scope": "inline",
+  },
+]
+`;
+
+exports[`Strikethrough lex("~~foo~~ bar") .render() 1`] = `"[strike]foo[/strike]"`;
+
+exports[`Strikethrough lex("~~foo~~ bar") .tokens 1`] = `
+[
+  Text {
+    "content": "foo",
+    "literal": "foo",
+    "scope": "inline",
+  },
+]
+`;
+
+exports[`Strikethrough lex("~~foo~~") .render() 1`] = `"[strike]foo[/strike]"`;
+
+exports[`Strikethrough lex("~~foo~~") .tokens 1`] = `
+[
+  Text {
+    "content": "foo",
+    "literal": "foo",
+    "scope": "inline",
+  },
+]
+`;

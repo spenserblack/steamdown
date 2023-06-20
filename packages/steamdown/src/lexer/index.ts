@@ -6,15 +6,16 @@ import Italic from "./italic";
 import { LexError } from "./errors";
 import type { Lexer } from "./token";
 import Spoiler from "./spoiler";
+import Strikethrough from "./strikethrough";
 import Text from "./text";
 import Token from "./token";
 import Underline from "./underline";
 
-[Spoiler, Bold, Underline, Italic, Codespan, Text].forEach((token, index) => {
+[Spoiler, Bold, Underline, Strikethrough, Italic, Codespan, Text].forEach((token, index) => {
   InlineToken.use(token, index);
 });
 
-export { Bold, Codespan, Heading, Italic, LexError, Spoiler, Text, Token, Underline };
+export { Bold, Codespan, Heading, Italic, LexError, Spoiler, Strikethrough, Text, Token, Underline };
 
 const lexers: Lexer[] = [Heading];
 function reduceLexers(md: string): [token: Token, remainder: string] {
