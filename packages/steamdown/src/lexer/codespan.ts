@@ -1,12 +1,15 @@
 import InlineToken from "./inline-token";
 import TaggedInlineToken from "./tagged-inline-token";
+import Text from "./text";
 
 export default class Codespan extends TaggedInlineToken {
   public readonly tag = "code";
   public readonly tokens: InlineToken[];
   private constructor(public readonly text: string, literal: string) {
     super(literal);
-    this.tokens = InlineToken.lexTokens(text);
+    const [textToken] = Text.lex(text)!;
+    // HACK Contents of code blocks are not parsed
+    this.tokens = [textToken];
   }
 
   public static hint(md: string): boolean {
