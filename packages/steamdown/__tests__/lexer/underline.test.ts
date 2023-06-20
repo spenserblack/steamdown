@@ -19,38 +19,41 @@ describe("Underline", () => {
   ])('lex("%s")', (md, expectedLiteral, expectedText, expectedRemainder) => {
     const result = Underline.lex(md);
 
-    test('remainder', () => {
+    test("remainder", () => {
       expect(result).not.toBeNull();
       const [, remainder] = result!;
       expect(remainder).toBe(expectedRemainder);
     });
 
-    test('.literal', () => {
+    test(".literal", () => {
       expect(result).not.toBeNull();
       const [token] = result!;
       expect(token.literal).toBe(expectedLiteral);
     });
 
-    test('.text', () => {
+    test(".text", () => {
       expect(result).not.toBeNull();
       const [token] = result!;
       expect(token.text).toBe(expectedText);
     });
 
-    test('.tokens', () => {
+    test(".tokens", () => {
       expect(result).not.toBeNull();
       const [token] = result!;
       expect(token.tokens).toMatchSnapshot();
     });
 
-    test('.render()', () => {
+    test(".render()", () => {
       expect(result).not.toBeNull();
       const [token] = result!;
       expect(token.render()).toMatchSnapshot();
     });
   });
 
-  test.each([["__foo"], ["__foo_"], ["__foo __"], ["__foo__bar"]])('lex("%s")', (md) => {
-    expect(Underline.lex(md)).toBeNull();
-  });
+  test.each([["__foo"], ["__foo_"], ["__foo __"], ["__foo__bar"]])(
+    'lex("%s")',
+    (md) => {
+      expect(Underline.lex(md)).toBeNull();
+    },
+  );
 });

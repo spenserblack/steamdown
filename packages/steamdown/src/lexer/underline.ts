@@ -1,22 +1,21 @@
-
 import InlineToken from "./inline-token";
 import TaggedInlineToken from "./tagged-inline-token";
 
 export default class Underline extends TaggedInlineToken {
-  public readonly tag = 'u';
+  public readonly tag = "u";
   public readonly tokens: InlineToken[];
 
-  private constructor(public readonly text: string ,literal: string) {
+  private constructor(public readonly text: string, literal: string) {
     super(literal);
     this.tokens = InlineToken.lexTokens(text);
   }
 
   public static hint(md: string): boolean {
-    return md.startsWith('__');
+    return md.startsWith("__");
   }
 
   public static lex(md: string): [token: Underline, remainder: string] | null {
-    const scan = InlineToken.scan(md.slice(2), '\\_\\_');
+    const scan = InlineToken.scan(md.slice(2), "\\_\\_");
     if (!scan) {
       return null;
     }

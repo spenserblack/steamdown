@@ -18,35 +18,35 @@ describe("Italic", () => {
     ["*foo* bar", "*foo*", "foo", " bar"],
     ["*foo \\* bar*", "*foo \\* bar*", "foo \\* bar", ""],
   ])('lex("%s")', (md, expectedLiteral, expectedText, expectedRemainder) => {
-    test('remainder', () => {
+    test("remainder", () => {
       const result = Italic.lex(md);
       expect(result).not.toBeNull();
       const [, remainder] = result!;
       expect(remainder).toBe(expectedRemainder);
     });
 
-    test('.literal', () => {
+    test(".literal", () => {
       const result = Italic.lex(md);
       expect(result).not.toBeNull();
       const [token] = result!;
       expect(token.literal).toBe(expectedLiteral);
     });
 
-    test('.text', () => {
+    test(".text", () => {
       const result = Italic.lex(md);
       expect(result).not.toBeNull();
       const [token] = result!;
       expect(token.text).toBe(expectedText);
     });
 
-    test('.tokens', () => {
+    test(".tokens", () => {
       const result = Italic.lex(md);
       expect(result).not.toBeNull();
       const [token] = result!;
       expect(token.tokens).toMatchSnapshot();
     });
 
-    test('.render()', () => {
+    test(".render()", () => {
       const result = Italic.lex(md);
       expect(result).not.toBeNull();
       const [token] = result!;

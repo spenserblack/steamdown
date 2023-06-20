@@ -15,35 +15,35 @@ describe("Codespan", () => {
     ["`foo` bar", "`foo`", "foo", " bar"],
     ["`foo \\` bar`", "`foo \\` bar`", "foo \\` bar", ""],
   ])('lex("%s")', (md, expectedLiteral, expectedText, expectedRemainder) => {
-    test('remainder', () => {
+    test("remainder", () => {
       const result = Codespan.lex(md);
       expect(result).not.toBeNull();
       const [, remainder] = result!;
       expect(remainder).toBe(expectedRemainder);
     });
 
-    test('.literal', () => {
+    test(".literal", () => {
       const result = Codespan.lex(md);
       expect(result).not.toBeNull();
       const [token] = result!;
       expect(token.literal).toBe(expectedLiteral);
     });
 
-    test('.text', () => {
+    test(".text", () => {
       const result = Codespan.lex(md);
       expect(result).not.toBeNull();
       const [token] = result!;
       expect(token.text).toBe(expectedText);
     });
 
-    test('.tokens', () => {
+    test(".tokens", () => {
       const result = Codespan.lex(md);
       expect(result).not.toBeNull();
       const [token] = result!;
       expect(token.tokens).toMatchSnapshot();
     });
 
-    test('.render()', () => {
+    test(".render()", () => {
       const result = Codespan.lex(md);
       expect(result).not.toBeNull();
       const [token] = result!;

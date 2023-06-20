@@ -18,38 +18,41 @@ describe("Bold", () => {
     ["**foo \\*\\* bar**", "**foo \\*\\* bar**", "foo \\*\\* bar", ""],
   ])('lex("%s")', (md, expectedLiteral, expectedText, expectedRemainder) => {
     const result = Bold.lex(md);
-    test('remainder', () => {
+    test("remainder", () => {
       expect(result).not.toBeNull();
       const [, remainder] = result!;
       expect(remainder).toBe(expectedRemainder);
     });
 
-    test('.literal', () => {
+    test(".literal", () => {
       expect(result).not.toBeNull();
       const [token] = result!;
       expect(token.literal).toBe(expectedLiteral);
     });
 
-    test('.text', () => {
+    test(".text", () => {
       expect(result).not.toBeNull();
       const [token] = result!;
       expect(token.text).toBe(expectedText);
     });
 
-    test('.tokens', () => {
+    test(".tokens", () => {
       expect(result).not.toBeNull();
       const [token] = result!;
       expect(token.tokens).toMatchSnapshot();
     });
 
-    test('.render()', () => {
+    test(".render()", () => {
       expect(result).not.toBeNull();
       const [token] = result!;
       expect(token.render()).toMatchSnapshot();
     });
   });
 
-  test.each([["**foo"], ["**foo*"], ["**foo **"], ["**foo**bar"]])('lex("%s")', (md) => {
-    expect(Bold.lex(md)).toBeNull();
-  });
+  test.each([["**foo"], ["**foo*"], ["**foo **"], ["**foo**bar"]])(
+    'lex("%s")',
+    (md) => {
+      expect(Bold.lex(md)).toBeNull();
+    },
+  );
 });

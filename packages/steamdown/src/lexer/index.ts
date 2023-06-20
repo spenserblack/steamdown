@@ -11,11 +11,24 @@ import Text from "./text";
 import Token from "./token";
 import Underline from "./underline";
 
-[Spoiler, Bold, Underline, Strikethrough, Italic, Codespan, Text].forEach((token, index) => {
-  InlineToken.use(token, index);
-});
+[Spoiler, Bold, Underline, Strikethrough, Italic, Codespan, Text].forEach(
+  (token, index) => {
+    InlineToken.use(token, index);
+  },
+);
 
-export { Bold, Codespan, Heading, Italic, LexError, Spoiler, Strikethrough, Text, Token, Underline };
+export {
+  Bold,
+  Codespan,
+  Heading,
+  Italic,
+  LexError,
+  Spoiler,
+  Strikethrough,
+  Text,
+  Token,
+  Underline,
+};
 
 const lexers: Lexer[] = [Heading];
 function reduceLexers(md: string): [token: Token, remainder: string] {
