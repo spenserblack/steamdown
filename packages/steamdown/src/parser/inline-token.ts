@@ -8,17 +8,6 @@ export default abstract class InlineToken extends Token {
   private static _rules: Record<string, Rule> = {};
   private static _sorted: Rule[] = [];
 
-  public static get rules(): Record<string, Rule> {
-    return this._rules;
-  }
-
-  public static set rules(rules: Record<string, Rule>) {
-    this._rules = rules;
-    this._sorted = Object.values(rules).sort(
-      ([, , priority1], [, , priority2]) => priority1 - priority2,
-    );
-  }
-
   public static useRule(
     name: string,
     rule: RegExp,
@@ -29,7 +18,7 @@ export default abstract class InlineToken extends Token {
       throw new Error(`Rule ${name} already exists`);
     }
     this._rules[name] = [rule, parser, priority];
-    this.rules = this._rules;
+    this.setRules(this._rules);
   }
 
   public static parse(text: string): [token: InlineToken, rest: string] {
@@ -39,5 +28,12 @@ export default abstract class InlineToken extends Token {
     }
     const [, parser] = rule;
     return parser(text);
+  }
+
+  private static setRules(rules: Record<string, Rule>) {
+    this._rules = rules;
+    this._sorted = Object.values(rules).sort(
+      ([, , priority1], [, , priority2]) => priority1 - priority2,
+    );
   }
 }

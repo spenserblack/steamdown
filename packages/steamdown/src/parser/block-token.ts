@@ -10,17 +10,6 @@ export default abstract class BlockToken extends Token {
   private static _sorted: Rule[] = [];
   public abstract tokens: InlineToken[];
 
-  public static get rules(): Record<string, Rule> {
-    return this._rules;
-  }
-
-  public static set rules(rules: Record<string, Rule>) {
-    this._rules = rules;
-    this._sorted = Object.values(rules).sort(
-      ([, , priority1], [, , priority2]) => priority1 - priority2,
-    );
-  }
-
   public static useRule(
     name: string,
     rule: RegExp,
@@ -31,7 +20,7 @@ export default abstract class BlockToken extends Token {
       throw new Error(`Rule ${name} already exists`);
     }
     this._rules[name] = [rule, parser, priority];
-    this.rules = this._rules;
+    this.setRules(this._rules);
   }
 
   public static parse(text: string): [token: BlockToken, rest: string] {
@@ -41,5 +30,12 @@ export default abstract class BlockToken extends Token {
     }
     const [, parser] = rule;
     return parser(text);
+  }
+
+  private static setRules(rules: Record<string, Rule>) {
+    this._rules = rules;
+    this._sorted = Object.values(rules).sort(
+      ([, , priority1], [, , priority2]) => priority1 - priority2,
+    );
   }
 }
