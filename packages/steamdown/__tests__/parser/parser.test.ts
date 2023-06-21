@@ -23,6 +23,12 @@ describe('Parser', () => {
         expect(token).toBeInstanceOf(tokenType);
       });
 
+      test('inline tokens', () => {
+        const parser = new Parser(text);
+        const token = parser.next();
+        expect(token.tokens).toMatchSnapshot();
+      });
+
       test('rendered token', () => {
         const parser = new Parser(text);
         const token = parser.next();

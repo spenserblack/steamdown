@@ -1,9 +1,14 @@
 import BlockToken from "./block-token";
 import Heading from "./heading";
+import InlineText from "./inline-text";
+import InlineToken from "./inline-token";
 
-export { BlockToken, Heading };
+export { BlockToken, Heading, InlineText, InlineToken };
 
 BlockToken.useRule("heading", Heading.rule, Heading.parse, 0);
+
+// NOTE Text should always be prioritized last
+InlineToken.useRule("text", InlineText.rule, InlineText.parse, Infinity);
 
 /**
  * Renders the given Markdown string to Steam's text format.

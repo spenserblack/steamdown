@@ -1,3 +1,4 @@
+import type InlineToken from "./inline-token";
 import ParseError from "./parse-error";
 import Token from "./token";
 
@@ -7,6 +8,7 @@ export type Rule = [rule: RegExp, parser: BlockTokenParser, priority: number];
 export default abstract class BlockToken extends Token {
   private static _rules: Record<string, Rule> = {};
   private static _sorted: Rule[] = [];
+  public abstract tokens: InlineToken[];
 
   public static get rules(): Record<string, Rule> {
     return this._rules;

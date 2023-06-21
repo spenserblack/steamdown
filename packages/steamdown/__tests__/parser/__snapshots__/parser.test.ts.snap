@@ -1,31 +1,145 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Parser .next() when given "# Heading 1
+" inline tokens 1`] = `
+[
+  InlineText {
+    "content": "Heading 1",
+    "raw": "Heading 1",
+  },
+]
+`;
+
+exports[`Parser .next() when given "# Heading 1
 " rendered token 1`] = `"[h1]Heading 1[/h1]"`;
+
+exports[`Parser .next() when given "# Heading 1" inline tokens 1`] = `
+[
+  InlineText {
+    "content": "Heading 1",
+    "raw": "Heading 1",
+  },
+]
+`;
 
 exports[`Parser .next() when given "# Heading 1" rendered token 1`] = `"[h1]Heading 1[/h1]"`;
 
 exports[`Parser .next() when given "## Heading 2
+" inline tokens 1`] = `
+[
+  InlineText {
+    "content": "Heading 2",
+    "raw": "Heading 2",
+  },
+]
+`;
+
+exports[`Parser .next() when given "## Heading 2
 " rendered token 1`] = `"[h2]Heading 2[/h2]"`;
+
+exports[`Parser .next() when given "## Heading 2" inline tokens 1`] = `
+[
+  InlineText {
+    "content": "Heading 2",
+    "raw": "Heading 2",
+  },
+]
+`;
 
 exports[`Parser .next() when given "## Heading 2" rendered token 1`] = `"[h2]Heading 2[/h2]"`;
 
 exports[`Parser .next() when given "### Heading 3
+" inline tokens 1`] = `
+[
+  InlineText {
+    "content": "Heading 3",
+    "raw": "Heading 3",
+  },
+]
+`;
+
+exports[`Parser .next() when given "### Heading 3
 " rendered token 1`] = `"[h3]Heading 3[/h3]"`;
+
+exports[`Parser .next() when given "### Heading 3" inline tokens 1`] = `
+[
+  InlineText {
+    "content": "Heading 3",
+    "raw": "Heading 3",
+  },
+]
+`;
 
 exports[`Parser .next() when given "### Heading 3" rendered token 1`] = `"[h3]Heading 3[/h3]"`;
 
 exports[`Parser .next() when given "#### Heading 4
+" inline tokens 1`] = `
+[
+  InlineText {
+    "content": "Heading 4",
+    "raw": "Heading 4",
+  },
+]
+`;
+
+exports[`Parser .next() when given "#### Heading 4
 " rendered token 1`] = `"[h4]Heading 4[/h4]"`;
+
+exports[`Parser .next() when given "#### Heading 4" inline tokens 1`] = `
+[
+  InlineText {
+    "content": "Heading 4",
+    "raw": "Heading 4",
+  },
+]
+`;
 
 exports[`Parser .next() when given "#### Heading 4" rendered token 1`] = `"[h4]Heading 4[/h4]"`;
 
 exports[`Parser .next() when given "##### Heading 5
+" inline tokens 1`] = `
+[
+  InlineText {
+    "content": "Heading 5",
+    "raw": "Heading 5",
+  },
+]
+`;
+
+exports[`Parser .next() when given "##### Heading 5
 " rendered token 1`] = `"[h5]Heading 5[/h5]"`;
+
+exports[`Parser .next() when given "##### Heading 5" inline tokens 1`] = `
+[
+  InlineText {
+    "content": "Heading 5",
+    "raw": "Heading 5",
+  },
+]
+`;
 
 exports[`Parser .next() when given "##### Heading 5" rendered token 1`] = `"[h5]Heading 5[/h5]"`;
 
 exports[`Parser .next() when given "###### Heading 6
+" inline tokens 1`] = `
+[
+  InlineText {
+    "content": "Heading 6",
+    "raw": "Heading 6",
+  },
+]
+`;
+
+exports[`Parser .next() when given "###### Heading 6
 " rendered token 1`] = `"[h6]Heading 6[/h6]"`;
+
+exports[`Parser .next() when given "###### Heading 6" inline tokens 1`] = `
+[
+  InlineText {
+    "content": "Heading 6",
+    "raw": "Heading 6",
+  },
+]
+`;
 
 exports[`Parser .next() when given "###### Heading 6" rendered token 1`] = `"[h6]Heading 6[/h6]"`;
