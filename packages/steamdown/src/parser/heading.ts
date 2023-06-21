@@ -6,7 +6,11 @@ export default class Heading extends BlockToken {
   public static rule = /^(#{1,6}) ([^\n]+)(?:\n|$)/;
   public readonly tokens: InlineToken[];
 
-  private constructor(public readonly raw: string, public readonly level: number, public readonly content: string) {
+  private constructor(
+    public readonly raw: string,
+    public readonly level: number,
+    public readonly content: string,
+  ) {
     super();
     let text = this.content;
     const tokens: InlineToken[] = [];
