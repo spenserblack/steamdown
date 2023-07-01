@@ -4,6 +4,14 @@ updates:
     directory: "/packages/steamdown"
     schedule:
       interval: daily
+  - package-ecosystem: npm
+    directory: "/"
+    groups:
+      typescript-eslint:
+        patterns:
+          - "@typescript-eslint/*"
+    schedule:
+      interval: weekly
   - package-ecosystem: github-actions
     directory: "/"
     schedule:

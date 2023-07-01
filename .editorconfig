@@ -9,8 +9,8 @@ trim_trailing_whitespace = true
 insert_final_newline = true
 
 [*.txt]
-indent_style = none
-indent_size = none
+indent_style = unset
+indent_size = unset
 trim_trailing_whitespace = false
 insert_final_newline = false
 
