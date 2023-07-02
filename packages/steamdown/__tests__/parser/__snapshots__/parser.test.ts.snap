@@ -18,6 +18,28 @@ exports[`Parser .next() when given "# *Italic heading*" inline tokens 1`] = `
 
 exports[`Parser .next() when given "# *Italic heading*" rendered token 1`] = `"[h1][i]Italic heading[/i][/h1]"`;
 
+exports[`Parser .next() when given "# *Partially* italic heading" inline tokens 1`] = `
+[
+  Italics {
+    "content": "Partially",
+    "raw": "*Partially*",
+    "tag": "i",
+    "tokens": [
+      InlineText {
+        "content": "Partially",
+        "raw": "Partially",
+      },
+    ],
+  },
+  InlineText {
+    "content": " italic heading",
+    "raw": " italic heading",
+  },
+]
+`;
+
+exports[`Parser .next() when given "# *Partially* italic heading" rendered token 1`] = `"[h1][i]Partially[/i] italic heading[/h1]"`;
+
 exports[`Parser .next() when given "# _Italic heading_" inline tokens 1`] = `
 [
   Italics {
