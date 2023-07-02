@@ -5,9 +5,10 @@ import InlineToken from "./inline-token";
  */
 export default abstract class InlineContainerToken extends InlineToken {
   public abstract readonly tokens: InlineToken[];
-  public abstract get tag(): string;
+  public abstract getTag(): string;
 
   public render(): string {
-    return `[${this.tag}]${this.tokens.map((token) => token.render()).join("")}[/${this.tag}]`;
+    const tag = this.getTag();
+    return `[${tag}]${this.tokens.map((token) => token.render()).join("")}[/${tag}]`;
   }
 }

@@ -10,6 +10,10 @@ export default class Italics extends InlineContainerToken {
     super();
   }
 
+  public getTag(): string {
+    return this.tag;
+  }
+
   public static parse(text: string): [token: Italics, rest: string] {
     const match = text.match(Italics.rule);
     if (!match) {
