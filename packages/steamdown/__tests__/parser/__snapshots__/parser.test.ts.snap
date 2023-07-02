@@ -1,5 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Parser .next() when given "# *Italic heading*" inline tokens 1`] = `
+[
+  Italics {
+    "content": "Italic heading",
+    "raw": "*Italic heading*",
+    "tag": "i",
+    "tokens": [
+      InlineText {
+        "content": "Italic heading",
+        "raw": "Italic heading",
+      },
+    ],
+  },
+]
+`;
+
+exports[`Parser .next() when given "# *Italic heading*" rendered token 1`] = `"[h1][i]Italic heading[/i][/h1]"`;
+
 exports[`Parser .next() when given "# Heading 1
 " inline tokens 1`] = `
 [
