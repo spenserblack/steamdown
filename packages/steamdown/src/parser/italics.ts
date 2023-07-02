@@ -1,5 +1,5 @@
-import InlineToken from "./inline-token";
 import InlineContainerToken from "./inline-container-token";
+import InlineToken from "./inline-token";
 import ParseError from "./parse-error";
 
 export default class Italics extends InlineContainerToken {
@@ -8,10 +8,6 @@ export default class Italics extends InlineContainerToken {
 
   private constructor(public readonly raw: string, public readonly content: string, public readonly tokens: InlineToken[]) {
     super();
-  }
-
-  public getTag(): string {
-    return this.tag;
   }
 
   public static parse(text: string): [token: Italics, rest: string] {
@@ -28,5 +24,9 @@ export default class Italics extends InlineContainerToken {
       textContent = rest;
     }
     return [new Italics(raw, content, tokens), text.slice(raw.length)];
+  }
+
+  public getTag(): string {
+    return this.tag;
   }
 }
