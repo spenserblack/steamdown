@@ -2,6 +2,11 @@ version: 2
 updates:
   - package-ecosystem: npm
     directory: "/packages/steamdown"
+    groups:
+      jest:
+        patterns:
+          - "jest"
+          - "@jest/*"
     schedule:
       interval: daily
   - package-ecosystem: npm
@@ -10,10 +15,11 @@ updates:
       typescript-eslint:
         patterns:
           - "@typescript-eslint/*"
-      jest:
+      vue:
         patterns:
-          - "jest"
-          - "@jest/*"
+          - "vue"
+          - "@vue/*"
+          - "vue-*"
     schedule:
       interval: weekly
   - package-ecosystem: github-actions
