@@ -10,6 +10,10 @@ updates:
       typescript-eslint:
         patterns:
           - "@typescript-eslint/*"
+      jest:
+        patterns:
+          - "jest"
+          - "@jest/*"
     schedule:
       interval: weekly
   - package-ecosystem: github-actions
