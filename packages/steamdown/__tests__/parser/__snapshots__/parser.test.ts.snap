@@ -1,5 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Parser .next() when given "# *Italic heading* with *italic text*" inline tokens 1`] = `
+[
+  Italics {
+    "content": "Italic heading",
+    "raw": "*Italic heading*",
+    "tag": "i",
+    "tokens": [
+      InlineText {
+        "content": "Italic heading",
+        "raw": "Italic heading",
+      },
+    ],
+  },
+  InlineText {
+    "content": " with ",
+    "raw": " with ",
+  },
+  Italics {
+    "content": "italic text",
+    "raw": "*italic text*",
+    "tag": "i",
+    "tokens": [
+      InlineText {
+        "content": "italic text",
+        "raw": "italic text",
+      },
+    ],
+  },
+]
+`;
+
+exports[`Parser .next() when given "# *Italic heading* with *italic text*" rendered token 1`] = `"[h1][i]Italic heading[/i] with [i]italic text[/i][/h1]"`;
+
 exports[`Parser .next() when given "# *Italic heading*" inline tokens 1`] = `
 [
   Italics {
@@ -81,6 +114,28 @@ exports[`Parser .next() when given "# Heading 1" inline tokens 1`] = `
 `;
 
 exports[`Parser .next() when given "# Heading 1" rendered token 1`] = `"[h1]Heading 1[/h1]"`;
+
+exports[`Parser .next() when given "# Heading with *italic tail*" inline tokens 1`] = `
+[
+  InlineText {
+    "content": "Heading with ",
+    "raw": "Heading with ",
+  },
+  Italics {
+    "content": "italic tail",
+    "raw": "*italic tail*",
+    "tag": "i",
+    "tokens": [
+      InlineText {
+        "content": "italic tail",
+        "raw": "italic tail",
+      },
+    ],
+  },
+]
+`;
+
+exports[`Parser .next() when given "# Heading with *italic tail*" rendered token 1`] = `"[h1]Heading with [i]italic tail[/i][/h1]"`;
 
 exports[`Parser .next() when given "## Heading 2
 " inline tokens 1`] = `

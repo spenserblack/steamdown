@@ -20,6 +20,7 @@ describe("Parser", () => {
       ["# _Italic heading_", Heading],
       ["# *Partially* italic heading", Heading],
       ["# *Italic heading* with *italic text*", Heading],
+      ["# Heading with *italic tail*", Heading],
     ])("when given %p", (text, tokenType) => {
       test("returns a token", () => {
         const parser = new Parser(text);

@@ -11,11 +11,19 @@ export default class InlineText extends InlineToken {
   }
 
   public static parse(text: string): [token: InlineText, rest: string] {
+    const inlineRules = InlineToken.getRules();
     const match = text.match(InlineText.rule);
     if (!match) {
       throw new ParseError(`Could not parse ${text}`);
     }
-    const [raw] = match;
+    const [allText] = match;
+
+    // NOTE Text should only parse until the next matching rule
+    // HACK Obviously, this excludes the text rule itself
+    const allRules = new RegExp(Object.entries(inlineRules).filter(([name]) => name !== "text").map(([, [rule]]) => rule.source).join("|"));
+    const untilIndex = allRules.exec(allText)?.index ?? allText.length;
+    const raw = allText.slice(0, untilIndex);
+
     return [new InlineText(raw), text.slice(raw.length)];
   }
 

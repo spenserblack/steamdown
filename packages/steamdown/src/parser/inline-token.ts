@@ -8,6 +8,10 @@ export default abstract class InlineToken extends Token {
   private static _rules: Record<string, Rule> = {};
   private static _sorted: Rule[] = [];
 
+  public static getRules(): Record<string, Rule> {
+    return this._rules;
+  }
+
   public static useRule(
     name: string,
     rule: RegExp,
@@ -22,7 +26,10 @@ export default abstract class InlineToken extends Token {
   }
 
   public static parse(text: string): [token: InlineToken, rest: string] {
-    const rule = this._sorted.find(([rule]) => rule.test(text));
+    const rule = this._sorted.find(([rule]) => {
+      const regex = new RegExp(`^${rule.source}`);
+      return regex.test(text)
+    });
     if (!rule) {
       throw new ParseError(`Could not parse ${text}`);
     }
