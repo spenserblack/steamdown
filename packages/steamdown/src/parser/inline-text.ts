@@ -20,7 +20,12 @@ export default class InlineText extends InlineToken {
 
     // NOTE Text should only parse until the next matching rule
     // HACK Obviously, this excludes the text rule itself
-    const allRules = new RegExp(Object.entries(inlineRules).filter(([name]) => name !== "text").map(([, [rule]]) => rule.source).join("|"));
+    const allRules = new RegExp(
+      Object.entries(inlineRules)
+        .filter(([name]) => name !== "text")
+        .map(([, [rule]]) => rule.source)
+        .join("|"),
+    );
     const untilIndex = allRules.exec(allText)?.index ?? allText.length;
     const raw = allText.slice(0, untilIndex);
 

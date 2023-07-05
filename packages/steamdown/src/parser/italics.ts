@@ -6,7 +6,11 @@ export default class Italics extends InlineContainerToken {
   public static rule = /(\*|_)((?!\s)(?:.(?!\n)|\n(?!\n))+?)(?<!\s)\1/;
   public readonly tag = "i";
 
-  private constructor(public readonly raw: string, public readonly content: string, public readonly tokens: InlineToken[]) {
+  private constructor(
+    public readonly raw: string,
+    public readonly content: string,
+    public readonly tokens: InlineToken[],
+  ) {
     super();
   }
 

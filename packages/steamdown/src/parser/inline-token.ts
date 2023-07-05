@@ -28,7 +28,7 @@ export default abstract class InlineToken extends Token {
   public static parse(text: string): [token: InlineToken, rest: string] {
     const rule = this._sorted.find(([rule]) => {
       const regex = new RegExp(`^${rule.source}`);
-      return regex.test(text)
+      return regex.test(text);
     });
     if (!rule) {
       throw new ParseError(`Could not parse ${text}`);
