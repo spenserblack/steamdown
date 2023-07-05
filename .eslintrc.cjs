@@ -28,7 +28,6 @@ const baseRules = {
   "prefer-rest-params": "warn",
   "prefer-spread": "warn",
   radix: "error",
-  "sort-imports": "warn",
   yoda: "warn",
   "arrow-parens": "error",
   // Assume the developer knows what they're doing
