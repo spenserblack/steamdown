@@ -1,5 +1,85 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Parser .next() when given "# **Bold heading**" inline tokens 1`] = `
+[
+  Bold {
+    "content": "Bold heading",
+    "raw": "**Bold heading**",
+    "tag": "b",
+    "tokens": [
+      InlineText {
+        "content": "Bold heading",
+        "raw": "Bold heading",
+      },
+    ],
+  },
+]
+`;
+
+exports[`Parser .next() when given "# **Bold heading**" rendered token 1`] = `"[h1][b]Bold heading[/b][/h1]"`;
+
+exports[`Parser .next() when given "# **Heading with *nested italics***" inline tokens 1`] = `
+[
+  Bold {
+    "content": "Heading with *nested italics*",
+    "raw": "**Heading with *nested italics***",
+    "tag": "b",
+    "tokens": [
+      InlineText {
+        "content": "Heading with ",
+        "raw": "Heading with ",
+      },
+      Italics {
+        "content": "nested italics",
+        "raw": "*nested italics*",
+        "tag": "i",
+        "tokens": [
+          InlineText {
+            "content": "nested italics",
+            "raw": "nested italics",
+          },
+        ],
+      },
+    ],
+  },
+]
+`;
+
+exports[`Parser .next() when given "# **Heading with *nested italics***" rendered token 1`] = `"[h1][b]Heading with [i]nested italics[/i][/b][/h1]"`;
+
+exports[`Parser .next() when given "# **Heading with *nested* italics**" inline tokens 1`] = `
+[
+  Bold {
+    "content": "Heading with *nested* italics",
+    "raw": "**Heading with *nested* italics**",
+    "tag": "b",
+    "tokens": [
+      InlineText {
+        "content": "Heading with ",
+        "raw": "Heading with ",
+      },
+      Italics {
+        "content": "nested",
+        "raw": "*nested*",
+        "tag": "i",
+        "tokens": [
+          InlineText {
+            "content": "nested",
+            "raw": "nested",
+          },
+        ],
+      },
+      InlineText {
+        "content": " italics",
+        "raw": " italics",
+      },
+    ],
+  },
+]
+`;
+
+exports[`Parser .next() when given "# **Heading with *nested* italics**" rendered token 1`] = `"[h1][b]Heading with [i]nested[/i] italics[/b][/h1]"`;
+
 exports[`Parser .next() when given "# *Italic heading* with *italic text*" inline tokens 1`] = `
 [
   Italics {
@@ -114,6 +194,28 @@ exports[`Parser .next() when given "# Heading 1" inline tokens 1`] = `
 `;
 
 exports[`Parser .next() when given "# Heading 1" rendered token 1`] = `"[h1]Heading 1[/h1]"`;
+
+exports[`Parser .next() when given "# Heading with **bold tail**" inline tokens 1`] = `
+[
+  InlineText {
+    "content": "Heading with ",
+    "raw": "Heading with ",
+  },
+  Bold {
+    "content": "bold tail",
+    "raw": "**bold tail**",
+    "tag": "b",
+    "tokens": [
+      InlineText {
+        "content": "bold tail",
+        "raw": "bold tail",
+      },
+    ],
+  },
+]
+`;
+
+exports[`Parser .next() when given "# Heading with **bold tail**" rendered token 1`] = `"[h1]Heading with [b]bold tail[/b][/h1]"`;
 
 exports[`Parser .next() when given "# Heading with *italic tail*" inline tokens 1`] = `
 [

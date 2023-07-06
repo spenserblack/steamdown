@@ -21,6 +21,10 @@ describe("Parser", () => {
       ["# *Partially* italic heading", Heading],
       ["# *Italic heading* with *italic text*", Heading],
       ["# Heading with *italic tail*", Heading],
+      ["# **Bold heading**", Heading],
+      ["# Heading with **bold tail**", Heading],
+      ["# **Heading with *nested italics***", Heading],
+      ["# **Heading with *nested* italics**", Heading],
     ])("when given %p", (text, tokenType) => {
       test("returns a token", () => {
         const parser = new Parser(text);

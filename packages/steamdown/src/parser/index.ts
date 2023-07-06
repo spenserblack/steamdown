@@ -1,14 +1,16 @@
 import BlockToken from "./block-token";
 import Heading from "./heading";
-import InlineText from "./inline-text";
 import InlineToken from "./inline-token";
+import Bold from "./bold";
 import Italics from "./italics";
+import InlineText from "./inline-text";
 
-export { BlockToken, Heading, InlineText, InlineToken, Italics };
+export { BlockToken, InlineToken, Heading, Bold, Italics, InlineText };
 
 BlockToken.useRule("heading", Heading.rule, Heading.parse, 0);
 
-InlineToken.useRule("italics", Italics.rule, Italics.parse, 1);
+InlineToken.useRule("bold", Bold.rule, Bold.parse, 10);
+InlineToken.useRule("italics", Italics.rule, Italics.parse, 20);
 // NOTE Text should always be prioritized last
 InlineToken.useRule("text", InlineText.rule, InlineText.parse, Infinity);
 
