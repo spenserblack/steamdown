@@ -29,7 +29,7 @@ describe.each([
   describe(".next()", () => {
     const parser = new Parser(text);
     const token = parser.next();
-    test(`Is instanceof ${tokenType}`, () => {
+    test(`Is instanceof ${tokenType.name}`, () => {
       expect(token).toBeInstanceOf(tokenType);
     });
 
