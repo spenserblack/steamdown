@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Parser .next() when given "# **Bold heading**" inline tokens 1`] = `
+exports[`Parser("# **Bold heading**") .next() .render() 1`] = `"[h1][b]Bold heading[/b][/h1]"`;
+
+exports[`Parser("# **Bold heading**") .next() .tokens 1`] = `
 [
   Bold {
     "content": "Bold heading",
@@ -16,9 +18,9 @@ exports[`Parser .next() when given "# **Bold heading**" inline tokens 1`] = `
 ]
 `;
 
-exports[`Parser .next() when given "# **Bold heading**" rendered token 1`] = `"[h1][b]Bold heading[/b][/h1]"`;
+exports[`Parser("# **Heading with *nested italics***") .next() .render() 1`] = `"[h1][b]Heading with [i]nested italics[/i][/b][/h1]"`;
 
-exports[`Parser .next() when given "# **Heading with *nested italics***" inline tokens 1`] = `
+exports[`Parser("# **Heading with *nested italics***") .next() .tokens 1`] = `
 [
   Bold {
     "content": "Heading with *nested italics*",
@@ -45,9 +47,9 @@ exports[`Parser .next() when given "# **Heading with *nested italics***" inline 
 ]
 `;
 
-exports[`Parser .next() when given "# **Heading with *nested italics***" rendered token 1`] = `"[h1][b]Heading with [i]nested italics[/i][/b][/h1]"`;
+exports[`Parser("# **Heading with *nested* italics**") .next() .render() 1`] = `"[h1][b]Heading with [i]nested[/i] italics[/b][/h1]"`;
 
-exports[`Parser .next() when given "# **Heading with *nested* italics**" inline tokens 1`] = `
+exports[`Parser("# **Heading with *nested* italics**") .next() .tokens 1`] = `
 [
   Bold {
     "content": "Heading with *nested* italics",
@@ -78,9 +80,9 @@ exports[`Parser .next() when given "# **Heading with *nested* italics**" inline 
 ]
 `;
 
-exports[`Parser .next() when given "# **Heading with *nested* italics**" rendered token 1`] = `"[h1][b]Heading with [i]nested[/i] italics[/b][/h1]"`;
+exports[`Parser("# *Italic heading* with *italic text*") .next() .render() 1`] = `"[h1][i]Italic heading[/i] with [i]italic text[/i][/h1]"`;
 
-exports[`Parser .next() when given "# *Italic heading* with *italic text*" inline tokens 1`] = `
+exports[`Parser("# *Italic heading* with *italic text*") .next() .tokens 1`] = `
 [
   Italics {
     "content": "Italic heading",
@@ -111,9 +113,9 @@ exports[`Parser .next() when given "# *Italic heading* with *italic text*" inlin
 ]
 `;
 
-exports[`Parser .next() when given "# *Italic heading* with *italic text*" rendered token 1`] = `"[h1][i]Italic heading[/i] with [i]italic text[/i][/h1]"`;
+exports[`Parser("# *Italic heading*") .next() .render() 1`] = `"[h1][i]Italic heading[/i][/h1]"`;
 
-exports[`Parser .next() when given "# *Italic heading*" inline tokens 1`] = `
+exports[`Parser("# *Italic heading*") .next() .tokens 1`] = `
 [
   Italics {
     "content": "Italic heading",
@@ -129,9 +131,9 @@ exports[`Parser .next() when given "# *Italic heading*" inline tokens 1`] = `
 ]
 `;
 
-exports[`Parser .next() when given "# *Italic heading*" rendered token 1`] = `"[h1][i]Italic heading[/i][/h1]"`;
+exports[`Parser("# *Partially* italic heading") .next() .render() 1`] = `"[h1][i]Partially[/i] italic heading[/h1]"`;
 
-exports[`Parser .next() when given "# *Partially* italic heading" inline tokens 1`] = `
+exports[`Parser("# *Partially* italic heading") .next() .tokens 1`] = `
 [
   Italics {
     "content": "Partially",
@@ -151,9 +153,9 @@ exports[`Parser .next() when given "# *Partially* italic heading" inline tokens 
 ]
 `;
 
-exports[`Parser .next() when given "# *Partially* italic heading" rendered token 1`] = `"[h1][i]Partially[/i] italic heading[/h1]"`;
+exports[`Parser("# _Italic heading_") .next() .render() 1`] = `"[h1][i]Italic heading[/i][/h1]"`;
 
-exports[`Parser .next() when given "# _Italic heading_" inline tokens 1`] = `
+exports[`Parser("# _Italic heading_") .next() .tokens 1`] = `
 [
   Italics {
     "content": "Italic heading",
@@ -169,10 +171,11 @@ exports[`Parser .next() when given "# _Italic heading_" inline tokens 1`] = `
 ]
 `;
 
-exports[`Parser .next() when given "# _Italic heading_" rendered token 1`] = `"[h1][i]Italic heading[/i][/h1]"`;
+exports[`Parser("# Heading 1
+") .next() .render() 1`] = `"[h1]Heading 1[/h1]"`;
 
-exports[`Parser .next() when given "# Heading 1
-" inline tokens 1`] = `
+exports[`Parser("# Heading 1
+") .next() .tokens 1`] = `
 [
   InlineText {
     "content": "Heading 1",
@@ -181,10 +184,9 @@ exports[`Parser .next() when given "# Heading 1
 ]
 `;
 
-exports[`Parser .next() when given "# Heading 1
-" rendered token 1`] = `"[h1]Heading 1[/h1]"`;
+exports[`Parser("# Heading 1") .next() .render() 1`] = `"[h1]Heading 1[/h1]"`;
 
-exports[`Parser .next() when given "# Heading 1" inline tokens 1`] = `
+exports[`Parser("# Heading 1") .next() .tokens 1`] = `
 [
   InlineText {
     "content": "Heading 1",
@@ -193,9 +195,9 @@ exports[`Parser .next() when given "# Heading 1" inline tokens 1`] = `
 ]
 `;
 
-exports[`Parser .next() when given "# Heading 1" rendered token 1`] = `"[h1]Heading 1[/h1]"`;
+exports[`Parser("# Heading with **bold tail**") .next() .render() 1`] = `"[h1]Heading with [b]bold tail[/b][/h1]"`;
 
-exports[`Parser .next() when given "# Heading with **bold tail**" inline tokens 1`] = `
+exports[`Parser("# Heading with **bold tail**") .next() .tokens 1`] = `
 [
   InlineText {
     "content": "Heading with ",
@@ -215,9 +217,9 @@ exports[`Parser .next() when given "# Heading with **bold tail**" inline tokens 
 ]
 `;
 
-exports[`Parser .next() when given "# Heading with **bold tail**" rendered token 1`] = `"[h1]Heading with [b]bold tail[/b][/h1]"`;
+exports[`Parser("# Heading with *italic tail*") .next() .render() 1`] = `"[h1]Heading with [i]italic tail[/i][/h1]"`;
 
-exports[`Parser .next() when given "# Heading with *italic tail*" inline tokens 1`] = `
+exports[`Parser("# Heading with *italic tail*") .next() .tokens 1`] = `
 [
   InlineText {
     "content": "Heading with ",
@@ -237,10 +239,11 @@ exports[`Parser .next() when given "# Heading with *italic tail*" inline tokens 
 ]
 `;
 
-exports[`Parser .next() when given "# Heading with *italic tail*" rendered token 1`] = `"[h1]Heading with [i]italic tail[/i][/h1]"`;
+exports[`Parser("## Heading 2
+") .next() .render() 1`] = `"[h2]Heading 2[/h2]"`;
 
-exports[`Parser .next() when given "## Heading 2
-" inline tokens 1`] = `
+exports[`Parser("## Heading 2
+") .next() .tokens 1`] = `
 [
   InlineText {
     "content": "Heading 2",
@@ -249,10 +252,9 @@ exports[`Parser .next() when given "## Heading 2
 ]
 `;
 
-exports[`Parser .next() when given "## Heading 2
-" rendered token 1`] = `"[h2]Heading 2[/h2]"`;
+exports[`Parser("## Heading 2") .next() .render() 1`] = `"[h2]Heading 2[/h2]"`;
 
-exports[`Parser .next() when given "## Heading 2" inline tokens 1`] = `
+exports[`Parser("## Heading 2") .next() .tokens 1`] = `
 [
   InlineText {
     "content": "Heading 2",
@@ -261,10 +263,11 @@ exports[`Parser .next() when given "## Heading 2" inline tokens 1`] = `
 ]
 `;
 
-exports[`Parser .next() when given "## Heading 2" rendered token 1`] = `"[h2]Heading 2[/h2]"`;
+exports[`Parser("### Heading 3
+") .next() .render() 1`] = `"[h3]Heading 3[/h3]"`;
 
-exports[`Parser .next() when given "### Heading 3
-" inline tokens 1`] = `
+exports[`Parser("### Heading 3
+") .next() .tokens 1`] = `
 [
   InlineText {
     "content": "Heading 3",
@@ -273,10 +276,9 @@ exports[`Parser .next() when given "### Heading 3
 ]
 `;
 
-exports[`Parser .next() when given "### Heading 3
-" rendered token 1`] = `"[h3]Heading 3[/h3]"`;
+exports[`Parser("### Heading 3") .next() .render() 1`] = `"[h3]Heading 3[/h3]"`;
 
-exports[`Parser .next() when given "### Heading 3" inline tokens 1`] = `
+exports[`Parser("### Heading 3") .next() .tokens 1`] = `
 [
   InlineText {
     "content": "Heading 3",
@@ -285,10 +287,11 @@ exports[`Parser .next() when given "### Heading 3" inline tokens 1`] = `
 ]
 `;
 
-exports[`Parser .next() when given "### Heading 3" rendered token 1`] = `"[h3]Heading 3[/h3]"`;
+exports[`Parser("#### Heading 4
+") .next() .render() 1`] = `"[h4]Heading 4[/h4]"`;
 
-exports[`Parser .next() when given "#### Heading 4
-" inline tokens 1`] = `
+exports[`Parser("#### Heading 4
+") .next() .tokens 1`] = `
 [
   InlineText {
     "content": "Heading 4",
@@ -297,10 +300,9 @@ exports[`Parser .next() when given "#### Heading 4
 ]
 `;
 
-exports[`Parser .next() when given "#### Heading 4
-" rendered token 1`] = `"[h4]Heading 4[/h4]"`;
+exports[`Parser("#### Heading 4") .next() .render() 1`] = `"[h4]Heading 4[/h4]"`;
 
-exports[`Parser .next() when given "#### Heading 4" inline tokens 1`] = `
+exports[`Parser("#### Heading 4") .next() .tokens 1`] = `
 [
   InlineText {
     "content": "Heading 4",
@@ -309,10 +311,11 @@ exports[`Parser .next() when given "#### Heading 4" inline tokens 1`] = `
 ]
 `;
 
-exports[`Parser .next() when given "#### Heading 4" rendered token 1`] = `"[h4]Heading 4[/h4]"`;
+exports[`Parser("##### Heading 5
+") .next() .render() 1`] = `"[h5]Heading 5[/h5]"`;
 
-exports[`Parser .next() when given "##### Heading 5
-" inline tokens 1`] = `
+exports[`Parser("##### Heading 5
+") .next() .tokens 1`] = `
 [
   InlineText {
     "content": "Heading 5",
@@ -321,10 +324,9 @@ exports[`Parser .next() when given "##### Heading 5
 ]
 `;
 
-exports[`Parser .next() when given "##### Heading 5
-" rendered token 1`] = `"[h5]Heading 5[/h5]"`;
+exports[`Parser("##### Heading 5") .next() .render() 1`] = `"[h5]Heading 5[/h5]"`;
 
-exports[`Parser .next() when given "##### Heading 5" inline tokens 1`] = `
+exports[`Parser("##### Heading 5") .next() .tokens 1`] = `
 [
   InlineText {
     "content": "Heading 5",
@@ -333,10 +335,11 @@ exports[`Parser .next() when given "##### Heading 5" inline tokens 1`] = `
 ]
 `;
 
-exports[`Parser .next() when given "##### Heading 5" rendered token 1`] = `"[h5]Heading 5[/h5]"`;
+exports[`Parser("###### Heading 6
+") .next() .render() 1`] = `"[h6]Heading 6[/h6]"`;
 
-exports[`Parser .next() when given "###### Heading 6
-" inline tokens 1`] = `
+exports[`Parser("###### Heading 6
+") .next() .tokens 1`] = `
 [
   InlineText {
     "content": "Heading 6",
@@ -345,10 +348,9 @@ exports[`Parser .next() when given "###### Heading 6
 ]
 `;
 
-exports[`Parser .next() when given "###### Heading 6
-" rendered token 1`] = `"[h6]Heading 6[/h6]"`;
+exports[`Parser("###### Heading 6") .next() .render() 1`] = `"[h6]Heading 6[/h6]"`;
 
-exports[`Parser .next() when given "###### Heading 6" inline tokens 1`] = `
+exports[`Parser("###### Heading 6") .next() .tokens 1`] = `
 [
   InlineText {
     "content": "Heading 6",
@@ -356,5 +358,3 @@ exports[`Parser .next() when given "###### Heading 6" inline tokens 1`] = `
   },
 ]
 `;
-
-exports[`Parser .next() when given "###### Heading 6" rendered token 1`] = `"[h6]Heading 6[/h6]"`;
