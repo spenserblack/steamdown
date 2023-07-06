@@ -23,6 +23,8 @@ describe.each([
   ["# Heading with **bold tail**", Heading],
   ["# **Heading with *nested italics***", Heading],
   ["# **Heading with *nested* italics**", Heading],
+  ["# *Heading with **nested bold***", Heading],
+  ["# *Heading with **nested** bold*", Heading],
 ])('Parser("%s")', (text, tokenType) => {
   describe(".next()", () => {
     const parser = new Parser(text);
