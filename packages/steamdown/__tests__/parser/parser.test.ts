@@ -42,3 +42,5 @@ describe.each([
     });
   });
 });
+
+// TODO Test unusual syntax like "*"
