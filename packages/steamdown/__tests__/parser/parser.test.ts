@@ -1,5 +1,5 @@
 import { describe, expect, test } from "@jest/globals";
-import Parser, { Heading } from "../../src/parser";
+import Parser, { Heading, Paragraph } from "../../src/parser";
 
 describe.each([
   ["# Heading 1", Heading],
@@ -18,13 +18,18 @@ describe.each([
   ["# _Italic heading_", Heading],
   ["# *Partially* italic heading", Heading],
   ["# *Italic heading* with *italic text*", Heading],
-  ["# Heading with *italic tail*", Heading],
-  ["# **Bold heading**", Heading],
-  ["# Heading with **bold tail**", Heading],
-  ["# **Heading with *nested italics***", Heading],
-  ["# **Heading with *nested* italics**", Heading],
-  ["# *Heading with **nested bold***", Heading],
-  ["# *Heading with **nested** bold*", Heading],
+  ["simple paragraph", Paragraph],
+  ["*Italic paragraph*", Paragraph],
+  ["_Italic paragraph_", Paragraph],
+  ["*Partially* italic paragraph", Paragraph],
+  ["*Italic paragraph* with *italic text*", Paragraph],
+  ["Paragraph with *italic tail*", Paragraph],
+  ["**Bold paragraph**", Paragraph],
+  ["Paragraph with **bold tail**", Paragraph],
+  ["**Paragraph with *nested italics***", Paragraph],
+  ["**Paragraph with *nested* italics**", Paragraph],
+  ["*Paragraph with **nested bold***", Paragraph],
+  ["*Paragraph with **nested** bold*", Paragraph],
 ])('Parser("%s")', (text, tokenType) => {
   describe(".next()", () => {
     const parser = new Parser(text);

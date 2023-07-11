@@ -1,172 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Parser("# **Bold heading**") .next() .render() 1`] = `"[h1][b]Bold heading[/b][/h1]"`;
-
-exports[`Parser("# **Bold heading**") .next() snapshot 1`] = `
-Heading {
-  "content": "**Bold heading**",
-  "level": 1,
-  "raw": "# **Bold heading**",
-  "tokens": [
-    Bold {
-      "content": "Bold heading",
-      "raw": "**Bold heading**",
-      "tag": "b",
-      "tokens": [
-        InlineText {
-          "content": "Bold heading",
-          "raw": "Bold heading",
-        },
-      ],
-    },
-  ],
-}
-`;
-
-exports[`Parser("# **Heading with *nested italics***") .next() .render() 1`] = `"[h1][b]Heading with [i]nested italics[/i][/b][/h1]"`;
-
-exports[`Parser("# **Heading with *nested italics***") .next() snapshot 1`] = `
-Heading {
-  "content": "**Heading with *nested italics***",
-  "level": 1,
-  "raw": "# **Heading with *nested italics***",
-  "tokens": [
-    Bold {
-      "content": "Heading with *nested italics*",
-      "raw": "**Heading with *nested italics***",
-      "tag": "b",
-      "tokens": [
-        InlineText {
-          "content": "Heading with ",
-          "raw": "Heading with ",
-        },
-        Italics {
-          "content": "nested italics",
-          "raw": "*nested italics*",
-          "tag": "i",
-          "tokens": [
-            InlineText {
-              "content": "nested italics",
-              "raw": "nested italics",
-            },
-          ],
-        },
-      ],
-    },
-  ],
-}
-`;
-
-exports[`Parser("# **Heading with *nested* italics**") .next() .render() 1`] = `"[h1][b]Heading with [i]nested[/i] italics[/b][/h1]"`;
-
-exports[`Parser("# **Heading with *nested* italics**") .next() snapshot 1`] = `
-Heading {
-  "content": "**Heading with *nested* italics**",
-  "level": 1,
-  "raw": "# **Heading with *nested* italics**",
-  "tokens": [
-    Bold {
-      "content": "Heading with *nested* italics",
-      "raw": "**Heading with *nested* italics**",
-      "tag": "b",
-      "tokens": [
-        InlineText {
-          "content": "Heading with ",
-          "raw": "Heading with ",
-        },
-        Italics {
-          "content": "nested",
-          "raw": "*nested*",
-          "tag": "i",
-          "tokens": [
-            InlineText {
-              "content": "nested",
-              "raw": "nested",
-            },
-          ],
-        },
-        InlineText {
-          "content": " italics",
-          "raw": " italics",
-        },
-      ],
-    },
-  ],
-}
-`;
-
-exports[`Parser("# *Heading with **nested bold***") .next() .render() 1`] = `"[h1][i]Heading with [b]nested bold[/b][/i][/h1]"`;
-
-exports[`Parser("# *Heading with **nested bold***") .next() snapshot 1`] = `
-Heading {
-  "content": "*Heading with **nested bold***",
-  "level": 1,
-  "raw": "# *Heading with **nested bold***",
-  "tokens": [
-    Italics {
-      "content": "Heading with **nested bold**",
-      "raw": "*Heading with **nested bold***",
-      "tag": "i",
-      "tokens": [
-        InlineText {
-          "content": "Heading with ",
-          "raw": "Heading with ",
-        },
-        Bold {
-          "content": "nested bold",
-          "raw": "**nested bold**",
-          "tag": "b",
-          "tokens": [
-            InlineText {
-              "content": "nested bold",
-              "raw": "nested bold",
-            },
-          ],
-        },
-      ],
-    },
-  ],
-}
-`;
-
-exports[`Parser("# *Heading with **nested** bold*") .next() .render() 1`] = `"[h1][i]Heading with [b]nested[/b] bold[/i][/h1]"`;
-
-exports[`Parser("# *Heading with **nested** bold*") .next() snapshot 1`] = `
-Heading {
-  "content": "*Heading with **nested** bold*",
-  "level": 1,
-  "raw": "# *Heading with **nested** bold*",
-  "tokens": [
-    Italics {
-      "content": "Heading with **nested** bold",
-      "raw": "*Heading with **nested** bold*",
-      "tag": "i",
-      "tokens": [
-        InlineText {
-          "content": "Heading with ",
-          "raw": "Heading with ",
-        },
-        Bold {
-          "content": "nested",
-          "raw": "**nested**",
-          "tag": "b",
-          "tokens": [
-            InlineText {
-              "content": "nested",
-              "raw": "nested",
-            },
-          ],
-        },
-        InlineText {
-          "content": " bold",
-          "raw": " bold",
-        },
-      ],
-    },
-  ],
-}
-`;
-
 exports[`Parser("# *Italic heading* with *italic text*") .next() .render() 1`] = `"[h1][i]Italic heading[/i] with [i]italic text[/i][/h1]"`;
 
 exports[`Parser("# *Italic heading* with *italic text*") .next() snapshot 1`] = `
@@ -308,60 +141,6 @@ Heading {
     InlineText {
       "content": "Heading 1",
       "raw": "Heading 1",
-    },
-  ],
-}
-`;
-
-exports[`Parser("# Heading with **bold tail**") .next() .render() 1`] = `"[h1]Heading with [b]bold tail[/b][/h1]"`;
-
-exports[`Parser("# Heading with **bold tail**") .next() snapshot 1`] = `
-Heading {
-  "content": "Heading with **bold tail**",
-  "level": 1,
-  "raw": "# Heading with **bold tail**",
-  "tokens": [
-    InlineText {
-      "content": "Heading with ",
-      "raw": "Heading with ",
-    },
-    Bold {
-      "content": "bold tail",
-      "raw": "**bold tail**",
-      "tag": "b",
-      "tokens": [
-        InlineText {
-          "content": "bold tail",
-          "raw": "bold tail",
-        },
-      ],
-    },
-  ],
-}
-`;
-
-exports[`Parser("# Heading with *italic tail*") .next() .render() 1`] = `"[h1]Heading with [i]italic tail[/i][/h1]"`;
-
-exports[`Parser("# Heading with *italic tail*") .next() snapshot 1`] = `
-Heading {
-  "content": "Heading with *italic tail*",
-  "level": 1,
-  "raw": "# Heading with *italic tail*",
-  "tokens": [
-    InlineText {
-      "content": "Heading with ",
-      "raw": "Heading with ",
-    },
-    Italics {
-      "content": "italic tail",
-      "raw": "*italic tail*",
-      "tag": "i",
-      "tokens": [
-        InlineText {
-          "content": "italic tail",
-          "raw": "italic tail",
-        },
-      ],
     },
   ],
 }
@@ -537,6 +316,390 @@ Heading {
     InlineText {
       "content": "Heading 6",
       "raw": "Heading 6",
+    },
+  ],
+}
+`;
+
+exports[`Parser("**Bold paragraph**") .next() .render() 1`] = `
+"[b]Bold paragraph[/b]
+
+"
+`;
+
+exports[`Parser("**Bold paragraph**") .next() snapshot 1`] = `
+Paragraph {
+  "content": "**Bold paragraph**",
+  "raw": "**Bold paragraph**",
+  "tokens": [
+    Bold {
+      "content": "Bold paragraph",
+      "raw": "**Bold paragraph**",
+      "tag": "b",
+      "tokens": [
+        InlineText {
+          "content": "Bold paragraph",
+          "raw": "Bold paragraph",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Parser("**Paragraph with *nested italics***") .next() .render() 1`] = `
+"[b]Paragraph with [i]nested italics[/i][/b]
+
+"
+`;
+
+exports[`Parser("**Paragraph with *nested italics***") .next() snapshot 1`] = `
+Paragraph {
+  "content": "**Paragraph with *nested italics***",
+  "raw": "**Paragraph with *nested italics***",
+  "tokens": [
+    Bold {
+      "content": "Paragraph with *nested italics*",
+      "raw": "**Paragraph with *nested italics***",
+      "tag": "b",
+      "tokens": [
+        InlineText {
+          "content": "Paragraph with ",
+          "raw": "Paragraph with ",
+        },
+        Italics {
+          "content": "nested italics",
+          "raw": "*nested italics*",
+          "tag": "i",
+          "tokens": [
+            InlineText {
+              "content": "nested italics",
+              "raw": "nested italics",
+            },
+          ],
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Parser("**Paragraph with *nested* italics**") .next() .render() 1`] = `
+"[b]Paragraph with [i]nested[/i] italics[/b]
+
+"
+`;
+
+exports[`Parser("**Paragraph with *nested* italics**") .next() snapshot 1`] = `
+Paragraph {
+  "content": "**Paragraph with *nested* italics**",
+  "raw": "**Paragraph with *nested* italics**",
+  "tokens": [
+    Bold {
+      "content": "Paragraph with *nested* italics",
+      "raw": "**Paragraph with *nested* italics**",
+      "tag": "b",
+      "tokens": [
+        InlineText {
+          "content": "Paragraph with ",
+          "raw": "Paragraph with ",
+        },
+        Italics {
+          "content": "nested",
+          "raw": "*nested*",
+          "tag": "i",
+          "tokens": [
+            InlineText {
+              "content": "nested",
+              "raw": "nested",
+            },
+          ],
+        },
+        InlineText {
+          "content": " italics",
+          "raw": " italics",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Parser("*Italic paragraph* with *italic text*") .next() .render() 1`] = `
+"[i]Italic paragraph[/i] with [i]italic text[/i]
+
+"
+`;
+
+exports[`Parser("*Italic paragraph* with *italic text*") .next() snapshot 1`] = `
+Paragraph {
+  "content": "*Italic paragraph* with *italic text*",
+  "raw": "*Italic paragraph* with *italic text*",
+  "tokens": [
+    Italics {
+      "content": "Italic paragraph",
+      "raw": "*Italic paragraph*",
+      "tag": "i",
+      "tokens": [
+        InlineText {
+          "content": "Italic paragraph",
+          "raw": "Italic paragraph",
+        },
+      ],
+    },
+    InlineText {
+      "content": " with ",
+      "raw": " with ",
+    },
+    Italics {
+      "content": "italic text",
+      "raw": "*italic text*",
+      "tag": "i",
+      "tokens": [
+        InlineText {
+          "content": "italic text",
+          "raw": "italic text",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Parser("*Italic paragraph*") .next() .render() 1`] = `
+"[i]Italic paragraph[/i]
+
+"
+`;
+
+exports[`Parser("*Italic paragraph*") .next() snapshot 1`] = `
+Paragraph {
+  "content": "*Italic paragraph*",
+  "raw": "*Italic paragraph*",
+  "tokens": [
+    Italics {
+      "content": "Italic paragraph",
+      "raw": "*Italic paragraph*",
+      "tag": "i",
+      "tokens": [
+        InlineText {
+          "content": "Italic paragraph",
+          "raw": "Italic paragraph",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Parser("*Paragraph with **nested bold***") .next() .render() 1`] = `
+"[i]Paragraph with [b]nested bold[/b][/i]
+
+"
+`;
+
+exports[`Parser("*Paragraph with **nested bold***") .next() snapshot 1`] = `
+Paragraph {
+  "content": "*Paragraph with **nested bold***",
+  "raw": "*Paragraph with **nested bold***",
+  "tokens": [
+    Italics {
+      "content": "Paragraph with **nested bold**",
+      "raw": "*Paragraph with **nested bold***",
+      "tag": "i",
+      "tokens": [
+        InlineText {
+          "content": "Paragraph with ",
+          "raw": "Paragraph with ",
+        },
+        Bold {
+          "content": "nested bold",
+          "raw": "**nested bold**",
+          "tag": "b",
+          "tokens": [
+            InlineText {
+              "content": "nested bold",
+              "raw": "nested bold",
+            },
+          ],
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Parser("*Paragraph with **nested** bold*") .next() .render() 1`] = `
+"[i]Paragraph with [b]nested[/b] bold[/i]
+
+"
+`;
+
+exports[`Parser("*Paragraph with **nested** bold*") .next() snapshot 1`] = `
+Paragraph {
+  "content": "*Paragraph with **nested** bold*",
+  "raw": "*Paragraph with **nested** bold*",
+  "tokens": [
+    Italics {
+      "content": "Paragraph with **nested** bold",
+      "raw": "*Paragraph with **nested** bold*",
+      "tag": "i",
+      "tokens": [
+        InlineText {
+          "content": "Paragraph with ",
+          "raw": "Paragraph with ",
+        },
+        Bold {
+          "content": "nested",
+          "raw": "**nested**",
+          "tag": "b",
+          "tokens": [
+            InlineText {
+              "content": "nested",
+              "raw": "nested",
+            },
+          ],
+        },
+        InlineText {
+          "content": " bold",
+          "raw": " bold",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Parser("*Partially* italic paragraph") .next() .render() 1`] = `
+"[i]Partially[/i] italic paragraph
+
+"
+`;
+
+exports[`Parser("*Partially* italic paragraph") .next() snapshot 1`] = `
+Paragraph {
+  "content": "*Partially* italic paragraph",
+  "raw": "*Partially* italic paragraph",
+  "tokens": [
+    Italics {
+      "content": "Partially",
+      "raw": "*Partially*",
+      "tag": "i",
+      "tokens": [
+        InlineText {
+          "content": "Partially",
+          "raw": "Partially",
+        },
+      ],
+    },
+    InlineText {
+      "content": " italic paragraph",
+      "raw": " italic paragraph",
+    },
+  ],
+}
+`;
+
+exports[`Parser("_Italic paragraph_") .next() .render() 1`] = `
+"[i]Italic paragraph[/i]
+
+"
+`;
+
+exports[`Parser("_Italic paragraph_") .next() snapshot 1`] = `
+Paragraph {
+  "content": "_Italic paragraph_",
+  "raw": "_Italic paragraph_",
+  "tokens": [
+    Italics {
+      "content": "Italic paragraph",
+      "raw": "_Italic paragraph_",
+      "tag": "i",
+      "tokens": [
+        InlineText {
+          "content": "Italic paragraph",
+          "raw": "Italic paragraph",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Parser("Paragraph with **bold tail**") .next() .render() 1`] = `
+"Paragraph with [b]bold tail[/b]
+
+"
+`;
+
+exports[`Parser("Paragraph with **bold tail**") .next() snapshot 1`] = `
+Paragraph {
+  "content": "Paragraph with **bold tail**",
+  "raw": "Paragraph with **bold tail**",
+  "tokens": [
+    InlineText {
+      "content": "Paragraph with ",
+      "raw": "Paragraph with ",
+    },
+    Bold {
+      "content": "bold tail",
+      "raw": "**bold tail**",
+      "tag": "b",
+      "tokens": [
+        InlineText {
+          "content": "bold tail",
+          "raw": "bold tail",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Parser("Paragraph with *italic tail*") .next() .render() 1`] = `
+"Paragraph with [i]italic tail[/i]
+
+"
+`;
+
+exports[`Parser("Paragraph with *italic tail*") .next() snapshot 1`] = `
+Paragraph {
+  "content": "Paragraph with *italic tail*",
+  "raw": "Paragraph with *italic tail*",
+  "tokens": [
+    InlineText {
+      "content": "Paragraph with ",
+      "raw": "Paragraph with ",
+    },
+    Italics {
+      "content": "italic tail",
+      "raw": "*italic tail*",
+      "tag": "i",
+      "tokens": [
+        InlineText {
+          "content": "italic tail",
+          "raw": "italic tail",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Parser("simple paragraph") .next() .render() 1`] = `
+"simple paragraph
+
+"
+`;
+
+exports[`Parser("simple paragraph") .next() snapshot 1`] = `
+Paragraph {
+  "content": "simple paragraph",
+  "raw": "simple paragraph",
+  "tokens": [
+    InlineText {
+      "content": "simple paragraph",
+      "raw": "simple paragraph",
     },
   ],
 }
