@@ -33,8 +33,8 @@ describe.each([
       expect(token).toBeInstanceOf(tokenType);
     });
 
-    test(".tokens", () => {
-      expect(token.tokens).toMatchSnapshot();
+    test("snapshot", () => {
+      expect(token).toMatchSnapshot();
     });
 
     test(".render()", () => {

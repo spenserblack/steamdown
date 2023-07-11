@@ -2,421 +2,542 @@
 
 exports[`Parser("# **Bold heading**") .next() .render() 1`] = `"[h1][b]Bold heading[/b][/h1]"`;
 
-exports[`Parser("# **Bold heading**") .next() .tokens 1`] = `
-[
-  Bold {
-    "content": "Bold heading",
-    "raw": "**Bold heading**",
-    "tag": "b",
-    "tokens": [
-      InlineText {
-        "content": "Bold heading",
-        "raw": "Bold heading",
-      },
-    ],
-  },
-]
+exports[`Parser("# **Bold heading**") .next() snapshot 1`] = `
+Heading {
+  "content": "**Bold heading**",
+  "level": 1,
+  "raw": "# **Bold heading**",
+  "tokens": [
+    Bold {
+      "content": "Bold heading",
+      "raw": "**Bold heading**",
+      "tag": "b",
+      "tokens": [
+        InlineText {
+          "content": "Bold heading",
+          "raw": "Bold heading",
+        },
+      ],
+    },
+  ],
+}
 `;
 
 exports[`Parser("# **Heading with *nested italics***") .next() .render() 1`] = `"[h1][b]Heading with [i]nested italics[/i][/b][/h1]"`;
 
-exports[`Parser("# **Heading with *nested italics***") .next() .tokens 1`] = `
-[
-  Bold {
-    "content": "Heading with *nested italics*",
-    "raw": "**Heading with *nested italics***",
-    "tag": "b",
-    "tokens": [
-      InlineText {
-        "content": "Heading with ",
-        "raw": "Heading with ",
-      },
-      Italics {
-        "content": "nested italics",
-        "raw": "*nested italics*",
-        "tag": "i",
-        "tokens": [
-          InlineText {
-            "content": "nested italics",
-            "raw": "nested italics",
-          },
-        ],
-      },
-    ],
-  },
-]
+exports[`Parser("# **Heading with *nested italics***") .next() snapshot 1`] = `
+Heading {
+  "content": "**Heading with *nested italics***",
+  "level": 1,
+  "raw": "# **Heading with *nested italics***",
+  "tokens": [
+    Bold {
+      "content": "Heading with *nested italics*",
+      "raw": "**Heading with *nested italics***",
+      "tag": "b",
+      "tokens": [
+        InlineText {
+          "content": "Heading with ",
+          "raw": "Heading with ",
+        },
+        Italics {
+          "content": "nested italics",
+          "raw": "*nested italics*",
+          "tag": "i",
+          "tokens": [
+            InlineText {
+              "content": "nested italics",
+              "raw": "nested italics",
+            },
+          ],
+        },
+      ],
+    },
+  ],
+}
 `;
 
 exports[`Parser("# **Heading with *nested* italics**") .next() .render() 1`] = `"[h1][b]Heading with [i]nested[/i] italics[/b][/h1]"`;
 
-exports[`Parser("# **Heading with *nested* italics**") .next() .tokens 1`] = `
-[
-  Bold {
-    "content": "Heading with *nested* italics",
-    "raw": "**Heading with *nested* italics**",
-    "tag": "b",
-    "tokens": [
-      InlineText {
-        "content": "Heading with ",
-        "raw": "Heading with ",
-      },
-      Italics {
-        "content": "nested",
-        "raw": "*nested*",
-        "tag": "i",
-        "tokens": [
-          InlineText {
-            "content": "nested",
-            "raw": "nested",
-          },
-        ],
-      },
-      InlineText {
-        "content": " italics",
-        "raw": " italics",
-      },
-    ],
-  },
-]
+exports[`Parser("# **Heading with *nested* italics**") .next() snapshot 1`] = `
+Heading {
+  "content": "**Heading with *nested* italics**",
+  "level": 1,
+  "raw": "# **Heading with *nested* italics**",
+  "tokens": [
+    Bold {
+      "content": "Heading with *nested* italics",
+      "raw": "**Heading with *nested* italics**",
+      "tag": "b",
+      "tokens": [
+        InlineText {
+          "content": "Heading with ",
+          "raw": "Heading with ",
+        },
+        Italics {
+          "content": "nested",
+          "raw": "*nested*",
+          "tag": "i",
+          "tokens": [
+            InlineText {
+              "content": "nested",
+              "raw": "nested",
+            },
+          ],
+        },
+        InlineText {
+          "content": " italics",
+          "raw": " italics",
+        },
+      ],
+    },
+  ],
+}
 `;
 
 exports[`Parser("# *Heading with **nested bold***") .next() .render() 1`] = `"[h1][i]Heading with [b]nested bold[/b][/i][/h1]"`;
 
-exports[`Parser("# *Heading with **nested bold***") .next() .tokens 1`] = `
-[
-  Italics {
-    "content": "Heading with **nested bold**",
-    "raw": "*Heading with **nested bold***",
-    "tag": "i",
-    "tokens": [
-      InlineText {
-        "content": "Heading with ",
-        "raw": "Heading with ",
-      },
-      Bold {
-        "content": "nested bold",
-        "raw": "**nested bold**",
-        "tag": "b",
-        "tokens": [
-          InlineText {
-            "content": "nested bold",
-            "raw": "nested bold",
-          },
-        ],
-      },
-    ],
-  },
-]
+exports[`Parser("# *Heading with **nested bold***") .next() snapshot 1`] = `
+Heading {
+  "content": "*Heading with **nested bold***",
+  "level": 1,
+  "raw": "# *Heading with **nested bold***",
+  "tokens": [
+    Italics {
+      "content": "Heading with **nested bold**",
+      "raw": "*Heading with **nested bold***",
+      "tag": "i",
+      "tokens": [
+        InlineText {
+          "content": "Heading with ",
+          "raw": "Heading with ",
+        },
+        Bold {
+          "content": "nested bold",
+          "raw": "**nested bold**",
+          "tag": "b",
+          "tokens": [
+            InlineText {
+              "content": "nested bold",
+              "raw": "nested bold",
+            },
+          ],
+        },
+      ],
+    },
+  ],
+}
 `;
 
 exports[`Parser("# *Heading with **nested** bold*") .next() .render() 1`] = `"[h1][i]Heading with [b]nested[/b] bold[/i][/h1]"`;
 
-exports[`Parser("# *Heading with **nested** bold*") .next() .tokens 1`] = `
-[
-  Italics {
-    "content": "Heading with **nested** bold",
-    "raw": "*Heading with **nested** bold*",
-    "tag": "i",
-    "tokens": [
-      InlineText {
-        "content": "Heading with ",
-        "raw": "Heading with ",
-      },
-      Bold {
-        "content": "nested",
-        "raw": "**nested**",
-        "tag": "b",
-        "tokens": [
-          InlineText {
-            "content": "nested",
-            "raw": "nested",
-          },
-        ],
-      },
-      InlineText {
-        "content": " bold",
-        "raw": " bold",
-      },
-    ],
-  },
-]
+exports[`Parser("# *Heading with **nested** bold*") .next() snapshot 1`] = `
+Heading {
+  "content": "*Heading with **nested** bold*",
+  "level": 1,
+  "raw": "# *Heading with **nested** bold*",
+  "tokens": [
+    Italics {
+      "content": "Heading with **nested** bold",
+      "raw": "*Heading with **nested** bold*",
+      "tag": "i",
+      "tokens": [
+        InlineText {
+          "content": "Heading with ",
+          "raw": "Heading with ",
+        },
+        Bold {
+          "content": "nested",
+          "raw": "**nested**",
+          "tag": "b",
+          "tokens": [
+            InlineText {
+              "content": "nested",
+              "raw": "nested",
+            },
+          ],
+        },
+        InlineText {
+          "content": " bold",
+          "raw": " bold",
+        },
+      ],
+    },
+  ],
+}
 `;
 
 exports[`Parser("# *Italic heading* with *italic text*") .next() .render() 1`] = `"[h1][i]Italic heading[/i] with [i]italic text[/i][/h1]"`;
 
-exports[`Parser("# *Italic heading* with *italic text*") .next() .tokens 1`] = `
-[
-  Italics {
-    "content": "Italic heading",
-    "raw": "*Italic heading*",
-    "tag": "i",
-    "tokens": [
-      InlineText {
-        "content": "Italic heading",
-        "raw": "Italic heading",
-      },
-    ],
-  },
-  InlineText {
-    "content": " with ",
-    "raw": " with ",
-  },
-  Italics {
-    "content": "italic text",
-    "raw": "*italic text*",
-    "tag": "i",
-    "tokens": [
-      InlineText {
-        "content": "italic text",
-        "raw": "italic text",
-      },
-    ],
-  },
-]
+exports[`Parser("# *Italic heading* with *italic text*") .next() snapshot 1`] = `
+Heading {
+  "content": "*Italic heading* with *italic text*",
+  "level": 1,
+  "raw": "# *Italic heading* with *italic text*",
+  "tokens": [
+    Italics {
+      "content": "Italic heading",
+      "raw": "*Italic heading*",
+      "tag": "i",
+      "tokens": [
+        InlineText {
+          "content": "Italic heading",
+          "raw": "Italic heading",
+        },
+      ],
+    },
+    InlineText {
+      "content": " with ",
+      "raw": " with ",
+    },
+    Italics {
+      "content": "italic text",
+      "raw": "*italic text*",
+      "tag": "i",
+      "tokens": [
+        InlineText {
+          "content": "italic text",
+          "raw": "italic text",
+        },
+      ],
+    },
+  ],
+}
 `;
 
 exports[`Parser("# *Italic heading*") .next() .render() 1`] = `"[h1][i]Italic heading[/i][/h1]"`;
 
-exports[`Parser("# *Italic heading*") .next() .tokens 1`] = `
-[
-  Italics {
-    "content": "Italic heading",
-    "raw": "*Italic heading*",
-    "tag": "i",
-    "tokens": [
-      InlineText {
-        "content": "Italic heading",
-        "raw": "Italic heading",
-      },
-    ],
-  },
-]
+exports[`Parser("# *Italic heading*") .next() snapshot 1`] = `
+Heading {
+  "content": "*Italic heading*",
+  "level": 1,
+  "raw": "# *Italic heading*",
+  "tokens": [
+    Italics {
+      "content": "Italic heading",
+      "raw": "*Italic heading*",
+      "tag": "i",
+      "tokens": [
+        InlineText {
+          "content": "Italic heading",
+          "raw": "Italic heading",
+        },
+      ],
+    },
+  ],
+}
 `;
 
 exports[`Parser("# *Partially* italic heading") .next() .render() 1`] = `"[h1][i]Partially[/i] italic heading[/h1]"`;
 
-exports[`Parser("# *Partially* italic heading") .next() .tokens 1`] = `
-[
-  Italics {
-    "content": "Partially",
-    "raw": "*Partially*",
-    "tag": "i",
-    "tokens": [
-      InlineText {
-        "content": "Partially",
-        "raw": "Partially",
-      },
-    ],
-  },
-  InlineText {
-    "content": " italic heading",
-    "raw": " italic heading",
-  },
-]
+exports[`Parser("# *Partially* italic heading") .next() snapshot 1`] = `
+Heading {
+  "content": "*Partially* italic heading",
+  "level": 1,
+  "raw": "# *Partially* italic heading",
+  "tokens": [
+    Italics {
+      "content": "Partially",
+      "raw": "*Partially*",
+      "tag": "i",
+      "tokens": [
+        InlineText {
+          "content": "Partially",
+          "raw": "Partially",
+        },
+      ],
+    },
+    InlineText {
+      "content": " italic heading",
+      "raw": " italic heading",
+    },
+  ],
+}
 `;
 
 exports[`Parser("# _Italic heading_") .next() .render() 1`] = `"[h1][i]Italic heading[/i][/h1]"`;
 
-exports[`Parser("# _Italic heading_") .next() .tokens 1`] = `
-[
-  Italics {
-    "content": "Italic heading",
-    "raw": "_Italic heading_",
-    "tag": "i",
-    "tokens": [
-      InlineText {
-        "content": "Italic heading",
-        "raw": "Italic heading",
-      },
-    ],
-  },
-]
+exports[`Parser("# _Italic heading_") .next() snapshot 1`] = `
+Heading {
+  "content": "_Italic heading_",
+  "level": 1,
+  "raw": "# _Italic heading_",
+  "tokens": [
+    Italics {
+      "content": "Italic heading",
+      "raw": "_Italic heading_",
+      "tag": "i",
+      "tokens": [
+        InlineText {
+          "content": "Italic heading",
+          "raw": "Italic heading",
+        },
+      ],
+    },
+  ],
+}
 `;
 
 exports[`Parser("# Heading 1
 ") .next() .render() 1`] = `"[h1]Heading 1[/h1]"`;
 
 exports[`Parser("# Heading 1
-") .next() .tokens 1`] = `
-[
-  InlineText {
-    "content": "Heading 1",
-    "raw": "Heading 1",
-  },
-]
+") .next() snapshot 1`] = `
+Heading {
+  "content": "Heading 1",
+  "level": 1,
+  "raw": "# Heading 1
+",
+  "tokens": [
+    InlineText {
+      "content": "Heading 1",
+      "raw": "Heading 1",
+    },
+  ],
+}
 `;
 
 exports[`Parser("# Heading 1") .next() .render() 1`] = `"[h1]Heading 1[/h1]"`;
 
-exports[`Parser("# Heading 1") .next() .tokens 1`] = `
-[
-  InlineText {
-    "content": "Heading 1",
-    "raw": "Heading 1",
-  },
-]
+exports[`Parser("# Heading 1") .next() snapshot 1`] = `
+Heading {
+  "content": "Heading 1",
+  "level": 1,
+  "raw": "# Heading 1",
+  "tokens": [
+    InlineText {
+      "content": "Heading 1",
+      "raw": "Heading 1",
+    },
+  ],
+}
 `;
 
 exports[`Parser("# Heading with **bold tail**") .next() .render() 1`] = `"[h1]Heading with [b]bold tail[/b][/h1]"`;
 
-exports[`Parser("# Heading with **bold tail**") .next() .tokens 1`] = `
-[
-  InlineText {
-    "content": "Heading with ",
-    "raw": "Heading with ",
-  },
-  Bold {
-    "content": "bold tail",
-    "raw": "**bold tail**",
-    "tag": "b",
-    "tokens": [
-      InlineText {
-        "content": "bold tail",
-        "raw": "bold tail",
-      },
-    ],
-  },
-]
+exports[`Parser("# Heading with **bold tail**") .next() snapshot 1`] = `
+Heading {
+  "content": "Heading with **bold tail**",
+  "level": 1,
+  "raw": "# Heading with **bold tail**",
+  "tokens": [
+    InlineText {
+      "content": "Heading with ",
+      "raw": "Heading with ",
+    },
+    Bold {
+      "content": "bold tail",
+      "raw": "**bold tail**",
+      "tag": "b",
+      "tokens": [
+        InlineText {
+          "content": "bold tail",
+          "raw": "bold tail",
+        },
+      ],
+    },
+  ],
+}
 `;
 
 exports[`Parser("# Heading with *italic tail*") .next() .render() 1`] = `"[h1]Heading with [i]italic tail[/i][/h1]"`;
 
-exports[`Parser("# Heading with *italic tail*") .next() .tokens 1`] = `
-[
-  InlineText {
-    "content": "Heading with ",
-    "raw": "Heading with ",
-  },
-  Italics {
-    "content": "italic tail",
-    "raw": "*italic tail*",
-    "tag": "i",
-    "tokens": [
-      InlineText {
-        "content": "italic tail",
-        "raw": "italic tail",
-      },
-    ],
-  },
-]
+exports[`Parser("# Heading with *italic tail*") .next() snapshot 1`] = `
+Heading {
+  "content": "Heading with *italic tail*",
+  "level": 1,
+  "raw": "# Heading with *italic tail*",
+  "tokens": [
+    InlineText {
+      "content": "Heading with ",
+      "raw": "Heading with ",
+    },
+    Italics {
+      "content": "italic tail",
+      "raw": "*italic tail*",
+      "tag": "i",
+      "tokens": [
+        InlineText {
+          "content": "italic tail",
+          "raw": "italic tail",
+        },
+      ],
+    },
+  ],
+}
 `;
 
 exports[`Parser("## Heading 2
 ") .next() .render() 1`] = `"[h2]Heading 2[/h2]"`;
 
 exports[`Parser("## Heading 2
-") .next() .tokens 1`] = `
-[
-  InlineText {
-    "content": "Heading 2",
-    "raw": "Heading 2",
-  },
-]
+") .next() snapshot 1`] = `
+Heading {
+  "content": "Heading 2",
+  "level": 2,
+  "raw": "## Heading 2
+",
+  "tokens": [
+    InlineText {
+      "content": "Heading 2",
+      "raw": "Heading 2",
+    },
+  ],
+}
 `;
 
 exports[`Parser("## Heading 2") .next() .render() 1`] = `"[h2]Heading 2[/h2]"`;
 
-exports[`Parser("## Heading 2") .next() .tokens 1`] = `
-[
-  InlineText {
-    "content": "Heading 2",
-    "raw": "Heading 2",
-  },
-]
+exports[`Parser("## Heading 2") .next() snapshot 1`] = `
+Heading {
+  "content": "Heading 2",
+  "level": 2,
+  "raw": "## Heading 2",
+  "tokens": [
+    InlineText {
+      "content": "Heading 2",
+      "raw": "Heading 2",
+    },
+  ],
+}
 `;
 
 exports[`Parser("### Heading 3
 ") .next() .render() 1`] = `"[h3]Heading 3[/h3]"`;
 
 exports[`Parser("### Heading 3
-") .next() .tokens 1`] = `
-[
-  InlineText {
-    "content": "Heading 3",
-    "raw": "Heading 3",
-  },
-]
+") .next() snapshot 1`] = `
+Heading {
+  "content": "Heading 3",
+  "level": 3,
+  "raw": "### Heading 3
+",
+  "tokens": [
+    InlineText {
+      "content": "Heading 3",
+      "raw": "Heading 3",
+    },
+  ],
+}
 `;
 
 exports[`Parser("### Heading 3") .next() .render() 1`] = `"[h3]Heading 3[/h3]"`;
 
-exports[`Parser("### Heading 3") .next() .tokens 1`] = `
-[
-  InlineText {
-    "content": "Heading 3",
-    "raw": "Heading 3",
-  },
-]
+exports[`Parser("### Heading 3") .next() snapshot 1`] = `
+Heading {
+  "content": "Heading 3",
+  "level": 3,
+  "raw": "### Heading 3",
+  "tokens": [
+    InlineText {
+      "content": "Heading 3",
+      "raw": "Heading 3",
+    },
+  ],
+}
 `;
 
 exports[`Parser("#### Heading 4
 ") .next() .render() 1`] = `"[h4]Heading 4[/h4]"`;
 
 exports[`Parser("#### Heading 4
-") .next() .tokens 1`] = `
-[
-  InlineText {
-    "content": "Heading 4",
-    "raw": "Heading 4",
-  },
-]
+") .next() snapshot 1`] = `
+Heading {
+  "content": "Heading 4",
+  "level": 4,
+  "raw": "#### Heading 4
+",
+  "tokens": [
+    InlineText {
+      "content": "Heading 4",
+      "raw": "Heading 4",
+    },
+  ],
+}
 `;
 
 exports[`Parser("#### Heading 4") .next() .render() 1`] = `"[h4]Heading 4[/h4]"`;
 
-exports[`Parser("#### Heading 4") .next() .tokens 1`] = `
-[
-  InlineText {
-    "content": "Heading 4",
-    "raw": "Heading 4",
-  },
-]
+exports[`Parser("#### Heading 4") .next() snapshot 1`] = `
+Heading {
+  "content": "Heading 4",
+  "level": 4,
+  "raw": "#### Heading 4",
+  "tokens": [
+    InlineText {
+      "content": "Heading 4",
+      "raw": "Heading 4",
+    },
+  ],
+}
 `;
 
 exports[`Parser("##### Heading 5
 ") .next() .render() 1`] = `"[h5]Heading 5[/h5]"`;
 
 exports[`Parser("##### Heading 5
-") .next() .tokens 1`] = `
-[
-  InlineText {
-    "content": "Heading 5",
-    "raw": "Heading 5",
-  },
-]
+") .next() snapshot 1`] = `
+Heading {
+  "content": "Heading 5",
+  "level": 5,
+  "raw": "##### Heading 5
+",
+  "tokens": [
+    InlineText {
+      "content": "Heading 5",
+      "raw": "Heading 5",
+    },
+  ],
+}
 `;
 
 exports[`Parser("##### Heading 5") .next() .render() 1`] = `"[h5]Heading 5[/h5]"`;
 
-exports[`Parser("##### Heading 5") .next() .tokens 1`] = `
-[
-  InlineText {
-    "content": "Heading 5",
-    "raw": "Heading 5",
-  },
-]
+exports[`Parser("##### Heading 5") .next() snapshot 1`] = `
+Heading {
+  "content": "Heading 5",
+  "level": 5,
+  "raw": "##### Heading 5",
+  "tokens": [
+    InlineText {
+      "content": "Heading 5",
+      "raw": "Heading 5",
+    },
+  ],
+}
 `;
 
 exports[`Parser("###### Heading 6
 ") .next() .render() 1`] = `"[h6]Heading 6[/h6]"`;
 
 exports[`Parser("###### Heading 6
-") .next() .tokens 1`] = `
-[
-  InlineText {
-    "content": "Heading 6",
-    "raw": "Heading 6",
-  },
-]
+") .next() snapshot 1`] = `
+Heading {
+  "content": "Heading 6",
+  "level": 6,
+  "raw": "###### Heading 6
+",
+  "tokens": [
+    InlineText {
+      "content": "Heading 6",
+      "raw": "Heading 6",
+    },
+  ],
+}
 `;
 
 exports[`Parser("###### Heading 6") .next() .render() 1`] = `"[h6]Heading 6[/h6]"`;
 
-exports[`Parser("###### Heading 6") .next() .tokens 1`] = `
-[
-  InlineText {
-    "content": "Heading 6",
-    "raw": "Heading 6",
-  },
-]
+exports[`Parser("###### Heading 6") .next() snapshot 1`] = `
+Heading {
+  "content": "Heading 6",
+  "level": 6,
+  "raw": "###### Heading 6",
+  "tokens": [
+    InlineText {
+      "content": "Heading 6",
+      "raw": "Heading 6",
+    },
+  ],
+}
 `;
