@@ -80,6 +80,68 @@ exports[`Parser("# **Heading with *nested* italics**") .next() .tokens 1`] = `
 ]
 `;
 
+exports[`Parser("# *Heading with **nested bold***") .next() .render() 1`] = `"[h1][i]Heading with [b]nested bold[/b][/i][/h1]"`;
+
+exports[`Parser("# *Heading with **nested bold***") .next() .tokens 1`] = `
+[
+  Italics {
+    "content": "Heading with **nested bold**",
+    "raw": "*Heading with **nested bold***",
+    "tag": "i",
+    "tokens": [
+      InlineText {
+        "content": "Heading with ",
+        "raw": "Heading with ",
+      },
+      Bold {
+        "content": "nested bold",
+        "raw": "**nested bold**",
+        "tag": "b",
+        "tokens": [
+          InlineText {
+            "content": "nested bold",
+            "raw": "nested bold",
+          },
+        ],
+      },
+    ],
+  },
+]
+`;
+
+exports[`Parser("# *Heading with **nested** bold*") .next() .render() 1`] = `"[h1][i]Heading with [b]nested[/b] bold[/i][/h1]"`;
+
+exports[`Parser("# *Heading with **nested** bold*") .next() .tokens 1`] = `
+[
+  Italics {
+    "content": "Heading with **nested** bold",
+    "raw": "*Heading with **nested** bold*",
+    "tag": "i",
+    "tokens": [
+      InlineText {
+        "content": "Heading with ",
+        "raw": "Heading with ",
+      },
+      Bold {
+        "content": "nested",
+        "raw": "**nested**",
+        "tag": "b",
+        "tokens": [
+          InlineText {
+            "content": "nested",
+            "raw": "nested",
+          },
+        ],
+      },
+      InlineText {
+        "content": " bold",
+        "raw": " bold",
+      },
+    ],
+  },
+]
+`;
+
 exports[`Parser("# *Italic heading* with *italic text*") .next() .render() 1`] = `"[h1][i]Italic heading[/i] with [i]italic text[/i][/h1]"`;
 
 exports[`Parser("# *Italic heading* with *italic text*") .next() .tokens 1`] = `

@@ -3,7 +3,7 @@ import InlineToken from "./inline-token";
 import ParseError from "./parse-error";
 
 export default class Italics extends InlineContainerToken {
-  public static rule = /(\*|_)((?!\s)(?:.(?!\n)|\n(?!\n))+?)(?<!\s)\1/;
+  public static rule = /(\*|_)((?!\s)(?:.(?!\n)|\n(?!\n))+?)(?:(?<!\s|\1)|(?<=\1\1))\1(?!\1)/;
   public readonly tag = "i";
 
   private constructor(
