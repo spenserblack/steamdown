@@ -52,7 +52,8 @@ const textareaStyle = computed(() => ({
               I need help debugging the next version! Visit
               <a href="//steamdown-next.vercel.app">steamdown-next</a> and
               <a href="//github.com/spenserblack/steamdown/issues/new">
-                let me know if you find any issues</a>.
+                let me know if you find any issues</a
+              >.
             </p>
           </i-column>
         </i-row>
