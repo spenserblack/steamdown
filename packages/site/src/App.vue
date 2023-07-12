@@ -46,6 +46,16 @@ const textareaStyle = computed(() => ({
         <i-row>
           <i-column><h1>Steamdown</h1></i-column>
         </i-row>
+        <i-row>
+          <i-column>
+            <p>
+              I need help debugging the next version! Visit
+              <a href="//steamdown-next.vercel.app">steamdown-next</a> and
+              <a href="//github.com/spenserblack/steamdown/issues/new">
+                let me know if you find any issues</a>.
+            </p>
+          </i-column>
+        </i-row>
       </i-container>
     </i-layout-header>
     <i-layout-content>
