@@ -13,6 +13,9 @@ Converts Markdown to [Steam's markup][format].
 
 Go to http://steamdown.vercel.app/
 
+Want to help me test out the next version? Go to http://steamdown-next.vercel.app/ and
+let me know if you have found any issues!
+
 ### Library
 
 ```typescript
