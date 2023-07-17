@@ -2,8 +2,8 @@
   "name": "steamdown",
   "version": "0.2.1",
   "description": "Convert Markdown to Steam's markup",
+  "type": "module",
   "main": "dist/index.js",
-  "module": "dist/esm/index.js",
   "bin": {
     "steamdown": "bin/steamdown.js",
     "stmd": "bin/steamdown.js"
@@ -14,9 +14,7 @@
     "bin"
   ],
   "scripts": {
-    "build": "yarn build:base && yarn build:esm",
-    "build:base": "tsc",
-    "build:esm": "tsc -p tsconfig.esm.json",
+    "build": "tsc",
     "test": "jest",
     "prepublishOnly": "yarn build"
   },
@@ -36,6 +34,9 @@
     "url": "https://github.com/spenserblack/steamdown/issues"
   },
   "homepage": "https://github.com/spenserblack/steamdown#readme",
+  "dependencies": {
+    "mdast-util-from-markdown": "^2.0.0"
+  },
   "devDependencies": {
     "@jest/globals": "^29.5.0",
     "@tsconfig/esm": "^1.0.2",
