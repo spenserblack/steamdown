@@ -1,12 +1,9 @@
-import extensions from "./extensions";
-import { marked } from "marked";
-import renderer from "./renderer";
+import { tokenize } from "./tokenize";
+import { render } from "./render";
 
-marked.setOptions({ breaks: true });
-marked.use({ renderer, extensions });
 /**
  * Renders the given Markdown string to Steam's text format.
  */
 export default function parse(input: string): string {
-  return marked.parse(input).replace(/\n+$/, "");
+  return render(tokenize(input));
 }
