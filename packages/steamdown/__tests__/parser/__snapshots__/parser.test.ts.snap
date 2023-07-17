@@ -600,6 +600,109 @@ Paragraph {
 }
 `;
 
+exports[`Parser("__***all*** the things__") .next() .render() 1`] = `
+"[u][b][i]all[/i][/b] the things[/u]
+
+"
+`;
+
+exports[`Parser("__***all*** the things__") .next() snapshot 1`] = `
+Paragraph {
+  "content": "__***all*** the things__",
+  "raw": "__***all*** the things__",
+  "tokens": [
+    Underline {
+      "content": "***all*** the things",
+      "raw": "__***all*** the things__",
+      "tag": "u",
+      "tokens": [
+        Bold {
+          "content": "*all*",
+          "raw": "***all***",
+          "tag": "b",
+          "tokens": [
+            Italics {
+              "content": "all",
+              "raw": "*all*",
+              "tag": "i",
+              "tokens": [
+                InlineText {
+                  "content": "all",
+                  "raw": "all",
+                },
+              ],
+            },
+          ],
+        },
+        InlineText {
+          "content": " the things",
+          "raw": " the things",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Parser("___Underline with italics___") .next() .render() 1`] = `
+"[u][i]Underline with italics[/i][/u]
+
+"
+`;
+
+exports[`Parser("___Underline with italics___") .next() snapshot 1`] = `
+Paragraph {
+  "content": "___Underline with italics___",
+  "raw": "___Underline with italics___",
+  "tokens": [
+    Underline {
+      "content": "_Underline with italics_",
+      "raw": "___Underline with italics___",
+      "tag": "u",
+      "tokens": [
+        Italics {
+          "content": "Underline with italics",
+          "raw": "_Underline with italics_",
+          "tag": "i",
+          "tokens": [
+            InlineText {
+              "content": "Underline with italics",
+              "raw": "Underline with italics",
+            },
+          ],
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Parser("__Underlined paragraph__") .next() .render() 1`] = `
+"[u]Underlined paragraph[/u]
+
+"
+`;
+
+exports[`Parser("__Underlined paragraph__") .next() snapshot 1`] = `
+Paragraph {
+  "content": "__Underlined paragraph__",
+  "raw": "__Underlined paragraph__",
+  "tokens": [
+    Underline {
+      "content": "Underlined paragraph",
+      "raw": "__Underlined paragraph__",
+      "tag": "u",
+      "tokens": [
+        InlineText {
+          "content": "Underlined paragraph",
+          "raw": "Underlined paragraph",
+        },
+      ],
+    },
+  ],
+}
+`;
+
 exports[`Parser("_Italic paragraph_") .next() .render() 1`] = `
 "[i]Italic paragraph[/i]
 
