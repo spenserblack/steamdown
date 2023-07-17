@@ -19,7 +19,7 @@ InlineToken.useRule("text", InlineText.rule, InlineText.parse, Infinity);
 /**
  * Renders the given Markdown string to Steam's text format.
  */
-export default class Lexer {
+export default class Parser {
   public constructor(private text: string) {}
 
   public hasNext(): boolean {
