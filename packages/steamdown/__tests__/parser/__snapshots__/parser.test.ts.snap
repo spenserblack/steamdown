@@ -626,6 +626,40 @@ Paragraph {
 }
 `;
 
+exports[`Parser("Emphasized l*e*tter") .next() .render() 1`] = `
+"Emphasized l[i]e[/i]tter
+
+"
+`;
+
+exports[`Parser("Emphasized l*e*tter") .next() snapshot 1`] = `
+Paragraph {
+  "content": "Emphasized l*e*tter",
+  "raw": "Emphasized l*e*tter",
+  "tokens": [
+    InlineText {
+      "content": "Emphasized l",
+      "raw": "Emphasized l",
+    },
+    Italics {
+      "content": "e",
+      "raw": "*e*",
+      "tag": "i",
+      "tokens": [
+        InlineText {
+          "content": "e",
+          "raw": "e",
+        },
+      ],
+    },
+    InlineText {
+      "content": "tter",
+      "raw": "tter",
+    },
+  ],
+}
+`;
+
 exports[`Parser("Paragraph with **bold tail**") .next() .render() 1`] = `
 "Paragraph with [b]bold tail[/b]
 
@@ -681,6 +715,47 @@ Paragraph {
           "raw": "italic tail",
         },
       ],
+    },
+  ],
+}
+`;
+
+exports[`Parser("Really emphasized l***e***tter") .next() .render() 1`] = `
+"Really emphasized l[b][i]e[/i][/b]tter
+
+"
+`;
+
+exports[`Parser("Really emphasized l***e***tter") .next() snapshot 1`] = `
+Paragraph {
+  "content": "Really emphasized l***e***tter",
+  "raw": "Really emphasized l***e***tter",
+  "tokens": [
+    InlineText {
+      "content": "Really emphasized l",
+      "raw": "Really emphasized l",
+    },
+    Bold {
+      "content": "*e*",
+      "raw": "***e***",
+      "tag": "b",
+      "tokens": [
+        Italics {
+          "content": "e",
+          "raw": "*e*",
+          "tag": "i",
+          "tokens": [
+            InlineText {
+              "content": "e",
+              "raw": "e",
+            },
+          ],
+        },
+      ],
+    },
+    InlineText {
+      "content": "tter",
+      "raw": "tter",
     },
   ],
 }

@@ -30,6 +30,8 @@ describe.each([
   ["**Paragraph with *nested* italics**", Paragraph],
   ["*Paragraph with **nested bold***", Paragraph],
   ["*Paragraph with **nested** bold*", Paragraph],
+  ["Emphasized l*e*tter", Paragraph],
+  ["Really emphasized l***e***tter", Paragraph],
 ])('Parser("%s")', (text, tokenType) => {
   describe(".next()", () => {
     const parser = new Parser(text);
