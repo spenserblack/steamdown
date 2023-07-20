@@ -9,7 +9,18 @@ import Underline from "./underline";
 import Italics from "./italics";
 import InlineText from "./inline-text";
 
-export { BlockToken, InlineToken, Heading, Paragraph, InlineNoparse, InlineCode, Bold, Underline, Italics, InlineText };
+export {
+  BlockToken,
+  InlineToken,
+  Heading,
+  Paragraph,
+  InlineNoparse,
+  InlineCode,
+  Bold,
+  Underline,
+  Italics,
+  InlineText,
+};
 
 BlockToken.useRule("heading", Heading.rule, Heading.parse, 10);
 BlockToken.useRule("paragraph", Paragraph.rule, Paragraph.parse, 1000);
