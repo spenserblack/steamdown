@@ -8,7 +8,7 @@ export default class InlineNoparse extends InlineContainerToken {
   public readonly tag = "noparse";
   public readonly tokens: InlineToken[];
 
-  private constructor(public readonly raw: string, public readonly content: string) {
+  public constructor(public readonly raw: string, public readonly content: string) {
     super();
     this.tokens = [new InlineText(content)];
   }

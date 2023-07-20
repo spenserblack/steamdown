@@ -1,16 +1,13 @@
-import InlineContainerToken from "./inline-container-token";
 import InlineToken from "./inline-token";
-import InlineText from "./inline-text";
+import InlineNoparse from "./inline-noparse";
 import ParseError from "./parse-error";
 
-export default class InlineCode extends InlineContainerToken {
+export default class InlineCode extends InlineToken {
   public static readonly rule = /(`+)((?:[^`\n](?!\n)|\n(?!\n))+?)\1/;
-  public readonly tag = "code";
-  public readonly tokens: InlineToken[];
+  public static readonly tags = ["code", "noparse"] as const;
 
   private constructor(public readonly raw: string, public readonly content: string) {
     super();
-    this.tokens = [new InlineText(content)];
   }
 
   public static parse(text: string): [token: InlineCode, rest: string] {
@@ -22,7 +19,8 @@ export default class InlineCode extends InlineContainerToken {
     return [new InlineCode(raw, content), text.slice(raw.length)];
   }
 
-  public getTag(): string {
-    return this.tag;
+  public render(): string {
+    const [outer, inner] = InlineCode.tags;
+    return `[${outer}][${inner}]${this.content}[/${inner}][/${outer}]`;
   }
 }

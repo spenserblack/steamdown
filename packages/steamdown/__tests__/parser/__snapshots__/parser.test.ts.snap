@@ -426,7 +426,7 @@ Paragraph {
 `;
 
 exports[`Parser("*\`styled inline code\`*") .next() .render() 1`] = `
-"[i][code]styled inline code[/code][/i]
+"[i][code][noparse]styled inline code[/noparse][/code][/i]
 
 "
 `;
@@ -444,13 +444,6 @@ Paragraph {
         InlineCode {
           "content": "styled inline code",
           "raw": "\`styled inline code\`",
-          "tag": "code",
-          "tokens": [
-            InlineText {
-              "content": "styled inline code",
-              "raw": "styled inline code",
-            },
-          ],
         },
       ],
     },
@@ -796,7 +789,7 @@ Paragraph {
 `;
 
 exports[`Parser("\`inline code *with special syntax* inside\`") .next() .render() 1`] = `
-"[code]inline code *with special syntax* inside[/code]
+"[code][noparse]inline code *with special syntax* inside[/noparse][/code]
 
 "
 `;
@@ -809,20 +802,13 @@ Paragraph {
     InlineCode {
       "content": "inline code *with special syntax* inside",
       "raw": "\`inline code *with special syntax* inside\`",
-      "tag": "code",
-      "tokens": [
-        InlineText {
-          "content": "inline code *with special syntax* inside",
-          "raw": "inline code *with special syntax* inside",
-        },
-      ],
     },
   ],
 }
 `;
 
 exports[`Parser("\`inline code\`") .next() .render() 1`] = `
-"[code]inline code[/code]
+"[code][noparse]inline code[/noparse][/code]
 
 "
 `;
@@ -835,13 +821,6 @@ Paragraph {
     InlineCode {
       "content": "inline code",
       "raw": "\`inline code\`",
-      "tag": "code",
-      "tokens": [
-        InlineText {
-          "content": "inline code",
-          "raw": "inline code",
-        },
-      ],
     },
   ],
 }
