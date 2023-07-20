@@ -5,7 +5,7 @@ export default class InlineText extends InlineToken {
   public static rule = /(?!\n)(?:.|\n(?!\n))+/;
   public content: string;
 
-  private constructor(public readonly raw: string) {
+  public constructor(public readonly raw: string) {
     super();
     this.content = raw;
   }

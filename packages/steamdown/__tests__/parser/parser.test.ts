@@ -35,6 +35,9 @@ describe.each([
   ["__Underlined paragraph__", Paragraph],
   ["__***all*** the things__", Paragraph],
   ["___Underline with italics___", Paragraph],
+  ["`inline code`", Paragraph],
+  ["`inline code *with special syntax* inside`", Paragraph],
+  ["*`styled inline code`*", Paragraph],
 ])('Parser("%s")', (text, tokenType) => {
   describe(".next()", () => {
     const parser = new Parser(text);

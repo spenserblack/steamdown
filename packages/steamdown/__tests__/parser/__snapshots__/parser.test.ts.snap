@@ -425,6 +425,39 @@ Paragraph {
 }
 `;
 
+exports[`Parser("*\`styled inline code\`*") .next() .render() 1`] = `
+"[i][code]styled inline code[/code][/i]
+
+"
+`;
+
+exports[`Parser("*\`styled inline code\`*") .next() snapshot 1`] = `
+Paragraph {
+  "content": "*\`styled inline code\`*",
+  "raw": "*\`styled inline code\`*",
+  "tokens": [
+    Italics {
+      "content": "\`styled inline code\`",
+      "raw": "*\`styled inline code\`*",
+      "tag": "i",
+      "tokens": [
+        InlineCode {
+          "content": "styled inline code",
+          "raw": "\`styled inline code\`",
+          "tag": "code",
+          "tokens": [
+            InlineText {
+              "content": "styled inline code",
+              "raw": "styled inline code",
+            },
+          ],
+        },
+      ],
+    },
+  ],
+}
+`;
+
 exports[`Parser("*Italic paragraph* with *italic text*") .next() .render() 1`] = `
 "[i]Italic paragraph[/i] with [i]italic text[/i]
 
@@ -722,6 +755,58 @@ Paragraph {
         InlineText {
           "content": "Italic paragraph",
           "raw": "Italic paragraph",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Parser("\`inline code *with special syntax* inside\`") .next() .render() 1`] = `
+"[code]inline code *with special syntax* inside[/code]
+
+"
+`;
+
+exports[`Parser("\`inline code *with special syntax* inside\`") .next() snapshot 1`] = `
+Paragraph {
+  "content": "\`inline code *with special syntax* inside\`",
+  "raw": "\`inline code *with special syntax* inside\`",
+  "tokens": [
+    InlineCode {
+      "content": "inline code *with special syntax* inside",
+      "raw": "\`inline code *with special syntax* inside\`",
+      "tag": "code",
+      "tokens": [
+        InlineText {
+          "content": "inline code *with special syntax* inside",
+          "raw": "inline code *with special syntax* inside",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Parser("\`inline code\`") .next() .render() 1`] = `
+"[code]inline code[/code]
+
+"
+`;
+
+exports[`Parser("\`inline code\`") .next() snapshot 1`] = `
+Paragraph {
+  "content": "\`inline code\`",
+  "raw": "\`inline code\`",
+  "tokens": [
+    InlineCode {
+      "content": "inline code",
+      "raw": "\`inline code\`",
+      "tag": "code",
+      "tokens": [
+        InlineText {
+          "content": "inline code",
+          "raw": "inline code",
         },
       ],
     },
