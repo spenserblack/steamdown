@@ -3,7 +3,7 @@ import InlineToken from "./inline-token";
 import InlineText from "./inline-text";
 
 export default class InlineCode extends InlineContainerToken {
-  public static readonly rule = /^(`+)((?:[^`\n](?!\n)|\n(?!\n))+?)\1/;
+  public static readonly rule = /(`+)((?:[^`\n](?!\n)|\n(?!\n))+?)\1/;
   public readonly tag = "code";
   public readonly tokens: InlineToken[];
 
