@@ -458,6 +458,39 @@ Paragraph {
 }
 `;
 
+exports[`Parser("*{{{styled inline noparse}}}*") .next() .render() 1`] = `
+"[i][noparse]styled inline noparse[/noparse][/i]
+
+"
+`;
+
+exports[`Parser("*{{{styled inline noparse}}}*") .next() snapshot 1`] = `
+Paragraph {
+  "content": "*{{{styled inline noparse}}}*",
+  "raw": "*{{{styled inline noparse}}}*",
+  "tokens": [
+    Italics {
+      "content": "{{{styled inline noparse}}}",
+      "raw": "*{{{styled inline noparse}}}*",
+      "tag": "i",
+      "tokens": [
+        InlineNoparse {
+          "content": "styled inline noparse",
+          "raw": "{{{styled inline noparse}}}",
+          "tag": "noparse",
+          "tokens": [
+            InlineText {
+              "content": "styled inline noparse",
+              "raw": "styled inline noparse",
+            },
+          ],
+        },
+      ],
+    },
+  ],
+}
+`;
+
 exports[`Parser("*Italic paragraph* with *italic text*") .next() .render() 1`] = `
 "[i]Italic paragraph[/i] with [i]italic text[/i]
 
@@ -807,6 +840,110 @@ Paragraph {
         InlineText {
           "content": "inline code",
           "raw": "inline code",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Parser("{{{inline noparse *with italics* inside}}}") .next() .render() 1`] = `
+"[noparse]inline noparse *with italics* inside[/noparse]
+
+"
+`;
+
+exports[`Parser("{{{inline noparse *with italics* inside}}}") .next() snapshot 1`] = `
+Paragraph {
+  "content": "{{{inline noparse *with italics* inside}}}",
+  "raw": "{{{inline noparse *with italics* inside}}}",
+  "tokens": [
+    InlineNoparse {
+      "content": "inline noparse *with italics* inside",
+      "raw": "{{{inline noparse *with italics* inside}}}",
+      "tag": "noparse",
+      "tokens": [
+        InlineText {
+          "content": "inline noparse *with italics* inside",
+          "raw": "inline noparse *with italics* inside",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Parser("{{{inline noparse \`with inline code\` inside}}}") .next() .render() 1`] = `
+"[noparse]inline noparse \`with inline code\` inside[/noparse]
+
+"
+`;
+
+exports[`Parser("{{{inline noparse \`with inline code\` inside}}}") .next() snapshot 1`] = `
+Paragraph {
+  "content": "{{{inline noparse \`with inline code\` inside}}}",
+  "raw": "{{{inline noparse \`with inline code\` inside}}}",
+  "tokens": [
+    InlineNoparse {
+      "content": "inline noparse \`with inline code\` inside",
+      "raw": "{{{inline noparse \`with inline code\` inside}}}",
+      "tag": "noparse",
+      "tokens": [
+        InlineText {
+          "content": "inline noparse \`with inline code\` inside",
+          "raw": "inline noparse \`with inline code\` inside",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Parser("{{{inline noparse with [block] inside}}}") .next() .render() 1`] = `
+"[noparse]inline noparse with [block] inside[/noparse]
+
+"
+`;
+
+exports[`Parser("{{{inline noparse with [block] inside}}}") .next() snapshot 1`] = `
+Paragraph {
+  "content": "{{{inline noparse with [block] inside}}}",
+  "raw": "{{{inline noparse with [block] inside}}}",
+  "tokens": [
+    InlineNoparse {
+      "content": "inline noparse with [block] inside",
+      "raw": "{{{inline noparse with [block] inside}}}",
+      "tag": "noparse",
+      "tokens": [
+        InlineText {
+          "content": "inline noparse with [block] inside",
+          "raw": "inline noparse with [block] inside",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Parser("{{{inline noparse}}}") .next() .render() 1`] = `
+"[noparse]inline noparse[/noparse]
+
+"
+`;
+
+exports[`Parser("{{{inline noparse}}}") .next() snapshot 1`] = `
+Paragraph {
+  "content": "{{{inline noparse}}}",
+  "raw": "{{{inline noparse}}}",
+  "tokens": [
+    InlineNoparse {
+      "content": "inline noparse",
+      "raw": "{{{inline noparse}}}",
+      "tag": "noparse",
+      "tokens": [
+        InlineText {
+          "content": "inline noparse",
+          "raw": "inline noparse",
         },
       ],
     },

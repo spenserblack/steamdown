@@ -38,6 +38,11 @@ describe.each([
   ["`inline code`", Paragraph],
   ["`inline code *with special syntax* inside`", Paragraph],
   ["*`styled inline code`*", Paragraph],
+  ["{{{inline noparse}}}", Paragraph],
+  ["{{{inline noparse `with inline code` inside}}}", Paragraph],
+  ["*{{{styled inline noparse}}}*", Paragraph],
+  ["{{{inline noparse *with italics* inside}}}", Paragraph],
+  ["{{{inline noparse with [block] inside}}}", Paragraph],
 ])('Parser("%s")', (text, tokenType) => {
   describe(".next()", () => {
     const parser = new Parser(text);
