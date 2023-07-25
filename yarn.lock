@@ -675,10 +675,10 @@
   dependencies:
     "@sinonjs/commons" "^3.0.0"
 
-"@tsconfig/esm@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@tsconfig/esm/-/esm-1.0.2.tgz#6eef523398527915d63e3825204789cf1dbd6f28"
-  integrity sha512-awiISx+G4L+7k97nKnfA5QF6rukawiuycMPfASFHG/0fqjrUlYBuNISy3Yjl1SHIpVi57lYf7dc6L/FoQQCKcA==
+"@tsconfig/esm@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@tsconfig/esm/-/esm-1.0.4.tgz#a18e0cd1856b413901a818985ffb00ec88fddbed"
+  integrity sha512-bix9CWljCxyD06nGQRDYdmTw0wevvEDyrLKjbDocGV31JQYbfqqgMV1yFeJ9aDgorKQ9yDLrak8poiggsB5Liw==
 
 "@tsconfig/recommended@^1.0.2":
   version "1.0.2"
@@ -2582,10 +2582,10 @@ makeerror@1.0.12:
   dependencies:
     tmpl "1.0.5"
 
-marked@^4.2.5:
-  version "4.2.5"
-  resolved "https://registry.yarnpkg.com/marked/-/marked-4.2.5.tgz#979813dfc1252cc123a79b71b095759a32f42a5d"
-  integrity sha512-jPueVhumq7idETHkb203WDD4fMA3yV9emQ5vLwop58lu8bTclMghBWcYAavlDqIEMaisADinV1TooIFCfqOsYQ==
+marked@^5.1.2:
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-5.1.2.tgz#62b5ccfc75adf72ca3b64b2879b551d89e77677f"
+  integrity sha512-ahRPGXJpjMjwSOlBoTMZAK7ATXkli5qCPxZ21TG44rx1KEo44bii4ekgTDQPNRQ4Kh7JMb9Ub1PVk1NxRSsorg==
 
 merge-stream@^2.0.0:
   version "2.0.0"

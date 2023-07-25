@@ -38,7 +38,7 @@
   "homepage": "https://github.com/spenserblack/steamdown#readme",
   "devDependencies": {
     "@jest/globals": "^29.5.0",
-    "@tsconfig/esm": "^1.0.2",
+    "@tsconfig/esm": "^1.0.4",
     "@tsconfig/recommended": "^1.0.2",
     "@types/marked": "^4.0.8",
     "@types/node": "^18.11.9",
