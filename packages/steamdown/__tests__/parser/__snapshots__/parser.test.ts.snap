@@ -1,5 +1,72 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Parser("!!!inline spoiler *with italics* inside!!!") .next() .render() 1`] = `
+"[spoiler]inline spoiler [i]with italics[/i] inside[/spoiler]
+
+"
+`;
+
+exports[`Parser("!!!inline spoiler *with italics* inside!!!") .next() snapshot 1`] = `
+Paragraph {
+  "content": "!!!inline spoiler *with italics* inside!!!",
+  "raw": "!!!inline spoiler *with italics* inside!!!",
+  "tokens": [
+    InlineSpoiler {
+      "content": "inline spoiler *with italics* inside",
+      "raw": "!!!inline spoiler *with italics* inside!!!",
+      "tag": "spoiler",
+      "tokens": [
+        InlineText {
+          "content": "inline spoiler ",
+          "raw": "inline spoiler ",
+        },
+        Italics {
+          "content": "with italics",
+          "raw": "*with italics*",
+          "tag": "i",
+          "tokens": [
+            InlineText {
+              "content": "with italics",
+              "raw": "with italics",
+            },
+          ],
+        },
+        InlineText {
+          "content": " inside",
+          "raw": " inside",
+        },
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Parser("!!!inline spoiler!!!") .next() .render() 1`] = `
+"[spoiler]inline spoiler[/spoiler]
+
+"
+`;
+
+exports[`Parser("!!!inline spoiler!!!") .next() snapshot 1`] = `
+Paragraph {
+  "content": "!!!inline spoiler!!!",
+  "raw": "!!!inline spoiler!!!",
+  "tokens": [
+    InlineSpoiler {
+      "content": "inline spoiler",
+      "raw": "!!!inline spoiler!!!",
+      "tag": "spoiler",
+      "tokens": [
+        InlineText {
+          "content": "inline spoiler",
+          "raw": "inline spoiler",
+        },
+      ],
+    },
+  ],
+}
+`;
+
 exports[`Parser("# *Italic heading* with *italic text*") .next() .render() 1`] = `"[h1][i]Italic heading[/i] with [i]italic text[/i][/h1]"`;
 
 exports[`Parser("# *Italic heading* with *italic text*") .next() snapshot 1`] = `
@@ -316,6 +383,39 @@ Heading {
     InlineText {
       "content": "Heading 6",
       "raw": "Heading 6",
+    },
+  ],
+}
+`;
+
+exports[`Parser("*!!!styled inline spoiler!!!*") .next() .render() 1`] = `
+"[i][spoiler]styled inline spoiler[/spoiler][/i]
+
+"
+`;
+
+exports[`Parser("*!!!styled inline spoiler!!!*") .next() snapshot 1`] = `
+Paragraph {
+  "content": "*!!!styled inline spoiler!!!*",
+  "raw": "*!!!styled inline spoiler!!!*",
+  "tokens": [
+    Italics {
+      "content": "!!!styled inline spoiler!!!",
+      "raw": "*!!!styled inline spoiler!!!*",
+      "tag": "i",
+      "tokens": [
+        InlineSpoiler {
+          "content": "styled inline spoiler",
+          "raw": "!!!styled inline spoiler!!!",
+          "tag": "spoiler",
+          "tokens": [
+            InlineText {
+              "content": "styled inline spoiler",
+              "raw": "styled inline spoiler",
+            },
+          ],
+        },
+      ],
     },
   ],
 }

@@ -3,6 +3,7 @@ import Heading from "./heading";
 import Paragraph from "./paragraph";
 import InlineToken from "./inline-token";
 import InlineNoparse from "./inline-noparse";
+import InlineSpoiler from "./inline-spoiler";
 import InlineCode from "./inline-code";
 import Bold from "./bold";
 import Underline from "./underline";
@@ -15,6 +16,7 @@ export {
   Heading,
   Paragraph,
   InlineNoparse,
+  InlineSpoiler,
   InlineCode,
   Bold,
   Underline,
@@ -27,9 +29,10 @@ BlockToken.useRule("paragraph", Paragraph.rule, Paragraph.parse, 1000);
 
 InlineToken.useRule("noparse", InlineNoparse.rule, InlineNoparse.parse, 10);
 InlineToken.useRule("inline-code", InlineCode.rule, InlineCode.parse, 20);
-InlineToken.useRule("bold", Bold.rule, Bold.parse, 30);
-InlineToken.useRule("underline", Underline.rule, Underline.parse, 40);
-InlineToken.useRule("italics", Italics.rule, Italics.parse, 50);
+InlineToken.useRule("spoiler", InlineSpoiler.rule, InlineSpoiler.parse, 30);
+InlineToken.useRule("bold", Bold.rule, Bold.parse, 40);
+InlineToken.useRule("underline", Underline.rule, Underline.parse, 50);
+InlineToken.useRule("italics", Italics.rule, Italics.parse, 60);
 // NOTE Text should always be prioritized last
 InlineToken.useRule("text", InlineText.rule, InlineText.parse, Infinity);
 
