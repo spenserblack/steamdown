@@ -16,11 +16,11 @@ export default class Url extends InlineToken {
   public readonly description: string;
   public readonly url?: string;
 
-  private constructor(public readonly raw: string, { groups }: RegExpMatchArray & UrlMatch) {
+  private constructor(public readonly raw: string, { groups: { text, id, url } }: RegExpMatchArray & UrlMatch) {
     super();
-    this.description = groups.text;
-    this.id = groups.id ?? groups.text;
-    this.url = groups.url;
+    this.description = text;
+    this.id = id ?? text;
+    this.url = url;
   }
 
   // TODO update parent class to take a context?
