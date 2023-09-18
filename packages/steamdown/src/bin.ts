@@ -1,4 +1,4 @@
-import parse from "./index";
+import parse from "./index.js";
 import { readFileSync } from "fs";
 
 const inputArg = process.argv[2];
