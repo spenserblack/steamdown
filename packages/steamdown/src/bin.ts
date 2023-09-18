@@ -5,9 +5,9 @@ const inputArg = process.argv[2];
 
 if (inputArg && inputArg !== "-") {
   const input = readFileSync(inputArg, "utf8");
-  console.log(parse(input));
+  console.log(await parse(input));
 } else {
-  process.stdin.on("data", (data) => {
-    console.log(parse(data.toString()));
+  process.stdin.on("data", async (data) => {
+    console.log(await parse(data.toString()));
   });
 }
