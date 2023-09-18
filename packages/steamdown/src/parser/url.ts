@@ -34,12 +34,12 @@ export default class Url extends InlineToken {
   }
 
   public static parse(text: string): [token: Url, rest: string] {
-    const match = text.match(Url.rule);
+    const match = text.match(Url.rule) as (RegExpMatchArray & UrlMatch) | null;
     if (!match) {
       throw new ParseError(`Could not parse ${text}`);
     }
     const [raw] = match;
-    const url = new Url(raw, match as RegExpMatchArray & UrlMatch);
+    const url = new Url(raw, match);
     return [url, text.slice(raw.length)];
   }
 }
