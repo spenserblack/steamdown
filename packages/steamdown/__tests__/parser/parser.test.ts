@@ -24,6 +24,7 @@ describe.each([
   ["*Partially* italic paragraph", Paragraph],
   ["*Italic paragraph* with *italic text*", Paragraph],
   ["Paragraph with *italic tail*", Paragraph],
+  ["*Un*decided", Paragraph],
   ["**Bold paragraph**", Paragraph],
   ["Paragraph with **bold tail**", Paragraph],
   ["**Paragraph with *nested italics***", Paragraph],

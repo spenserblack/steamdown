@@ -759,6 +759,36 @@ Paragraph {
 }
 `;
 
+exports[`Parser("*Un*decided") .next() .render() 1`] = `
+"[i]Un[/i]decided
+
+"
+`;
+
+exports[`Parser("*Un*decided") .next() snapshot 1`] = `
+Paragraph {
+  "content": "*Un*decided",
+  "raw": "*Un*decided",
+  "tokens": [
+    Italics {
+      "content": "Un",
+      "raw": "*Un*",
+      "tag": "i",
+      "tokens": [
+        InlineText {
+          "content": "Un",
+          "raw": "Un",
+        },
+      ],
+    },
+    InlineText {
+      "content": "decided",
+      "raw": "decided",
+    },
+  ],
+}
+`;
+
 exports[`Parser("__***all*** the things__") .next() .render() 1`] = `
 "[u][b][i]all[/i][/b] the things[/u]
 
