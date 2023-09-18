@@ -47,6 +47,10 @@ describe.each([
   ["!!!inline spoiler!!!", Paragraph],
   ["!!!inline spoiler *with italics* inside!!!", Paragraph],
   ["*!!!styled inline spoiler!!!*", Paragraph],
+  ["[link](https://example.com)", Paragraph],
+  ["[link with *italics*](https://example.com)", Paragraph],
+  ["*[italicized link](https://example.com)*", Paragraph],
+  ["[standalone link]", Paragraph],
 ])('Parser("%s")', (text, tokenType) => {
   describe(".next()", () => {
     const parser = new Parser(text);

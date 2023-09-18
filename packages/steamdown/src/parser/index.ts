@@ -9,12 +9,14 @@ import Bold from "./bold";
 import Underline from "./underline";
 import Italics from "./italics";
 import InlineText from "./inline-text";
+import Url from './url';
 
 export {
   BlockToken,
   InlineToken,
   Heading,
   Paragraph,
+  Url,
   InlineNoparse,
   InlineSpoiler,
   InlineCode,
@@ -29,10 +31,11 @@ BlockToken.useRule("paragraph", Paragraph.rule, Paragraph.parse, 1000);
 
 InlineToken.useRule("noparse", InlineNoparse.rule, InlineNoparse.parse, 10);
 InlineToken.useRule("inline-code", InlineCode.rule, InlineCode.parse, 20);
-InlineToken.useRule("spoiler", InlineSpoiler.rule, InlineSpoiler.parse, 30);
-InlineToken.useRule("bold", Bold.rule, Bold.parse, 40);
-InlineToken.useRule("underline", Underline.rule, Underline.parse, 50);
-InlineToken.useRule("italics", Italics.rule, Italics.parse, 60);
+InlineToken.useRule("url", Url.rule, Url.parse, 30);
+InlineToken.useRule("spoiler", InlineSpoiler.rule, InlineSpoiler.parse, 40);
+InlineToken.useRule("bold", Bold.rule, Bold.parse, 50);
+InlineToken.useRule("underline", Underline.rule, Underline.parse, 60);
+InlineToken.useRule("italics", Italics.rule, Italics.parse, 70);
 // NOTE Text should always be prioritized last
 InlineToken.useRule("text", InlineText.rule, InlineText.parse, Infinity);
 

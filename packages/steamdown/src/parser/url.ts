@@ -1,16 +1,45 @@
 import InlineToken from "./inline-token";
+import ParseError from "./parse-error";
+
+interface UrlMatch {
+  groups: {
+    text: string;
+    url?: string;
+    id?: string;
+  };
+}
 
 // TODO
 export default class Url extends InlineToken {
-  public readonly raw: string = "";
-  public readonly id: string = ""; // TODO Make [id] or [description][id]
-  public readonly description: string = ""; // TODO make [description] or [id][description]
-  public readonly url?: string; // TODO Make [id|description](href)
+  public static rule = /\!?\[(?<text>[^\n]+?)\](?:(?:\((?<url>[^\n]+?)\))|(?:\[(?<id>[^\n]+?)\]))?/;
+  public readonly id: string;
+  public readonly description: string;
+  public readonly url?: string;
+
+  private constructor(public readonly raw: string, { groups }: RegExpMatchArray & UrlMatch) {
+    super();
+    this.description = groups.text;
+    this.id = groups.id ?? groups.text;
+    this.url = groups.url;
+  }
 
   // TODO update parent class to take a context?
   public override render(refs: Record<string, string | undefined> = {}): string {
     const url = this.url ?? refs[this.id];
-    // TODO If url is undefined, wrap text in brackets instead of making a [url]
-    return url ?? "";
+    // HACK If the URL is nullish, return the raw text. I.e. it's not a URL, but text.
+    if (url == null) {
+      return this.raw;
+    }
+    return `[url=${url}]${this.description}[/url]`;
+  }
+
+  public static parse(text: string): [token: Url, rest: string] {
+    const match = text.match(Url.rule);
+    if (!match) {
+      throw new ParseError(`Could not parse ${text}`);
+    }
+    const [raw] = match;
+    const url = new Url(raw, match as RegExpMatchArray & UrlMatch);
+    return [url, text.slice(raw.length)];
   }
 }
