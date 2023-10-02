@@ -14,4 +14,4 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.ref }}
-      - uses: spenserblack/actions-tag-to-release@v2
+      - uses: spenserblack/actions-tag-to-release@v3
