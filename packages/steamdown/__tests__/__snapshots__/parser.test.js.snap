@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RootParser .defaultParser() .parse() should parse "Foo
+
+Bar" 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Foo",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+    {
+      "nodes": [
+        {
+          "text": "Bar",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`RootParser .defaultParser() .parse() should parse "Hello, World!" 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Hello, World!",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
