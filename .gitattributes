@@ -1,3 +1,0 @@
-# Prevents massive diffs caused by these vendored, minified files
-/.yarn/releases/** binary
-/.yarn/plugins/** binary

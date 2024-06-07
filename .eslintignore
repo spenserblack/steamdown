@@ -1,5 +1,2 @@
 .eslintrc.*
-/scripts/
-/packages/site/src/vite-env.d.ts
-jest.config.*
 dist/

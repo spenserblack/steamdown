@@ -1,25 +1,15 @@
 {
   "name": "Node.js",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "args": { "VARIANT": "16-buster" }
-  },
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:22",
   "customizations": {
     "vscode": {
       "extensions": [
         "EditorConfig.EditorConfig",
-        "esbenp.prettier-vscode",
-        "Orta.vscode-jest"
+        "esbenp.prettier-vscode"
       ],
       "settings": {
         "editor.formatOnSave": true
       }
-    }
-  },
-  "portsAttributes": {
-    "5173": {
-      "label": "Site (dev)",
-      "onAutoForward": "notify"
     }
   },
   "postCreateCommand": ".devcontainer/postCreate.sh",

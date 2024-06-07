@@ -1,6 +1,5 @@
 {
   "prettier.requireConfig": true,
   "prettier.configPath": ".prettierrc.json",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "jest.rootPath": "packages/steamdown"
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }

@@ -1,2 +1,2 @@
 #!/bin/bash
-yarn install --frozen-lockfile
+echo done!
