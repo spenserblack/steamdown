@@ -1,0 +1,26 @@
+{
+  "name": "@steamdown/core",
+  "version": "1.0.0",
+  "author": "Spenser Black <spenserblack01@gmail.com>",
+  "license": "MIT",
+  "description": "Convert Markdown to Steam's markup",
+  "keywords": [
+    "steam",
+    "markdown"
+  ],
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "bugs": {
+    "url": "https://github.com/spenserblack/steamdown/issues"
+  },
+  "homepage": "https://github.com/spenserblack/steamdown#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spenserblack/steamdown.git"
+  }
+}

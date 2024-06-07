@@ -111,3 +111,7 @@ dist
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# Ignore build mistakes
+**/src/*.js
+**/src/*.d.ts

@@ -3,10 +3,7 @@
   "image": "mcr.microsoft.com/devcontainers/typescript-node:22",
   "customizations": {
     "vscode": {
-      "extensions": [
-        "EditorConfig.EditorConfig",
-        "esbenp.prettier-vscode"
-      ],
+      "extensions": ["EditorConfig.EditorConfig", "esbenp.prettier-vscode"],
       "settings": {
         "editor.formatOnSave": true
       }
