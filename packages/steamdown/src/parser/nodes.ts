@@ -19,7 +19,15 @@ export interface Root extends Node {
  */
 export interface Paragraph extends Node {
   type: "paragraph";
-  nodes: InlineNode[];
+  nodes: Inline[];
+}
+
+/**
+ * An italics node.
+ */
+export interface Italics extends Node {
+  type: "italics";
+  nodes: Inline[];
 }
 
 /**
@@ -30,5 +38,5 @@ export interface Text extends Node {
   text: string;
 }
 
-export type InlineNode = Text;
-export type BlockNode = Paragraph;
+export type Inline = Italics | Text;
+export type Block = Paragraph;

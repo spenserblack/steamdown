@@ -25,3 +25,27 @@ This is another paragraph.
 Note that Steam's syntax does *not* have the concept of a paragraph block, unlike
 HTML (`<p>`). The paragraph block in this project serves mostly for organization
 and to encourage good formatting.
+
+## Inlines
+
+Inlines are contained within blocks. Inlines may also contain their own inlines.
+
+### Italics
+
+Italics are text wrapped within a single set of `*`. Italics *cannot* contain a newline.
+Italics must start and end with a word, not a space.
+
+```markdown
+*This is italicized.*
+
+*this is
+not italicized.*
+
+* This is not italicized. *
+```
+
+Note that, unlike Markdown, italics represented by a set of `_` are *not* supported.
+
+### Text
+
+Text is the fallback inline if it can't be interpreted as any other inline.

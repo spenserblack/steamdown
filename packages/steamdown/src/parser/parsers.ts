@@ -1,10 +1,10 @@
-import type { Node, Paragraph, Root, Text, InlineNode, BlockNode } from "./nodes";
+import type * as nodes from "./nodes";
 import { ParseError, UnreachableError } from "./errors";
 
 /**
  * A parser for the syntax.
  */
-export interface Parser<N extends Node> {
+export interface Parser<N extends nodes.Node> {
   /**
    * Hints if the parser can parse the given syntax.
    * This doesn't guarantee that the text can be parsed if
@@ -19,12 +19,12 @@ export interface Parser<N extends Node> {
   parse(text: string): [node: N, remainder: string];
 }
 
-export type InlineParser = Parser<InlineNode>;
+export type InlineParser = Parser<nodes.Inline>;
 
 /**
  * Returns the first successful parse from the given parsers.
  */
-const firstSuccessfulParse = <N extends Node>(
+const firstSuccessfulParse = <N extends nodes.Node>(
   parsers: Parser<N>[],
   text: string,
 ): [N, remainder: string] | null => {
@@ -43,27 +43,110 @@ const firstSuccessfulParse = <N extends Node>(
 };
 
 /**
+ * Parser for an italics node.
+ */
+const italicsParser = {
+  hint: (text: string) => text.startsWith("*"),
+  parse: (text: string): [nodes.Italics, remainder: string] => {
+    const innerStartIndex = 1;
+    const innerEndIndex = text.indexOf("*", innerStartIndex);
+
+    if (innerEndIndex === -1) {
+      throw new ParseError("italics must be closed");
+    }
+
+    const innerText = text.slice(innerStartIndex, innerEndIndex);
+
+    if (innerText.length === 0) {
+      throw new ParseError("italics must have content");
+    }
+
+    if ([innerText[0], innerText[innerText.length - 1]].some((s) => /\s/.test(s))) {
+      throw new ParseError("italics cannot start or end with whitespace");
+    }
+
+    if (/\n/.test(innerText)) {
+      throw new ParseError("italics cannot contain newlines");
+    }
+
+    const remainder = text.slice(innerEndIndex + 1);
+
+    const nodes = parseInline(innerText);
+
+    const node: nodes.Italics = {
+      type: "italics",
+      nodes,
+    };
+
+    return [node, remainder];
+  },
+} satisfies Parser<nodes.Italics>;
+
+/**
  * Parser for a text node. This should never fail to parse.
  */
 const textParser = {
   hint: (_text: string) => true,
-  parse: (text: string): [Text, ""] => {
-    const node: Text = {
+  parse: (text: string): [nodes.Text, remainder: string] => {
+    let remainder = "";
+    // NOTE End on special chars to allow for parsing of other nodes, but only if that
+    //      special char is not the first character.
+    const end = /[*]/.exec(text);
+
+    if (end && end.index > 0) {
+      remainder = text.slice(end.index);
+      text = text.slice(0, end.index);
+    }
+
+    const node: nodes.Text = {
       type: "text",
       text,
     };
-    return [node, ""];
-  },
-} satisfies Parser<Text>;
 
-const inlineParsers: InlineParser[] = [textParser];
+    return [node, remainder];
+  },
+} satisfies Parser<nodes.Text>;
+
+const inlineParsers: InlineParser[] = [italicsParser, textParser];
+
+/**
+ * Parses text into inline nodes.
+ */
+const parseInline = (text: string): nodes.Inline[] => {
+  let parsedText = text;
+  const nodes: nodes.Inline[] = [];
+
+  while (parsedText.length > 0) {
+    const parsed = firstSuccessfulParse(inlineParsers, parsedText);
+
+    if (!parsed) {
+      throw new UnreachableError();
+    }
+
+    const [node, remainder] = parsed;
+
+    parsedText = remainder;
+
+    // HACK If the last node is a text node and this node is a text node,
+    //      merge them together.
+    // NOTE undefined to handle the very start of iteration.
+    const lastNode: nodes.Inline | undefined = nodes[nodes.length - 1];
+    if (lastNode && lastNode.type === "text" && node.type === "text") {
+      lastNode.text += node.text;
+    } else {
+      nodes.push(node);
+    }
+  }
+
+  return nodes;
+};
 
 /**
  * Parser for a paragraph node.
  */
 const paragraphParser = {
   hint: (_text: string) => true,
-  parse: (text: string): [Paragraph, remainder: string] => {
+  parse: (text: string): [nodes.Paragraph, remainder: string] => {
     const end = /\n\n|$/.exec(text);
 
     if (!end) {
@@ -76,36 +159,24 @@ const paragraphParser = {
     let pText = text.slice(0, endIndex);
     const remainder = text.slice(endIndex + endText.length);
 
-    const nodes: InlineNode[] = [];
+    const nodes = parseInline(pText);
 
-    while (pText.length > 0) {
-      const parsed = firstSuccessfulParse(inlineParsers, pText);
-
-      if (!parsed) {
-        throw new UnreachableError();
-      }
-
-      const [node, remainder] = parsed;
-      nodes.push(node);
-      pText = remainder;
-    }
-
-    const node: Paragraph = {
+    const node: nodes.Paragraph = {
       type: "paragraph",
       nodes,
     };
 
     return [node, remainder];
   },
-} satisfies Parser<Paragraph>;
+} satisfies Parser<nodes.Paragraph>;
 
-const blockParsers: Parser<BlockNode>[] = [paragraphParser];
+const blockParsers: Parser<nodes.Block>[] = [paragraphParser];
 
 /**
  * Parses the given text into a syntax tree.
  */
-export const parse = (text: string): Root => {
-  const nodes: Node[] = [];
+export const parse = (text: string): nodes.Root => {
+  const nodes: nodes.Node[] = [];
 
   while (text.length > 0) {
     const result = firstSuccessfulParse(blockParsers, text);
@@ -117,7 +188,7 @@ export const parse = (text: string): Root => {
     text = remainder;
   }
 
-  const root: Root = {
+  const root: nodes.Root = {
     type: "root",
     nodes,
   };

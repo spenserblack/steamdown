@@ -1,5 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`parse() should parse "*Italicized text*" 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "Italicized text",
+              "type": "text",
+            },
+          ],
+          "type": "italics",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parse() should parse "Foo
 
 Bar" 1`] = `
@@ -35,6 +57,72 @@ exports[`parse() should parse "Hello, World!" 1`] = `
       "nodes": [
         {
           "text": "Hello, World!",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parse() should parse "Invalid * italicized * text with spaces" 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Invalid * italicized * text with spaces",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parse() should parse "Invalid *italicized
+text* with a newline" 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Invalid *italicized
+text* with a newline",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parse() should parse "Nested *italicized* text" 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Nested ",
+          "type": "text",
+        },
+        {
+          "nodes": [
+            {
+              "text": "italicized",
+              "type": "text",
+            },
+          ],
+          "type": "italics",
+        },
+        {
+          "text": " text",
           "type": "text",
         },
       ],
