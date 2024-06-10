@@ -1,2 +1,2 @@
 #!/bin/bash
-echo done!
+pnpm install
