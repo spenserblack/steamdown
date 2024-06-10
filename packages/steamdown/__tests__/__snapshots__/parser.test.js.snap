@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RootParser .defaultParser() .parse() should parse "Foo
+exports[`parse() should parse "Foo
 
 Bar" 1`] = `
 {
@@ -28,7 +28,7 @@ Bar" 1`] = `
 }
 `;
 
-exports[`RootParser .defaultParser() .parse() should parse "Hello, World!" 1`] = `
+exports[`parse() should parse "Hello, World!" 1`] = `
 {
   "nodes": [
     {

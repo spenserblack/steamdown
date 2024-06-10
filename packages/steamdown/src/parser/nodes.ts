@@ -10,7 +10,7 @@ export interface Node {
  * Root node. All nodes should be children of this node.
  */
 export interface Root extends Node {
-  type: 'root';
+  type: "root";
   nodes: Node[];
 }
 
@@ -18,7 +18,7 @@ export interface Root extends Node {
  * A paragraph node.
  */
 export interface Paragraph extends Node {
-  type: 'paragraph';
+  type: "paragraph";
   nodes: InlineNode[];
 }
 
@@ -26,8 +26,9 @@ export interface Paragraph extends Node {
  * A text node.
  */
 export interface Text extends Node {
-  type: 'text';
+  type: "text";
   text: string;
 }
 
 export type InlineNode = Text;
+export type BlockNode = Paragraph;
