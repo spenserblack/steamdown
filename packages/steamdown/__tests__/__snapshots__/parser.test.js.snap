@@ -44,3 +44,24 @@ exports[`parse() should parse "Hello, World!" 1`] = `
   "type": "root",
 }
 `;
+
+exports[`parse() should parse "one
+paragraph
+spanning lines" 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "one
+paragraph
+spanning lines",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
