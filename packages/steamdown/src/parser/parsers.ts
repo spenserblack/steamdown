@@ -22,6 +22,23 @@ export interface Parser<N extends nodes.Node> {
 export type InlineParser = Parser<nodes.Inline>;
 
 /**
+ * Data provided by the text that is not rendered in the final output.
+ *
+ * E.g. `[link]: https://example.com` would be a link definition.
+ */
+export type Context = {
+  /**
+   * Map of link IDs to URLs.
+   */
+  links: Record<string, string>;
+};
+
+export type Parsed = {
+  tree: nodes.Root;
+  context: Context;
+};
+
+/**
  * Returns the first successful parse from the given parsers.
  */
 const firstSuccessfulParse = <N extends nodes.Node>(
@@ -175,8 +192,11 @@ const blockParsers: Parser<nodes.Block>[] = [paragraphParser];
 /**
  * Parses the given text into a syntax tree.
  */
-export const parse = (text: string): nodes.Root => {
+export const parse = (text: string): Parsed => {
   const nodes: nodes.Node[] = [];
+  const context: Context = {
+    links: {},
+  };
 
   while (text.length > 0) {
     const result = firstSuccessfulParse(blockParsers, text);
@@ -188,10 +208,10 @@ export const parse = (text: string): nodes.Root => {
     text = remainder;
   }
 
-  const root: nodes.Root = {
+  const tree: nodes.Root = {
     type: "root",
     nodes,
   };
 
-  return root;
+  return { tree, context };
 };

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`parse() should parse "*Italicized text*" 1`] = `
+exports[`parser parse("*Italicized text*") .tree matches the snapshot 1`] = `
 {
   "nodes": [
     {
@@ -22,9 +22,9 @@ exports[`parse() should parse "*Italicized text*" 1`] = `
 }
 `;
 
-exports[`parse() should parse "Foo
+exports[`parser parse("Foo
 
-Bar" 1`] = `
+Bar") .tree matches the snapshot 1`] = `
 {
   "nodes": [
     {
@@ -50,7 +50,7 @@ Bar" 1`] = `
 }
 `;
 
-exports[`parse() should parse "Hello, World!" 1`] = `
+exports[`parser parse("Hello, World!") .tree matches the snapshot 1`] = `
 {
   "nodes": [
     {
@@ -67,7 +67,7 @@ exports[`parse() should parse "Hello, World!" 1`] = `
 }
 `;
 
-exports[`parse() should parse "Invalid * italicized * text with spaces" 1`] = `
+exports[`parser parse("Invalid * italicized * text with spaces") .tree matches the snapshot 1`] = `
 {
   "nodes": [
     {
@@ -84,8 +84,8 @@ exports[`parse() should parse "Invalid * italicized * text with spaces" 1`] = `
 }
 `;
 
-exports[`parse() should parse "Invalid *italicized
-text* with a newline" 1`] = `
+exports[`parser parse("Invalid *italicized
+text* with a newline") .tree matches the snapshot 1`] = `
 {
   "nodes": [
     {
@@ -103,7 +103,7 @@ text* with a newline",
 }
 `;
 
-exports[`parse() should parse "Nested *italicized* text" 1`] = `
+exports[`parser parse("Nested *italicized* text") .tree matches the snapshot 1`] = `
 {
   "nodes": [
     {
@@ -133,9 +133,9 @@ exports[`parse() should parse "Nested *italicized* text" 1`] = `
 }
 `;
 
-exports[`parse() should parse "one
+exports[`parser parse("one
 paragraph
-spanning lines" 1`] = `
+spanning lines") .tree matches the snapshot 1`] = `
 {
   "nodes": [
     {
