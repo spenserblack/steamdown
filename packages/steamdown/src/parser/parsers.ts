@@ -1,4 +1,4 @@
-import type * as nodes from "./nodes";
+import * as nodes from "./nodes";
 import { ParseError, UnreachableError } from "./errors";
 
 /**
@@ -60,44 +60,51 @@ const firstSuccessfulParse = <N extends nodes.Node>(
 };
 
 /**
- * Parser for an italics node.
+ * Creates a parser for wrapped text.
+ *
+ * For example, `*foo*` is `foo` wrapped in `*`.
  */
-const italicsParser = {
-  hint: (text: string) => text.startsWith("*"),
-  parse: (text: string): [nodes.Italics, remainder: string] => {
-    const innerStartIndex = 1;
-    const innerEndIndex = text.indexOf("*", innerStartIndex);
+const makeWrappedTextParser = <N extends nodes.Italics>(wrapper: string, type: N["type"]) => ({
+  hint: (text: string) => text.startsWith(wrapper),
+  parse: (text: string): [N, remainder: string] => {
+    const innerStartIndex = wrapper.length;
+    const innerEndIndex = text.indexOf(wrapper, innerStartIndex);
 
     if (innerEndIndex === -1) {
-      throw new ParseError("italics must be closed");
+      throw new ParseError(`${type} must be closed`);
     }
 
     const innerText = text.slice(innerStartIndex, innerEndIndex);
 
     if (innerText.length === 0) {
-      throw new ParseError("italics must have content");
+      throw new ParseError(`${type} must have content`);
     }
 
     if ([innerText[0], innerText[innerText.length - 1]].some((s) => /\s/.test(s))) {
-      throw new ParseError("italics cannot start or end with whitespace");
+      throw new ParseError(`${type} cannot start or end with whitespace`);
     }
 
     if (/\n/.test(innerText)) {
-      throw new ParseError("italics cannot contain newlines");
+      throw new ParseError(`${type} cannot contain newlines`);
     }
 
-    const remainder = text.slice(innerEndIndex + 1);
+    const remainder = text.slice(innerEndIndex + wrapper.length);
 
     const nodes = parseInline(innerText);
 
-    const node: nodes.Italics = {
-      type: "italics",
+    const node = {
+      type,
       nodes,
-    };
+    } as N;
 
     return [node, remainder];
   },
-} satisfies Parser<nodes.Italics>;
+});
+
+/**
+ * Parser for an italics node.
+ */
+const italicsParser = makeWrappedTextParser<nodes.Italics>('*', 'italics') satisfies Parser<nodes.Italics>;
 
 /**
  * Parser for a text node. This should never fail to parse.
