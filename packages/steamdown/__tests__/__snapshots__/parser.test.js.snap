@@ -22,6 +22,28 @@ exports[`parser parse("*Italicized text*") .tree matches the snapshot 1`] = `
 }
 `;
 
+exports[`parser parse("_Underlined text_") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "Underlined text",
+              "type": "text",
+            },
+          ],
+          "type": "underline",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse("Foo
 
 Bar") .tree matches the snapshot 1`] = `
@@ -103,6 +125,42 @@ text* with a newline",
 }
 `;
 
+exports[`parser parse("Invalid _ underlined _ text with spaces") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Invalid _ underlined _ text with spaces",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("Invalid _underlined
+text_ with a newline") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Invalid _underlined
+text_ with a newline",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse("Nested *italicized* text") .tree matches the snapshot 1`] = `
 {
   "nodes": [
@@ -120,6 +178,36 @@ exports[`parser parse("Nested *italicized* text") .tree matches the snapshot 1`]
             },
           ],
           "type": "italics",
+        },
+        {
+          "text": " text",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("Nested _underlined_ text") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Nested ",
+          "type": "text",
+        },
+        {
+          "nodes": [
+            {
+              "text": "underlined",
+              "type": "text",
+            },
+          ],
+          "type": "underline",
         },
         {
           "text": " text",

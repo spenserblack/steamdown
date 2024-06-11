@@ -60,11 +60,16 @@ const firstSuccessfulParse = <N extends nodes.Node>(
 };
 
 /**
+ * Helper for `makeWrappedTextParser`.
+ */
+type WrappedNode = Exclude<nodes.Inline, nodes.Text>;
+
+/**
  * Creates a parser for wrapped text.
  *
  * For example, `*foo*` is `foo` wrapped in `*`.
  */
-const makeWrappedTextParser = <N extends nodes.Italics>(wrapper: string, type: N["type"]) => ({
+const makeWrappedTextParser = <N extends WrappedNode>(wrapper: string, type: N["type"]) => ({
   hint: (text: string) => text.startsWith(wrapper),
   parse: (text: string): [N, remainder: string] => {
     const innerStartIndex = wrapper.length;
@@ -95,9 +100,9 @@ const makeWrappedTextParser = <N extends nodes.Italics>(wrapper: string, type: N
     const node = {
       type,
       nodes,
-    } as N;
+    };
 
-    return [node, remainder];
+    return [node as N, remainder];
   },
 });
 
@@ -105,6 +110,11 @@ const makeWrappedTextParser = <N extends nodes.Italics>(wrapper: string, type: N
  * Parser for an italics node.
  */
 const italicsParser = makeWrappedTextParser<nodes.Italics>('*', 'italics') satisfies Parser<nodes.Italics>;
+
+/**
+ * Parser for an underline node.
+ */
+const underlineParser = makeWrappedTextParser<nodes.Underline>('_', 'underline') satisfies Parser<nodes.Underline>;
 
 /**
  * Parser for a text node. This should never fail to parse.
@@ -115,7 +125,7 @@ const textParser = {
     let remainder = "";
     // NOTE End on special chars to allow for parsing of other nodes, but only if that
     //      special char is not the first character.
-    const end = /[*]/.exec(text);
+    const end = /[*_]/.exec(text);
 
     if (end && end.index > 0) {
       remainder = text.slice(end.index);
@@ -131,7 +141,7 @@ const textParser = {
   },
 } satisfies Parser<nodes.Text>;
 
-const inlineParsers: InlineParser[] = [italicsParser, textParser];
+const inlineParsers: InlineParser[] = [italicsParser, underlineParser, textParser];
 
 /**
  * Parses text into inline nodes.

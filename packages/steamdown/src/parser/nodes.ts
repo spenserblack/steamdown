@@ -31,6 +31,14 @@ export interface Italics extends Node {
 }
 
 /**
+ * An underline node.
+ */
+export interface Underline extends Node {
+  type: "underline";
+  nodes: Inline[];
+}
+
+/**
  * A text node.
  */
 export interface Text extends Node {
@@ -38,5 +46,5 @@ export interface Text extends Node {
   text: string;
 }
 
-export type Inline = Italics | Text;
+export type Inline = Italics | Underline | Text;
 export type Block = Paragraph;

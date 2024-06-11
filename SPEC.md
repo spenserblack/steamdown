@@ -46,6 +46,23 @@ not italicized.*
 
 Note that, unlike Markdown, italics represented by a set of `_` are *not* supported.
 
+
+### Underlines
+
+Underlines are text wrapped within a single set of `_`. Italics *cannot* contain a newline.
+Underlines must start and end with a word, not a space.
+
+```markdown
+_This text is underlined._
+
+_this is
+not underlined._
+
+_ This is not underlined. _
+```
+
+Note that, in Markdown, this would be italicized/emphasized text, not underlined.
+
 ### Text
 
 Text is the fallback inline if it can't be interpreted as any other inline.
