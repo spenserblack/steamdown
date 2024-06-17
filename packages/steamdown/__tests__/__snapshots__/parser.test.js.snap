@@ -1,5 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`parser parse("***Bold and italicized text***") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "Bold and italicized text",
+              "type": "text",
+            },
+          ],
+          "type": "bold-italics",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("**Bold text**") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "Bold text",
+              "type": "text",
+            },
+          ],
+          "type": "bold",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse("*Italicized and _underlined_*") .tree matches the snapshot 1`] = `
 {
   "nodes": [
@@ -137,6 +181,42 @@ exports[`parser parse("Invalid * italicized * text with spaces") .tree matches t
 }
 `;
 
+exports[`parser parse("Invalid ** bold ** text with spaces") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Invalid ** bold ** text with spaces",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("Invalid **bold
+text** with a newline") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Invalid **bold
+text** with a newline",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse("Invalid *italicized
 text* with a newline") .tree matches the snapshot 1`] = `
 {
@@ -182,6 +262,36 @@ text_ with a newline") .tree matches the snapshot 1`] = `
         {
           "text": "Invalid _underlined
 text_ with a newline",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("Nested **bold** text") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Nested ",
+          "type": "text",
+        },
+        {
+          "nodes": [
+            {
+              "text": "bold",
+              "type": "text",
+            },
+          ],
+          "type": "bold",
+        },
+        {
+          "text": " text",
           "type": "text",
         },
       ],

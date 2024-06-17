@@ -23,10 +23,26 @@ export interface Paragraph extends Node {
 }
 
 /**
+ * A bold node.
+ */
+export interface Bold extends Node {
+  type: "bold";
+  nodes: Inline[];
+}
+
+/**
  * An italics node.
  */
 export interface Italics extends Node {
   type: "italics";
+  nodes: Inline[];
+}
+
+/**
+ * A bold + italics node.
+ */
+export interface BoldItalics extends Node {
+  type: "bold-italics";
   nodes: Inline[];
 }
 
@@ -46,5 +62,5 @@ export interface Text extends Node {
   text: string;
 }
 
-export type Inline = Italics | Underline | Text;
+export type Inline = BoldItalics | Bold | Italics | Underline | Text;
 export type Block = Paragraph;

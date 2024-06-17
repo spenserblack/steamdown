@@ -73,9 +73,9 @@ const makeWrappedTextParser = <N extends WrappedNode>(wrapper: string, type: N["
   hint: (text: string) => text.startsWith(wrapper),
   parse: (text: string): [N, remainder: string] => {
     const innerStartIndex = wrapper.length;
-    const innerEndIndex = text.indexOf(wrapper, innerStartIndex);
+    const innerEndIndex = text.indexOf(wrapper, innerStartIndex)
 
-    if (innerEndIndex === -1) {
+    if (innerEndIndex < 0) {
       throw new ParseError(`${type} must be closed`);
     }
 
@@ -105,6 +105,18 @@ const makeWrappedTextParser = <N extends WrappedNode>(wrapper: string, type: N["
     return [node as N, remainder];
   },
 });
+
+/**
+ * Parser for bold italics.
+ *
+ * HACK This is a hack to make it easier to parse italics nested in bold (or is it bold nested in italics?).
+ */
+const boldItalicsParser = makeWrappedTextParser<nodes.BoldItalics>('***', 'bold-italics') satisfies Parser<nodes.BoldItalics>;
+
+/**
+ * Parser for a bold node.
+ */
+const boldParser = makeWrappedTextParser<nodes.Bold>('**', 'bold') satisfies Parser<nodes.Bold>;
 
 /**
  * Parser for an italics node.
@@ -141,7 +153,7 @@ const textParser = {
   },
 } satisfies Parser<nodes.Text>;
 
-const inlineParsers: InlineParser[] = [italicsParser, underlineParser, textParser];
+const inlineParsers: InlineParser[] = [boldItalicsParser, boldParser, italicsParser, underlineParser, textParser];
 
 /**
  * Parses text into inline nodes.
