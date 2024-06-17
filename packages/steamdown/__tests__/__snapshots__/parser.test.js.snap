@@ -1,5 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`parser parse("*Italicized and _underlined_*") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "Italicized and ",
+              "type": "text",
+            },
+            {
+              "nodes": [
+                {
+                  "text": "underlined",
+                  "type": "text",
+                },
+              ],
+              "type": "underline",
+            },
+          ],
+          "type": "italics",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse("*Italicized text*") .tree matches the snapshot 1`] = `
 {
   "nodes": [

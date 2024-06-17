@@ -13,6 +13,7 @@ describe("parser", () => {
     ["Nested _underlined_ text"],
     ["Invalid _ underlined _ text with spaces"],
     ["Invalid _underlined\ntext_ with a newline"],
+    ["*Italicized and _underlined_*"],
   ])("parse(%p)", (text) => {
     const parsed = parse(text);
 
