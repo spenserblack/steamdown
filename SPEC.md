@@ -32,13 +32,14 @@ Inlines are contained within blocks. Inlines may also contain their own inlines.
 
 ### Italics
 
-Italics are text wrapped within a single set of `*`. Italics *cannot* contain a newline.
+Italics are text wrapped within a single set of `*`. Italics *cannot* break a paragraph.
 Italics must start and end with a word, not a space.
 
 ```markdown
 *This is italicized.*
 
 *this is
+
 not italicized.*
 
 * This is not italicized. *
@@ -49,13 +50,14 @@ Note that, unlike Markdown, italics represented by a set of `_` are *not* suppor
 
 ### Underlines
 
-Underlines are text wrapped within a single set of `_`. Italics *cannot* contain a newline.
+Underlines are text wrapped within a single set of `_`. Italics *cannot* break a paragraph.
 Underlines must start and end with a word, not a space.
 
 ```markdown
 _This text is underlined._
 
 _this is
+
 not underlined._
 
 _ This is not underlined. _
@@ -65,13 +67,14 @@ Note that, in Markdown, this would be italicized/emphasized text, not underlined
 
 ### Bold
 
-Bold is text wrapped within `**`. Bold *cannot* contain a newline.
+Bold is text wrapped within `**`. Bold *cannot* break a paragraph.
 Bold must start and end with a word, not a space.
 
 ```markdown
 **This text is bold.**
 
 **this is
+
 not bold.**
 
 ** This is not bold. **
