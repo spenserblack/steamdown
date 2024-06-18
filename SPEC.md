@@ -63,6 +63,20 @@ _ This is not underlined. _
 
 Note that, in Markdown, this would be italicized/emphasized text, not underlined.
 
+### Bold
+
+Bold is text wrapped within `**`. Bold *cannot* contain a newline.
+Bold must start and end with a word, not a space.
+
+```markdown
+**This text is bold.**
+
+**this is
+not bold.**
+
+** This is not bold. **
+```
+
 ### Text
 
 Text is the fallback inline if it can't be interpreted as any other inline.
