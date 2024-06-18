@@ -199,14 +199,23 @@ exports[`parser parse("Invalid ** bold ** text with spaces") .tree matches the s
 `;
 
 exports[`parser parse("Invalid **bold
-text** with a newline") .tree matches the snapshot 1`] = `
+
+text** with newlines") .tree matches the snapshot 1`] = `
 {
   "nodes": [
     {
       "nodes": [
         {
-          "text": "Invalid **bold
-text** with a newline",
+          "text": "Invalid **bold",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+    {
+      "nodes": [
+        {
+          "text": "text** with newlines",
           "type": "text",
         },
       ],
@@ -218,14 +227,23 @@ text** with a newline",
 `;
 
 exports[`parser parse("Invalid *italicized
-text* with a newline") .tree matches the snapshot 1`] = `
+
+text* with newlines") .tree matches the snapshot 1`] = `
 {
   "nodes": [
     {
       "nodes": [
         {
-          "text": "Invalid *italicized
-text* with a newline",
+          "text": "Invalid *italicized",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+    {
+      "nodes": [
+        {
+          "text": "text* with newlines",
           "type": "text",
         },
       ],
@@ -254,14 +272,23 @@ exports[`parser parse("Invalid _ underlined _ text with spaces") .tree matches t
 `;
 
 exports[`parser parse("Invalid _underlined
-text_ with a newline") .tree matches the snapshot 1`] = `
+
+text_ with newlines") .tree matches the snapshot 1`] = `
 {
   "nodes": [
     {
       "nodes": [
         {
-          "text": "Invalid _underlined
-text_ with a newline",
+          "text": "Invalid _underlined",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+    {
+      "nodes": [
+        {
+          "text": "text_ with newlines",
           "type": "text",
         },
       ],
@@ -352,6 +379,102 @@ exports[`parser parse("Nested _underlined_ text") .tree matches the snapshot 1`]
         },
         {
           "text": " text",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("Valid **bold
+text** with a newline") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Valid ",
+          "type": "text",
+        },
+        {
+          "nodes": [
+            {
+              "text": "bold
+text",
+              "type": "text",
+            },
+          ],
+          "type": "bold",
+        },
+        {
+          "text": " with a newline",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("Valid *italicized
+text* with a newline") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Valid ",
+          "type": "text",
+        },
+        {
+          "nodes": [
+            {
+              "text": "italicized
+text",
+              "type": "text",
+            },
+          ],
+          "type": "italics",
+        },
+        {
+          "text": " with a newline",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("Valid _underlined
+text_ with a newline") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Valid ",
+          "type": "text",
+        },
+        {
+          "nodes": [
+            {
+              "text": "underlined
+text",
+              "type": "text",
+            },
+          ],
+          "type": "underline",
+        },
+        {
+          "text": " with a newline",
           "type": "text",
         },
       ],

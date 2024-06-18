@@ -92,7 +92,7 @@ const makeWrappedTextParser = <N extends WrappedNode>(
       throw new ParseError(`${type} cannot start or end with whitespace`);
     }
 
-    if (/\n/.test(innerText)) {
+    if (/\n\n/.test(innerText)) {
       throw new ParseError(`${type} cannot contain newlines`);
     }
 
