@@ -100,3 +100,11 @@ not striked.~~
 ### Text
 
 Text is the fallback inline if it can't be interpreted as any other inline.
+
+## Escapes
+
+The following characters can be escaped with a preceding `\`.
+
+- `*`
+- `_`
+- `~`

@@ -38,6 +38,14 @@ describe("parser", () => {
     ["~*striked italics*~"],
     ["*~italicized strike~*"],
     ["~strike~ and ~~another strike~~"],
+    ["\\*escaped\\*"],
+    ["*italics \\*escaped\\**"],
+    ["\\*\\*escaped\\*\\*"],
+    ["**bold \\*escaped\\***"],
+    ["\\~escaped\\~"],
+    ["~strike \\~escaped\\~"],
+    ["~strike \\~escaped~"],
+    ["\\~strike \\~escaped\\~"],
   ])("parse(%p)", (text) => {
     const parsed = parse(text);
 

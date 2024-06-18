@@ -1,5 +1,6 @@
 import * as nodes from "./nodes";
 import { ParseError, UnreachableError } from "./errors";
+import escapeRegExp from "lodash.escaperegexp";
 
 /**
  * A parser for the syntax.
@@ -72,42 +73,46 @@ type WrappedNode = Exclude<nodes.Inline, nodes.Text>;
 const makeWrappedTextParser = <N extends WrappedNode>(
   wrapper: string,
   type: N["type"],
-) => ({
-  hint: (text: string) => text.startsWith(wrapper),
-  parse: (text: string): [N, remainder: string] => {
-    const innerStartIndex = wrapper.length;
-    const innerEndIndex = text.indexOf(wrapper, innerStartIndex);
+) => {
+  const endRegex = new RegExp(`(?<!\\\\)${escapeRegExp(wrapper)}`);
+  return {
+    hint: (text: string) => text.startsWith(wrapper),
+    parse: (text: string): [N, remainder: string] => {
+      text = text.slice(wrapper.length);
 
-    if (innerEndIndex < 0) {
-      throw new ParseError(`${type} must be closed`);
-    }
+      const endMatch = endRegex.exec(text);
+      if (!endMatch) {
+        throw new ParseError(`${type} must be closed`);
+      }
+      const innerEndIndex = endMatch.index;
 
-    const innerText = text.slice(innerStartIndex, innerEndIndex);
+      const innerText = text.slice(0, endMatch.index);
 
-    if (innerText.length === 0) {
-      throw new ParseError(`${type} must have content`);
-    }
+      if (innerText.length === 0) {
+        throw new ParseError(`${type} must have content`);
+      }
 
-    if ([innerText[0], innerText[innerText.length - 1]].some((s) => /\s/.test(s))) {
-      throw new ParseError(`${type} cannot start or end with whitespace`);
-    }
+      if ([innerText[0], innerText[innerText.length - 1]].some((s) => /\s/.test(s))) {
+        throw new ParseError(`${type} cannot start or end with whitespace`);
+      }
 
-    if (/\n\n/.test(innerText)) {
-      throw new ParseError(`${type} cannot contain newlines`);
-    }
+      if (/\n\n/.test(innerText)) {
+        throw new ParseError(`${type} cannot contain newlines`);
+      }
 
-    const remainder = text.slice(innerEndIndex + wrapper.length);
+      const remainder = text.slice(innerEndIndex + wrapper.length);
 
-    const nodes = parseInline(innerText);
+      const nodes = parseInline(innerText);
 
-    const node = {
-      type,
-      nodes,
-    };
+      const node = {
+        type,
+        nodes,
+      };
 
-    return [node as N, remainder];
-  },
-});
+      return [node as N, remainder];
+    },
+  };
+};
 
 /**
  * Creates a helper for wrapped text for inline formatting, where the wrapper can be variable length.
@@ -128,24 +133,25 @@ const variableLengthInlineHelper = (wrapperChar: string) => {
   if (wrapperChar.length !== 1) {
     throw new UnreachableError("wrapperChar must be a single character");
   }
-  const regex = new RegExp(`^${wrapperChar}+`);
+  const regex = new RegExp(`^(?:(?!<\\\\)${escapeRegExp(wrapperChar)})+`);
 
   return (text: string, t: string) => {
-    const match = regex.exec(text);
-    if (!match) {
+    const wrapperMatch = regex.exec(text);
+    if (!wrapperMatch) {
       return "no match";
     }
-    const wrapper = match[0];
-    const innerStartIndex = wrapper.length;
-    const innerEndIndex = text.indexOf(wrapper, innerStartIndex);
+    const wrapper = wrapperMatch[0];
+    const endRegex = new RegExp(`(?<!\\\\)${escapeRegExp(wrapper)}`);
+    text = text.slice(wrapper.length);
+    const endMatch = endRegex.exec(text);
 
-    if (innerEndIndex < 0) {
+    if (!endMatch) {
       return "not closed";
     }
 
-    const innerText = text.slice(innerStartIndex, innerEndIndex);
+    text = text.slice(0, endMatch.index);
 
-    return { wrapper, text: innerText };
+    return { wrapper, text };
   };
 };
 

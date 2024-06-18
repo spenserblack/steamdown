@@ -44,6 +44,28 @@ exports[`parser parse("**Bold text**") .tree matches the snapshot 1`] = `
 }
 `;
 
+exports[`parser parse("**bold \\\\*escaped\\\\***") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "bold \\*escaped\\*",
+              "type": "text",
+            },
+          ],
+          "type": "bold",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse("*~italicized strike~*") .tree matches the snapshot 1`] = `
 {
   "nodes": [
@@ -150,6 +172,96 @@ exports[`parser parse("*Italics* and *more italics*") .tree matches the snapshot
             },
           ],
           "type": "italics",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("*italics \\\\*escaped\\\\**") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "italics \\*escaped\\*",
+              "type": "text",
+            },
+          ],
+          "type": "italics",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("\\\\*\\\\*escaped\\\\*\\\\*") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "\\*\\*escaped\\*\\*",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("\\\\*escaped\\\\*") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "\\*escaped\\*",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("\\\\~escaped\\\\~") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "\\~escaped\\~",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("\\\\~strike \\\\~escaped\\\\~") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "\\~strike \\~escaped\\~",
+          "type": "text",
         },
       ],
       "type": "paragraph",
@@ -307,6 +419,45 @@ exports[`parser parse("~Maybe strike text~~") .tree matches the snapshot 1`] = `
         {
           "text": "~",
           "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("~strike \\\\~escaped\\\\~") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "~strike \\~escaped\\~",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("~strike \\\\~escaped~") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "strike \\~escaped",
+              "type": "text",
+            },
+          ],
+          "type": "strike",
         },
       ],
       "type": "paragraph",
