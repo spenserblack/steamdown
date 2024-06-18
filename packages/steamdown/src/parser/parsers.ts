@@ -96,6 +96,7 @@ const makeWrappedTextParser = <N extends WrappedNode>(
         throw new ParseError(`${type} cannot start or end with whitespace`);
       }
 
+      // TODO Unnecessary (already enforced by block parsing)?
       if (/\n\n/.test(innerText)) {
         throw new ParseError(`${type} cannot contain newlines`);
       }
