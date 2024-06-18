@@ -44,6 +44,33 @@ exports[`parser parse("**Bold text**") .tree matches the snapshot 1`] = `
 }
 `;
 
+exports[`parser parse("*~italicized strike~*") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "italicized strike",
+                  "type": "text",
+                },
+              ],
+              "type": "strike",
+            },
+          ],
+          "type": "italics",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse("*Italicized and _underlined_*") .tree matches the snapshot 1`] = `
 {
   "nodes": [
@@ -97,6 +124,41 @@ exports[`parser parse("*Italicized text*") .tree matches the snapshot 1`] = `
 }
 `;
 
+exports[`parser parse("*Italics* and *more italics*") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "Italics",
+              "type": "text",
+            },
+          ],
+          "type": "italics",
+        },
+        {
+          "text": " and ",
+          "type": "text",
+        },
+        {
+          "nodes": [
+            {
+              "text": "more italics",
+              "type": "text",
+            },
+          ],
+          "type": "italics",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse("_Underlined text_") .tree matches the snapshot 1`] = `
 {
   "nodes": [
@@ -110,6 +172,224 @@ exports[`parser parse("_Underlined text_") .tree matches the snapshot 1`] = `
             },
           ],
           "type": "underline",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("~ strike with spaces ~") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "~ strike with spaces ~",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("~*striked italics*~") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "striked italics",
+                  "type": "text",
+                },
+              ],
+              "type": "italics",
+            },
+          ],
+          "type": "strike",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("~~Maybe strike text~") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "~~Maybe strike text~",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("~~strike text~~") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "strike text",
+              "type": "text",
+            },
+          ],
+          "type": "strike",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("~~strike~~ with trailing text") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "strike",
+              "type": "text",
+            },
+          ],
+          "type": "strike",
+        },
+        {
+          "text": " with trailing text",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("~Maybe strike text~~") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "Maybe strike text",
+              "type": "text",
+            },
+          ],
+          "type": "strike",
+        },
+        {
+          "text": "~",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("~strike text~") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "strike text",
+              "type": "text",
+            },
+          ],
+          "type": "strike",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("~strike~ and ~~another strike~~") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "strike",
+              "type": "text",
+            },
+          ],
+          "type": "strike",
+        },
+        {
+          "text": " and ",
+          "type": "text",
+        },
+        {
+          "nodes": [
+            {
+              "text": "another strike",
+              "type": "text",
+            },
+          ],
+          "type": "strike",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("~strike~ with trailing text") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "strike",
+              "type": "text",
+            },
+          ],
+          "type": "strike",
+        },
+        {
+          "text": " with trailing text",
+          "type": "text",
         },
       ],
       "type": "paragraph",
@@ -299,6 +579,34 @@ text_ with newlines") .tree matches the snapshot 1`] = `
 }
 `;
 
+exports[`parser parse("Invalid ~strike
+
+text~ with newlines") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Invalid ~strike",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+    {
+      "nodes": [
+        {
+          "text": "text~ with newlines",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse("Nested **bold** text") .tree matches the snapshot 1`] = `
 {
   "nodes": [
@@ -376,6 +684,36 @@ exports[`parser parse("Nested _underlined_ text") .tree matches the snapshot 1`]
             },
           ],
           "type": "underline",
+        },
+        {
+          "text": " text",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("Nested ~strike~ text") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Nested ",
+          "type": "text",
+        },
+        {
+          "nodes": [
+            {
+              "text": "strike",
+              "type": "text",
+            },
+          ],
+          "type": "strike",
         },
         {
           "text": " text",
@@ -485,6 +823,38 @@ text",
 }
 `;
 
+exports[`parser parse("Valid ~strike
+text~ with a newline") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Valid ",
+          "type": "text",
+        },
+        {
+          "nodes": [
+            {
+              "text": "strike
+text",
+              "type": "text",
+            },
+          ],
+          "type": "strike",
+        },
+        {
+          "text": " with a newline",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse("one
 paragraph
 spanning lines") .tree matches the snapshot 1`] = `
@@ -497,6 +867,58 @@ spanning lines") .tree matches the snapshot 1`] = `
 paragraph
 spanning lines",
           "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("strike with ~~leading text~~") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "strike with ",
+          "type": "text",
+        },
+        {
+          "nodes": [
+            {
+              "text": "leading text",
+              "type": "text",
+            },
+          ],
+          "type": "strike",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("strike with ~leading text~") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "strike with ",
+          "type": "text",
+        },
+        {
+          "nodes": [
+            {
+              "text": "leading text",
+              "type": "text",
+            },
+          ],
+          "type": "strike",
         },
       ],
       "type": "paragraph",

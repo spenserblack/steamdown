@@ -55,6 +55,14 @@ export interface Underline extends Node {
 }
 
 /**
+ * A strike node.
+ */
+export interface Strike extends Node {
+  type: "strike";
+  nodes: Inline[];
+}
+
+/**
  * A text node.
  */
 export interface Text extends Node {
@@ -62,5 +70,5 @@ export interface Text extends Node {
   text: string;
 }
 
-export type Inline = BoldItalics | Bold | Italics | Underline | Text;
+export type Inline = BoldItalics | Bold | Italics | Underline | Strike | Text;
 export type Block = Paragraph;

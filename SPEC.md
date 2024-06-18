@@ -80,6 +80,23 @@ not bold.**
 ** This is not bold. **
 ```
 
+### Strike
+
+Strike is text wrapped within at least one `~`, but possibly more.
+Bold *cannot* break a paragraph. Bold must start and end with a word,
+not a space.
+
+```markdown
+~This text is striked.~
+~~This text is striked.~~
+
+~~this is
+
+not striked.~~
+
+~~ This is not striked. ~~
+```
+
 ### Text
 
 Text is the fallback inline if it can't be interpreted as any other inline.

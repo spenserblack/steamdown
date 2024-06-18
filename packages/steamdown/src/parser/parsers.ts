@@ -110,6 +110,46 @@ const makeWrappedTextParser = <N extends WrappedNode>(
 });
 
 /**
+ * Creates a helper for wrapped text for inline formatting, where the wrapper can be variable length.
+ *
+ * For example, both `~foo~` and `~~foo~~` would be `[strike]foo[/strike]`.
+ *
+ * This will return a helper that returns the text used for wrapping (`~~`) and the wrapped text.
+ * It will not perform much validation besides asserting that the text is wrapped.
+ *
+ * # Example
+ *
+ * ```typescript
+ * const helper = variableLengthInlineHelper("~");
+ * helper("foo ~~bar~~ baz"); // { wrapper: "~~", text: "bar" }
+ * ```
+ */
+const variableLengthInlineHelper = (wrapperChar: string) => {
+  if (wrapperChar.length !== 1) {
+    throw new UnreachableError("wrapperChar must be a single character");
+  }
+  const regex = new RegExp(`^${wrapperChar}+`);
+
+  return (text: string, t: string) => {
+    const match = regex.exec(text);
+    if (!match) {
+      return "no match";
+    }
+    const wrapper = match[0];
+    const innerStartIndex = wrapper.length;
+    const innerEndIndex = text.indexOf(wrapper, innerStartIndex);
+
+    if (innerEndIndex < 0) {
+      return "not closed";
+    }
+
+    const innerText = text.slice(innerStartIndex, innerEndIndex);
+
+    return { wrapper, text: innerText };
+  };
+};
+
+/**
  * Parser for bold italics.
  *
  * HACK This is a hack to make it easier to parse italics nested in bold (or is it bold nested in italics?).
@@ -144,6 +184,35 @@ const underlineParser = makeWrappedTextParser<nodes.Underline>(
 ) satisfies Parser<nodes.Underline>;
 
 /**
+ * Parser for a strike node.
+ */
+const strikeParser = {
+  hint: (text: string) => text.startsWith("~"),
+  parse: (text: string): [nodes.Strike, remainder: string] => {
+    const result = variableLengthInlineHelper("~")(text, "strike");
+    switch (result) {
+      case "no match":
+        throw new ParseError("strike must start with ~");
+      case "not closed":
+        throw new ParseError("strike must be closed");
+    }
+    const { wrapper, text: innerText } = result;
+    const consumedCharCount = wrapper.length + innerText.length + wrapper.length;
+    if ([innerText[0], innerText[innerText.length - 1]].some((s) => /\s/.test(s))) {
+      throw new ParseError("strike cannot start or end with whitespace");
+    }
+    const nodes = parseInline(innerText);
+
+    const node: nodes.Strike = {
+      type: "strike",
+      nodes,
+    };
+    const remainder = text.slice(consumedCharCount);
+    return [node, remainder];
+  },
+} satisfies Parser<nodes.Strike>;
+
+/**
  * Parser for a text node. This should never fail to parse.
  */
 const textParser = {
@@ -152,7 +221,7 @@ const textParser = {
     let remainder = "";
     // NOTE End on special chars to allow for parsing of other nodes, but only if that
     //      special char is not the first character.
-    const end = /[*_]/.exec(text);
+    const end = /[*_~]/.exec(text);
 
     if (end && end.index > 0) {
       remainder = text.slice(end.index);
@@ -173,6 +242,7 @@ const inlineParsers: InlineParser[] = [
   boldParser,
   italicsParser,
   underlineParser,
+  strikeParser,
   textParser,
 ];
 
