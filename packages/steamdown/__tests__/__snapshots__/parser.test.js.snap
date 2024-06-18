@@ -52,8 +52,20 @@ exports[`parser parse("**bold \\\\*escaped\\\\***") .tree matches the snapshot 1
         {
           "nodes": [
             {
-              "text": "bold \\*escaped\\*",
+              "text": "bold ",
               "type": "text",
+            },
+            {
+              "character": "*",
+              "type": "escaped",
+            },
+            {
+              "text": "escaped",
+              "type": "text",
+            },
+            {
+              "character": "*",
+              "type": "escaped",
             },
           ],
           "type": "bold",
@@ -189,8 +201,20 @@ exports[`parser parse("*italics \\\\*escaped\\\\**") .tree matches the snapshot 
         {
           "nodes": [
             {
-              "text": "italics \\*escaped\\*",
+              "text": "italics ",
               "type": "text",
+            },
+            {
+              "character": "*",
+              "type": "escaped",
+            },
+            {
+              "text": "escaped",
+              "type": "text",
+            },
+            {
+              "character": "*",
+              "type": "escaped",
             },
           ],
           "type": "italics",
@@ -209,8 +233,24 @@ exports[`parser parse("\\\\*\\\\*escaped\\\\*\\\\*") .tree matches the snapshot 
     {
       "nodes": [
         {
-          "text": "\\*\\*escaped\\*\\*",
+          "character": "*",
+          "type": "escaped",
+        },
+        {
+          "character": "*",
+          "type": "escaped",
+        },
+        {
+          "text": "escaped",
           "type": "text",
+        },
+        {
+          "character": "*",
+          "type": "escaped",
+        },
+        {
+          "character": "*",
+          "type": "escaped",
         },
       ],
       "type": "paragraph",
@@ -226,8 +266,16 @@ exports[`parser parse("\\\\*escaped\\\\*") .tree matches the snapshot 1`] = `
     {
       "nodes": [
         {
-          "text": "\\*escaped\\*",
+          "character": "*",
+          "type": "escaped",
+        },
+        {
+          "text": "escaped",
           "type": "text",
+        },
+        {
+          "character": "*",
+          "type": "escaped",
         },
       ],
       "type": "paragraph",
@@ -243,8 +291,16 @@ exports[`parser parse("\\\\~escaped\\\\~") .tree matches the snapshot 1`] = `
     {
       "nodes": [
         {
-          "text": "\\~escaped\\~",
+          "character": "~",
+          "type": "escaped",
+        },
+        {
+          "text": "escaped",
           "type": "text",
+        },
+        {
+          "character": "~",
+          "type": "escaped",
         },
       ],
       "type": "paragraph",
@@ -260,8 +316,24 @@ exports[`parser parse("\\\\~strike \\\\~escaped\\\\~") .tree matches the snapsho
     {
       "nodes": [
         {
-          "text": "\\~strike \\~escaped\\~",
+          "character": "~",
+          "type": "escaped",
+        },
+        {
+          "text": "strike ",
           "type": "text",
+        },
+        {
+          "character": "~",
+          "type": "escaped",
+        },
+        {
+          "text": "escaped",
+          "type": "text",
+        },
+        {
+          "character": "~",
+          "type": "escaped",
         },
       ],
       "type": "paragraph",
@@ -453,7 +525,15 @@ exports[`parser parse("~strike \\\\~escaped~") .tree matches the snapshot 1`] = 
         {
           "nodes": [
             {
-              "text": "strike \\~escaped",
+              "text": "strike ",
+              "type": "text",
+            },
+            {
+              "character": "~",
+              "type": "escaped",
+            },
+            {
+              "text": "escaped",
               "type": "text",
             },
           ],
@@ -868,6 +948,23 @@ exports[`parser parse("Nested ~strike~ text") .tree matches the snapshot 1`] = `
         },
         {
           "text": " text",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("Use a \\\\\\\\ to escape special characters") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Use a \\\\ to escape special characters",
           "type": "text",
         },
       ],

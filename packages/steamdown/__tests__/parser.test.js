@@ -46,6 +46,7 @@ describe("parser", () => {
     ["~strike \\~escaped\\~"],
     ["~strike \\~escaped~"],
     ["\\~strike \\~escaped\\~"],
+    ["Use a \\\\ to escape special characters"],
   ])("parse(%p)", (text) => {
     const parsed = parse(text);
 

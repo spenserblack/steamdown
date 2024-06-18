@@ -70,5 +70,13 @@ export interface Text extends Node {
   text: string;
 }
 
-export type Inline = BoldItalics | Bold | Italics | Underline | Strike | Text;
+/**
+ * An escaped character node.
+ */
+export interface Escaped extends Node {
+  type: "escaped";
+  character: string;
+}
+
+export type Inline = BoldItalics | Bold | Italics | Underline | Strike | Text | Escaped;
 export type Block = Paragraph;

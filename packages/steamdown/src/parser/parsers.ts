@@ -218,6 +218,27 @@ const strikeParser = {
   },
 } satisfies Parser<nodes.Strike>;
 
+
+const escapableCharacters = ["*", "_", "~", "\\"];
+/**
+ * Parser for an escaped character.
+ */
+const escapedCharacterParser = {
+  hint: (text: string) => text.startsWith("\\"),
+  parse: (text: string): [nodes.Escaped, remainder: string] => {
+    const nextChar = text[1];
+    if (!escapableCharacters.includes(nextChar)) {
+      throw new ParseError(`cannot escape ${nextChar}`);
+    }
+    const node: nodes.Escaped = {
+      type: "escaped",
+      character: nextChar,
+    };
+    const remainder = text.slice(2);
+    return [node, remainder];
+  },
+} satisfies Parser<nodes.Escaped>;
+
 /**
  * Parser for a text node. This should never fail to parse.
  */
@@ -227,7 +248,7 @@ const textParser = {
     let remainder = "";
     // NOTE End on special chars to allow for parsing of other nodes, but only if that
     //      special char is not the first character.
-    const end = /[*_~]/.exec(text);
+    const end = /[\\*_~]/.exec(text);
 
     if (end && end.index > 0) {
       remainder = text.slice(end.index);
@@ -249,6 +270,7 @@ const inlineParsers: InlineParser[] = [
   italicsParser,
   underlineParser,
   strikeParser,
+  escapedCharacterParser,
   textParser,
 ];
 
