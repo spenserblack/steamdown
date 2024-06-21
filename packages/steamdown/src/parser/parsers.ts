@@ -157,6 +157,37 @@ const variableLengthInlineHelper = (wrapperChar: string) => {
 };
 
 /**
+ * Parser for noparse spans.
+ */
+const noparseSpanParser = {
+  hint: (text: string) => text.startsWith("{"),
+  parse: (text: string): [nodes.NoparseSpan, remainder: string] => {
+    const openingMatch = /^\{(?:(?<!\\)\{)*/.exec(text);
+
+    if (!openingMatch) {
+      throw new UnreachableError("noparse span must start with {");
+    }
+    const opening = openingMatch[0];
+    const closing = new RegExp(`(?<!\\\\)${escapeRegExp("}".repeat(opening.length))}`);
+
+    const closingIndex = closing.exec(text)?.index;
+    if (closingIndex == null) {
+      throw new ParseError("noparse span must be closed");
+    }
+
+    const innerText = text.slice(opening.length, closingIndex);
+    const remainder = text.slice(closingIndex + opening.length);
+
+    const node: nodes.NoparseSpan = {
+      type: "noparse-span",
+      text: innerText,
+    };
+
+    return [node, remainder];
+  },
+} satisfies Parser<nodes.NoparseSpan>;
+
+/**
  * Parser for bold italics.
  *
  * HACK This is a hack to make it easier to parse italics nested in bold (or is it bold nested in italics?).
@@ -219,8 +250,7 @@ const strikeParser = {
   },
 } satisfies Parser<nodes.Strike>;
 
-
-const escapableCharacters = ["*", "_", "~", "\\"];
+const escapableCharacters = ["*", "_", "~", "\\", "{", "}"];
 /**
  * Parser for an escaped character.
  */
@@ -249,7 +279,7 @@ const textParser = {
     let remainder = "";
     // NOTE End on special chars to allow for parsing of other nodes, but only if that
     //      special char is not the first character.
-    const end = /[\\*_~]/.exec(text);
+    const end = /[\\*_~\{]/.exec(text);
 
     if (end && end.index > 0) {
       remainder = text.slice(end.index);
@@ -266,6 +296,7 @@ const textParser = {
 } satisfies Parser<nodes.Text>;
 
 const inlineParsers: InlineParser[] = [
+  noparseSpanParser,
   boldItalicsParser,
   boldParser,
   italicsParser,

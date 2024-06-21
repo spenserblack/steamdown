@@ -365,6 +365,99 @@ exports[`parser parse("_Underlined text_") .tree matches the snapshot 1`] = `
 }
 `;
 
+exports[`parser parse("{*not parsed*}") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "*not parsed*",
+          "type": "noparse-span",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("{\\\\{escaped\\\\}}") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "\\{escaped\\}",
+          "type": "noparse-span",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("{{{not parsed}}}") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "not parsed",
+          "type": "noparse-span",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("{not parsed} {also not parsed}") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "not parsed",
+          "type": "noparse-span",
+        },
+        {
+          "text": " ",
+          "type": "text",
+        },
+        {
+          "text": "also not parsed",
+          "type": "noparse-span",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("{not parsed}") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "not parsed",
+          "type": "noparse-span",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse("~ strike with spaces ~") .tree matches the snapshot 1`] = `
 {
   "nodes": [

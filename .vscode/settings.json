@@ -2,5 +2,5 @@
   "prettier.requireConfig": true,
   "prettier.configPath": ".prettierrc.json",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "cSpell.words": ["steamdown"]
+  "cSpell.words": ["noparse", "steamdown"]
 }

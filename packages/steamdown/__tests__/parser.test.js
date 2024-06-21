@@ -47,6 +47,11 @@ describe("parser", () => {
     ["~strike \\~escaped~"],
     ["\\~strike \\~escaped\\~"],
     ["Use a \\\\ to escape special characters"],
+    ["{not parsed}"],
+    ["{not parsed} {also not parsed}"],
+    ["{*not parsed*}"],
+    ["{{{not parsed}}}"],
+    ["{\\{escaped\\}}"],
   ])("parse(%p)", (text) => {
     const parsed = parse(text);
 

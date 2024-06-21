@@ -23,6 +23,14 @@ export interface Paragraph extends Node {
 }
 
 /**
+ * A noparse span node.
+ */
+export interface NoparseSpan extends Node {
+  type: "noparse-span";
+  text: string;
+}
+
+/**
  * A bold node.
  */
 export interface Bold extends Node {
@@ -78,5 +86,13 @@ export interface Escaped extends Node {
   character: string;
 }
 
-export type Inline = BoldItalics | Bold | Italics | Underline | Strike | Text | Escaped;
+export type Inline =
+  | NoparseSpan
+  | BoldItalics
+  | Bold
+  | Italics
+  | Underline
+  | Strike
+  | Text
+  | Escaped;
 export type Block = Paragraph;

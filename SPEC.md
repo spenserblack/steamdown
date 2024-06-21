@@ -30,6 +30,18 @@ and to encourage good formatting.
 
 Inlines are contained within blocks. Inlines may also contain their own inlines.
 
+### Noparse Span
+
+Noparse takes priority over all over types of formatting. All text inside a noparse
+span will be interpreted literally. While Steam will interpret its own format literally
+inside noparse (e.g. `[noparse][i]this will not be italicized[/i][/noparse]`), Steamdown
+will not interpret its own syntax inside a noparse span. Noparse is wrapped in one or
+more sets of `{` and `}`.
+
+```markdown
+{This will all be printed [b]literally[/b]}
+```
+
 ### Italics
 
 Italics are text wrapped within a single set of `*`. Italics *cannot* break a paragraph.
