@@ -964,7 +964,15 @@ exports[`parser parse("Use a \\\\\\\\ to escape special characters") .tree match
     {
       "nodes": [
         {
-          "text": "Use a \\\\ to escape special characters",
+          "text": "Use a ",
+          "type": "text",
+        },
+        {
+          "character": "\\",
+          "type": "escaped",
+        },
+        {
+          "text": " to escape special characters",
           "type": "text",
         },
       ],
