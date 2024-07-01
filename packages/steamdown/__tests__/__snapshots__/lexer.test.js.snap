@@ -1,0 +1,703 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lexer inlineLexer(\`***Bold and italicized text***\`) snapshot 1`] = `
+[
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 0,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 1,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 2,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(text),
+    "Bold and italicized text",
+    {
+      "x": 3,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 27,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 28,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 29,
+      "y": 0,
+    },
+  ],
+]
+`;
+
+exports[`lexer inlineLexer(\`**Bold text**\`) snapshot 1`] = `
+[
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 0,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 1,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(text),
+    "Bold text",
+    {
+      "x": 2,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 11,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 12,
+      "y": 0,
+    },
+  ],
+]
+`;
+
+exports[`lexer inlineLexer(\`*Italicized and _underlined_*\`) snapshot 1`] = `
+[
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 0,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(text),
+    "Italicized and ",
+    {
+      "x": 1,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(_),
+    "_",
+    {
+      "x": 16,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(text),
+    "underlined",
+    {
+      "x": 17,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(_),
+    "_",
+    {
+      "x": 27,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 28,
+      "y": 0,
+    },
+  ],
+]
+`;
+
+exports[`lexer inlineLexer(\`*Italicized text*\`) snapshot 1`] = `
+[
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 0,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(text),
+    "Italicized text",
+    {
+      "x": 1,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 16,
+      "y": 0,
+    },
+  ],
+]
+`;
+
+exports[`lexer inlineLexer(\`*Italics* and *more italics*\`) snapshot 1`] = `
+[
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 0,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(text),
+    "Italics",
+    {
+      "x": 1,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 8,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(text),
+    " and ",
+    {
+      "x": 9,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 14,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(text),
+    "more italics",
+    {
+      "x": 15,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 27,
+      "y": 0,
+    },
+  ],
+]
+`;
+
+exports[`lexer inlineLexer(\`*italics \\*escaped\\**\`) snapshot 1`] = `
+[
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 0,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(text),
+    "italics ",
+    {
+      "x": 1,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(\\),
+    "\\",
+    {
+      "x": 9,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 10,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(text),
+    "escaped",
+    {
+      "x": 11,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(\\),
+    "\\",
+    {
+      "x": 18,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 19,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 20,
+      "y": 0,
+    },
+  ],
+]
+`;
+
+exports[`lexer inlineLexer(\`\\*escaped\\*\`) snapshot 1`] = `
+[
+  [
+    Symbol(\\),
+    "\\",
+    {
+      "x": 0,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 1,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(text),
+    "escaped",
+    {
+      "x": 2,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(\\),
+    "\\",
+    {
+      "x": 9,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 10,
+      "y": 0,
+    },
+  ],
+]
+`;
+
+exports[`lexer inlineLexer(\`_Underlined text_\`) snapshot 1`] = `
+[
+  [
+    Symbol(_),
+    "_",
+    {
+      "x": 0,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(text),
+    "Underlined text",
+    {
+      "x": 1,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(_),
+    "_",
+    {
+      "x": 16,
+      "y": 0,
+    },
+  ],
+]
+`;
+
+exports[`lexer inlineLexer(\`{not parsed}\`) snapshot 1`] = `
+[
+  [
+    Symbol({),
+    "{",
+    {
+      "x": 0,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(text),
+    "not parsed",
+    {
+      "x": 1,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(}),
+    "}",
+    {
+      "x": 11,
+      "y": 0,
+    },
+  ],
+]
+`;
+
+exports[`lexer inlineLexer(\`~~strike text~~\`) snapshot 1`] = `
+[
+  [
+    Symbol(~),
+    "~",
+    {
+      "x": 0,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(~),
+    "~",
+    {
+      "x": 1,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(text),
+    "strike text",
+    {
+      "x": 2,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(~),
+    "~",
+    {
+      "x": 13,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(~),
+    "~",
+    {
+      "x": 14,
+      "y": 0,
+    },
+  ],
+]
+`;
+
+exports[`lexer inlineLexer(\`~strike text~\`) snapshot 1`] = `
+[
+  [
+    Symbol(~),
+    "~",
+    {
+      "x": 0,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(text),
+    "strike text",
+    {
+      "x": 1,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(~),
+    "~",
+    {
+      "x": 12,
+      "y": 0,
+    },
+  ],
+]
+`;
+
+exports[`lexer inlineLexer(\`Hello, World!\`) snapshot 1`] = `
+[
+  [
+    Symbol(text),
+    "Hello, World!",
+    {
+      "x": 0,
+      "y": 0,
+    },
+  ],
+]
+`;
+
+exports[`lexer inlineLexer(\`Nested **bold** text\`) snapshot 1`] = `
+[
+  [
+    Symbol(text),
+    "Nested ",
+    {
+      "x": 0,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 7,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 8,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(text),
+    "bold",
+    {
+      "x": 9,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 13,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 14,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(text),
+    " text",
+    {
+      "x": 15,
+      "y": 0,
+    },
+  ],
+]
+`;
+
+exports[`lexer inlineLexer(\`Nested *italicized* text\`) snapshot 1`] = `
+[
+  [
+    Symbol(text),
+    "Nested ",
+    {
+      "x": 0,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 7,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(text),
+    "italicized",
+    {
+      "x": 8,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(*),
+    "*",
+    {
+      "x": 18,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(text),
+    " text",
+    {
+      "x": 19,
+      "y": 0,
+    },
+  ],
+]
+`;
+
+exports[`lexer inlineLexer(\`Use a \\\\ to escape special characters\`) snapshot 1`] = `
+[
+  [
+    Symbol(text),
+    "Use a ",
+    {
+      "x": 0,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(\\),
+    "\\",
+    {
+      "x": 6,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(\\),
+    "\\",
+    {
+      "x": 7,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(text),
+    " to escape special characters",
+    {
+      "x": 8,
+      "y": 0,
+    },
+  ],
+]
+`;
+
+exports[`lexer inlineLexer(\`one
+paragraph
+spanning lines\`) snapshot 1`] = `
+[
+  [
+    Symbol(text),
+    "one",
+    {
+      "x": 0,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(
+),
+    "
+",
+    {
+      "x": 3,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(text),
+    "paragraph",
+    {
+      "x": 0,
+      "y": 1,
+    },
+  ],
+  [
+    Symbol(
+),
+    "
+",
+    {
+      "x": 9,
+      "y": 1,
+    },
+  ],
+  [
+    Symbol(text),
+    "spanning lines",
+    {
+      "x": 0,
+      "y": 2,
+    },
+  ],
+]
+`;
