@@ -109,6 +109,21 @@ not striked.~~
 ~~ This is not striked. ~~
 ```
 
+### Spoiler
+
+Spoilers are text wrapped within `>!` and `!<`. Spoilers *cannot* break a paragraph.
+Spoilers must start and end with a word, not a space.
+
+```markdown
+>!This is spoiler text.!<
+
+>!this is
+
+not spoiler text!<
+
+>! This is not spoiler text !<
+```
+
 ### Text
 
 Text is the fallback inline if it can't be interpreted as any other inline.
@@ -120,3 +135,6 @@ The following characters can be escaped with a preceding `\`.
 - `*`
 - `_`
 - `~`
+- `>`
+- `<`
+- `!`

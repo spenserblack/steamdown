@@ -318,6 +318,51 @@ exports[`lexer inlineLexer(\`*italics \\*escaped\\**\`) snapshot 1`] = `
 ]
 `;
 
+exports[`lexer inlineLexer(\`>!spoiler text!<\`) snapshot 1`] = `
+[
+  [
+    Symbol(>),
+    ">",
+    {
+      "x": 0,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(!),
+    "!",
+    {
+      "x": 1,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(text),
+    "spoiler text",
+    {
+      "x": 2,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(!),
+    "!",
+    {
+      "x": 14,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(<),
+    "<",
+    {
+      "x": 15,
+      "y": 0,
+    },
+  ],
+]
+`;
+
 exports[`lexer inlineLexer(\`\\*escaped\\*\`) snapshot 1`] = `
 [
   [
@@ -499,9 +544,17 @@ exports[`lexer inlineLexer(\`Hello, World!\`) snapshot 1`] = `
 [
   [
     Symbol(text),
-    "Hello, World!",
+    "Hello, World",
     {
       "x": 0,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(!),
+    "!",
+    {
+      "x": 12,
       "y": 0,
     },
   ],

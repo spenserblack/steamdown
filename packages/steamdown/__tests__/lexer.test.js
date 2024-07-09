@@ -2,7 +2,13 @@ const { lexAllInline, inlineTokens, inlineLexer } = require("../src/lexer");
 
 describe("lexer", () => {
   describe.each([
-    ["Hello, World!", [[inlineTokens.text, "Hello, World!", { x: 0, y: 0 }]]],
+    [
+      "Hello, World!",
+      [
+        [inlineTokens.text, "Hello, World", { x: 0, y: 0 }],
+        [inlineTokens.exclamation, "!", { x: 12, y: 0 }],
+      ],
+    ],
     [
       "one\nparagraph\nspanning lines",
       [
@@ -152,6 +158,16 @@ describe("lexer", () => {
         [inlineTokens.leftCurly, "{", { x: 0, y: 0 }],
         [inlineTokens.text, "not parsed", { x: 1, y: 0 }],
         [inlineTokens.rightCurly, "}", { x: 11, y: 0 }],
+      ],
+    ],
+    [
+      ">!spoiler text!<",
+      [
+        [inlineTokens.greaterThan, ">", { x: 0, y: 0 }],
+        [inlineTokens.exclamation, "!", { x: 1, y: 0 }],
+        [inlineTokens.text, "spoiler text", { x: 2, y: 0 }],
+        [inlineTokens.exclamation, "!", { x: 14, y: 0 }],
+        [inlineTokens.lessThan, "<", { x: 15, y: 0 }],
       ],
     ],
   ])("inlineLexer(`%s`)", (text, expected) => {

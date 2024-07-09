@@ -14,7 +14,7 @@ export type Next = () => Lexed;
  */
 export type HasNext = () => boolean;
 
-const specialChars = new Set(["*", "_", "~", "\\", "{", "}"]);
+const specialChars = new Set(["*", "_", "~", "\\", "{", "}", ">", "<", "!"]);
 type SpecialCharRecord = Record<string, [tokens.Token, string] | undefined>;
 const specialCharMap: SpecialCharRecord = {
   "*": [tokens.asterisk, "*"],
@@ -23,6 +23,9 @@ const specialCharMap: SpecialCharRecord = {
   "\\": [tokens.escape, "\\"],
   "{": [tokens.leftCurly, "{"],
   "}": [tokens.rightCurly, "}"],
+  ">": [tokens.greaterThan, ">"],
+  "<": [tokens.lessThan, "<"],
+  "!": [tokens.exclamation, "!"],
 };
 
 /**
