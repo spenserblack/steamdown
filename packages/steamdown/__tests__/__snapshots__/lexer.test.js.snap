@@ -363,6 +363,141 @@ exports[`lexer inlineLexer(\`>!spoiler text!<\`) snapshot 1`] = `
 ]
 `;
 
+exports[`lexer inlineLexer(\`[descriptive text](https://example.com)\`) snapshot 1`] = `
+[
+  [
+    Symbol([),
+    "[",
+    {
+      "x": 0,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(text),
+    "descriptive text",
+    {
+      "x": 1,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(]),
+    "]",
+    {
+      "x": 17,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol((),
+    "(",
+    {
+      "x": 18,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(text),
+    "https://example.com",
+    {
+      "x": 19,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol()),
+    ")",
+    {
+      "x": 38,
+      "y": 0,
+    },
+  ],
+]
+`;
+
+exports[`lexer inlineLexer(\`[descriptive text][link]\`) snapshot 1`] = `
+[
+  [
+    Symbol([),
+    "[",
+    {
+      "x": 0,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(text),
+    "descriptive text",
+    {
+      "x": 1,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(]),
+    "]",
+    {
+      "x": 17,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol([),
+    "[",
+    {
+      "x": 18,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(text),
+    "link",
+    {
+      "x": 19,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(]),
+    "]",
+    {
+      "x": 23,
+      "y": 0,
+    },
+  ],
+]
+`;
+
+exports[`lexer inlineLexer(\`[link]\`) snapshot 1`] = `
+[
+  [
+    Symbol([),
+    "[",
+    {
+      "x": 0,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(text),
+    "link",
+    {
+      "x": 1,
+      "y": 0,
+    },
+  ],
+  [
+    Symbol(]),
+    "]",
+    {
+      "x": 5,
+      "y": 0,
+    },
+  ],
+]
+`;
+
 exports[`lexer inlineLexer(\`\\*escaped\\*\`) snapshot 1`] = `
 [
   [

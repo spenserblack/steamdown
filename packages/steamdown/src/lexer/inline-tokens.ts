@@ -8,6 +8,10 @@ export const rightCurly = Symbol("}");
 export const greaterThan = Symbol(">");
 export const lessThan = Symbol("<");
 export const exclamation = Symbol("!");
+export const leftBracket = Symbol("[");
+export const rightBracket = Symbol("]");
+export const leftParenthesis = Symbol("(");
+export const rightParenthesis = Symbol(")");
 export const newline = Symbol("\n");
 
 export type Token =
@@ -21,4 +25,8 @@ export type Token =
   | typeof greaterThan
   | typeof lessThan
   | typeof exclamation
+  | typeof leftBracket
+  | typeof rightBracket
+  | typeof leftParenthesis
+  | typeof rightParenthesis
   | typeof newline;

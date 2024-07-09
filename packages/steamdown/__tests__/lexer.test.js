@@ -170,6 +170,36 @@ describe("lexer", () => {
         [inlineTokens.lessThan, "<", { x: 15, y: 0 }],
       ],
     ],
+    [
+      "[link]",
+      [
+        [inlineTokens.leftBracket, "[", { x: 0, y: 0 }],
+        [inlineTokens.text, "link", { x: 1, y: 0 }],
+        [inlineTokens.rightBracket, "]", { x: 5, y: 0 }],
+      ],
+    ],
+    [
+      "[descriptive text][link]",
+      [
+        [inlineTokens.leftBracket, "[", { x: 0, y: 0 }],
+        [inlineTokens.text, "descriptive text", { x: 1, y: 0 }],
+        [inlineTokens.rightBracket, "]", { x: 17, y: 0 }],
+        [inlineTokens.leftBracket, "[", { x: 18, y: 0 }],
+        [inlineTokens.text, "link", { x: 19, y: 0 }],
+        [inlineTokens.rightBracket, "]", { x: 23, y: 0 }],
+      ],
+    ],
+    [
+      "[descriptive text](https://example.com)",
+      [
+        [inlineTokens.leftBracket, "[", { x: 0, y: 0 }],
+        [inlineTokens.text, "descriptive text", { x: 1, y: 0 }],
+        [inlineTokens.rightBracket, "]", { x: 17, y: 0 }],
+        [inlineTokens.leftParenthesis, "(", { x: 18, y: 0 }],
+        [inlineTokens.text, "https://example.com", { x: 19, y: 0 }],
+        [inlineTokens.rightParenthesis, ")", { x: 38, y: 0 }],
+      ],
+    ],
   ])("inlineLexer(`%s`)", (text, expected) => {
     test("lexes all inline tokens", () => {
       const [next, hasNext] = inlineLexer(text);

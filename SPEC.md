@@ -124,6 +124,23 @@ not spoiler text!<
 >! This is not spoiler text !<
 ```
 
+### URLs
+
+URLs have the following formats:
+
+- `[id]`
+- `[text][id]`
+- `[text](https://example.com)`
+
+Where `id` is a unique ID for the link. This is used when the actual URL is not inline, but is defined elsewhere.
+In the following example, both would generated `[url]`s to `https://example.com`.
+
+```markdown
+This is an [example]. It links to the [example page][example].
+
+[example]: https://example.com
+```
+
 ### Text
 
 Text is the fallback inline if it can't be interpreted as any other inline.
