@@ -9,6 +9,8 @@ Converts Markdown to [Steam's markup][format].
 
 **:warning: I am rewriting this project to use an internal parser instead of using extensions and custom renderers with [Marked](https://github.com/markedjs/marked). In doing so, the supported syntax will likely change slightly, because some of Markdown's syntax doesn't have an equivalent in Steam's markup. Some of Markdown's syntax will be either disabled or repurposed. For example, while URLs in Steam's markup have `[url=//example.com]text[/url]`, images don't have an equivalent, so the `![image name](//example.com/image.png)` syntax might be disabled. Tables in Steam do *not* support alignment, but *do* support the `noborder` and `equalcells` attributes, so the table syntax may *look* similar to Markdown, but serve a different purpose.**
 
+:bow: Also, I've been slow with updates because I haven't been 100% happy with the implementations I've written. Even though they work fine, they don't feel maintainable. Instead of "hand-writing" a parser, I'm currently playing around with PEG.js/Peggy, and hopefully this will result in a maintainable parser.
+
 ## Usage
 
 ### Website
