@@ -51,7 +51,7 @@ describe("parser", () => {
     ["{not parsed} {also not parsed}"],
     ["{*not parsed*}"],
     ["{{{not parsed}}}"],
-    ["{\\{escaped\\}}"],
+    ["{\\{no escape\\}}"],
   ])("parse(%p)", (text) => {
     const parsed = parse(text);
 

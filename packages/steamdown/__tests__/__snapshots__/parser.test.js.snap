@@ -382,14 +382,18 @@ exports[`parser parse("{*not parsed*}") .tree matches the snapshot 1`] = `
 }
 `;
 
-exports[`parser parse("{\\\\{escaped\\\\}}") .tree matches the snapshot 1`] = `
+exports[`parser parse("{\\\\{no escape\\\\}}") .tree matches the snapshot 1`] = `
 {
   "nodes": [
     {
       "nodes": [
         {
-          "text": "\\{escaped\\}",
+          "text": "\\{no escape\\",
           "type": "noparse-span",
+        },
+        {
+          "text": "}",
+          "type": "text",
         },
       ],
       "type": "paragraph",

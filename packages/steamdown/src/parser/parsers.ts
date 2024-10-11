@@ -162,13 +162,13 @@ const variableLengthInlineHelper = (wrapperChar: string) => {
 const noparseSpanParser = {
   hint: (text: string) => text.startsWith("{"),
   parse: (text: string): [nodes.NoparseSpan, remainder: string] => {
-    const openingMatch = /^\{(?:(?<!\\)\{)*/.exec(text);
+    const openingMatch = /^\{+/.exec(text);
 
     if (!openingMatch) {
       throw new UnreachableError("noparse span must start with {");
     }
     const opening = openingMatch[0];
-    const closing = new RegExp(`(?<!\\\\)${escapeRegExp("}".repeat(opening.length))}`);
+    const closing = new RegExp(`${escapeRegExp("}".repeat(opening.length))}`);
 
     const closingIndex = closing.exec(text)?.index;
     if (closingIndex == null) {
