@@ -71,12 +71,14 @@ type WrappedNode = Exclude<nodes.Inline, nodes.Text>;
  * For example, `*foo*` is `foo` wrapped in `*`.
  */
 const makeWrappedTextParser = <N extends WrappedNode>(
-  wrapper: string,
+  wrapper: string | [string, string],
   type: N["type"],
 ) => {
-  const endRegex = new RegExp(`(?<!\\\\)${escapeRegExp(wrapper)}`);
+  const wrappers = typeof wrapper === "string" ? [wrapper, wrapper] : wrapper;
+  const [startWrapper, endWrapper] = wrappers;
+  const endRegex = new RegExp(`(?<!\\\\)${escapeRegExp(endWrapper)}`);
   return {
-    hint: (text: string) => text.startsWith(wrapper),
+    hint: (text: string) => text.startsWith(startWrapper),
     parse: (text: string): [N, remainder: string] => {
       text = text.slice(wrapper.length);
 
@@ -101,7 +103,7 @@ const makeWrappedTextParser = <N extends WrappedNode>(
         throw new ParseError(`${type} cannot contain newlines`);
       }
 
-      const remainder = text.slice(innerEndIndex + wrapper.length);
+      const remainder = text.slice(innerEndIndex + endWrapper.length);
 
       const nodes = parseInline(innerText);
 
@@ -194,6 +196,14 @@ const noparseSpanParser = {
 } satisfies Parser<nodes.NoparseSpan>;
 
 /**
+ * Parser for a spoiler.
+ */
+const spoilerParser = makeWrappedTextParser<nodes.Spoiler>(
+  [">!", "!<"],
+  "spoiler",
+) satisfies Parser<nodes.Spoiler>;
+
+/**
  * Parser for bold italics.
  *
  * HACK This is a hack to make it easier to parse italics nested in bold (or is it bold nested in italics?).
@@ -256,7 +266,7 @@ const strikeParser = {
   },
 } satisfies Parser<nodes.Strike>;
 
-const escapableCharacters = ["*", "_", "~", "\\", "{", "}"];
+const escapableCharacters = ["*", "_", "~", "\\", "{", "}", "!", "<", ">"];
 /**
  * Parser for an escaped character.
  */
@@ -303,6 +313,7 @@ const textParser = {
 
 const inlineParsers: InlineParser[] = [
   noparseSpanParser,
+  spoilerParser,
   boldItalicsParser,
   boldParser,
   italicsParser,

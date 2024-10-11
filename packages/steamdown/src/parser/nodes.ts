@@ -31,6 +31,14 @@ export interface NoparseSpan extends Node {
 }
 
 /**
+ * A spoiler node.
+ */
+export interface Spoiler extends Node {
+  type: "spoiler";
+  nodes: Inline[];
+}
+
+/**
  * A bold node.
  */
 export interface Bold extends Node {
@@ -88,6 +96,7 @@ export interface Escaped extends Node {
 
 export type Inline =
   | NoparseSpan
+  | Spoiler
   | BoldItalics
   | Bold
   | Italics
