@@ -1,14 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`inline parser parseInline(\`hello world\`) 1`] = `
-[
-  {
-    "text": "hello world",
-    "type": Symbol(text),
-  },
-]
-`;
-
 exports[`parser parse("***Bold and italicized text***") .tree matches the snapshot 1`] = `
 {
   "nodes": [

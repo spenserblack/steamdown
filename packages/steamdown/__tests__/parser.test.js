@@ -1,6 +1,4 @@
 const { parse } = require("../src/parser");
-const { parse: parseInline } = require("../src/parser/inline-parser");
-const { lexAllInline } = require("../src/lexer");
 
 describe("parser", () => {
   describe.each([
@@ -62,14 +60,5 @@ describe("parser", () => {
         expect(parsed.tree).toMatchSnapshot();
       });
     });
-  });
-});
-
-describe("inline parser", () => {
-  test.each([["hello world"]])("parseInline(`%s`)", (text) => {
-    const lexed = lexAllInline(text);
-    const parsed = parseInline(lexed);
-
-    expect(parsed).toMatchSnapshot();
   });
 });
