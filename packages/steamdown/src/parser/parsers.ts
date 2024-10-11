@@ -266,7 +266,7 @@ const strikeParser = {
   },
 } satisfies Parser<nodes.Strike>;
 
-const escapableCharacters = ["*", "_", "~", "\\", "{", "}", "!", "<", ">"];
+const escapableCharacters = new Set(["*", "_", "~", "\\", "{", "}", "!", "<", ">"]);
 /**
  * Parser for an escaped character.
  */
@@ -274,7 +274,7 @@ const escapedCharacterParser = {
   hint: (text: string) => text.startsWith("\\"),
   parse: (text: string): [nodes.Escaped, remainder: string] => {
     const nextChar = text[1];
-    if (!escapableCharacters.includes(nextChar)) {
+    if (!escapableCharacters.has(nextChar)) {
       throw new ParseError(`cannot escape ${nextChar}`);
     }
     const node: nodes.Escaped = {
