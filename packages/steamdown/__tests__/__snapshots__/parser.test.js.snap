@@ -403,6 +403,23 @@ exports[`parser parse("{\\\\{no escape\\\\}}") .tree matches the snapshot 1`] = 
 }
 `;
 
+exports[`parser parse("{{ {optional inner space for delimiting} }}") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "{optional inner space for delimiting}",
+          "type": "noparse-span",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse("{{{not parsed}}}") .tree matches the snapshot 1`] = `
 {
   "nodes": [

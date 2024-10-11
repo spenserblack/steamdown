@@ -175,7 +175,13 @@ const noparseSpanParser = {
       throw new ParseError("noparse span must be closed");
     }
 
-    const innerText = text.slice(opening.length, closingIndex);
+    let innerText = text.slice(opening.length, closingIndex);
+
+    // If innerText is surrounded by whitespace, remove it.
+    if (innerText.startsWith(" ") && innerText.endsWith(" ")) {
+      innerText = innerText.trim();
+    }
+
     const remainder = text.slice(closingIndex + opening.length);
 
     const node: nodes.NoparseSpan = {
