@@ -3,17 +3,7 @@ import { firstSuccessfulParse } from "../util";
 import { UnreachableError } from "../../errors";
 import { InlineParser } from "../types";
 
-const inlineParsers: InlineParser[] = [
-  // noparseSpanParser,
-  // spoilerParser,
-  // boldItalicsParser,
-  // boldParser,
-  // italicsParser,
-  // underlineParser,
-  // strikeParser,
-  // escapedCharacterParser,
-  // textParser,
-];
+const inlineParsers: InlineParser[] = [];
 
 export const addParser = (parser: InlineParser, index?: number) => {
   if (index != null) {

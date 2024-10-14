@@ -19,6 +19,7 @@ export interface Parser<N extends nodes.Node> {
 }
 
 export type InlineParser = Parser<nodes.Inline>;
+export type BlockParser = Parser<nodes.Block>;
 
 /**
  * Data provided by the text that is not rendered in the final output.
