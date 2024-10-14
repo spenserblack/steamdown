@@ -1,4 +1,4 @@
-import { useParser, parse, addParser } from "./parsers";
+import { useParsers, parse, addParser } from "./parsers";
 import { noparse } from "./noparse";
 import { spoiler } from "./spoiler";
 import { boldItalics } from "./bold-italics";
@@ -13,4 +13,4 @@ import { text } from "./text";
   addParser(parser);
 });
 
-export { useParser, parse };
+export { useParsers, parse };

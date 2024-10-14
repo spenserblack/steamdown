@@ -13,7 +13,7 @@ export const addParser = (parser: InlineParser, index?: number) => {
   }
 };
 
-export const useParser = (): InlineParser[] => inlineParsers;
+export const useParsers = (): InlineParser[] => inlineParsers;
 
 /**
  * Parses text into inline nodes.

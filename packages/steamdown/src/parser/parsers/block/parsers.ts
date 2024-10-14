@@ -13,8 +13,7 @@ export const addParser = (parser: BlockParser, index?: number) => {
   }
 };
 
-export const useParser = (): BlockParser[] => parsers;
-
+export const useParsers = (): BlockParser[] => parsers;
 
 /**
  * Parses the given text into a syntax tree.
