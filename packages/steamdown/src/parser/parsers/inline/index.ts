@@ -9,7 +9,17 @@ import { strike } from "./strike";
 import { escaped } from "./escaped";
 import { text } from "./text";
 
-[noparse, spoiler, boldItalics, bold, italics, underline, strike, escaped, text].forEach((parser) => {
+[
+  noparse,
+  spoiler,
+  boldItalics,
+  bold,
+  italics,
+  underline,
+  strike,
+  escaped,
+  text,
+].forEach((parser) => {
   addParser(parser);
 });
 

@@ -7,7 +7,7 @@ import { parse as parseInlines } from "./inline";
 import { parse as parseBlocks } from "./block";
 import { BlockParser } from "./types";
 
-export * from './types';
+export * from "./types";
 
 /**
  * Parses the given text into a syntax tree.
