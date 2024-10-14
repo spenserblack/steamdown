@@ -18,7 +18,7 @@ export const noparse = {
     const openBraces = open[1];
 
     const closeBraces = "}".repeat(openBraces.length);
-    const close = (new RegExp(`\\r?\\n${escapeRegExp(closeBraces)}(?:$|(?:\r?\n){0,2})`)).exec(text);
+    const close = (new RegExp(`\\r?\\n${escapeRegExp(closeBraces)}(?:$|(?:\r?\n)+)`)).exec(text);
 
     if (!close) {
       throw new ParseError("noparse block must be closed");
