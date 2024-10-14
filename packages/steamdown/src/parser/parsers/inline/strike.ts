@@ -1,9 +1,10 @@
 import * as nodes from "../../nodes";
-import { UnreachableError, ParseError } from "../../errors";
-import escapeRegExp from "lodash.escaperegexp";
+import { ParseError } from "../../errors";
 import { Parser } from "../types";
 import { variableLengthInlineHelper } from "./util";
 import { parse } from "./parsers";
+
+const helper = variableLengthInlineHelper("~");
 
 /**
  * Parser for a strike node.
@@ -11,7 +12,7 @@ import { parse } from "./parsers";
 export const strike = {
   hint: (text: string) => text.startsWith("~"),
   parse: (text: string): [nodes.Strike, remainder: string] => {
-    const result = variableLengthInlineHelper("~")(text, "strike");
+    const result = helper(text);
     switch (result) {
       case "no match":
         throw new ParseError("strike must start with ~");

@@ -1,5 +1,4 @@
 import * as nodes from "../../nodes";
-import { firstSuccessfulParse } from "../util";
 import { UnreachableError } from "../../errors";
 import { parse as parseInline } from "../inline";
 import { Parser } from "../types";
@@ -8,7 +7,7 @@ import { Parser } from "../types";
  * Parser for a paragraph node.
  */
 export const paragraph = {
-  hint: (_text: string) => true,
+  hint: () => true,
   parse: (text: string): [nodes.Paragraph, remainder: string] => {
     const end = /\n\n|$/.exec(text);
 
@@ -19,7 +18,7 @@ export const paragraph = {
     const endText = end[0];
     const endIndex = end.index;
 
-    let pText = text.slice(0, endIndex);
+    const pText = text.slice(0, endIndex);
     const remainder = text.slice(endIndex + endText.length);
 
     const nodes = parseInline(pText);

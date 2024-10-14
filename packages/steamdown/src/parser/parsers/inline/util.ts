@@ -81,7 +81,7 @@ export const variableLengthInlineHelper = (wrapperChar: string) => {
   }
   const regex = new RegExp(`^(?:(?!<\\\\)${escapeRegExp(wrapperChar)})+`);
 
-  return (text: string, t: string) => {
+  return (text: string) => {
     const wrapperMatch = regex.exec(text);
     if (!wrapperMatch) {
       return "no match";

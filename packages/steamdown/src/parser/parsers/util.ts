@@ -1,7 +1,6 @@
 import * as nodes from "../nodes";
 import { Parser } from "./types";
-import { ParseError, UnreachableError } from "../errors";
-import escapeRegExp from "lodash.escaperegexp";
+import { ParseError } from "../errors";
 
 /**
  * Returns the first successful parse from the given parsers.
