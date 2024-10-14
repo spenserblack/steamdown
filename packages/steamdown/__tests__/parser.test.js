@@ -57,6 +57,11 @@ describe("parser", () => {
     [">!spoiler\nspanning lines!<"],
     ["\\>!escaped spoiler!\\<"],
     [">\\!escaped spoiler\\!<"],
+    ["{{{\nthis is some text\n}}}"],
+    ["{{{{\n{{{\nhere's how to noparse\n}}}\n}}}}"],
+    ["paragaph\n\nanother paragraph"],
+    ["{{{\nnoparse\n}}}\nparagraph"],
+    ["{{{\nnoparse\n}}}\n\nparagraph"],
   ])("parse(%p)", (text) => {
     const parsed = parse(text);
 

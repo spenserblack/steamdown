@@ -524,6 +524,87 @@ exports[`parser parse("{{ {optional inner space for delimiting} }}") .tree match
 }
 `;
 
+exports[`parser parse("{{{
+noparse
+}}}
+
+paragraph") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "text": "noparse",
+      "type": "noparse-block",
+    },
+    {
+      "nodes": [
+        {
+          "text": "paragraph",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("{{{
+noparse
+}}}
+paragraph") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "text": "noparse",
+      "type": "noparse-block",
+    },
+    {
+      "nodes": [
+        {
+          "text": "paragraph",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("{{{
+this is some text
+}}}") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "text": "this is some text",
+      "type": "noparse-block",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("{{{{
+{{{
+here's how to noparse
+}}}
+}}}}") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "text": "{{{
+here's how to noparse
+}}}",
+      "type": "noparse-block",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse("{{{not parsed}}}") .tree matches the snapshot 1`] = `
 {
   "nodes": [
@@ -1340,6 +1421,34 @@ spanning lines") .tree matches the snapshot 1`] = `
           "text": "one
 paragraph
 spanning lines",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("paragaph
+
+another paragraph") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "paragaph",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+    {
+      "nodes": [
+        {
+          "text": "another paragraph",
           "type": "text",
         },
       ],

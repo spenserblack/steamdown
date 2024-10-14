@@ -22,6 +22,12 @@ export interface Paragraph extends Node {
   nodes: Inline[];
 }
 
+/** A noparse block node. */
+export interface NoparseBlock extends Node {
+  type: "noparse-block";
+  text: string;
+}
+
 /**
  * A noparse span node.
  */
@@ -104,4 +110,4 @@ export type Inline =
   | Strike
   | Text
   | Escaped;
-export type Block = Paragraph;
+export type Block = NoparseBlock | Paragraph;
