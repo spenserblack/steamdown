@@ -9,7 +9,7 @@ import { Parser } from "../types";
 export const paragraph = {
   hint: () => true,
   parse: (text: string): [nodes.Paragraph, remainder: string] => {
-    const end = /\n\n|$/.exec(text);
+    const end = /\r?\n\r?\n|$/.exec(text);
 
     if (!end) {
       throw new UnreachableError();

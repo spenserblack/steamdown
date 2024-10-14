@@ -42,7 +42,7 @@ export const makeWrappedTextParser = <N extends WrappedNode>(
       }
 
       // TODO Unnecessary (already enforced by block parsing)?
-      if (/\n\n/.test(innerText)) {
+      if (/\r?\n\r?\n/.test(innerText)) {
         throw new ParseError(`${type} cannot contain newlines`);
       }
 
