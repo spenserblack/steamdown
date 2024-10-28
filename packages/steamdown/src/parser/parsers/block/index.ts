@@ -1,8 +1,9 @@
 import { addParser, useParsers, parse } from "./parsers";
 import { noparse } from "./noparse";
+import { code } from "./code";
 import { paragraph } from "./paragraph";
 
-[noparse, paragraph].forEach((parser) => {
+[noparse, code, paragraph].forEach((parser) => {
   addParser(parser);
 });
 

@@ -29,6 +29,14 @@ export interface NoparseBlock extends Node {
 }
 
 /**
+ * A code block node.
+ */
+export interface CodeBlock extends Node {
+  type: "code-block";
+  text: string;
+}
+
+/**
  * A noparse span node.
  */
 export interface NoparseSpan extends Node {
@@ -110,4 +118,4 @@ export type Inline =
   | Strike
   | Text
   | Escaped;
-export type Block = NoparseBlock | Paragraph;
+export type Block = NoparseBlock | CodeBlock | Paragraph;

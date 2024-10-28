@@ -469,6 +469,105 @@ exports[`parser parse("_Underlined text_") .tree matches the snapshot 1`] = `
 }
 `;
 
+exports[`parser parse("\`\`\`
+{{{
+noparse example
+}}}
+\`\`\`") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "text": "{{{
+noparse example
+}}}",
+      "type": "code-block",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("\`\`\`
+code
+\`\`\`
+
+paragraph") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "text": "code",
+      "type": "code-block",
+    },
+    {
+      "nodes": [
+        {
+          "text": "paragraph",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("\`\`\`
+code
+\`\`\`
+paragraph") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "text": "code",
+      "type": "code-block",
+    },
+    {
+      "nodes": [
+        {
+          "text": "paragraph",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("\`\`\`
+this is some text
+\`\`\`") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "text": "this is some text",
+      "type": "code-block",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("\`\`\`\`
+\`\`\`
+here's how to write a code block
+\`\`\`
+\`\`\`\`") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "text": "\`\`\`
+here's how to write a code block
+\`\`\`",
+      "type": "code-block",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse("{*not parsed*}") .tree matches the snapshot 1`] = `
 {
   "nodes": [
@@ -518,6 +617,24 @@ exports[`parser parse("{{ {optional inner space for delimiting} }}") .tree match
         },
       ],
       "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("{{{
+\`\`\`
+code block example
+\`\`\`
+}}}") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "text": "\`\`\`
+code block example
+\`\`\`",
+      "type": "noparse-block",
     },
   ],
   "type": "root",

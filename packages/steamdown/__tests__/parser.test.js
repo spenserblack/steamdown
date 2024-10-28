@@ -59,9 +59,15 @@ describe("parser", () => {
     [">\\!escaped spoiler\\!<"],
     ["{{{\nthis is some text\n}}}"],
     ["{{{{\n{{{\nhere's how to noparse\n}}}\n}}}}"],
+    ["{{{\n```\ncode block example\n```\n}}}"],
     ["paragaph\n\nanother paragraph"],
     ["{{{\nnoparse\n}}}\nparagraph"],
     ["{{{\nnoparse\n}}}\n\nparagraph"],
+    ["```\nthis is some text\n```"],
+    ["````\n```\nhere's how to write a code block\n```\n````"],
+    ["```\n{{{\nnoparse example\n}}}\n```"],
+    ["```\ncode\n```\nparagraph"],
+    ["```\ncode\n```\n\nparagraph"],
   ])("parse(%p)", (text) => {
     const parsed = parse(text);
 
