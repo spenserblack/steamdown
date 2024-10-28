@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "build": "tsc",
+    "build": "pnpm run -r build",
     "test": "jest",
     "format": "prettier --write .",
     "format-check": "prettier --check .",
