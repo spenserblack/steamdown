@@ -68,6 +68,16 @@ describe("parser", () => {
     ["```\n{{{\nnoparse example\n}}}\n```"],
     ["```\ncode\n```\nparagraph"],
     ["```\ncode\n```\n\nparagraph"],
+    ["# Heading 1"],
+    ["## Heading 2"],
+    ["### Heading 3"],
+    ["#### Heading 4"],
+    ["##### Heading 5"],
+    ["###### Heading 6"],
+    ["# Heading 1\nParagraph"],
+    ["# Heading 1\n\nParagraph"],
+    ["# *styled heading*"],
+    ["# _styled heading_"],
   ])("parse(%p)", (text) => {
     const parsed = parse(text);
 

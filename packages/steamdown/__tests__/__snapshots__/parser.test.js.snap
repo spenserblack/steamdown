@@ -1,5 +1,216 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`parser parse("# *styled heading*") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "level": 1,
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "styled heading",
+              "type": "text",
+            },
+          ],
+          "type": "italics",
+        },
+      ],
+      "type": "header",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("# _styled heading_") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "level": 1,
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "styled heading",
+              "type": "text",
+            },
+          ],
+          "type": "underline",
+        },
+      ],
+      "type": "header",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("# Heading 1
+
+Paragraph") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "level": 1,
+      "nodes": [
+        {
+          "text": "Heading 1",
+          "type": "text",
+        },
+      ],
+      "type": "header",
+    },
+    {
+      "nodes": [
+        {
+          "text": "Paragraph",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("# Heading 1
+Paragraph") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "level": 1,
+      "nodes": [
+        {
+          "text": "Heading 1",
+          "type": "text",
+        },
+      ],
+      "type": "header",
+    },
+    {
+      "nodes": [
+        {
+          "text": "Paragraph",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("# Heading 1") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "level": 1,
+      "nodes": [
+        {
+          "text": "Heading 1",
+          "type": "text",
+        },
+      ],
+      "type": "header",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("## Heading 2") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "level": 2,
+      "nodes": [
+        {
+          "text": "Heading 2",
+          "type": "text",
+        },
+      ],
+      "type": "header",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("### Heading 3") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "level": 3,
+      "nodes": [
+        {
+          "text": "Heading 3",
+          "type": "text",
+        },
+      ],
+      "type": "header",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("#### Heading 4") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "level": 4,
+      "nodes": [
+        {
+          "text": "Heading 4",
+          "type": "text",
+        },
+      ],
+      "type": "header",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("##### Heading 5") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "level": 5,
+      "nodes": [
+        {
+          "text": "Heading 5",
+          "type": "text",
+        },
+      ],
+      "type": "header",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("###### Heading 6") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "level": 6,
+      "nodes": [
+        {
+          "text": "Heading 6",
+          "type": "text",
+        },
+      ],
+      "type": "header",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse("***Bold and italicized text***") .tree matches the snapshot 1`] = `
 {
   "nodes": [
