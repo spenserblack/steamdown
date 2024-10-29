@@ -14,14 +14,6 @@ export interface Root extends Node {
   nodes: Node[];
 }
 
-/**
- * A paragraph node.
- */
-export interface Paragraph extends Node {
-  type: "paragraph";
-  nodes: Inline[];
-}
-
 /** A noparse block node. */
 export interface NoparseBlock extends Node {
   type: "noparse-block";
@@ -34,6 +26,14 @@ export interface NoparseBlock extends Node {
 export interface CodeBlock extends Node {
   type: "code-block";
   text: string;
+}
+
+/**
+ * A paragraph node.
+ */
+export interface Paragraph extends Node {
+  type: "paragraph";
+  nodes: Inline[];
 }
 
 /**
