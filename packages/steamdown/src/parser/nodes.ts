@@ -29,10 +29,10 @@ export interface CodeBlock extends Node {
 }
 
 /**
- * A header node.
+ * A heading node.
  */
-export interface Header extends Node {
-  type: "header";
+export interface Heading extends Node {
+  type: "heading";
   level: 1 | 2 | 3 | 4 | 5 | 6;
   nodes: Inline[];
 }
@@ -127,4 +127,4 @@ export type Inline =
   | Strike
   | Text
   | Escaped;
-export type Block = NoparseBlock | CodeBlock | Header | Paragraph;
+export type Block = NoparseBlock | CodeBlock | Heading | Paragraph;

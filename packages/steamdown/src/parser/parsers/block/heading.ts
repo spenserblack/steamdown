@@ -4,28 +4,28 @@ import { parse as parseInline } from "../inline";
 import { Parser } from "../types";
 
 /**
- * Parser for a header node starting with a `#`.
+ * Parser for a heading node starting with a `#`.
  */
-export const header = {
+export const heading = {
   hint: (text: string) => text.startsWith("#"),
-  parse: (text: string): [nodes.Header, remainder: string] => {
+  parse: (text: string): [nodes.Heading, remainder: string] => {
     const match = /^(#{1,6})\s(.+)(?:(?:\r?\n){1,2}|$)/.exec(text);
 
     if (!match) {
-      throw new ParseError("Invalid header");
+      throw new ParseError("Invalid heading");
     }
 
-    const headerText = match[2];
+    const headingText = match[2];
     const remainder = text.slice(match[0].length);
 
-    const nodes = parseInline(headerText);
+    const nodes = parseInline(headingText);
 
-    const node: nodes.Header = {
-      type: "header",
+    const node: nodes.Heading = {
+      type: "heading",
       level: match[1].length as 1 | 2 | 3 | 4 | 5 | 6,
       nodes,
     };
 
     return [node, remainder];
   },
-} satisfies Parser<nodes.Header>;
+} satisfies Parser<nodes.Heading>;
