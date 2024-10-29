@@ -404,6 +404,30 @@ exports[`parser parse("*Italics* and *more italics*") .tree matches the snapshot
 }
 `;
 
+exports[`parser parse("*Styled alt heading 1*
+======================") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "level": 1,
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "Styled alt heading 1",
+              "type": "text",
+            },
+          ],
+          "type": "italics",
+        },
+      ],
+      "type": "heading",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse("*italics \\\\*escaped\\\\**") .tree matches the snapshot 1`] = `
 {
   "nodes": [
@@ -1251,6 +1275,103 @@ exports[`parser parse("~strike~ with trailing text") .tree matches the snapshot 
         },
       ],
       "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("Alt heading 1
+=============
+
+Paragraph") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "level": 1,
+      "nodes": [
+        {
+          "text": "Alt heading 1",
+          "type": "text",
+        },
+      ],
+      "type": "heading",
+    },
+    {
+      "nodes": [
+        {
+          "text": "Paragraph",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("Alt heading 1
+=============
+Paragraph") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "level": 1,
+      "nodes": [
+        {
+          "text": "Alt heading 1",
+          "type": "text",
+        },
+      ],
+      "type": "heading",
+    },
+    {
+      "nodes": [
+        {
+          "text": "Paragraph",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("Alt heading 1
+=============") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "level": 1,
+      "nodes": [
+        {
+          "text": "Alt heading 1",
+          "type": "text",
+        },
+      ],
+      "type": "heading",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("Alt heading 2
+-------------") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "level": 2,
+      "nodes": [
+        {
+          "text": "Alt heading 2",
+          "type": "text",
+        },
+      ],
+      "type": "heading",
     },
   ],
   "type": "root",

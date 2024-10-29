@@ -78,6 +78,11 @@ describe("parser", () => {
     ["# Heading 1\n\nParagraph"],
     ["# *styled heading*"],
     ["# _styled heading_"],
+    ["Alt heading 1\n============="],
+    ["Alt heading 2\n-------------"],
+    ["Alt heading 1\n=============\nParagraph"],
+    ["Alt heading 1\n=============\n\nParagraph"],
+    ["*Styled alt heading 1*\n======================"],
   ])("parse(%p)", (text) => {
     const parsed = parse(text);
 
