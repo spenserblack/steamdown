@@ -11,23 +11,24 @@ export const url = {
   hint: (text: string) => text.startsWith("["),
   parse: (text: string): [nodes.Url, remainder: string] => {
     // TODO Break this up into something more readable.
-    const match = /^\[(?<text>(?:[^\]]|\\\])+)(?<!\\)\](?:(?:\((?<link>[^)\n]+)\))|\[(?<id>(?:[^\]\n]|\\\])+)\])?/.exec(text);
-    const groups = match?.groups;
+    const match = /^\[((?:[^\]]|\\\])+)(?<!\\)\](?:(?:\(([^)\n]+)\))|\[((?:[^\]\n]|\\\])+)\])?/.exec(text);
 
-    if (!groups) {
+    if (!match) {
       throw new ParseError("invalid url");
     }
 
-    const remainder = text.slice(match[0].length);
+    const [all, content, link, id] = match;
+    const remainder = text.slice(all.length);
+    const nodes = parse(content);
 
-    const node: nodes.Url = groups.link != null ? {
+    const node: nodes.Url = link != null ? {
       type: "link-url",
-      link: groups.link,
-      nodes: parse(groups.text),
+      link,
+      nodes,
     } : {
       type: "id-url",
-      id: groups.id ?? groups.text,
-      nodes: parse(groups.text),
+      id: id ?? content,
+      nodes,
     };
 
     return [node, remainder];
