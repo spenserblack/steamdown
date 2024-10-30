@@ -83,6 +83,13 @@ describe("parser", () => {
     ["Alt heading 1\n=============\nParagraph"],
     ["Alt heading 1\n=============\n\nParagraph"],
     ["*Styled alt heading 1*\n======================"],
+    ["[plain-url]"],
+    ["[url with id][id]"],
+    ["[url with link](https://example.com)"],
+    ["[*styled url*]"],
+    ["[*styled url* with id][id]"],
+    ["[*styled url* with link](https://example.com)"],
+    ["plain text followed by [url](https://example.com)."],
   ])("parse(%p)", (text) => {
     const parsed = parse(text);
 

@@ -541,6 +541,167 @@ exports[`parser parse(">\\\\!escaped spoiler\\\\!<") .tree matches the snapshot 
 }
 `;
 
+exports[`parser parse("[*styled url* with id][id]") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "id": "id",
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "styled url",
+                  "type": "text",
+                },
+              ],
+              "type": "italics",
+            },
+            {
+              "text": " with id",
+              "type": "text",
+            },
+          ],
+          "type": "id-url",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("[*styled url* with link](https://example.com)") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "link": "https://example.com",
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "styled url",
+                  "type": "text",
+                },
+              ],
+              "type": "italics",
+            },
+            {
+              "text": " with link",
+              "type": "text",
+            },
+          ],
+          "type": "link-url",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("[*styled url*]") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "id": "*styled url*",
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "styled url",
+                  "type": "text",
+                },
+              ],
+              "type": "italics",
+            },
+          ],
+          "type": "id-url",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("[plain-url]") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "id": "plain-url",
+          "nodes": [
+            {
+              "text": "plain-url",
+              "type": "text",
+            },
+          ],
+          "type": "id-url",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("[url with id][id]") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "id": "id",
+          "nodes": [
+            {
+              "text": "url with id",
+              "type": "text",
+            },
+          ],
+          "type": "id-url",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("[url with link](https://example.com)") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "link": "https://example.com",
+          "nodes": [
+            {
+              "text": "url with link",
+              "type": "text",
+            },
+          ],
+          "type": "link-url",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse("\\\\*\\\\*escaped\\\\*\\\\*") .tree matches the snapshot 1`] = `
 {
   "nodes": [
@@ -1898,6 +2059,37 @@ another paragraph") .tree matches the snapshot 1`] = `
       "nodes": [
         {
           "text": "another paragraph",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("plain text followed by [url](https://example.com).") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "plain text followed by ",
+          "type": "text",
+        },
+        {
+          "link": "https://example.com",
+          "nodes": [
+            {
+              "text": "url",
+              "type": "text",
+            },
+          ],
+          "type": "link-url",
+        },
+        {
+          "text": ".",
           "type": "text",
         },
       ],

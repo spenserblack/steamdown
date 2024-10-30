@@ -54,6 +54,29 @@ export interface NoparseSpan extends Node {
 }
 
 /**
+ * A url node in the format `[text](url)`.
+ */
+export interface LinkUrl extends Node {
+  type: "link-url";
+  link: string;
+  nodes: Inline[];
+}
+
+/**
+ * A url in the format `[text][id]` or `[id]`.
+ */
+export interface IdUrl extends Node {
+  type: "id-url";
+  id: string;
+  nodes?: Inline[];
+}
+
+/**
+ * A url node.
+ */
+export type Url = LinkUrl | IdUrl;
+
+/**
  * A spoiler node.
  */
 export interface Spoiler extends Node {
@@ -119,6 +142,7 @@ export interface Escaped extends Node {
 
 export type Inline =
   | NoparseSpan
+  | Url
   | Spoiler
   | BoldItalics
   | Bold

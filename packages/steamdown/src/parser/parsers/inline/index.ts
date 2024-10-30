@@ -1,5 +1,6 @@
 import { useParsers, parse, addParser } from "./parsers";
 import { noparse } from "./noparse";
+import { url } from "./url";
 import { spoiler } from "./spoiler";
 import { boldItalics } from "./bold-italics";
 import { bold } from "./bold";
@@ -11,6 +12,7 @@ import { text } from "./text";
 
 [
   noparse,
+  url,
   spoiler,
   boldItalics,
   bold,
