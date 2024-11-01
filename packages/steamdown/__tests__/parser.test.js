@@ -90,6 +90,9 @@ describe("parser", () => {
     ["[*styled url* with id][id]"],
     ["[*styled url* with link](https://example.com)"],
     ["plain text followed by [url](https://example.com)."],
+    ["[reference]: https://example.com"],
+    ["paragraph\n\n[reference]: https://example.com"],
+    ["[reference]: https://example.com\n\nparagraph"],
   ])("parse(%p)", (text) => {
     const parsed = parse(text);
 
@@ -97,6 +100,13 @@ describe("parser", () => {
       it("matches the snapshot", () => {
         expect(parsed.tree).toMatchSnapshot();
       });
+    });
+  });
+
+  describe('parse()', () => {
+    test("adds context when a reference is found", () => {
+      const { context } = parse("[reference]: https://example.com");
+      expect(context.getLink("reference")).toBe("https://example.com");
     });
   });
 });

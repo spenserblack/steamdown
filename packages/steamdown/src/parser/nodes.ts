@@ -38,6 +38,17 @@ export interface Heading extends Node {
 }
 
 /**
+ * A reference matching an ID to a URL.
+ *
+ * Unlike most other nodes, this does *not* get rendered.
+ */
+export interface Reference extends Node {
+  type: "reference",
+  id: string,
+  url: string,
+}
+
+/**
  * A paragraph node.
  */
 export interface Paragraph extends Node {
@@ -151,4 +162,4 @@ export type Inline =
   | Strike
   | Text
   | Escaped;
-export type Block = NoparseBlock | CodeBlock | Heading | Paragraph;
+export type Block = NoparseBlock | CodeBlock | Heading | Reference | Paragraph;

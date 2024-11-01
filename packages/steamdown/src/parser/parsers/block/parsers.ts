@@ -1,7 +1,8 @@
 import * as nodes from "../../nodes";
 import { firstSuccessfulParse } from "../util";
 import { UnreachableError } from "../../errors";
-import { BlockParser, Context } from "../types";
+import { BlockParser } from "../types";
+import type { Context } from "../../../context";
 
 const parsers: BlockParser[] = [];
 
@@ -17,12 +18,11 @@ export const useParsers = (): BlockParser[] => parsers;
 
 /**
  * Parses the given text into a syntax tree.
+ *
+ * Can mutate the provided context.
  */
-export const parse = (text: string): [nodes: nodes.Block[], context: Context] => {
+export const parse = (text: string, context: Context): nodes.Block[] => {
   const nodes: nodes.Block[] = [];
-  const context: Context = {
-    links: {},
-  };
 
   while (text.length > 0) {
     const result = firstSuccessfulParse(parsers, text);
@@ -32,7 +32,11 @@ export const parse = (text: string): [nodes: nodes.Block[], context: Context] =>
     const [node, remainder] = result;
     nodes.push(node);
     text = remainder;
+
+    if (node.type === 'reference') {
+      context.addLink(node.id, node.url);
+    }
   }
 
-  return [nodes, context];
+  return nodes;
 };

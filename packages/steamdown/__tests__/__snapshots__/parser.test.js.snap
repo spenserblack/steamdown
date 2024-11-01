@@ -656,6 +656,43 @@ exports[`parser parse("[plain-url]") .tree matches the snapshot 1`] = `
 }
 `;
 
+exports[`parser parse("[reference]: https://example.com
+
+paragraph") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "id": "reference",
+      "type": "reference",
+      "url": "https://example.com",
+    },
+    {
+      "nodes": [
+        {
+          "text": "paragraph",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("[reference]: https://example.com") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "id": "reference",
+      "type": "reference",
+      "url": "https://example.com",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse("[url with id][id]") .tree matches the snapshot 1`] = `
 {
   "nodes": [
@@ -2063,6 +2100,30 @@ another paragraph") .tree matches the snapshot 1`] = `
         },
       ],
       "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse("paragraph
+
+[reference]: https://example.com") .tree matches the snapshot 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "paragraph",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+    {
+      "id": "reference",
+      "type": "reference",
+      "url": "https://example.com",
     },
   ],
   "type": "root",

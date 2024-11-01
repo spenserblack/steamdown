@@ -1,4 +1,5 @@
 import * as nodes from "../nodes";
+import type { Context } from "../../context";
 
 /**
  * A parser for the syntax.
@@ -13,25 +14,13 @@ export interface Parser<N extends nodes.Node> {
   hint(text: string): boolean;
   /**
    * Parses the given syntax, returning the root node of the
-   * syntax tree and the remaining text.
+   * syntax tree and the remaining text. Can optionally mutate context.
    */
   parse(text: string): [node: N, remainder: string];
 }
 
 export type InlineParser = Parser<nodes.Inline>;
 export type BlockParser = Parser<nodes.Block>;
-
-/**
- * Data provided by the text that is not rendered in the final output.
- *
- * E.g. `[link]: https://example.com` would be a link definition.
- */
-export type Context = {
-  /**
-   * Map of link IDs to URLs.
-   */
-  links: Record<string, string>;
-};
 
 export type Parsed = {
   tree: nodes.Root;
