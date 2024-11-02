@@ -1,0 +1,3 @@
+Invalid *italicized
+
+text* with newlines
