@@ -542,6 +542,36 @@ exports[`parser parse() .tree italicized text 1`] = `
 }
 `;
 
+exports[`parser parse() .tree italics inside word 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "a",
+          "type": "text",
+        },
+        {
+          "nodes": [
+            {
+              "text": "b",
+              "type": "text",
+            },
+          ],
+          "type": "italics",
+        },
+        {
+          "text": "c",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse() .tree italics plain then more italics 1`] = `
 {
   "nodes": [
