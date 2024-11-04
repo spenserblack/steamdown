@@ -82,6 +82,18 @@ exports[`parser parse() .tree braces can be used in noparse with space 1`] = `
 }
 `;
 
+exports[`parser parse() .tree code block 1`] = `
+{
+  "nodes": [
+    {
+      "text": "This is a code block",
+      "type": "code-block",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse() .tree escaped asterisks 1`] = `
 {
   "nodes": [
