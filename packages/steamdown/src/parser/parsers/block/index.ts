@@ -3,9 +3,10 @@ import { noparse } from "./noparse";
 import { code } from "./code";
 import { reference } from "./reference";
 import { heading, altHeading } from "./heading";
+import { horizontalRule } from "./horizontal-rule";
 import { paragraph } from "./paragraph";
 
-[noparse, code, reference, heading, altHeading, paragraph].forEach((parser) => {
+[noparse, code, reference, heading, altHeading, horizontalRule, paragraph].forEach((parser) => {
   addParser(parser);
 });
 

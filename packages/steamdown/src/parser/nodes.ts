@@ -49,6 +49,13 @@ export interface Reference extends Node {
 }
 
 /**
+ * A horizontal rule node.
+ */
+export interface HorizontalRule extends Node {
+  type: "horizontal-rule";
+}
+
+/**
  * A paragraph node.
  */
 export interface Paragraph extends Node {
@@ -162,4 +169,4 @@ export type Inline =
   | Strike
   | Text
   | Escaped;
-export type Block = NoparseBlock | CodeBlock | Heading | Reference | Paragraph;
+export type Block = NoparseBlock | CodeBlock | Heading | Reference | HorizontalRule | Paragraph;

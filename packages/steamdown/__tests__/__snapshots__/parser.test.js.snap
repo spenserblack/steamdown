@@ -480,6 +480,23 @@ exports[`parser parse() .tree heading with style 1`] = `
 }
 `;
 
+exports[`parser parse() .tree horizontal rule 1`] = `
+{
+  "nodes": [
+    {
+      "type": "horizontal-rule",
+    },
+    {
+      "type": "horizontal-rule",
+    },
+    {
+      "type": "horizontal-rule",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse() .tree imbalanced strike leaning left 1`] = `
 {
   "nodes": [
@@ -828,6 +845,36 @@ exports[`parser parse() .tree paragraph spanning lines 1`] = `
           "text": "one
 paragraph
 spanning lines",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree paragraphs separated by horizontal rule 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "Text before a horizontal rule",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+    {
+      "type": "horizontal-rule",
+    },
+    {
+      "nodes": [
+        {
+          "text": "Text after a horizontal rule
+",
           "type": "text",
         },
       ],
