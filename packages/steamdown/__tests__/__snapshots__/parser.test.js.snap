@@ -21,6 +21,40 @@ exports[`parser parse() .tree backslashes in noparse are not escapes 1`] = `
 }
 `;
 
+exports[`parser parse() .tree blank lines 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree blank lines followed by paragraph 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [],
+      "type": "paragraph",
+    },
+    {
+      "nodes": [
+        {
+          "text": "Hello, World!
+",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse() .tree bold 1`] = `
 {
   "nodes": [
