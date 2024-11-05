@@ -1,5 +1,5 @@
-import * as nodes from "../../../nodes";
-import { ParseError, UnreachableError } from "../../errors";
+import * as nodes from "../../nodes";
+import { ParseError, UnreachableError } from "../errors";
 import escapeRegExp from "lodash.escaperegexp";
 import { parse } from "./parsers";
 

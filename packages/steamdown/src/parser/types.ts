@@ -1,5 +1,5 @@
-import * as nodes from "../../nodes";
-import type { Context } from "../../context";
+import * as nodes from "../nodes";
+import type { Context } from "../context";
 
 /**
  * A parser for the syntax.

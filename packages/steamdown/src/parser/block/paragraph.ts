@@ -1,5 +1,5 @@
-import * as nodes from "../../../nodes";
-import { UnreachableError } from "../../errors";
+import * as nodes from "../../nodes";
+import { UnreachableError } from "../errors";
 import { parse as parseInline } from "../inline";
 import { Parser } from "../types";
 

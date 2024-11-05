@@ -1,5 +1,5 @@
-import * as nodes from "../../../nodes";
-import { ParseError } from "../../errors";
+import * as nodes from "../../nodes";
+import { ParseError } from "../errors";
 import { Parser } from "../types";
 
 /**

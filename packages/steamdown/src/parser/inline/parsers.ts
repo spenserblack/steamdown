@@ -1,6 +1,6 @@
-import * as nodes from "../../../nodes";
+import * as nodes from "../../nodes";
 import { firstSuccessfulParse } from "../util";
-import { UnreachableError } from "../../errors";
+import { UnreachableError } from "../errors";
 import { InlineParser } from "../types";
 
 const inlineParsers: InlineParser[] = [];

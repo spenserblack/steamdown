@@ -1,6 +1,6 @@
-import * as nodes from "../../nodes";
+import * as nodes from "../nodes";
 import { Parser } from "./types";
-import { ParseError } from "../errors";
+import { ParseError } from "./errors";
 
 /**
  * Returns the first successful parse from the given parsers.

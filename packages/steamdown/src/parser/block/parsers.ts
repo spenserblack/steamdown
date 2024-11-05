@@ -1,8 +1,8 @@
-import * as nodes from "../../../nodes";
+import * as nodes from "../../nodes";
 import { firstSuccessfulParse } from "../util";
-import { UnreachableError } from "../../errors";
+import { UnreachableError } from "../errors";
 import { BlockParser } from "../types";
-import type { Context } from "../../../context";
+import type { Context } from "../../context";
 
 const parsers: BlockParser[] = [];
 
