@@ -22,3 +22,16 @@ export const firstSuccessfulParse = <N extends nodes.Node>(
   }
   return null;
 };
+
+export class Memoizer<T, U> extends Map<T, U> {
+  /**
+   * Returns the value associated with the key, or creates a new value using the
+   * given function and associates it with the key.
+   */
+  public getOrCreate(key: T, create: () => U): U {
+    if (!this.has(key)) {
+      this.set(key, create());
+    }
+    return this.get(key)!;
+  }
+}
