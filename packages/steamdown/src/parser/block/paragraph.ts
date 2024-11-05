@@ -9,19 +9,16 @@ import { Parser } from "../types";
 export const paragraph = {
   hint: () => true,
   parse: (text: string): [nodes.Paragraph, remainder: string] => {
-    const end = /\r?\n\r?\n|$/.exec(text);
+    // NOTE If a quote starts on the next line, it should stop the paragraph.
+    const match = /^(?:[^>\n][^\n]*(?:\r?\n|$))+/.exec(text);
 
-    if (!end) {
-      throw new UnreachableError();
+    if (!match) {
+      throw new UnreachableError(`"${text}" did not match paragraph`);
     }
 
-    const endText = end[0];
-    const endIndex = end.index;
+    const remainder = text.slice(match[0].length);
 
-    const pText = text.slice(0, endIndex);
-    const remainder = text.slice(endIndex + endText.length);
-
-    const nodes = parseInline(pText);
+    const nodes = parseInline(match[0].trimEnd());
 
     const node: nodes.Paragraph = {
       type: "paragraph",

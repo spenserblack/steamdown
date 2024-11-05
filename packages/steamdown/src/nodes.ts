@@ -60,8 +60,8 @@ export interface HorizontalRule extends BaseNode {
  */
 export interface Quote extends BaseNode {
   type: "quote";
-  nodes: Inline[];
-  author?: string | [username: string, postId: string];
+  nodes: Block[];
+  author?: [username: string, postId?: string];
 }
 
 /**

@@ -23,12 +23,7 @@ exports[`parser parse() .tree backslashes in noparse are not escapes 1`] = `
 
 exports[`parser parse() .tree blank lines 1`] = `
 {
-  "nodes": [
-    {
-      "nodes": [],
-      "type": "paragraph",
-    },
-  ],
+  "nodes": [],
   "type": "root",
 }
 `;
@@ -37,14 +32,9 @@ exports[`parser parse() .tree blank lines followed by paragraph 1`] = `
 {
   "nodes": [
     {
-      "nodes": [],
-      "type": "paragraph",
-    },
-    {
       "nodes": [
         {
-          "text": "Hello, World!
-",
+          "text": "Hello, World!",
           "type": "text",
         },
       ],
@@ -836,6 +826,32 @@ exports[`parser parse() .tree noparse inline with two braces 1`] = `
 }
 `;
 
+exports[`parser parse() .tree paragraph and another paragraph 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "One paragraph",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+    {
+      "nodes": [
+        {
+          "text": "Another paragraph",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse() .tree paragraph spanning lines 1`] = `
 {
   "nodes": [
@@ -873,8 +889,7 @@ exports[`parser parse() .tree paragraphs separated by horizontal rule 1`] = `
     {
       "nodes": [
         {
-          "text": "Text after a horizontal rule
-",
+          "text": "Text after a horizontal rule",
           "type": "text",
         },
       ],
@@ -910,6 +925,144 @@ exports[`parser parse() .tree plain text followed by url 1`] = `
         },
       ],
       "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree quote 1`] = `
+{
+  "nodes": [
+    {
+      "author": undefined,
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "This is a quote.",
+              "type": "text",
+            },
+          ],
+          "type": "paragraph",
+        },
+        {
+          "nodes": [
+            {
+              "text": "It quotes things.",
+              "type": "text",
+            },
+          ],
+          "type": "paragraph",
+        },
+      ],
+      "type": "quote",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree quote nested 1`] = `
+{
+  "nodes": [
+    {
+      "author": undefined,
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "You said...",
+              "type": "text",
+            },
+          ],
+          "type": "paragraph",
+        },
+        {
+          "author": undefined,
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "This is a test.",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "quote",
+        },
+        {
+          "nodes": [
+            {
+              "text": "I said...",
+              "type": "text",
+            },
+          ],
+          "type": "paragraph",
+        },
+        {
+          "author": undefined,
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "Yes it is.",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "quote",
+        },
+      ],
+      "type": "quote",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree quote with author 1`] = `
+{
+  "nodes": [
+    {
+      "author": [
+        "me",
+        undefined,
+      ],
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "I hope quotes work...",
+              "type": "text",
+            },
+          ],
+          "type": "paragraph",
+        },
+      ],
+      "type": "quote",
+    },
+    {
+      "author": [
+        "me",
+        "123",
+      ],
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "I hope they work with post IDs, too...",
+              "type": "text",
+            },
+          ],
+          "type": "paragraph",
+        },
+      ],
+      "type": "quote",
     },
   ],
   "type": "root",

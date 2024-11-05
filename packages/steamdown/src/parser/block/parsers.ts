@@ -21,10 +21,16 @@ export const useParsers = (): BlockParser[] => parsers;
  *
  * Can mutate the provided context.
  */
-export const parse = (text: string, context: Context): nodes.Block[] => {
+export const parse = (text: string, context?: Context): nodes.Block[] => {
   const nodes: nodes.Block[] = [];
 
   while (text.length > 0) {
+    // NOTE Skip blank lines (we'll consider trailing spaces to be intentional)
+    const blankLineMatch = text.match(/^\r?\n/);
+    if (blankLineMatch) {
+      text = text.slice(blankLineMatch[0].length);
+      continue;
+    }
     const result = firstSuccessfulParse(parsers, text);
     if (!result) {
       throw new UnreachableError("should always be able to parse text");
@@ -33,7 +39,7 @@ export const parse = (text: string, context: Context): nodes.Block[] => {
     nodes.push(node);
     text = remainder;
 
-    if (node.type === 'reference') {
+    if (context && node.type === 'reference') {
       context.addLink(node.id, node.url);
     }
   }
