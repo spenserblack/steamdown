@@ -11,7 +11,7 @@ export interface BaseNode {
  */
 export interface Root extends BaseNode {
   type: "root";
-  nodes: BaseNode[];
+  nodes: Block[];
 }
 
 /** A noparse block node. */
