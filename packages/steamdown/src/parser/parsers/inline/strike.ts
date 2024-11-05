@@ -1,4 +1,4 @@
-import * as nodes from "../../nodes";
+import * as nodes from "../../../nodes";
 import { ParseError } from "../../errors";
 import { Parser } from "../types";
 import { variableLengthInlineHelper } from "./util";

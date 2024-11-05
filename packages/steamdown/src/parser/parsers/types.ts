@@ -1,4 +1,4 @@
-import * as nodes from "../nodes";
+import * as nodes from "../../nodes";
 import type { Context } from "../../context";
 
 /**

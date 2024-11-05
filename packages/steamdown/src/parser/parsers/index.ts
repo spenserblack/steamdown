@@ -1,4 +1,4 @@
-import * as nodes from "../nodes";
+import * as nodes from "../../nodes";
 import { Parsed } from "./types";
 import { parse as parseBlocks } from "./block";
 import { Context } from "../../context";
