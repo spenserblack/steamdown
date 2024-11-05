@@ -1,6 +1,6 @@
 import * as nodes from "../../nodes";
 import { ParseError, UnreachableError } from "../errors";
-import escapeRegExp from "lodash.escaperegexp";
+import escapeRegExp from "escape-string-regexp";
 import { parse } from "./parsers";
 
 /**

@@ -2,7 +2,7 @@ import * as nodes from "../../nodes";
 import { UnreachableError, ParseError } from "../errors";
 import { Parser } from "../types";
 import { Memoizer } from "../util";
-import escapeRegExp from "lodash.escaperegexp";
+import escapeRegExp from "escape-string-regexp";
 
 const memo = new Memoizer<string, RegExp>();
 

@@ -45,13 +45,9 @@ importers:
 
   packages/steamdown:
     dependencies:
-      lodash.escaperegexp:
-        specifier: ^4.1.2
-        version: 4.1.2
-    devDependencies:
-      '@types/lodash.escaperegexp':
-        specifier: ^4.1.9
-        version: 4.1.9
+      escape-string-regexp:
+        specifier: ^5.0.0
+        version: 5.0.0
 
 packages:
 
@@ -866,12 +862,6 @@ packages:
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
 
-  '@types/lodash.escaperegexp@4.1.9':
-    resolution: {integrity: sha512-CMQc8v16YzhnPZnMhYQuJUksI8BmL1jy/lHJkiXi4/t24Lx7Qvy7qxew1abrDJGa1T2i0NzLLaR27NK1/qp5Ow==}
-
-  '@types/lodash@4.17.5':
-    resolution: {integrity: sha512-MBIOHVZqVqgfro1euRDWX7OO0fBVUUMrN6Pwm8LQsz8cWhEpihlvR70ENj3f40j58TNxZaWv2ndSkInykNBBJw==}
-
   '@types/node@20.14.2':
     resolution: {integrity: sha512-xyu6WAMVwv6AKFLB+e/7ySZVr/0zLCzOa7rSpq6jNwpqOrUbcACDWC+53d4n2QHOnDou0fbIsg8wZu/sxrnI4Q==}
 
@@ -1184,6 +1174,10 @@ packages:
   escape-string-regexp@4.0.0:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
+
+  escape-string-regexp@5.0.0:
+    resolution: {integrity: sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==}
+    engines: {node: '>=12'}
 
   eslint-scope@8.1.0:
     resolution: {integrity: sha512-14dSvlhaVhKKsa9Fx1l8A17s7ah7Ef7wCakJ10LYk6+GYmP9yDti2oq2SEwcyndt6knfcZyhyxwY3i9yL78EQw==}
@@ -1633,9 +1627,6 @@ packages:
 
   lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
-
-  lodash.escaperegexp@4.1.2:
-    resolution: {integrity: sha512-TM9YBvyC84ZxE3rgfefxUWiQKLilstD6k7PTGt6wfbtXF8ixIJLOL3VYyV/z+ZiPLsVxAsKAFVwWlWeb2Y8Yyw==}
 
   lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
@@ -3168,12 +3159,6 @@ snapshots:
 
   '@types/json-schema@7.0.15': {}
 
-  '@types/lodash.escaperegexp@4.1.9':
-    dependencies:
-      '@types/lodash': 4.17.5
-
-  '@types/lodash@4.17.5': {}
-
   '@types/node@20.14.2':
     dependencies:
       undici-types: 5.26.5
@@ -3518,6 +3503,8 @@ snapshots:
   escape-string-regexp@2.0.0: {}
 
   escape-string-regexp@4.0.0: {}
+
+  escape-string-regexp@5.0.0: {}
 
   eslint-scope@8.1.0:
     dependencies:
@@ -4150,8 +4137,6 @@ snapshots:
       p-locate: 5.0.0
 
   lodash.debounce@4.0.8: {}
-
-  lodash.escaperegexp@4.1.2: {}
 
   lodash.merge@4.6.2: {}
 
