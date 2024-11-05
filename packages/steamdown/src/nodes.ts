@@ -56,6 +56,15 @@ export interface HorizontalRule extends BaseNode {
 }
 
 /**
+ * A quote node.
+ */
+export interface Quote extends BaseNode {
+  type: "quote";
+  nodes: Inline[];
+  author?: string | [username: string, postId: string];
+}
+
+/**
  * A paragraph node.
  */
 export interface Paragraph extends BaseNode {
@@ -169,7 +178,7 @@ export type Inline =
   | Strike
   | Text
   | Escaped;
-export type Block = NoparseBlock | CodeBlock | Heading | Reference | HorizontalRule | Paragraph;
+export type Block = NoparseBlock | CodeBlock | Heading | Reference | HorizontalRule | Quote | Paragraph;
 /**
  * A node in the syntax tree.
  */
