@@ -41,11 +41,6 @@ export const makeWrappedTextParser = <N extends WrappedNode>(
         throw new ParseError(`${type} cannot start or end with whitespace`);
       }
 
-      // TODO Unnecessary (already enforced by block parsing)?
-      if (/\r?\n\r?\n/.test(innerText)) {
-        throw new ParseError(`${type} cannot contain newlines`);
-      }
-
       const remainder = text.slice(innerEndIndex + endWrapper.length);
 
       const nodes = parse(innerText);
