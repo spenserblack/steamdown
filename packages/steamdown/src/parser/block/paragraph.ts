@@ -9,8 +9,10 @@ import { Parser } from "../types";
 export const paragraph = {
   hint: () => true,
   parse: (text: string): [nodes.Paragraph, remainder: string] => {
-    // NOTE If a quote starts on the next line, it should stop the paragraph.
-    const match = /^(?:[^>\n][^\n]*(?:\r?\n|$))+/.exec(text);
+    // NOTE If a quote starts on the next line, it should stop the paragraph. It is
+    //      currently enforced that quotes *must* have a space (`> `) to avoid
+    //      conflicts with spoilers (`>!`).
+    const match = /^(?:(?:>[^ ]|[^>\n])[^\n]*(?:\r?\n|$))+/.exec(text);
 
     if (!match) {
       throw new UnreachableError(`"${text}" did not match paragraph`);
