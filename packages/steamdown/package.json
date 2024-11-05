@@ -8,6 +8,7 @@
     "steam",
     "markdown"
   ],
+  "type": "module",
   "main": "dist/index.js",
   "files": [
     "dist"

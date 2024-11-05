@@ -3,7 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "dist",
-    "rootDir": "src"
+    "rootDir": "src",
+    "module": "esnext",
+    "moduleResolution": "bundler"
   },
   "include": ["./src"],
   "exclude": ["node_modules", "./dist"]
