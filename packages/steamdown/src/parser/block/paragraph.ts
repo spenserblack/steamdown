@@ -20,7 +20,7 @@ export const paragraph = {
 
     const remainder = text.slice(match[0].length);
 
-    const nodes = parseInline(match[0].trimEnd());
+    const nodes = parseInline(match[0].trim());
 
     const node: nodes.Paragraph = {
       type: "paragraph",
