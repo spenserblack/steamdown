@@ -1,7 +1,7 @@
 import * as nodes from "../../nodes";
 import { ParseError, UnreachableError } from "../errors";
 import escapeRegExp from "escape-string-regexp";
-import { parse } from "./parsers";
+import { parse } from "./parse";
 
 /**
  * Helper for `makeWrappedTextParser`.

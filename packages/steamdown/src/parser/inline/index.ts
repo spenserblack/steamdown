@@ -1,4 +1,4 @@
-import { useParsers, parse, addParser } from "./parsers";
+import { useParsers, parse, addParser } from "./parse";
 import { noparse } from "./noparse";
 import { url } from "./url";
 import { spoiler } from "./spoiler";

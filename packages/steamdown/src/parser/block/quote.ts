@@ -1,10 +1,12 @@
 import * as nodes from "../../nodes";
-import { parse as parseBlocks } from "./parsers";
+import { parse as parseBlocks } from "./parse";
 import { UnreachableError, ParseError } from "../errors";
 import { Parser } from "../types";
 
 type Author = NonNullable<nodes.Quote["author"]>;
-const parseAuthor = (text: string): [author: nodes.Quote["author"], remainder: string] => {
+const parseAuthor = (
+  text: string,
+): [author: nodes.Quote["author"], remainder: string] => {
   const match = /^\(([^;)]+)(?:;(\d+))?\)(?:\r?\n|$)/.exec(text);
   if (!match) {
     return [undefined, text];
@@ -23,7 +25,9 @@ export const quote = {
   parse: (text: string): [nodes.Quote, remainder: string] => {
     const lines = /^(?:>(?: [^\n]*(?:\r?\n|$)|\r?\n|$))+/.exec(text);
     if (!lines) {
-      throw new UnreachableError("The hint should ensure that there is at least 1 line");
+      throw new UnreachableError(
+        "The hint should ensure that there is at least 1 line",
+      );
     }
     const content = lines[0].replace(/^> ?/gm, "");
     const nodes = parseBlocks(content);

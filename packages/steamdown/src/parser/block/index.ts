@@ -1,4 +1,4 @@
-import { addParser, useParsers, parse } from "./parsers";
+import { addParser, useParsers, parse } from "./parse";
 import { noparse } from "./noparse";
 import { code } from "./code";
 import { reference } from "./reference";
@@ -8,7 +8,17 @@ import { list } from "./list";
 import { quote } from "./quote";
 import { paragraph } from "./paragraph";
 
-[noparse, code, reference, heading, altHeading, horizontalRule, list, quote, paragraph].forEach((parser) => {
+[
+  noparse,
+  code,
+  reference,
+  heading,
+  altHeading,
+  horizontalRule,
+  list,
+  quote,
+  paragraph,
+].forEach((parser) => {
   addParser(parser);
 });
 

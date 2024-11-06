@@ -1,5 +1,5 @@
 import * as nodes from "../../nodes";
-import { parse as parseBlocks } from "./parsers";
+import { parse as parseBlocks } from "./parse";
 import { UnreachableError, ParseError } from "../errors";
 import { Parser } from "../types";
 
@@ -15,7 +15,10 @@ const listTypeValidators: Record<ListType, RegExp> = {
 /**
  * Parses a list item.
  */
-const parseItem = (text: string, listType: ListType): [nodes.ListItem, remainder: string] | null => {
+const parseItem = (
+  text: string,
+  listType: ListType,
+): [nodes.ListItem, remainder: string] | null => {
   if (!listTypeValidators[listType].test(text)) {
     return null;
   }
@@ -36,7 +39,7 @@ const parseItem = (text: string, listType: ListType): [nodes.ListItem, remainder
     text = text.slice(line.length);
     // HACK If the line is just a newline, we shouldn't slice it.
     content += /^\r?\n/.test(line) ? line : line.slice(indentLevel);
-  } while(text.startsWith(indent) || /^\r?\n/.test(text))
+  } while (text.startsWith(indent) || /^\r?\n/.test(text));
 
   const nodes = parseBlocks(content);
 
@@ -57,10 +60,12 @@ export const list = {
     const match = /^(\-|\*|\d+\.) /.exec(text);
 
     if (!match) {
-      throw new UnreachableError("The hint should ensure that there is at least 1 bullet");
+      throw new UnreachableError(
+        "The hint should ensure that there is at least 1 bullet",
+      );
     }
     const bullet = match[1];
-    const listType: ListType = bullet === "-" ? "-" : (bullet === "*" ? "*" : numerical);
+    const listType: ListType = bullet === "-" ? "-" : bullet === "*" ? "*" : numerical;
 
     const items: nodes.ListItem[] = [];
     let item = parseItem(text, listType);

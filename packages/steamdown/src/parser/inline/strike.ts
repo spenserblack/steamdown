@@ -2,7 +2,7 @@ import * as nodes from "../../nodes";
 import { ParseError } from "../errors";
 import { Parser } from "../types";
 import { variableLengthInlineHelper } from "./util";
-import { parse } from "./parsers";
+import { parse } from "./parse";
 
 const helper = variableLengthInlineHelper("~");
 
