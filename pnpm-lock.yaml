@@ -49,6 +49,12 @@ importers:
         specifier: workspace:^
         version: link:../steamdown
 
+  packages/html:
+    dependencies:
+      '@steamdown/core':
+        specifier: workspace:^
+        version: link:../steamdown
+
   packages/steamdown:
     dependencies:
       escape-string-regexp:
