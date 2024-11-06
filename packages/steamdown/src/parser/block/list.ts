@@ -20,11 +20,7 @@ const parseItem = (text: string, listType: ListType): [nodes.ListItem, remainder
     return null;
   }
 
-  const indentLevel = listType === numerical ? /^\d+/.exec(text)?.[0].length + 2 : 2;
-
-  if (indentLevel == null) {
-    throw new UnreachableError("Numerical list should start with a number");
-  }
+  const indentLevel = listType === numerical ? /^\d+/.exec(text)![0].length + 2 : 2;
 
   const indent = " ".repeat(indentLevel);
   let content = "";
