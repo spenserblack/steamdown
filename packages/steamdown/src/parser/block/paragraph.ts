@@ -10,7 +10,7 @@ export const paragraph = {
   hint: () => true,
   parse: (text: string): [nodes.Paragraph, remainder: string] => {
     // NOTE Double-newlines, EOF, quotes, and lists are all valid paragraph breaks.
-    const end = /\n\n|\n$|$|\n> |\n\- |\n\* |\n\d+\. /.exec(text);
+    const end = /\r?\n^(?:> |\- |\* |\d+\. |\r?\n)/m.exec(text) ?? /(?:\r?\n)?$/.exec(text);
 
     if (!end) {
       throw new UnreachableError("Paragraph must have an end");
