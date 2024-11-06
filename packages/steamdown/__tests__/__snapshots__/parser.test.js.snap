@@ -871,6 +871,40 @@ spanning lines",
 }
 `;
 
+exports[`parser parse() .tree paragraph with extra newlines 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "paragraph with extra newlines",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree paragraph without trailing newline 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "paragraph without trailing newline",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse() .tree paragraphs separated by horizontal rule 1`] = `
 {
   "nodes": [
