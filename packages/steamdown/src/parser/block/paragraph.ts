@@ -9,18 +9,20 @@ import { Parser } from "../types";
 export const paragraph = {
   hint: () => true,
   parse: (text: string): [nodes.Paragraph, remainder: string] => {
-    // NOTE If a quote starts on the next line, it should stop the paragraph. It is
-    //      currently enforced that quotes *must* have a space (`> `) to avoid
-    //      conflicts with spoilers (`>!`).
-    const match = /^(?:(?:>[^ ]|[^>\n])[^\n]*(?:\r?\n|$))+/.exec(text);
+    // NOTE Double-newlines, EOF, quotes, and lists are all valid paragraph breaks.
+    const end = /\n\n|\n$|$|\n> |\n\- |\n\* |\n\d+\. /.exec(text);
 
-    if (!match) {
-      throw new UnreachableError(`"${text}" did not match paragraph`);
+    if (!end) {
+      throw new UnreachableError("Paragraph must have an end");
     }
 
-    const remainder = text.slice(match[0].length);
+    const content = text.slice(0, end.index);
 
-    const nodes = parseInline(match[0].trim());
+    // NOTE We want to remove leading newlines from the remainder.
+    const newlineCount = /^\n+/.exec(end[0])?.[0].length ?? 0;
+    const remainder = text.slice(end.index + newlineCount);
+
+    const nodes = parseInline(content);
 
     const node: nodes.Paragraph = {
       type: "paragraph",
