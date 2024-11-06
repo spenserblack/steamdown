@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "Spenser Black <spenserblack01@gmail.com>",
   "license": "MIT",
-  "description": "Convert Markdown to Steam's markup",
+  "description": "A Markdown-like language that renders to Steam's markup language.",
   "keywords": [
     "steam",
     "markdown"
