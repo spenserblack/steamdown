@@ -56,6 +56,23 @@ export interface HorizontalRule extends BaseNode {
 }
 
 /**
+ * A list node.
+ */
+export interface List extends BaseNode {
+  type: "list";
+  ordered: boolean;
+  items: ListItem[];
+}
+
+/**
+ * A list item node.
+ */
+export interface ListItem extends BaseNode {
+  type: "list-item";
+  nodes: Block[];
+}
+
+/**
  * A quote node.
  */
 export interface Quote extends BaseNode {
@@ -178,7 +195,7 @@ export type Inline =
   | Strike
   | Text
   | Escaped;
-export type Block = NoparseBlock | CodeBlock | Heading | Reference | HorizontalRule | Quote | Paragraph;
+export type Block = NoparseBlock | CodeBlock | Heading | Reference | HorizontalRule | List | Quote | Paragraph;
 /**
  * A node in the syntax tree.
  */

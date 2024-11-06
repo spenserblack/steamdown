@@ -118,6 +118,88 @@ exports[`parser parse() .tree code block 1`] = `
 }
 `;
 
+exports[`parser parse() .tree complex list 1`] = `
+{
+  "nodes": [
+    {
+      "items": [
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "item one:",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+            {
+              "items": [
+                {
+                  "nodes": [
+                    {
+                      "nodes": [
+                        {
+                          "text": "sub-item one",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "list-item",
+                },
+                {
+                  "nodes": [
+                    {
+                      "nodes": [
+                        {
+                          "text": "sub-item two",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "list-item",
+                },
+              ],
+              "ordered": false,
+              "type": "list",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "author": undefined,
+              "nodes": [
+                {
+                  "nodes": [
+                    {
+                      "text": "a quote in a list",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "paragraph",
+                },
+              ],
+              "type": "quote",
+            },
+          ],
+          "type": "list-item",
+        },
+      ],
+      "ordered": false,
+      "type": "list",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse() .tree escaped asterisks 1`] = `
 {
   "nodes": [
@@ -660,6 +742,74 @@ exports[`parser parse() .tree italics plain then more italics 1`] = `
 }
 `;
 
+exports[`parser parse() .tree mixed lists 1`] = `
+{
+  "nodes": [
+    {
+      "items": [
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "using an asterisk",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+      ],
+      "ordered": false,
+      "type": "list",
+    },
+    {
+      "items": [
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "using a dash",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+      ],
+      "ordered": false,
+      "type": "list",
+    },
+    {
+      "items": [
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "using a number",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+      ],
+      "ordered": true,
+      "type": "list",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse() .tree nested italicized text 1`] = `
 {
   "nodes": [
@@ -820,6 +970,129 @@ exports[`parser parse() .tree noparse inline with two braces 1`] = `
         },
       ],
       "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree ordered list 1`] = `
+{
+  "nodes": [
+    {
+      "items": [
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "one",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "two",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "three",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+      ],
+      "ordered": true,
+      "type": "list",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree ordered list with deep indentation 1`] = `
+{
+  "nodes": [
+    {
+      "items": [
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "a line
+that continues.",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "Two paragraphs...",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+            {
+              "nodes": [
+                {
+                  "text": "One item.",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "10 uses
+extra indentation",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+      ],
+      "ordered": true,
+      "type": "list",
     },
   ],
   "type": "root",
@@ -1311,6 +1584,118 @@ exports[`parser parse() .tree underlined in italicized 1`] = `
         },
       ],
       "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree unordered list with asterisks 1`] = `
+{
+  "nodes": [
+    {
+      "items": [
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "1",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "2",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "3",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+      ],
+      "ordered": false,
+      "type": "list",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree unordered list with dashes 1`] = `
+{
+  "nodes": [
+    {
+      "items": [
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "1",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "2",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "3",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+      ],
+      "ordered": false,
+      "type": "list",
     },
   ],
   "type": "root",
