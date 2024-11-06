@@ -1,0 +1,35 @@
+{
+  "name": "@steamdown/cli",
+  "version": "1.0.0",
+  "author": "Spenser Black <spenserblack01@gmail.com>",
+  "license": "MIT",
+  "description": "A simple wrapper around the Steamdown parser/renderer for the command line.",
+  "keywords": [
+    "steam",
+    "markdown",
+    "cli"
+  ],
+  "type": "module",
+  "main": "index.mjs",
+  "files": [
+    "index.mjs"
+  ],
+  "bin": {
+    "steamdown": "./index.mjs",
+    "stmd": "./index.mjs"
+  },
+  "scripts": {
+    "build": "echo 'No build step required.'"
+  },
+  "bugs": {
+    "url": "https://github.com/spenserblack/steamdown/issues"
+  },
+  "homepage": "https://github.com/spenserblack/steamdown#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spenserblack/steamdown.git"
+  },
+  "dependencies": {
+    "@steamdown/core": "workspace:^"
+  }
+}
