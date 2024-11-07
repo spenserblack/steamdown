@@ -27,6 +27,8 @@
     "url": "git+https://github.com/spenserblack/steamdown.git"
   },
   "dependencies": {
-    "@steamdown/core": "workspace:^"
+    "@steamdown/core": "workspace:^",
+    "commander": "^12.1.0",
+    "get-stdin": "^9.0.0"
   }
 }
