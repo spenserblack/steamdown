@@ -140,10 +140,10 @@ continue without another >
 #### Tables
 
 Steam does *not* support cell alignment. It does, however, support `equalcells=1` and
-`noborder=1`, but apparently not for normal users. For `noborder=1`, *don't* add `|` to
-the left and right sides of the table. For `equalcells=1`, use `:---:` in the alignment
-row, as if you were centering a column in normal Markdown. "Alignment row" isn't really
-accurate for Steamdown, though, so it should perhaps be called the "attribute row".
+`noborder=1`, but apparently not for normal users. For `noborder=1`, use spaces instead
+of `-` in the alignment row. For `equalcells=1`, use `:---:` in the alignment row, as
+if you were centering a column in normal Markdown. "Alignment row" isn't really accurate
+for Steamdown, though, so it should perhaps be called the "attribute row".
 
 ##### Examples
 
@@ -162,16 +162,28 @@ takes precedence, and the following only need to be the same for clearer plain-t
 ###### `noborder=1` table
 
 ```
-one | two
---- | ---
- a  |  b
+| one | two |
+|     |     |
+|  a  |  b  |
 ```
+
+**NOTE:** Omitting the left and right `|` was considered as a better visual
+representation of no borders, but was decided against because it could cause issues with
+tables that are 1 cell wide.
 
 ###### `equalcells=1` table
 
 ```
 | one | two |
 | :-: | :-: |
+|  a  |  b  |
+```
+
+###### Both `noborder=1` and `equalcells=1` table
+
+```
+| one | two |
+| : : | : : |
 |  a  |  b  |
 ```
 
