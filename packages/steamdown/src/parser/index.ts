@@ -1,6 +1,6 @@
-import { Context } from "../context";
+import { Context } from "../context.js";
 import type { Parsed } from "./types";
-import { parse as parseBlocks } from "./block";
+import { parse as parseBlocks } from "./block/index.js";
 import type { Root } from "../nodes";
 
 /**

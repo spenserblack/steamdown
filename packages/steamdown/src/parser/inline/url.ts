@@ -1,8 +1,8 @@
-import * as nodes from "../../nodes";
-import { UnreachableError, ParseError } from "../errors";
+import type * as nodes from "../../nodes";
+import { UnreachableError, ParseError } from "../errors.js";
 import escapeRegExp from "escape-string-regexp";
-import { Parser } from "../types";
-import { parse } from "./parse";
+import type { Parser } from "../types";
+import { parse } from "./parse.js";
 
 /**
  * Parser for url.

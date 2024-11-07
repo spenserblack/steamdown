@@ -1,7 +1,7 @@
-import * as nodes from "../../nodes";
-import { parse as parseBlocks } from "./parse";
-import { UnreachableError, ParseError } from "../errors";
-import { Parser } from "../types";
+import type * as nodes from "../../nodes";
+import { parse as parseBlocks } from "./parse.js";
+import { UnreachableError, ParseError } from "../errors.js";
+import type { Parser } from "../types";
 
 const numerical = Symbol("numerical");
 type ListType = "-" | "*" | typeof numerical;

@@ -1,7 +1,7 @@
-import * as nodes from "../../nodes";
-import { UnreachableError, ParseError } from "../errors";
-import { Parser } from "../types";
-import { Memoizer } from "../util";
+import type * as nodes from "../../nodes";
+import { UnreachableError, ParseError } from "../errors.js";
+import type { Parser } from "../types";
+import { Memoizer } from "../util.js";
 import escapeRegExp from "escape-string-regexp";
 
 const memo = new Memoizer<string, RegExp>();

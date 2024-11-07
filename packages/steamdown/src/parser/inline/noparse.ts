@@ -1,7 +1,7 @@
-import * as nodes from "../../nodes";
-import { UnreachableError, ParseError } from "../errors";
+import type * as nodes from "../../nodes";
+import { UnreachableError, ParseError } from "../errors.js";
 import escapeRegExp from "escape-string-regexp";
-import { Parser } from "../types";
+import type { Parser } from "../types";
 
 /**
  * Parser for noparse spans.

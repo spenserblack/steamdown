@@ -1,7 +1,7 @@
-import * as nodes from "../../nodes";
-import { UnreachableError } from "../errors";
-import { parse as parseInline } from "../inline";
-import { Parser } from "../types";
+import type * as nodes from "../../nodes";
+import { UnreachableError } from "../errors.js";
+import { parse as parseInline } from "../inline/index.js";
+import type { Parser } from "../types";
 
 /**
  * Parser for a paragraph node.

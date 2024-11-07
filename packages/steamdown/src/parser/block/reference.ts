@@ -1,6 +1,6 @@
-import * as nodes from "../../nodes";
-import { ParseError } from "../errors";
-import { Parser } from "../types";
+import type * as nodes from "../../nodes";
+import { ParseError } from "../errors.js";
+import type { Parser } from "../types";
 
 /**
  * Parser for a reference (`[ref]: https://example.com`).

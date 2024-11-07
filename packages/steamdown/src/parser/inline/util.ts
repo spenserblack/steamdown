@@ -1,7 +1,7 @@
-import * as nodes from "../../nodes";
-import { ParseError, UnreachableError } from "../errors";
+import type * as nodes from "../../nodes";
+import { ParseError, UnreachableError } from "../errors.js";
 import escapeRegExp from "escape-string-regexp";
-import { parse } from "./parse";
+import { parse } from "./parse.js";
 
 /**
  * Helper for `makeWrappedTextParser`.

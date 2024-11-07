@@ -1,14 +1,14 @@
-import { useParsers, parse, addParser } from "./parse";
-import { noparse } from "./noparse";
-import { url } from "./url";
-import { spoiler } from "./spoiler";
-import { boldItalics } from "./bold-italics";
-import { bold } from "./bold";
-import { italics } from "./italics";
-import { underline } from "./underline";
-import { strike } from "./strike";
-import { escaped } from "./escaped";
-import { text } from "./text";
+import { useParsers, parse, addParser } from "./parse.js";
+import { noparse } from "./noparse.js";
+import { url } from "./url.js";
+import { spoiler } from "./spoiler.js";
+import { boldItalics } from "./bold-italics.js";
+import { bold } from "./bold.js";
+import { italics } from "./italics.js";
+import { underline } from "./underline.js";
+import { strike } from "./strike.js";
+import { escaped } from "./escaped.js";
+import { text } from "./text.js";
 
 [
   noparse,

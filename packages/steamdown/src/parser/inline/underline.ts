@@ -1,6 +1,6 @@
-import * as nodes from "../../nodes";
-import { Parser } from "../types";
-import { makeWrappedTextParser } from "./util";
+import type * as nodes from "../../nodes";
+import type { Parser } from "../types";
+import { makeWrappedTextParser } from "./util.js";
 
 /**
  * Parser for an underline node.

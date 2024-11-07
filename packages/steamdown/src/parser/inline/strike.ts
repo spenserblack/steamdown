@@ -1,8 +1,8 @@
-import * as nodes from "../../nodes";
-import { ParseError } from "../errors";
-import { Parser } from "../types";
-import { variableLengthInlineHelper } from "./util";
-import { parse } from "./parse";
+import type * as nodes from "../../nodes";
+import { ParseError } from "../errors.js";
+import type { Parser } from "../types";
+import { variableLengthInlineHelper } from "./util.js";
+import { parse } from "./parse.js";
 
 const helper = variableLengthInlineHelper("~");
 

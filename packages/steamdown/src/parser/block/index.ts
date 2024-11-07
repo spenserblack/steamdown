@@ -1,13 +1,13 @@
-import { addParser, useParsers, parse } from "./parse";
-import { noparse } from "./noparse";
-import { code } from "./code";
-import { table } from "./table";
-import { reference } from "./reference";
-import { heading, altHeading } from "./heading";
-import { horizontalRule } from "./horizontal-rule";
-import { list } from "./list";
-import { quote } from "./quote";
-import { paragraph } from "./paragraph";
+import { addParser, useParsers, parse } from "./parse.js";
+import { noparse } from "./noparse.js";
+import { code } from "./code.js";
+import { table } from "./table.js";
+import { reference } from "./reference.js";
+import { heading, altHeading } from "./heading.js";
+import { horizontalRule } from "./horizontal-rule.js";
+import { list } from "./list.js";
+import { quote } from "./quote.js";
+import { paragraph } from "./paragraph.js";
 
 [
   noparse,

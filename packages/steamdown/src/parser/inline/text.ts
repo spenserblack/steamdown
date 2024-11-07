@@ -1,5 +1,5 @@
-import * as nodes from "../../nodes";
-import { Parser } from "../types";
+import type * as nodes from "../../nodes";
+import type { Parser } from "../types";
 
 /**
  * Parser for a text node. This should never fail to parse.
