@@ -18,9 +18,6 @@
     "steamdown": "./index.mjs",
     "stmd": "./index.mjs"
   },
-  "scripts": {
-    "build": "echo 'No build step required.'"
-  },
   "bugs": {
     "url": "https://github.com/spenserblack/steamdown/issues"
   },
