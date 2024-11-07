@@ -1,6 +1,7 @@
 import { addParser, useParsers, parse } from "./parse";
 import { noparse } from "./noparse";
 import { code } from "./code";
+import { table } from "./table";
 import { reference } from "./reference";
 import { heading, altHeading } from "./heading";
 import { horizontalRule } from "./horizontal-rule";
@@ -11,6 +12,7 @@ import { paragraph } from "./paragraph";
 [
   noparse,
   code,
+  table,
   reference,
   heading,
   altHeading,

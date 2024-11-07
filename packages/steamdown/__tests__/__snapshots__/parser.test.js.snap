@@ -1511,6 +1511,449 @@ exports[`parser parse() .tree strike with two tilde 1`] = `
 }
 `;
 
+exports[`parser parse() .tree table 1`] = `
+{
+  "nodes": [
+    {
+      "attributes": {
+        "equalCells": false,
+        "noBorder": false,
+        "type": "table-attribute-row",
+      },
+      "body": [
+        {
+          "cells": [
+            {
+              "nodes": [
+                {
+                  "text": "a",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+            {
+              "nodes": [
+                {
+                  "text": "b",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+          ],
+          "type": "table-row",
+        },
+      ],
+      "head": {
+        "cells": [
+          {
+            "nodes": [
+              {
+                "text": "one",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+          {
+            "nodes": [
+              {
+                "text": "two",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+        ],
+        "type": "table-row",
+      },
+      "type": "table",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree table equalcells 1`] = `
+{
+  "nodes": [
+    {
+      "attributes": {
+        "equalCells": true,
+        "noBorder": false,
+        "type": "table-attribute-row",
+      },
+      "body": [
+        {
+          "cells": [
+            {
+              "nodes": [
+                {
+                  "text": "a",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+            {
+              "nodes": [
+                {
+                  "text": "b",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+          ],
+          "type": "table-row",
+        },
+      ],
+      "head": {
+        "cells": [
+          {
+            "nodes": [
+              {
+                "text": "one",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+          {
+            "nodes": [
+              {
+                "text": "two",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+        ],
+        "type": "table-row",
+      },
+      "type": "table",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree table equalcells noborder 1`] = `
+{
+  "nodes": [
+    {
+      "attributes": {
+        "equalCells": true,
+        "noBorder": true,
+        "type": "table-attribute-row",
+      },
+      "body": [
+        {
+          "cells": [
+            {
+              "nodes": [
+                {
+                  "text": "a",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+            {
+              "nodes": [
+                {
+                  "text": "b",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+          ],
+          "type": "table-row",
+        },
+      ],
+      "head": {
+        "cells": [
+          {
+            "nodes": [
+              {
+                "text": "one",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+          {
+            "nodes": [
+              {
+                "text": "two",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+        ],
+        "type": "table-row",
+      },
+      "type": "table",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree table extra head 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "|  one  |  two |
+| three | four |
+| ----- | ---- |",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree table no attributes 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "| one | two |
+|  a  |  b  |",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree table no body 1`] = `
+{
+  "nodes": [
+    {
+      "attributes": {
+        "equalCells": false,
+        "noBorder": false,
+        "type": "table-attribute-row",
+      },
+      "body": [],
+      "head": {
+        "cells": [
+          {
+            "nodes": [
+              {
+                "text": "one",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+          {
+            "nodes": [
+              {
+                "text": "two",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+        ],
+        "type": "table-row",
+      },
+      "type": "table",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree table noborder 1`] = `
+{
+  "nodes": [
+    {
+      "attributes": {
+        "equalCells": false,
+        "noBorder": true,
+        "type": "table-attribute-row",
+      },
+      "body": [
+        {
+          "cells": [
+            {
+              "nodes": [
+                {
+                  "text": "a",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+            {
+              "nodes": [
+                {
+                  "text": "b",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+          ],
+          "type": "table-row",
+        },
+      ],
+      "head": {
+        "cells": [
+          {
+            "nodes": [
+              {
+                "text": "one",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+          {
+            "nodes": [
+              {
+                "text": "two",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+        ],
+        "type": "table-row",
+      },
+      "type": "table",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree table with multiple rows 1`] = `
+{
+  "nodes": [
+    {
+      "attributes": {
+        "equalCells": false,
+        "noBorder": false,
+        "type": "table-attribute-row",
+      },
+      "body": [
+        {
+          "cells": [
+            {
+              "nodes": [
+                {
+                  "text": "a",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+            {
+              "nodes": [
+                {
+                  "text": "b",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+          ],
+          "type": "table-row",
+        },
+        {
+          "cells": [
+            {
+              "nodes": [
+                {
+                  "text": "c",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+            {
+              "nodes": [
+                {
+                  "text": "d",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+          ],
+          "type": "table-row",
+        },
+        {
+          "cells": [
+            {
+              "nodes": [
+                {
+                  "text": "e",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+            {
+              "nodes": [
+                {
+                  "text": "f",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+          ],
+          "type": "table-row",
+        },
+      ],
+      "head": {
+        "cells": [
+          {
+            "nodes": [
+              {
+                "text": "one",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+          {
+            "nodes": [
+              {
+                "text": "two",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+        ],
+        "type": "table-row",
+      },
+      "type": "table",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse() .tree two paragraphs 1`] = `
 {
   "nodes": [

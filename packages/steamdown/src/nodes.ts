@@ -18,15 +18,9 @@ export interface Root extends BaseNode {
  */
 export interface Table extends BaseNode {
   type: "table";
-  /**
-   * If the table should have `equalcells=1` set.
-   */
-  equalCells: boolean;
-  /**
-   * If the table should have `noborder=1` set.
-   */
-  noBorder: boolean;
-  rows: TableRow[];
+  head: TableRow;
+  attributes: TableAttributeRow;
+  body: TableRow[];
 }
 
 /**
@@ -38,14 +32,25 @@ export interface TableRow extends BaseNode {
 }
 
 /**
+ * A table attribute row node.
+ */
+export interface TableAttributeRow extends BaseNode {
+  type: "table-attribute-row";
+  /**
+   * If the table should have `equalcells=1` set.
+   */
+  equalCells: boolean;
+  /**
+   * If the table should have `noborder=1` set.
+   */
+  noBorder: boolean;
+}
+
+/**
  * A table cell node.
  */
 export interface TableCell extends BaseNode {
   type: "table-cell";
-  /**
-   * If the cell should be a header cell or a data cell.
-   */
-  header: boolean;
   nodes: Inline[];
 }
 
