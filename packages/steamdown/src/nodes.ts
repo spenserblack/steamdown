@@ -13,6 +13,42 @@ export interface Root extends BaseNode {
   nodes: Block[];
 }
 
+/**
+ * A table node.
+ */
+export interface Table extends BaseNode {
+  type: "table";
+  /**
+   * If the table should have `equalcells=1` set.
+   */
+  equalCells: boolean;
+  /**
+   * If the table should have `noborder=1` set.
+   */
+  noBorder: boolean;
+  rows: TableRow[];
+}
+
+/**
+ * A table row node.
+ */
+export interface TableRow extends BaseNode {
+  type: "table-row";
+  cells: TableCell[];
+}
+
+/**
+ * A table cell node.
+ */
+export interface TableCell extends BaseNode {
+  type: "table-cell";
+  /**
+   * If the cell should be a header cell or a data cell.
+   */
+  header: boolean;
+  nodes: Inline[];
+}
+
 /** A noparse block node. */
 export interface NoparseBlock extends BaseNode {
   type: "noparse-block";
@@ -194,7 +230,7 @@ export type Inline =
   | Strike
   | Text
   | Escaped;
-export type Block = NoparseBlock | CodeBlock | Heading | Reference | HorizontalRule | List | Quote | Paragraph;
+export type Block = NoparseBlock | CodeBlock | Table | Heading | Reference | HorizontalRule | List | Quote | Paragraph;
 /**
  * A node in the syntax tree.
  */

@@ -137,6 +137,44 @@ quotes cannot
 continue without another >
 ```
 
+#### Tables
+
+Steam does *not* support cell alignment. It does, however, support `equalcells=1` and
+`noborder=1`, but apparently not for normal users. For `noborder=1`, *don't* add `|` to
+the left and right sides of the table. For `equalcells=1`, use `:---:` in the alignment
+row, as if you were centering a column in normal Markdown. "Alignment row" isn't really
+accurate for Steamdown, though, so it should perhaps be called the "attribute row".
+
+##### Examples
+
+In the following examples, it should be noted that the "Attribute row" affects the
+*entire table,* not just a column. For this reason, the first cell in an attribute row
+takes precedence, and the following only need to be the same for clearer plain-text.
+
+###### "Plain" table
+
+```
+| one | two |
+| --- | --- |
+|  a  |  b  |
+```
+
+###### `noborder=1` table
+
+```
+one | two
+--- | ---
+ a  |  b
+```
+
+###### `equalcells=1` table
+
+```
+| one | two |
+| :-: | :-: |
+|  a  |  b  |
+```
+
 ### Removed syntax
 
 #### Images (`![alt text](url)`)
