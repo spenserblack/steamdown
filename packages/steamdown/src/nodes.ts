@@ -3,7 +3,6 @@
  */
 export interface BaseNode {
   type: string;
-  nodes?: Node[];
 }
 
 /**
