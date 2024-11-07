@@ -1,4 +1,4 @@
-const { parse } = require("../src/parser");
+const { parse } = require("../dist/index");
 const useAssets = require('./assets');
 
 describe("parser", () => {
