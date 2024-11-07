@@ -1,4 +1,4 @@
-const { parse, render } = require("../src");
+const { parse, render } = require("../dist");
 const useAssets = require('./assets');
 
 describe("steamdown", () => {

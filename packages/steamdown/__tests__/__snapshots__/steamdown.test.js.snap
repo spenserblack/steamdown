@@ -1,0 +1,503 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`steamdown backslashes in noparse are not escapes 1`] = `"[noparse]\\{no escape\\[/noparse]}"`;
+
+exports[`steamdown blank lines 1`] = `""`;
+
+exports[`steamdown blank lines followed by paragraph 1`] = `"Hello, World!"`;
+
+exports[`steamdown bold 1`] = `"[b]Bold text[/b]"`;
+
+exports[`steamdown bold and italicized 1`] = `"[b][i]Bold and italicized text[/i][/b]"`;
+
+exports[`steamdown braces can be used in noparse with space 1`] = `"[noparse]{optional inner space for delimiting}[/noparse]"`;
+
+exports[`steamdown code block 1`] = `
+"[code]
+This is a code block
+[/code]"
+`;
+
+exports[`steamdown complex list 1`] = `
+"[list]
+  [*]item one:
+
+[list]
+  [*]sub-item one
+  [*]sub-item two
+[/list]
+  [*][quote]
+a quote in a list
+[/quote]
+[/list]"
+`;
+
+exports[`steamdown demo 1`] = `
+"This is a paragraph. Breaklines
+will be rendered.
+
+Two breaklines will start a new paragraph.
+
+[h1]Header Level 1[/h1]
+
+[h2]Header Level 2[/h2]
+
+[h3]Header Level 3[/h3]
+
+[h1]Alternative Header 1[/h1]
+
+[h2]Alternative Header 2[/h2]
+
+Syntax includes:
+
+[list]
+  [*][i]italics[/i]
+  [*][b]bold[/b]
+  [*][b][i]bold and italics[/i][/b]
+  [*][u]underlines[/u]
+  [*][spoiler]spoilers[/spoiler]
+  [*][strike]strike outs[/strike]
+  [*][i][u]you can mix and match BTW[/u][/i]
+  [*][noparse]noparse spans are literal. *this won't be rendered* and Steam will show literal [i][/noparse]
+[/list]
+
+[noparse]
+Noparse can also be used in block form.
+This can be useful if you want to demo Steam syntax.
+For example, [i]italicizes[/i] text.
+[/noparse]
+
+[code]
+code can only be a block.
+Because that's how Steam works.
+[/code]
+
+[olist]
+  [*]List can be ordered
+  [*]like this
+  [*]Lists can contain complex syntax as long as it's indented properly. For example:
+
+[list]
+  [*]see how this is aligned with the rest of the text.
+[/list]
+  [*]It should always be aligned.
+
+[list]
+  [*]like this.
+[/list]
+[/olist]
+
+[quote=author]
+quotes must have spaces after the [noparse]> [/noparse]
+This is to avoid conflicts with >!spoiler!< syntax.
+[/quote]
+
+/example.com/inline/)
+[url=https://example.com/ref/]or use a [i]reference[/i][/url]
+
+
+[hr][/hr]
+
+
+[table]
+  [tr]
+    [th]table[/th]
+    [th]example[/th]
+  [/tr]
+  [tr]
+    [td]normal[/td]
+    [td]style[/td]
+  [/tr]
+[/table]
+
+[table equalcells=1]
+  [tr]
+    [th]table[/th]
+    [th]example[/th]
+  [/tr]
+  [tr]
+    [td]equal[/td]
+    [td]cells[/td]
+  [/tr]
+[/table equalcells=1]
+
+[table noborder=1]
+  [tr]
+    [th]table[/th]
+    [th]example[/th]
+  [/tr]
+  [tr]
+    [td]no[/td]
+    [td]border[/td]
+  [/tr]
+[/table noborder=1]"
+`;
+
+exports[`steamdown escaped asterisks 1`] = `"*escaped*"`;
+
+exports[`steamdown escaped asterisks in bold 1`] = `"[b]bold *escaped*[/b]"`;
+
+exports[`steamdown escaped asterisks in italics 1`] = `"[i]italics *escaped*[/i]"`;
+
+exports[`steamdown escaped backslash 1`] = `"Use a \\ to escape special characters"`;
+
+exports[`steamdown heading 1`] = `
+"[h1]Heading 1[/h1]
+
+[h2]Heading 2[/h2]
+
+[h3]Heading 3[/h3]
+
+[h4]Heading 4[/h4]
+
+[h5]Heading 5[/h5]
+
+[h6]Heading 6[/h6]"
+`;
+
+exports[`steamdown heading alternative 1`] = `
+"[h1]Alt heading 1[/h1]
+
+[h2]Alt heading 2[/h2]"
+`;
+
+exports[`steamdown heading alternative followed by paragraph 1`] = `
+"[h1]Alt heading 1[/h1]
+
+Paragraph
+
+[h1]Alt heading 1[/h1]
+
+Paragraph"
+`;
+
+exports[`steamdown heading alternative with style 1`] = `"[h1][i]styled alt heading 1[/i][/h1]"`;
+
+exports[`steamdown heading followed by paragraph 1`] = `
+"[h1]Heading[/h1]
+
+Paragraph
+
+[h2]Heading[/h2]
+
+Paragraph"
+`;
+
+exports[`steamdown heading with style 1`] = `"[h1][i]styled heading[/i][/h1]"`;
+
+exports[`steamdown horizontal rule 1`] = `
+"
+[hr][/hr]
+
+
+
+[hr][/hr]
+
+
+
+[hr][/hr]
+"
+`;
+
+exports[`steamdown imbalanced strike leaning left 1`] = `"~~strike~"`;
+
+exports[`steamdown imbalanced strike leaning right 1`] = `"[strike]strike[/strike]~"`;
+
+exports[`steamdown invalid italicized text broken into two paragraphs 1`] = `
+"Invalid *italicized
+
+text* with newlines"
+`;
+
+exports[`steamdown invalid italics with spaces 1`] = `"Invalid * italicized * text with spaces"`;
+
+exports[`steamdown italicized text 1`] = `"[i]Italicized text[/i]"`;
+
+exports[`steamdown italics inside word 1`] = `"a[i]b[/i]c"`;
+
+exports[`steamdown italics plain then more italics 1`] = `"[i]Italics[/i] and [i]more italics[/i]"`;
+
+exports[`steamdown mixed lists 1`] = `
+"[list]
+  [*]using an asterisk
+[/list]
+
+[list]
+  [*]using a dash
+[/list]
+
+[olist]
+  [*]using a number
+[/olist]"
+`;
+
+exports[`steamdown nested italicized text 1`] = `"Nested [i]italicized[/i] text"`;
+
+exports[`steamdown noparse block 1`] = `
+"[noparse]
+not parsed
+[/noparse]"
+`;
+
+exports[`steamdown noparse block followed by paragraph 1`] = `
+"[noparse]
+noparse
+[/noparse]
+
+paragraph
+
+[noparse]
+noparse
+[/noparse]
+
+paragraph"
+`;
+
+exports[`steamdown noparse block with inner braces 1`] = `
+"[noparse]
+{{{
+here's how to noparse
+}}}
+[/noparse]"
+`;
+
+exports[`steamdown noparse inline 1`] = `"[noparse]not parsed[/noparse]"`;
+
+exports[`steamdown noparse inline and another noparse inline 1`] = `"[noparse]not parsed[/noparse] [noparse]also not parsed[/noparse]"`;
+
+exports[`steamdown noparse inline with special contents 1`] = `"[noparse]*not italicized*[/noparse]"`;
+
+exports[`steamdown noparse inline with two braces 1`] = `"[noparse]not parsed[/noparse]"`;
+
+exports[`steamdown ordered list 1`] = `
+"[olist]
+  [*]one
+  [*]two
+  [*]three
+[/olist]"
+`;
+
+exports[`steamdown ordered list with deep indentation 1`] = `
+"[olist]
+  [*]a line
+that continues.
+  [*]Two paragraphs...
+
+One item.
+  [*]10 uses
+extra indentation
+[/olist]"
+`;
+
+exports[`steamdown paragraph and another paragraph 1`] = `
+"One paragraph
+
+Another paragraph"
+`;
+
+exports[`steamdown paragraph spanning lines 1`] = `
+"one
+paragraph
+spanning lines"
+`;
+
+exports[`steamdown paragraph with extra newlines 1`] = `"paragraph with extra newlines"`;
+
+exports[`steamdown paragraph without trailing newline 1`] = `"paragraph without trailing newline"`;
+
+exports[`steamdown paragraphs separated by horizontal rule 1`] = `
+"Text before a horizontal rule
+
+
+[hr][/hr]
+
+
+Text after a horizontal rule"
+`;
+
+exports[`steamdown plain text followed by url 1`] = `"plain text followed by [url=https://example.com]url[/url]."`;
+
+exports[`steamdown quote 1`] = `
+"[quote]
+This is a quote.
+
+It quotes things.
+[/quote]"
+`;
+
+exports[`steamdown quote nested 1`] = `
+"[quote]
+You said...
+
+[quote]
+This is a test.
+[/quote]
+
+I said...
+
+[quote]
+Yes it is.
+[/quote]
+[/quote]"
+`;
+
+exports[`steamdown quote with author 1`] = `
+"[quote=me]
+I hope quotes work...
+[/quote]
+
+[quote=me;123]
+I hope they work with post IDs, too...
+[/quote]"
+`;
+
+exports[`steamdown reference 1`] = `""`;
+
+exports[`steamdown reference after paragraph 1`] = `"paragraph"`;
+
+exports[`steamdown reference before paragraph 1`] = `"paragraph"`;
+
+exports[`steamdown simple 1`] = `"Hello, World!"`;
+
+exports[`steamdown spoiler 1`] = `">!spoiler<!"`;
+
+exports[`steamdown strike with one tilde 1`] = `"[strike]strike[/strike]"`;
+
+exports[`steamdown strike with two tilde 1`] = `"[strike]strike[/strike]"`;
+
+exports[`steamdown table 1`] = `
+"[table]
+  [tr]
+    [th]one[/th]
+    [th]two[/th]
+  [/tr]
+  [tr]
+    [td]a[/td]
+    [td]b[/td]
+  [/tr]
+[/table]"
+`;
+
+exports[`steamdown table equalcells 1`] = `
+"[table equalcells=1]
+  [tr]
+    [th]one[/th]
+    [th]two[/th]
+  [/tr]
+  [tr]
+    [td]a[/td]
+    [td]b[/td]
+  [/tr]
+[/table equalcells=1]"
+`;
+
+exports[`steamdown table equalcells noborder 1`] = `
+"[table noborder=1 equalcells=1]
+  [tr]
+    [th]one[/th]
+    [th]two[/th]
+  [/tr]
+  [tr]
+    [td]a[/td]
+    [td]b[/td]
+  [/tr]
+[/table noborder=1 equalcells=1]"
+`;
+
+exports[`steamdown table extra head 1`] = `
+"|  one  |  two |
+| three | four |
+| ----- | ---- |"
+`;
+
+exports[`steamdown table no attributes 1`] = `
+"| one | two |
+|  a  |  b  |"
+`;
+
+exports[`steamdown table no body 1`] = `
+"[table]
+  [tr]
+    [th]one[/th]
+    [th]two[/th]
+  [/tr]
+
+[/table]"
+`;
+
+exports[`steamdown table noborder 1`] = `
+"[table noborder=1]
+  [tr]
+    [th]one[/th]
+    [th]two[/th]
+  [/tr]
+  [tr]
+    [td]a[/td]
+    [td]b[/td]
+  [/tr]
+[/table noborder=1]"
+`;
+
+exports[`steamdown table with multiple rows 1`] = `
+"[table]
+  [tr]
+    [th]one[/th]
+    [th]two[/th]
+  [/tr]
+  [tr]
+    [td]a[/td]
+    [td]b[/td]
+  [/tr]
+  [tr]
+    [td]c[/td]
+    [td]d[/td]
+  [/tr]
+  [tr]
+    [td]e[/td]
+    [td]f[/td]
+  [/tr]
+[/table]"
+`;
+
+exports[`steamdown two paragraphs 1`] = `
+"Foo
+
+Bar"
+`;
+
+exports[`steamdown underlined 1`] = `"[u]Underlined text[/u]"`;
+
+exports[`steamdown underlined in italicized 1`] = `"[i]Italicized and [u]underlined[/u][/i]"`;
+
+exports[`steamdown unordered list with asterisks 1`] = `
+"[list]
+  [*]1
+  [*]2
+  [*]3
+[/list]"
+`;
+
+exports[`steamdown unordered list with dashes 1`] = `
+"[list]
+  [*]1
+  [*]2
+  [*]3
+[/list]"
+`;
+
+exports[`steamdown url link 1`] = `"[url=https://example.com]url with link[/url]"`;
+
+exports[`steamdown url link with style 1`] = `"[url=https://example.com][i]styled url[/i] with link[/url]"`;
+
+exports[`steamdown url ref with id 1`] = `"[url with id]"`;
+
+exports[`steamdown url ref with id and style 1`] = `"[[i]styled url[/i] with id]"`;
+
+exports[`steamdown url ref without id 1`] = `"[plain-url]"`;
+
+exports[`steamdown url ref without id with style 1`] = `"[[i]styled url[/i]]"`;
+
+exports[`steamdown valid italicized text with a newline 1`] = `
+"Valid [i]italicized
+text[/i] with a newline"
+`;
