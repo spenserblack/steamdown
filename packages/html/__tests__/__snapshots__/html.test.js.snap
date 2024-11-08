@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`html render renders the demo file 1`] = `
+"<p>This is a paragraph. Breaklines
+will be rendered.</p><p>Two breaklines will start a new paragraph.</p><h1>Header Level 1</h1><h2>Header Level 2</h2><h3>Header Level 3</h3><h1>Alternative Header 1</h1><h2>Alternative Header 2</h2><p>Syntax includes:</p><ul>
+<li><p><em>italics</em></p></li>
+<li><p><strong>bold</strong></p></li>
+<li><p><strong><em>bold and italics</em></strong></p></li>
+<li><p><u>underlines</u></p></li>
+<li><p><span class="spoiler">spoilers</span></p></li>
+<li><p><s>strike outs</s></p></li>
+<li><p><em><u>you can mix and match BTW</u></em></p></li>
+<li><p>noparse spans are literal. *this won&#39;t be rendered* and Steam will show literal [i]</p></li>
+</ul><div class="noparse">Noparse can also be used in block form.
+This can be useful if you want to demo Steam syntax.
+For example, [i]italicizes[/i] text.</div><pre class="code"><code>code can only be a block.
+Because that&#39;s how Steam works.</code></pre><ol>
+<li><p>List can be ordered</p></li>
+<li><p>like this</p></li>
+<li><p>Lists can contain complex syntax as long as it&#39;s indented properly. For example:</p><ul>
+<li><p>see how this is aligned with the rest of the text.</p></li>
+</ul></li>
+<li><p>It should always be aligned.</p><ul>
+<li><p>like this.</p></li>
+</ul></li>
+</ol><figure class="quote"><figcaption>Originally posted by <cite>author</cite>:</figcaption><blockquote><p>quotes must have spaces after the &gt; 
+This is to avoid conflicts with <span class="spoiler">spoiler</span> syntax.</p></blockquote></figure><p><a href="https://example.com/inline/">urls can be like this</a>
+<a href="https://example.com/ref/">or use a <em>reference</em></a></p><hr><table>
+<thead>
+<tr>
+<th>table</th>
+<th>example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>normal</td>
+<td>style</td>
+</tr>
+</tbody>
+</table><table class="equalcells">
+<thead>
+<tr>
+<th>table</th>
+<th>example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>equal</td>
+<td>cells</td>
+</tr>
+</tbody>
+</table><table class="noborder">
+<thead>
+<tr>
+<th>table</th>
+<th>example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>no</td>
+<td>border</td>
+</tr>
+</tbody>
+</table>"
+`;

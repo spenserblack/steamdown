@@ -1,0 +1,68 @@
+This is a paragraph. Breaklines
+will be rendered.
+
+Two breaklines will start a new paragraph.
+
+# Header Level 1
+
+## Header Level 2
+
+### Header Level 3
+
+Alternative Header 1
+====================
+
+Alternative Header 2
+--------------------
+
+Syntax includes:
+
+* *italics*
+* **bold**
+* ***bold and italics***
+* _underlines_
+* >!spoilers!<
+* ~~strike outs~~
+* *_you can mix and match BTW_*
+* {noparse spans are literal. *this won't be rendered* and Steam will show literal [i]}
+
+{{{
+Noparse can also be used in block form.
+This can be useful if you want to demo Steam syntax.
+For example, [i]italicizes[/i] text.
+}}}
+
+```
+code can only be a block.
+Because that's how Steam works.
+```
+
+1. List can be ordered
+2. like this
+3. Lists can contain complex syntax as long as it's indented properly. For example:
+   * see how this is aligned with the rest of the text.
+10. It should always be aligned.
+    * like this.
+
+> quotes must have spaces after the {> }
+> This is to avoid conflicts with >!spoiler!< syntax.
+(author)
+
+[urls can be like this](https://example.com/inline/)
+[or use a *reference*][ref]
+
+*****************************
+
+| table  | example |
+| ------ | ------- |
+| normal |  style  |
+
+| table | example |
+| :---: | :-----: |
+| equal |  cells  |
+
+| table | example |
+|       |         |
+|  no   | border  |
+
+[ref]: https://example.com/ref/
