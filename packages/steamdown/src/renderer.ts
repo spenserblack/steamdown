@@ -60,7 +60,7 @@ const renderTable = (table: nodes.Table, context: Context): string => {
   }
   const renderedHeader = renderTableRow(table.head, context, "th");
   const renderedBody = table.body.map((row) => renderTableRow(row, context, "td")).join("\n");
-  return `[${openTag}]\n${renderedHeader}\n${renderedBody}\n[/${openTag}]`;
+  return `[${openTag}]\n${renderedHeader}\n${renderedBody}\n[/table]`;
 };
 
 const renderBlocks = (blocks: nodes.Block[], context: Context): string => blocks.map((node) => {

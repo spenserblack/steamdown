@@ -119,7 +119,7 @@ This is to avoid conflicts with [spoiler]spoiler[/spoiler] syntax.
     [td]equal[/td]
     [td]cells[/td]
   [/tr]
-[/table equalcells=1]
+[/table]
 
 [table noborder=1]
   [tr]
@@ -130,7 +130,7 @@ This is to avoid conflicts with [spoiler]spoiler[/spoiler] syntax.
     [td]no[/td]
     [td]border[/td]
   [/tr]
-[/table noborder=1]"
+[/table]"
 `;
 
 exports[`steamdown escaped asterisks 1`] = `"*escaped*"`;
@@ -390,7 +390,7 @@ exports[`steamdown table equalcells 1`] = `
     [td]a[/td]
     [td]b[/td]
   [/tr]
-[/table equalcells=1]"
+[/table]"
 `;
 
 exports[`steamdown table equalcells noborder 1`] = `
@@ -403,7 +403,7 @@ exports[`steamdown table equalcells noborder 1`] = `
     [td]a[/td]
     [td]b[/td]
   [/tr]
-[/table noborder=1 equalcells=1]"
+[/table]"
 `;
 
 exports[`steamdown table extra head 1`] = `
@@ -437,7 +437,7 @@ exports[`steamdown table noborder 1`] = `
     [td]a[/td]
     [td]b[/td]
   [/tr]
-[/table noborder=1]"
+[/table]"
 `;
 
 exports[`steamdown table with multiple rows 1`] = `
