@@ -1456,7 +1456,42 @@ exports[`parser parse() .tree spoiler 1`] = `
     {
       "nodes": [
         {
-          "text": ">!spoiler<!",
+          "nodes": [
+            {
+              "text": "spoiler",
+              "type": "text",
+            },
+          ],
+          "type": "spoiler",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree spoiler inside text 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "This is a ",
+          "type": "text",
+        },
+        {
+          "nodes": [
+            {
+              "text": "spoiler inside text",
+              "type": "text",
+            },
+          ],
+          "type": "spoiler",
+        },
+        {
+          "text": ".",
           "type": "text",
         },
       ],

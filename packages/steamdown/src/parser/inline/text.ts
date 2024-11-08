@@ -10,7 +10,7 @@ export const text = {
     let remainder = "";
     // NOTE End on special chars to allow for parsing of other nodes, but only if that
     //      special char is not the first character.
-    const end = /[\\*_~{\[]/.exec(text);
+    const end = /[\\*_~{\[]|>!/.exec(text);
 
     if (end && end.index > 0) {
       remainder = text.slice(end.index);
