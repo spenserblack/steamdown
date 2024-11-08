@@ -1,1 +1,3 @@
 [*styled url*]
+
+[*styled url*]: https://example.com/styled/
