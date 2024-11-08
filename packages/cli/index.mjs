@@ -23,7 +23,11 @@ program
       console.log(JSON.stringify(tree));
       return;
     }
+    if (options.html) {
+      console.log(html(tree, context));
+      return;
+    }
 
-    throw new Error("Not implemented");
+    console.log(render(tree, context));
   });
 program.parse();
