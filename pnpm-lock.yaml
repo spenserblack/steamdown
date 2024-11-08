@@ -54,6 +54,9 @@ importers:
       '@steamdown/core':
         specifier: workspace:^
         version: link:../steamdown
+      escape-goat:
+        specifier: ^4.0.0
+        version: 4.0.0
 
   packages/steamdown:
     dependencies:
@@ -1174,6 +1177,10 @@ packages:
   escalade@3.1.2:
     resolution: {integrity: sha512-ErCHMCae19vR8vQGe50xIsVomy19rg6gFu3+r3jkEO46suLMWBksvVyoGgQV+jOfl84ZSOSlmv6Gxa89PmTGmA==}
     engines: {node: '>=6'}
+
+  escape-goat@4.0.0:
+    resolution: {integrity: sha512-2Sd4ShcWxbx6OY1IHyla/CVNwvg7XwZVoXZHcSu9w9SReNP1EzzD5T8NWKIR38fIqEns9kDWKUQTXXAmlDrdPg==}
+    engines: {node: '>=12'}
 
   escape-string-regexp@1.0.5:
     resolution: {integrity: sha512-vbRorB5FUQWvla16U8R/qgaFIya2qGzwDrNmCZuYKrbdSUMG6I1ZCGQRefkRVhuOkIGVne7BQ35DSfo1qvJqFg==}
@@ -3509,6 +3516,8 @@ snapshots:
       is-arrayish: 0.2.1
 
   escalade@3.1.2: {}
+
+  escape-goat@4.0.0: {}
 
   escape-string-regexp@1.0.5: {}
 
