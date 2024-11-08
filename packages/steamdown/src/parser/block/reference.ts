@@ -8,7 +8,7 @@ import type { Parser } from "../types";
 export const reference = {
   hint: (text: string) => text.startsWith("["),
   parse: (text: string): [nodes.Reference, remainder: string] => {
-    const match = /\[((?:[^\]]|\\\])+)(?<!\\)\]:\s+(.+)(?:\r?\n)*/.exec(text);
+    const match = /^\[((?:[^\]]|\\\])+)(?<!\\)\]:\s+(.+)(?:\r?\n)*/.exec(text);
 
     if (!match) {
       throw new ParseError("invalid reference");

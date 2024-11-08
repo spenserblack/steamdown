@@ -5,17 +5,25 @@ How to develop for this project.
 ## Testing
 
 ```shell
-pnpm -w run test
+pnpm run -w test
 ```
 
 ## Formatting
 
 ```shell
-pnpm -w run format
+pnpm run -w format
+```
+
+## Linting
+
+```shell
+pnpm run -w lint
+# or
+pnpm run -w lint-fix
 ```
 
 ## Building
 
 ```shell
-pnpm -r run build
+pnpm run -w build
 ```

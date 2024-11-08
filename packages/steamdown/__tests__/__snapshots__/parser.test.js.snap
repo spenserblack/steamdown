@@ -200,6 +200,618 @@ exports[`parser parse() .tree complex list 1`] = `
 }
 `;
 
+exports[`parser parse() .tree demo 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "This is a paragraph. Breaklines
+will be rendered.",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+    {
+      "nodes": [
+        {
+          "text": "Two breaklines will start a new paragraph.",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+    {
+      "level": 1,
+      "nodes": [
+        {
+          "text": "Header Level 1",
+          "type": "text",
+        },
+      ],
+      "type": "heading",
+    },
+    {
+      "level": 2,
+      "nodes": [
+        {
+          "text": "Header Level 2",
+          "type": "text",
+        },
+      ],
+      "type": "heading",
+    },
+    {
+      "level": 3,
+      "nodes": [
+        {
+          "text": "Header Level 3",
+          "type": "text",
+        },
+      ],
+      "type": "heading",
+    },
+    {
+      "level": 1,
+      "nodes": [
+        {
+          "text": "Alternative Header 1",
+          "type": "text",
+        },
+      ],
+      "type": "heading",
+    },
+    {
+      "level": 2,
+      "nodes": [
+        {
+          "text": "Alternative Header 2",
+          "type": "text",
+        },
+      ],
+      "type": "heading",
+    },
+    {
+      "nodes": [
+        {
+          "text": "Syntax includes:",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+    {
+      "items": [
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "nodes": [
+                    {
+                      "text": "italics",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "italics",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "nodes": [
+                    {
+                      "text": "bold",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "bold",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "nodes": [
+                    {
+                      "text": "bold and italics",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "bold-italics",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "nodes": [
+                    {
+                      "text": "underlines",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "underline",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "nodes": [
+                    {
+                      "text": "spoilers",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "spoiler",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "nodes": [
+                    {
+                      "text": "strike outs",
+                      "type": "text",
+                    },
+                  ],
+                  "type": "strike",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "nodes": [
+                    {
+                      "nodes": [
+                        {
+                          "text": "you can mix and match BTW",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "underline",
+                    },
+                  ],
+                  "type": "italics",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "noparse spans are literal. *this won't be rendered* and Steam will show literal [i]",
+                  "type": "noparse-span",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+      ],
+      "ordered": false,
+      "type": "list",
+    },
+    {
+      "text": "Noparse can also be used in block form.
+This can be useful if you want to demo Steam syntax.
+For example, [i]italicizes[/i] text.",
+      "type": "noparse-block",
+    },
+    {
+      "text": "code can only be a block.
+Because that's how Steam works.",
+      "type": "code-block",
+    },
+    {
+      "items": [
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "List can be ordered",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "like this",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "Lists can contain complex syntax as long as it's indented properly. For example:",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+            {
+              "items": [
+                {
+                  "nodes": [
+                    {
+                      "nodes": [
+                        {
+                          "text": "see how this is aligned with the rest of the text.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "list-item",
+                },
+              ],
+              "ordered": false,
+              "type": "list",
+            },
+          ],
+          "type": "list-item",
+        },
+        {
+          "nodes": [
+            {
+              "nodes": [
+                {
+                  "text": "It should always be aligned.",
+                  "type": "text",
+                },
+              ],
+              "type": "paragraph",
+            },
+            {
+              "items": [
+                {
+                  "nodes": [
+                    {
+                      "nodes": [
+                        {
+                          "text": "like this.",
+                          "type": "text",
+                        },
+                      ],
+                      "type": "paragraph",
+                    },
+                  ],
+                  "type": "list-item",
+                },
+              ],
+              "ordered": false,
+              "type": "list",
+            },
+          ],
+          "type": "list-item",
+        },
+      ],
+      "ordered": true,
+      "type": "list",
+    },
+    {
+      "author": [
+        "author",
+        undefined,
+      ],
+      "nodes": [
+        {
+          "nodes": [
+            {
+              "text": "quotes must have spaces after the ",
+              "type": "text",
+            },
+            {
+              "text": "> ",
+              "type": "noparse-span",
+            },
+            {
+              "text": "
+This is to avoid conflicts with ",
+              "type": "text",
+            },
+            {
+              "nodes": [
+                {
+                  "text": "spoiler",
+                  "type": "text",
+                },
+              ],
+              "type": "spoiler",
+            },
+            {
+              "text": " syntax.",
+              "type": "text",
+            },
+          ],
+          "type": "paragraph",
+        },
+      ],
+      "type": "quote",
+    },
+    {
+      "nodes": [
+        {
+          "link": "https://example.com/inline/",
+          "nodes": [
+            {
+              "text": "urls can be like this",
+              "type": "text",
+            },
+          ],
+          "type": "link-url",
+        },
+        {
+          "text": "
+",
+          "type": "text",
+        },
+        {
+          "id": "ref",
+          "nodes": [
+            {
+              "text": "or use a ",
+              "type": "text",
+            },
+            {
+              "nodes": [
+                {
+                  "text": "reference",
+                  "type": "text",
+                },
+              ],
+              "type": "italics",
+            },
+          ],
+          "type": "id-url",
+        },
+      ],
+      "type": "paragraph",
+    },
+    {
+      "type": "horizontal-rule",
+    },
+    {
+      "attributes": {
+        "equalCells": false,
+        "noBorder": false,
+        "type": "table-attribute-row",
+      },
+      "body": [
+        {
+          "cells": [
+            {
+              "nodes": [
+                {
+                  "text": "normal",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+            {
+              "nodes": [
+                {
+                  "text": "style",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+          ],
+          "type": "table-row",
+        },
+      ],
+      "head": {
+        "cells": [
+          {
+            "nodes": [
+              {
+                "text": "table",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+          {
+            "nodes": [
+              {
+                "text": "example",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+        ],
+        "type": "table-row",
+      },
+      "type": "table",
+    },
+    {
+      "attributes": {
+        "equalCells": true,
+        "noBorder": false,
+        "type": "table-attribute-row",
+      },
+      "body": [
+        {
+          "cells": [
+            {
+              "nodes": [
+                {
+                  "text": "equal",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+            {
+              "nodes": [
+                {
+                  "text": "cells",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+          ],
+          "type": "table-row",
+        },
+      ],
+      "head": {
+        "cells": [
+          {
+            "nodes": [
+              {
+                "text": "table",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+          {
+            "nodes": [
+              {
+                "text": "example",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+        ],
+        "type": "table-row",
+      },
+      "type": "table",
+    },
+    {
+      "attributes": {
+        "equalCells": false,
+        "noBorder": true,
+        "type": "table-attribute-row",
+      },
+      "body": [
+        {
+          "cells": [
+            {
+              "nodes": [
+                {
+                  "text": "no",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+            {
+              "nodes": [
+                {
+                  "text": "border",
+                  "type": "text",
+                },
+              ],
+              "type": "table-cell",
+            },
+          ],
+          "type": "table-row",
+        },
+      ],
+      "head": {
+        "cells": [
+          {
+            "nodes": [
+              {
+                "text": "table",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+          {
+            "nodes": [
+              {
+                "text": "example",
+                "type": "text",
+              },
+            ],
+            "type": "table-cell",
+          },
+        ],
+        "type": "table-row",
+      },
+      "type": "table",
+    },
+    {
+      "id": "ref",
+      "type": "reference",
+      "url": "https://example.com/ref/",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse() .tree escaped asterisks 1`] = `
 {
   "nodes": [
@@ -1456,7 +2068,42 @@ exports[`parser parse() .tree spoiler 1`] = `
     {
       "nodes": [
         {
-          "text": ">!spoiler<!",
+          "nodes": [
+            {
+              "text": "spoiler",
+              "type": "text",
+            },
+          ],
+          "type": "spoiler",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() .tree spoiler inside text 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "This is a ",
+          "type": "text",
+        },
+        {
+          "nodes": [
+            {
+              "text": "spoiler inside text",
+              "type": "text",
+            },
+          ],
+          "type": "spoiler",
+        },
+        {
+          "text": ".",
           "type": "text",
         },
       ],
@@ -2218,6 +2865,11 @@ exports[`parser parse() .tree url ref with id 1`] = `
       ],
       "type": "paragraph",
     },
+    {
+      "id": "id",
+      "type": "reference",
+      "url": "https://example.com/id/",
+    },
   ],
   "type": "root",
 }
@@ -2250,6 +2902,11 @@ exports[`parser parse() .tree url ref with id and style 1`] = `
       ],
       "type": "paragraph",
     },
+    {
+      "id": "id",
+      "type": "reference",
+      "url": "https://example.com/id/",
+    },
   ],
   "type": "root",
 }
@@ -2272,6 +2929,11 @@ exports[`parser parse() .tree url ref without id 1`] = `
         },
       ],
       "type": "paragraph",
+    },
+    {
+      "id": "plain-url",
+      "type": "reference",
+      "url": "https://example.com/plain/",
     },
   ],
   "type": "root",
@@ -2300,6 +2962,11 @@ exports[`parser parse() .tree url ref without id with style 1`] = `
         },
       ],
       "type": "paragraph",
+    },
+    {
+      "id": "*styled url*",
+      "type": "reference",
+      "url": "https://example.com/styled/",
     },
   ],
   "type": "root",
