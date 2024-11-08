@@ -2218,6 +2218,11 @@ exports[`parser parse() .tree url ref with id 1`] = `
       ],
       "type": "paragraph",
     },
+    {
+      "id": "id",
+      "type": "reference",
+      "url": "https://example.com/id/",
+    },
   ],
   "type": "root",
 }
@@ -2250,6 +2255,11 @@ exports[`parser parse() .tree url ref with id and style 1`] = `
       ],
       "type": "paragraph",
     },
+    {
+      "id": "id",
+      "type": "reference",
+      "url": "https://example.com/id/",
+    },
   ],
   "type": "root",
 }
@@ -2272,6 +2282,11 @@ exports[`parser parse() .tree url ref without id 1`] = `
         },
       ],
       "type": "paragraph",
+    },
+    {
+      "id": "plain-url",
+      "type": "reference",
+      "url": "https://example.com/plain/",
     },
   ],
   "type": "root",
@@ -2300,6 +2315,11 @@ exports[`parser parse() .tree url ref without id with style 1`] = `
         },
       ],
       "type": "paragraph",
+    },
+    {
+      "id": "*styled url*",
+      "type": "reference",
+      "url": "https://example.com/styled/",
     },
   ],
   "type": "root",

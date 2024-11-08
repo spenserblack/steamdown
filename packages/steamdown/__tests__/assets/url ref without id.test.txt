@@ -1,1 +1,3 @@
 [plain-url]
+
+[plain-url]: https://example.com/plain/
