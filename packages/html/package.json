@@ -13,8 +13,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist",
-    "steamdown.css"
+    "dist"
   ],
   "scripts": {
     "build": "tsc"
@@ -28,6 +27,7 @@
     "url": "git+https://github.com/spenserblack/steamdown.git"
   },
   "dependencies": {
-    "@steamdown/core": "workspace:^"
+    "@steamdown/core": "workspace:^",
+    "escape-goat": "^4.0.0"
   }
 }
