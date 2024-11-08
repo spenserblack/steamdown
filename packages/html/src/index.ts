@@ -51,7 +51,7 @@ export class Renderer {
   private renderInlineNode(node: nodes.Inline): string {
     switch (node.type) {
       case "text":
-        return htmlEscape(node.text);
+        return htmlEscape(node.text).replace(/\n/g, "<br>");
       case "escaped":
         return htmlEscape(node.character);
       case "bold-italics": {
@@ -66,7 +66,7 @@ export class Renderer {
       case "strike":
         return this.renderInline(this.renderInlineNodes(node.nodes), node.type);
       case "noparse-span":
-        return htmlEscape(node.text);
+        return htmlEscape(node.text).replace(/\n/g, "<br>");
       case "link-url": {
         const content = this.renderInlineNodes(node.nodes);
         return `<a href="${node.link}">${content}</a>`;
@@ -114,7 +114,7 @@ export class Renderer {
         // NOTE References are not rendered
         return "";
       case "noparse-block":
-        return `<div class="noparse">${htmlEscape(block.text)}</div>`;
+        return `<div class="noparse">${htmlEscape(block.text).replace(/\n/g, "<br>")}</div>`;
       case "code-block":
         return `<pre class="code"><code>${htmlEscape(block.text)}</code></pre>`;
       case "horizontal-rule":
