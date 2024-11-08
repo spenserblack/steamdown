@@ -1,1 +1,3 @@
 [*styled url* with id][id]
+
+[id]: https://example.com/id/

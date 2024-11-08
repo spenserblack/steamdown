@@ -23,7 +23,7 @@ export const makeWrappedTextParser = <N extends WrappedNode>(
   return {
     hint: (text: string) => text.startsWith(startWrapper),
     parse: (text: string): [N, remainder: string] => {
-      text = text.slice(wrapper.length);
+      text = text.slice(startWrapper.length);
 
       const endMatch = endRegex.exec(text);
       if (!endMatch) {
