@@ -570,7 +570,20 @@ Because that's how Steam works.",
             },
             {
               "text": "
-This is to avoid conflicts with >!spoiler!< syntax.",
+This is to avoid conflicts with ",
+              "type": "text",
+            },
+            {
+              "nodes": [
+                {
+                  "text": "spoiler",
+                  "type": "text",
+                },
+              ],
+              "type": "spoiler",
+            },
+            {
+              "text": " syntax.",
               "type": "text",
             },
           ],
@@ -580,14 +593,19 @@ This is to avoid conflicts with >!spoiler!< syntax.",
       "type": "quote",
     },
     {
-      "id": "ref",
-      "type": "reference",
-      "url": "https://example.com/ref/",
-    },
-    {
       "nodes": [
         {
-          "text": "/example.com/inline/)
+          "link": "https://example.com/inline/",
+          "nodes": [
+            {
+              "text": "urls can be like this",
+              "type": "text",
+            },
+          ],
+          "type": "link-url",
+        },
+        {
+          "text": "
 ",
           "type": "text",
         },

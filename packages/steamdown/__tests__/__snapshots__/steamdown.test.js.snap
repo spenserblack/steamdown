@@ -89,10 +89,10 @@ Because that's how Steam works.
 
 [quote=author]
 quotes must have spaces after the [noparse]> [/noparse]
-This is to avoid conflicts with >!spoiler!< syntax.
+This is to avoid conflicts with [spoiler]spoiler[/spoiler] syntax.
 [/quote]
 
-/example.com/inline/)
+[url=https://example.com/inline/]urls can be like this[/url]
 [url=https://example.com/ref/]or use a [i]reference[/i][/url]
 
 
@@ -359,7 +359,9 @@ exports[`steamdown reference before paragraph 1`] = `"paragraph"`;
 
 exports[`steamdown simple 1`] = `"Hello, World!"`;
 
-exports[`steamdown spoiler 1`] = `">!spoiler<!"`;
+exports[`steamdown spoiler 1`] = `"[spoiler]spoiler[/spoiler]"`;
+
+exports[`steamdown spoiler inside text 1`] = `"This is a [spoiler]spoiler inside text[/spoiler]."`;
 
 exports[`steamdown strike with one tilde 1`] = `"[strike]strike[/strike]"`;
 
@@ -489,13 +491,13 @@ exports[`steamdown url link 1`] = `"[url=https://example.com]url with link[/url]
 
 exports[`steamdown url link with style 1`] = `"[url=https://example.com][i]styled url[/i] with link[/url]"`;
 
-exports[`steamdown url ref with id 1`] = `"[url with id]"`;
+exports[`steamdown url ref with id 1`] = `"[url=https://example.com/id/]url with id[/url]"`;
 
-exports[`steamdown url ref with id and style 1`] = `"[[i]styled url[/i] with id]"`;
+exports[`steamdown url ref with id and style 1`] = `"[url=https://example.com/id/][i]styled url[/i] with id[/url]"`;
 
-exports[`steamdown url ref without id 1`] = `"[plain-url]"`;
+exports[`steamdown url ref without id 1`] = `"[url=https://example.com/plain/]plain-url[/url]"`;
 
-exports[`steamdown url ref without id with style 1`] = `"[[i]styled url[/i]]"`;
+exports[`steamdown url ref without id with style 1`] = `"[url=https://example.com/styled/][i]styled url[/i][/url]"`;
 
 exports[`steamdown valid italicized text with a newline 1`] = `
 "Valid [i]italicized
