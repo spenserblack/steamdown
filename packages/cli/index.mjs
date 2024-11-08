@@ -11,10 +11,10 @@ program
   .argument('[file]', 'File to parse (STDIN if not specified)')
   .action(async (file, options) => {
     const content = file == null ? getStdin() : fs.readFile(file, "utf-8");
-    const parsed = parse(await content);
+    const { tree, context } = parse(await content);
 
     if (options.ast) {
-      console.log(JSON.stringify(parsed));
+      console.log(JSON.stringify(tree));
       return;
     }
 
