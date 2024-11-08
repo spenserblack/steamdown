@@ -48,6 +48,9 @@ importers:
       '@steamdown/core':
         specifier: workspace:^
         version: link:../steamdown
+      '@steamdown/html':
+        specifier: workspace:^
+        version: link:../html
       commander:
         specifier: ^12.1.0
         version: 12.1.0
