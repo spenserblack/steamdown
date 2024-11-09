@@ -80,4 +80,53 @@
     cursor: pointer;
     z-index: 1;
   }
+
+
+  :global(.preview em) {
+    font-style: italic;
+  }
+  :global(.preview strong) {
+    font-weight: bold;
+  }
+  :global(.preview u) {
+    text-decoration: underline;
+  }
+  :global(.preview .spoiler) {
+    background-color: black;
+    color: black;
+  }
+  :global(.preview .spoiler:hover) {
+    color: white;
+  }
+  :global(.preview s) {
+    text-decoration: line-through;
+  }
+  :global(.preview .quote) {
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    padding: 0.5rem;
+  }
+  :global(.preview .quote cite) {
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  :global(.preview pre.code) {
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-family: monospace;
+  }
+  :global(.preview a) {
+    color: var(--color-fg);
+    text-decoration: underline;
+  }
+  :global(.preview table) {
+    border-collapse: collapse;
+  }
+  :global(.preview table th),
+  :global(.preview table td) {
+    border: 1px solid var(--color-border);
+    padding: 0.5rem;
+  }
 </style>
