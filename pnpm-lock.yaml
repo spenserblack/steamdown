@@ -68,6 +68,13 @@ importers:
         version: 4.0.0
 
   packages/site:
+    dependencies:
+      '@steamdown/core':
+        specifier: workspace:^
+        version: link:../steamdown
+      '@steamdown/html':
+        specifier: workspace:^
+        version: link:../html
     devDependencies:
       '@sveltejs/vite-plugin-svelte':
         specifier: ^4.0.0
