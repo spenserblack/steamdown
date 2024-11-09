@@ -7,6 +7,13 @@
   let parsedSteamdown = $derived(parseSteamdown(steamdown));
   let renderedMarkup = $derived(renderMarkup(parsedSteamdown.tree, parsedSteamdown.context));
   let renderedHtml = $derived(renderHtml(parsedSteamdown.tree, parsedSteamdown.context));
+
+  let showCopySuccess = $state(false);
+  const copyMarkup = async () => {
+    await navigator.clipboard.writeText(renderedMarkup);
+    showCopySuccess = true;
+    setTimeout(() => showCopySuccess = false, 1000);
+  };
 </script>
 
 <div class="editor">
@@ -17,6 +24,7 @@
     <button class="tab" class:active={tab === "tree"} onclick={() => tab = "tree"}>Tree</button>
   </div>
   <div class="editor-content">
+    <button class="copy" onclick={copyMarkup}>Cop{#if showCopySuccess}ied{:else}y{/if} Markup</button>
     {#if tab === "editor"}
       <textarea rows="25" cols="88" class="editor" bind:value={steamdown}></textarea>
     {:else if tab === "preview"}
@@ -31,6 +39,7 @@
 
 <style>
   .editor {
+    position: relative;
     display: flex;
     flex-direction: column;
     min-width: 50rem;
@@ -42,6 +51,7 @@
     border: 1px solid var(--color-border);
     max-height: 25rem;
     overflow: auto;
+    position: relative;
   }
   textarea.editor {
     display: block;
@@ -60,5 +70,14 @@
   .tab.active {
     border: 1px solid #888;
     border-bottom: none;
+  }
+  .copy {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
   }
 </style>
