@@ -1,0 +1,17 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color-scheme: light dark;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  --color-bg: #333;
+  --color-fg: #fff;
+  --color-border: #fff;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-bg: #fff;
+    --color-fg: #333;
+    --color-border: #333;
+  }
+}

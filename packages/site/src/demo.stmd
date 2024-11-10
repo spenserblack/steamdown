@@ -1,0 +1,42 @@
+# Header 1
+
+## Header 2
+
+### Header 3
+
+This is a paragraph. Like GitHub flavored markdown,
+breaklines are preserved.
+
+Inline styling includes:
+
+* *italics*
+* **bold**
+* _underline_
+* >!spoiler!<
+* ~~strikes~~
+* {noparse}
+
+Oh, we do support ordered lists, too:
+
+1. See?
+2. Told you so!
+
+```
+We have code blocks.
+```
+
+{{{
+noparse works as a block, too.
+}}}
+
+> Unlike Markdown, quotes support authors:
+(me)
+
+| tables | supported? |
+| ------ | ---------- |
+|  yes   |  they are  |
+
+A link can be styled like this: [link](https://example.com/inline/)
+Or like this (good for repetitive link references): [link][id]
+
+[id]: https://example.com/reference/
