@@ -10,5 +10,13 @@
     }
   },
   "postCreateCommand": ".devcontainer/postCreate.sh",
+  "postAttachCommand": ".devcontainer/postAttach.sh",
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "Site",
+      "onAutoForward": "notify"
+    }
+  },
   "remoteUser": "node"
 }
