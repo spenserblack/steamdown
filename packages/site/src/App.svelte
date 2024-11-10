@@ -19,6 +19,10 @@
     do, please <a href="https://github.com/spenserblack/steamdown/issues/new">open an issue</a>
     and report the problem.
   </p>
+  <p>
+    If you need to use the old site, you can find it at
+    <a href="https://steamdown-legacy.vercel.app/">steamdown-legacy.vercel.app</a>.
+  </p>
   <Editor />
 </main>
 <footer>
