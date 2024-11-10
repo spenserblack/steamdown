@@ -22,5 +22,6 @@
   },
   "dependencies": {
     "@types/jest": "^29.5.12"
-  }
+  },
+  "packageManager": "pnpm@9.12.3"
 }
