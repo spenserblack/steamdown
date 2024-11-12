@@ -11,17 +11,36 @@ export const italics = {
   hint: (text: string) => text.startsWith("*"),
   parse: (text: string): [nodes.Italics, remainder: string] => {
     text = text.slice(1);
+    let searchIndex = 0;
+    const boldStartRe = /(?<!\\)\*\*/g;
 
-    // NOTE This might invalidate the text "*foo**", which could be considered as
-    //      italicized "foo" followed by "*". Supporting this malformed text is not a
-    //      priority, and the user can escape the trailing "*" to avoid this.
-    const close = /(?<!\\|\s|[^\\]\*)\*(?!\*)/.exec(text);
-    if (!close) {
+    // HACK Handle nested bolds (*foo **bar** baz* and *foo **bar***). We do a simple
+    //      search for bold beginning and end markers, and skip over them.
+
+    while (true) {
+      const boldStart = boldStartRe.exec(text);
+      if (!boldStart) {
+        break;
+      }
+      const boldEndRe = /(?<!\\|\s)\*\*/g;
+      boldEndRe.lastIndex = boldStart.index + 2;
+      const boldEnd = boldEndRe.exec(text);
+      if (!boldEnd) {
+        break;
+      }
+      searchIndex = boldEnd.index + 2;
+      boldStartRe.lastIndex = searchIndex;
+    }
+
+    const endRe = /(?<!\\|\s)\*/g;
+    endRe.lastIndex = searchIndex;
+    const endMatch = endRe.exec(text);
+    if (!endMatch) {
       throw new ParseError("italics must be closed");
     }
 
-    const innerText = text.slice(0, close.index);
-    const remainder = text.slice(close.index + 1);
+    const innerText = text.slice(0, endMatch.index);
+    const remainder = text.slice(endMatch.index + 1);
 
     const nodes = parse(innerText);
 
