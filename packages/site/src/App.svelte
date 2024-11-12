@@ -5,12 +5,21 @@
 <main>
   <h1>Steamdown</h1>
   <p>
-    Welcome to the beta test of the new version of Steamdown! Previously, it just used
-    an existing Markdown renderer, and used a bunch of settings overrides to hack it
-    into something that could render to Steam's markup. Now, it has its own parser and
-    renderer written specifically with Steam's markup in mind. There's some new syntax,
-    some changed syntax, and some removed syntax, with the goal of handling the
-    possibilities and limitations of Steam's markup. View the
+    Welcome to the beta test of the new version of Steamdown! Previously, it used and
+    applied overrides and extensions to
+    <a href="https://marked.js.org/">Marked</a>, a JavaScript library that parses and
+    renders Markdown. While <a href="https://marked.js.org/">Marked</a> is a great library, there were a few problems when
+    overriding its behavior to target Steam's markup:
+  </p>
+  <ul>
+    <li>Some of Markdown's syntax didn't have proper equivalents in Steam's markup.</li>
+    <li>Since <a href="https://marked.js.org/">Marked</a> was built to render to HTML, some hacky methods needed to be taken (like un-escaping escaped HTML).</li>
+    <li>There was a decent amount of unused code, since almost every renderer in <a href="https://marked.js.org/">Marked</a> was overridden.</li>
+  </ul>
+  <p>
+    Now, it has its own parser and renderer written specifically with Steam's markup in
+    mind. There's some new syntax, some changed syntax, and some removed syntax, with
+    the goal of handling the possibilities and limitations of Steam's markup. View the
     <a href="https://github.com/spenserblack/steamdown">GitHub Repository</a>
     for more information on the changes.
   </p>
