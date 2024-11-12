@@ -1,6 +1,6 @@
 # Steamdown
 
-A Markdown-like language that renders to Steam's markup language.
+Render Markdown / a Markdown-like language to Steam's markup format.
 
 ## Differences from Markdown
 
