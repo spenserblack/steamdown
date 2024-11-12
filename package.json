@@ -6,7 +6,9 @@
     "format": "prettier --write .",
     "format-check": "prettier --check .",
     "lint": "eslint",
-    "lint-fix": "eslint --fix"
+    "lint-fix": "eslint --fix",
+    "site:dev": "pnpm run --filter @steamdown/site dev",
+    "site:preview": "pnpm run --filter @steamdown/site preview"
   },
   "devDependencies": {
     "@babel/core": "^7.24.7",
