@@ -1,5 +1,14 @@
 <script lang="ts">
   import Editor from './lib/Editor.svelte'
+  let parsedTime = $state<number | null>(null);
+  let renderedTime = $state<number | null>(null);
+
+  const onParsed = (timeTaken: number) => {
+    parsedTime = timeTaken;
+  }
+  const onRendered = (timeTaken: number) => {
+    renderedTime = timeTaken;
+  }
 </script>
 
 <main>
@@ -32,7 +41,15 @@
     If you need to use the old site, you can find it at
     <a href="https://steamdown-legacy.vercel.app/">steamdown-legacy.vercel.app</a>.
   </p>
-  <Editor />
+  <Editor {onParsed} {onRendered} />
+  <div class="time-taken">
+    {#if parsedTime !== null}
+      <small>Parsed in: {parsedTime.toFixed(2)}ms</small>
+    {/if}
+    {#if renderedTime !== null}
+      <small>Rendered in: {renderedTime.toFixed(2)}ms</small>
+    {/if}
+  </div>
 </main>
 <footer>
   <h6>Social</h6>

@@ -1,16 +1,46 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import { parse as parseSteamdown, render as renderMarkup } from "@steamdown/core";
   import { render as renderHtml } from "@steamdown/html";
   import demo from "../demo.stmd?raw";
+
+  type OnParsed = (timeTaken: number) => void;
+  type OnRendered = (timeTaken: number) => void;
+  const noop = () => {};
+  const { onParsed = noop, onRendered = noop }: { onParsed?: OnParsed, onRendered?: OnRendered } = $props();
+
   let tab = $state<"editor" | "preview" | "markup" | "tree" >("editor");
-  let steamdown = $state(demo);
-  let parsedSteamdown = $derived(parseSteamdown(steamdown));
-  let renderedMarkup = $derived(renderMarkup(parsedSteamdown.tree, parsedSteamdown.context));
-  let renderedHtml = $derived(renderHtml(parsedSteamdown.tree, parsedSteamdown.context));
+
+  /**
+   * Helper to track the time taken to parse/render when the state changes.
+   */
+  class StateHelper {
+    public parsedSteamdown = $state<ReturnType<typeof parseSteamdown>>(parseSteamdown(""));
+    public renderedMarkup = $state<string>("");
+    public renderedHtml = $state<string>("");
+    private text = $state<string>("");
+
+    public get steamdown() {
+      return this.text;
+    }
+    public set steamdown(value: string) {
+      this.text = value;
+      const startTime = performance.now();
+      this.parsedSteamdown = parseSteamdown(value);
+      const finishedParsing = performance.now();
+      onParsed(finishedParsing - startTime);
+      this.renderedMarkup = renderMarkup(this.parsedSteamdown.tree, this.parsedSteamdown.context);
+      const finishedRendering = performance.now();
+      onRendered(finishedRendering - finishedParsing);
+      this.renderedHtml = renderHtml(this.parsedSteamdown.tree, this.parsedSteamdown.context);
+    }
+  }
+  const stateHelper = new StateHelper();
+  onMount(() => stateHelper.steamdown = demo);
 
   let showCopySuccess = $state(false);
   const copyMarkup = async () => {
-    await navigator.clipboard.writeText(renderedMarkup);
+    await navigator.clipboard.writeText(stateHelper.renderedMarkup);
     showCopySuccess = true;
     setTimeout(() => showCopySuccess = false, 1000);
   };
@@ -26,13 +56,13 @@
   <div class="editor-content">
     <button class="copy" onclick={copyMarkup}>Cop{#if showCopySuccess}ied{:else}y{/if} Markup</button>
     {#if tab === "editor"}
-      <textarea rows="25" cols="88" class="editor" bind:value={steamdown}></textarea>
+      <textarea rows="25" cols="88" class="editor" bind:value={stateHelper.steamdown}></textarea>
     {:else if tab === "preview"}
-      <div class="preview">{@html renderedHtml}</div>
+      <div class="preview">{@html stateHelper.renderedHtml}</div>
     {:else if tab === "markup"}
-      <pre class="markup">{renderedMarkup}</pre>
+      <pre class="markup">{stateHelper.renderedMarkup}</pre>
     {:else if tab === "tree"}
-      <pre class="tree">{JSON.stringify(parsedSteamdown.tree, null, 2)}</pre>
+      <pre class="tree">{JSON.stringify(stateHelper.parsedSteamdown.tree, null, 2)}</pre>
     {/if}
   </div>
 </div>
