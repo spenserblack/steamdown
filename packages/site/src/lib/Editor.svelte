@@ -29,10 +29,10 @@
       this.parsedSteamdown = parseSteamdown(value);
       const finishedParsing = performance.now();
       onParsed(finishedParsing - startTime);
-      this.renderedMarkup = renderMarkup(this.parsedSteamdown.tree, this.parsedSteamdown.context);
+      this.renderedMarkup = renderMarkup(this.parsedSteamdown[0], this.parsedSteamdown[1]);
       const finishedRendering = performance.now();
       onRendered(finishedRendering - finishedParsing);
-      this.renderedHtml = renderHtml(this.parsedSteamdown.tree, this.parsedSteamdown.context);
+      this.renderedHtml = renderHtml(this.parsedSteamdown[0], this.parsedSteamdown[1]);
     }
   }
   const stateHelper = new StateHelper();
@@ -62,7 +62,7 @@
     {:else if tab === "markup"}
       <pre class="markup">{stateHelper.renderedMarkup}</pre>
     {:else if tab === "tree"}
-      <pre class="tree">{JSON.stringify(stateHelper.parsedSteamdown.tree, null, 2)}</pre>
+      <pre class="tree">{JSON.stringify(stateHelper.parsedSteamdown[0], null, 2)}</pre>
     {/if}
   </div>
 </div>
