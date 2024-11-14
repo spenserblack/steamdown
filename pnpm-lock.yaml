@@ -62,12 +62,13 @@ importers:
 
   packages/html:
     dependencies:
-      '@steamdown/core':
-        specifier: workspace:^
-        version: link:../steamdown
       escape-goat:
         specifier: ^4.0.0
         version: 4.0.0
+    devDependencies:
+      '@steamdown/core':
+        specifier: workspace:^
+        version: link:../steamdown
 
   packages/site:
     dependencies:
