@@ -27,7 +27,12 @@
     "url": "git+https://github.com/spenserblack/steamdown.git"
   },
   "dependencies": {
-    "@steamdown/core": "workspace:^",
     "escape-goat": "^4.0.0"
+  },
+  "devDependencies": {
+    "@steamdown/core": "workspace:^"
+  },
+  "peerDependencies": {
+    "@steamdown/core": "workspace:^"
   }
 }
