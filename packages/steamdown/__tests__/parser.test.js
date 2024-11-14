@@ -14,7 +14,7 @@ describe("parser", () => {
 
   describe("parse()", () => {
     test("adds context when a reference is found", () => {
-      const  [,context] = parse("[reference]: https://example.com");
+      const [, context] = parse("[reference]: https://example.com");
       expect(context.getLink("reference")).toBe("https://example.com");
     });
   });
