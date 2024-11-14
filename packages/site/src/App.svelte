@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { version } from "../package.json";
   import Editor from './lib/Editor.svelte'
   let parsedTime = $state<number | null>(null);
   let renderedTime = $state<number | null>(null);
@@ -52,23 +53,34 @@
   </div>
 </main>
 <footer>
-  <h6>Social</h6>
-  <ul class="social">
-    <li><a href="https://github.com/spenserblack/steamdown">GitHub</a></li>
-  </ul>
+  <div class="footer-col">
+    <p>Version <code>{version}</code></p>
+  </div>
+  <div class="footer-col">
+    <h6>Social</h6>
+    <ul class="social">
+      <li><a href="https://github.com/spenserblack/steamdown">GitHub</a></li>
+    </ul>
+  </div>
 </footer>
 
 <style>
   footer {
     margin-top: 2rem;
-    text-align: right;
+    display: flex;
+    justify-content: space-between;
+  }
+  .footer-col {
+    display: flex;
+    flex-direction: column;
   }
   footer ul.social {
+    padding: 0;
     display: flex;
-    justify-content: right;
-    gap: 1rem;
+    flex-direction: row;
   }
   footer ul.social li {
     list-style: none;
+    margin-right: 1rem;
   }
 </style>
