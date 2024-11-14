@@ -27,3 +27,9 @@ pnpm run -w lint-fix
 ```shell
 pnpm run -w build
 ```
+
+## Publishing
+
+```shell
+pnpm publish -r
+```
