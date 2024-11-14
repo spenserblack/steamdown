@@ -1,7 +1,7 @@
 import type * as nodes from "../../nodes";
 import type { Parser } from "../types";
-import { ParseError } from "../errors";
-import { parse } from "./parse";
+import { ParseError } from "../errors.js";
+import { parse } from "./parse.js";
 
 /**
  * Parser for a bold node.
