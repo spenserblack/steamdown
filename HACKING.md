@@ -31,5 +31,6 @@ pnpm run -w build
 ## Publishing
 
 ```shell
-pnpm publish -r
+# NOTE: This should happen automatically when creating a GitHub Release
+pnpm publish --recursive --access public
 ```
