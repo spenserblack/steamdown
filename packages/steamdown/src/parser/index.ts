@@ -1,12 +1,11 @@
 import { Context } from "../context.js";
-import type { Parsed } from "./types";
 import { parse as parseBlocks } from "./block/index.js";
 import type { Root } from "../nodes";
 
 /**
  * Parses the given text into a syntax tree.
  */
-export const parse = (text: string): Parsed => {
+export const parse = (text: string): [tree: Root, context: Context] => {
   const context = new Context();
   const nodes = parseBlocks(text, context);
 
@@ -15,5 +14,5 @@ export const parse = (text: string): Parsed => {
     nodes,
   };
 
-  return { tree, context };
+  return [tree, context];
 };

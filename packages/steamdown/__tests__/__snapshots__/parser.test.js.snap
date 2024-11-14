@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`parser parse() .tree backslashes in noparse are not escapes 1`] = `
+exports[`parser parse() tree backslashes in noparse are not escapes 1`] = `
 {
   "nodes": [
     {
@@ -21,14 +21,14 @@ exports[`parser parse() .tree backslashes in noparse are not escapes 1`] = `
 }
 `;
 
-exports[`parser parse() .tree blank lines 1`] = `
+exports[`parser parse() tree blank lines 1`] = `
 {
   "nodes": [],
   "type": "root",
 }
 `;
 
-exports[`parser parse() .tree blank lines followed by paragraph 1`] = `
+exports[`parser parse() tree blank lines followed by paragraph 1`] = `
 {
   "nodes": [
     {
@@ -45,7 +45,7 @@ exports[`parser parse() .tree blank lines followed by paragraph 1`] = `
 }
 `;
 
-exports[`parser parse() .tree bold 1`] = `
+exports[`parser parse() tree bold 1`] = `
 {
   "nodes": [
     {
@@ -67,7 +67,7 @@ exports[`parser parse() .tree bold 1`] = `
 }
 `;
 
-exports[`parser parse() .tree bold and italicized 1`] = `
+exports[`parser parse() tree bold and italicized 1`] = `
 {
   "nodes": [
     {
@@ -89,7 +89,7 @@ exports[`parser parse() .tree bold and italicized 1`] = `
 }
 `;
 
-exports[`parser parse() .tree braces can be used in noparse with space 1`] = `
+exports[`parser parse() tree braces can be used in noparse with space 1`] = `
 {
   "nodes": [
     {
@@ -106,7 +106,7 @@ exports[`parser parse() .tree braces can be used in noparse with space 1`] = `
 }
 `;
 
-exports[`parser parse() .tree code block 1`] = `
+exports[`parser parse() tree code block 1`] = `
 {
   "nodes": [
     {
@@ -118,7 +118,7 @@ exports[`parser parse() .tree code block 1`] = `
 }
 `;
 
-exports[`parser parse() .tree complex list 1`] = `
+exports[`parser parse() tree complex list 1`] = `
 {
   "nodes": [
     {
@@ -200,7 +200,7 @@ exports[`parser parse() .tree complex list 1`] = `
 }
 `;
 
-exports[`parser parse() .tree demo 1`] = `
+exports[`parser parse() tree demo 1`] = `
 {
   "nodes": [
     {
@@ -812,7 +812,7 @@ This is to avoid conflicts with ",
 }
 `;
 
-exports[`parser parse() .tree escaped asterisks 1`] = `
+exports[`parser parse() tree escaped asterisks 1`] = `
 {
   "nodes": [
     {
@@ -837,7 +837,7 @@ exports[`parser parse() .tree escaped asterisks 1`] = `
 }
 `;
 
-exports[`parser parse() .tree escaped asterisks in bold 1`] = `
+exports[`parser parse() tree escaped asterisks in bold 1`] = `
 {
   "nodes": [
     {
@@ -871,7 +871,7 @@ exports[`parser parse() .tree escaped asterisks in bold 1`] = `
 }
 `;
 
-exports[`parser parse() .tree escaped asterisks in italics 1`] = `
+exports[`parser parse() tree escaped asterisks in italics 1`] = `
 {
   "nodes": [
     {
@@ -905,7 +905,7 @@ exports[`parser parse() .tree escaped asterisks in italics 1`] = `
 }
 `;
 
-exports[`parser parse() .tree escaped backslash 1`] = `
+exports[`parser parse() tree escaped backslash 1`] = `
 {
   "nodes": [
     {
@@ -930,7 +930,7 @@ exports[`parser parse() .tree escaped backslash 1`] = `
 }
 `;
 
-exports[`parser parse() .tree heading 1`] = `
+exports[`parser parse() tree heading 1`] = `
 {
   "nodes": [
     {
@@ -998,7 +998,7 @@ exports[`parser parse() .tree heading 1`] = `
 }
 `;
 
-exports[`parser parse() .tree heading alternative 1`] = `
+exports[`parser parse() tree heading alternative 1`] = `
 {
   "nodes": [
     {
@@ -1026,7 +1026,7 @@ exports[`parser parse() .tree heading alternative 1`] = `
 }
 `;
 
-exports[`parser parse() .tree heading alternative followed by paragraph 1`] = `
+exports[`parser parse() tree heading alternative followed by paragraph 1`] = `
 {
   "nodes": [
     {
@@ -1072,7 +1072,7 @@ exports[`parser parse() .tree heading alternative followed by paragraph 1`] = `
 }
 `;
 
-exports[`parser parse() .tree heading alternative with style 1`] = `
+exports[`parser parse() tree heading alternative with style 1`] = `
 {
   "nodes": [
     {
@@ -1095,7 +1095,7 @@ exports[`parser parse() .tree heading alternative with style 1`] = `
 }
 `;
 
-exports[`parser parse() .tree heading followed by paragraph 1`] = `
+exports[`parser parse() tree heading followed by paragraph 1`] = `
 {
   "nodes": [
     {
@@ -1141,7 +1141,7 @@ exports[`parser parse() .tree heading followed by paragraph 1`] = `
 }
 `;
 
-exports[`parser parse() .tree heading with style 1`] = `
+exports[`parser parse() tree heading with style 1`] = `
 {
   "nodes": [
     {
@@ -1164,7 +1164,7 @@ exports[`parser parse() .tree heading with style 1`] = `
 }
 `;
 
-exports[`parser parse() .tree horizontal rule 1`] = `
+exports[`parser parse() tree horizontal rule 1`] = `
 {
   "nodes": [
     {
@@ -1181,7 +1181,7 @@ exports[`parser parse() .tree horizontal rule 1`] = `
 }
 `;
 
-exports[`parser parse() .tree imbalanced strike leaning left 1`] = `
+exports[`parser parse() tree imbalanced strike leaning left 1`] = `
 {
   "nodes": [
     {
@@ -1198,7 +1198,7 @@ exports[`parser parse() .tree imbalanced strike leaning left 1`] = `
 }
 `;
 
-exports[`parser parse() .tree imbalanced strike leaning right 1`] = `
+exports[`parser parse() tree imbalanced strike leaning right 1`] = `
 {
   "nodes": [
     {
@@ -1224,7 +1224,7 @@ exports[`parser parse() .tree imbalanced strike leaning right 1`] = `
 }
 `;
 
-exports[`parser parse() .tree invalid italicized text broken into two paragraphs 1`] = `
+exports[`parser parse() tree invalid italicized text broken into two paragraphs 1`] = `
 {
   "nodes": [
     {
@@ -1250,7 +1250,7 @@ exports[`parser parse() .tree invalid italicized text broken into two paragraphs
 }
 `;
 
-exports[`parser parse() .tree invalid italics with spaces 1`] = `
+exports[`parser parse() tree invalid italics with spaces 1`] = `
 {
   "nodes": [
     {
@@ -1267,7 +1267,7 @@ exports[`parser parse() .tree invalid italics with spaces 1`] = `
 }
 `;
 
-exports[`parser parse() .tree italicized text 1`] = `
+exports[`parser parse() tree italicized text 1`] = `
 {
   "nodes": [
     {
@@ -1289,7 +1289,7 @@ exports[`parser parse() .tree italicized text 1`] = `
 }
 `;
 
-exports[`parser parse() .tree italics inside word 1`] = `
+exports[`parser parse() tree italics inside word 1`] = `
 {
   "nodes": [
     {
@@ -1319,7 +1319,7 @@ exports[`parser parse() .tree italics inside word 1`] = `
 }
 `;
 
-exports[`parser parse() .tree italics plain then more italics 1`] = `
+exports[`parser parse() tree italics plain then more italics 1`] = `
 {
   "nodes": [
     {
@@ -1354,7 +1354,7 @@ exports[`parser parse() .tree italics plain then more italics 1`] = `
 }
 `;
 
-exports[`parser parse() .tree mixed lists 1`] = `
+exports[`parser parse() tree mixed lists 1`] = `
 {
   "nodes": [
     {
@@ -1422,7 +1422,7 @@ exports[`parser parse() .tree mixed lists 1`] = `
 }
 `;
 
-exports[`parser parse() .tree nested italicized text 1`] = `
+exports[`parser parse() tree nested italicized text 1`] = `
 {
   "nodes": [
     {
@@ -1452,7 +1452,7 @@ exports[`parser parse() .tree nested italicized text 1`] = `
 }
 `;
 
-exports[`parser parse() .tree noparse block 1`] = `
+exports[`parser parse() tree noparse block 1`] = `
 {
   "nodes": [
     {
@@ -1464,7 +1464,7 @@ exports[`parser parse() .tree noparse block 1`] = `
 }
 `;
 
-exports[`parser parse() .tree noparse block followed by paragraph 1`] = `
+exports[`parser parse() tree noparse block followed by paragraph 1`] = `
 {
   "nodes": [
     {
@@ -1498,7 +1498,7 @@ exports[`parser parse() .tree noparse block followed by paragraph 1`] = `
 }
 `;
 
-exports[`parser parse() .tree noparse block with inner braces 1`] = `
+exports[`parser parse() tree noparse block with inner braces 1`] = `
 {
   "nodes": [
     {
@@ -1512,7 +1512,7 @@ here's how to noparse
 }
 `;
 
-exports[`parser parse() .tree noparse inline 1`] = `
+exports[`parser parse() tree noparse inline 1`] = `
 {
   "nodes": [
     {
@@ -1529,7 +1529,7 @@ exports[`parser parse() .tree noparse inline 1`] = `
 }
 `;
 
-exports[`parser parse() .tree noparse inline and another noparse inline 1`] = `
+exports[`parser parse() tree noparse inline and another noparse inline 1`] = `
 {
   "nodes": [
     {
@@ -1554,7 +1554,7 @@ exports[`parser parse() .tree noparse inline and another noparse inline 1`] = `
 }
 `;
 
-exports[`parser parse() .tree noparse inline with special contents 1`] = `
+exports[`parser parse() tree noparse inline with special contents 1`] = `
 {
   "nodes": [
     {
@@ -1571,7 +1571,7 @@ exports[`parser parse() .tree noparse inline with special contents 1`] = `
 }
 `;
 
-exports[`parser parse() .tree noparse inline with two braces 1`] = `
+exports[`parser parse() tree noparse inline with two braces 1`] = `
 {
   "nodes": [
     {
@@ -1588,7 +1588,7 @@ exports[`parser parse() .tree noparse inline with two braces 1`] = `
 }
 `;
 
-exports[`parser parse() .tree ordered list 1`] = `
+exports[`parser parse() tree ordered list 1`] = `
 {
   "nodes": [
     {
@@ -1644,7 +1644,7 @@ exports[`parser parse() .tree ordered list 1`] = `
 }
 `;
 
-exports[`parser parse() .tree ordered list with deep indentation 1`] = `
+exports[`parser parse() tree ordered list with deep indentation 1`] = `
 {
   "nodes": [
     {
@@ -1711,7 +1711,7 @@ extra indentation",
 }
 `;
 
-exports[`parser parse() .tree paragraph and another paragraph 1`] = `
+exports[`parser parse() tree paragraph and another paragraph 1`] = `
 {
   "nodes": [
     {
@@ -1737,7 +1737,7 @@ exports[`parser parse() .tree paragraph and another paragraph 1`] = `
 }
 `;
 
-exports[`parser parse() .tree paragraph spanning lines 1`] = `
+exports[`parser parse() tree paragraph spanning lines 1`] = `
 {
   "nodes": [
     {
@@ -1756,7 +1756,7 @@ spanning lines",
 }
 `;
 
-exports[`parser parse() .tree paragraph with extra newlines 1`] = `
+exports[`parser parse() tree paragraph with extra newlines 1`] = `
 {
   "nodes": [
     {
@@ -1773,7 +1773,7 @@ exports[`parser parse() .tree paragraph with extra newlines 1`] = `
 }
 `;
 
-exports[`parser parse() .tree paragraph without trailing newline 1`] = `
+exports[`parser parse() tree paragraph without trailing newline 1`] = `
 {
   "nodes": [
     {
@@ -1790,7 +1790,7 @@ exports[`parser parse() .tree paragraph without trailing newline 1`] = `
 }
 `;
 
-exports[`parser parse() .tree paragraphs separated by horizontal rule 1`] = `
+exports[`parser parse() tree paragraphs separated by horizontal rule 1`] = `
 {
   "nodes": [
     {
@@ -1819,7 +1819,7 @@ exports[`parser parse() .tree paragraphs separated by horizontal rule 1`] = `
 }
 `;
 
-exports[`parser parse() .tree plain text followed by url 1`] = `
+exports[`parser parse() tree plain text followed by url 1`] = `
 {
   "nodes": [
     {
@@ -1850,7 +1850,7 @@ exports[`parser parse() .tree plain text followed by url 1`] = `
 }
 `;
 
-exports[`parser parse() .tree quote 1`] = `
+exports[`parser parse() tree quote 1`] = `
 {
   "nodes": [
     {
@@ -1882,7 +1882,7 @@ exports[`parser parse() .tree quote 1`] = `
 }
 `;
 
-exports[`parser parse() .tree quote nested 1`] = `
+exports[`parser parse() tree quote nested 1`] = `
 {
   "nodes": [
     {
@@ -1944,7 +1944,7 @@ exports[`parser parse() .tree quote nested 1`] = `
 }
 `;
 
-exports[`parser parse() .tree quote with author 1`] = `
+exports[`parser parse() tree quote with author 1`] = `
 {
   "nodes": [
     {
@@ -1988,7 +1988,7 @@ exports[`parser parse() .tree quote with author 1`] = `
 }
 `;
 
-exports[`parser parse() .tree reference 1`] = `
+exports[`parser parse() tree reference 1`] = `
 {
   "nodes": [
     {
@@ -2001,7 +2001,7 @@ exports[`parser parse() .tree reference 1`] = `
 }
 `;
 
-exports[`parser parse() .tree reference after paragraph 1`] = `
+exports[`parser parse() tree reference after paragraph 1`] = `
 {
   "nodes": [
     {
@@ -2023,7 +2023,7 @@ exports[`parser parse() .tree reference after paragraph 1`] = `
 }
 `;
 
-exports[`parser parse() .tree reference before paragraph 1`] = `
+exports[`parser parse() tree reference before paragraph 1`] = `
 {
   "nodes": [
     {
@@ -2045,7 +2045,7 @@ exports[`parser parse() .tree reference before paragraph 1`] = `
 }
 `;
 
-exports[`parser parse() .tree simple 1`] = `
+exports[`parser parse() tree simple 1`] = `
 {
   "nodes": [
     {
@@ -2062,7 +2062,7 @@ exports[`parser parse() .tree simple 1`] = `
 }
 `;
 
-exports[`parser parse() .tree spoiler 1`] = `
+exports[`parser parse() tree spoiler 1`] = `
 {
   "nodes": [
     {
@@ -2084,7 +2084,7 @@ exports[`parser parse() .tree spoiler 1`] = `
 }
 `;
 
-exports[`parser parse() .tree spoiler inside text 1`] = `
+exports[`parser parse() tree spoiler inside text 1`] = `
 {
   "nodes": [
     {
@@ -2114,7 +2114,7 @@ exports[`parser parse() .tree spoiler inside text 1`] = `
 }
 `;
 
-exports[`parser parse() .tree strike with one tilde 1`] = `
+exports[`parser parse() tree strike with one tilde 1`] = `
 {
   "nodes": [
     {
@@ -2136,7 +2136,7 @@ exports[`parser parse() .tree strike with one tilde 1`] = `
 }
 `;
 
-exports[`parser parse() .tree strike with two tilde 1`] = `
+exports[`parser parse() tree strike with two tilde 1`] = `
 {
   "nodes": [
     {
@@ -2158,7 +2158,7 @@ exports[`parser parse() .tree strike with two tilde 1`] = `
 }
 `;
 
-exports[`parser parse() .tree table 1`] = `
+exports[`parser parse() tree table 1`] = `
 {
   "nodes": [
     {
@@ -2222,7 +2222,7 @@ exports[`parser parse() .tree table 1`] = `
 }
 `;
 
-exports[`parser parse() .tree table equalcells 1`] = `
+exports[`parser parse() tree table equalcells 1`] = `
 {
   "nodes": [
     {
@@ -2286,7 +2286,7 @@ exports[`parser parse() .tree table equalcells 1`] = `
 }
 `;
 
-exports[`parser parse() .tree table equalcells noborder 1`] = `
+exports[`parser parse() tree table equalcells noborder 1`] = `
 {
   "nodes": [
     {
@@ -2350,7 +2350,7 @@ exports[`parser parse() .tree table equalcells noborder 1`] = `
 }
 `;
 
-exports[`parser parse() .tree table extra head 1`] = `
+exports[`parser parse() tree table extra head 1`] = `
 {
   "nodes": [
     {
@@ -2369,7 +2369,7 @@ exports[`parser parse() .tree table extra head 1`] = `
 }
 `;
 
-exports[`parser parse() .tree table no attributes 1`] = `
+exports[`parser parse() tree table no attributes 1`] = `
 {
   "nodes": [
     {
@@ -2387,7 +2387,7 @@ exports[`parser parse() .tree table no attributes 1`] = `
 }
 `;
 
-exports[`parser parse() .tree table no body 1`] = `
+exports[`parser parse() tree table no body 1`] = `
 {
   "nodes": [
     {
@@ -2427,7 +2427,7 @@ exports[`parser parse() .tree table no body 1`] = `
 }
 `;
 
-exports[`parser parse() .tree table noborder 1`] = `
+exports[`parser parse() tree table noborder 1`] = `
 {
   "nodes": [
     {
@@ -2491,7 +2491,7 @@ exports[`parser parse() .tree table noborder 1`] = `
 }
 `;
 
-exports[`parser parse() .tree table with multiple rows 1`] = `
+exports[`parser parse() tree table with multiple rows 1`] = `
 {
   "nodes": [
     {
@@ -2601,7 +2601,7 @@ exports[`parser parse() .tree table with multiple rows 1`] = `
 }
 `;
 
-exports[`parser parse() .tree two paragraphs 1`] = `
+exports[`parser parse() tree two paragraphs 1`] = `
 {
   "nodes": [
     {
@@ -2627,7 +2627,7 @@ exports[`parser parse() .tree two paragraphs 1`] = `
 }
 `;
 
-exports[`parser parse() .tree underlined 1`] = `
+exports[`parser parse() tree underlined 1`] = `
 {
   "nodes": [
     {
@@ -2649,7 +2649,7 @@ exports[`parser parse() .tree underlined 1`] = `
 }
 `;
 
-exports[`parser parse() .tree underlined in italicized 1`] = `
+exports[`parser parse() tree underlined in italicized 1`] = `
 {
   "nodes": [
     {
@@ -2680,7 +2680,7 @@ exports[`parser parse() .tree underlined in italicized 1`] = `
 }
 `;
 
-exports[`parser parse() .tree unordered list with asterisks 1`] = `
+exports[`parser parse() tree unordered list with asterisks 1`] = `
 {
   "nodes": [
     {
@@ -2736,7 +2736,7 @@ exports[`parser parse() .tree unordered list with asterisks 1`] = `
 }
 `;
 
-exports[`parser parse() .tree unordered list with dashes 1`] = `
+exports[`parser parse() tree unordered list with dashes 1`] = `
 {
   "nodes": [
     {
@@ -2792,7 +2792,7 @@ exports[`parser parse() .tree unordered list with dashes 1`] = `
 }
 `;
 
-exports[`parser parse() .tree url link 1`] = `
+exports[`parser parse() tree url link 1`] = `
 {
   "nodes": [
     {
@@ -2815,7 +2815,7 @@ exports[`parser parse() .tree url link 1`] = `
 }
 `;
 
-exports[`parser parse() .tree url link with style 1`] = `
+exports[`parser parse() tree url link with style 1`] = `
 {
   "nodes": [
     {
@@ -2847,7 +2847,7 @@ exports[`parser parse() .tree url link with style 1`] = `
 }
 `;
 
-exports[`parser parse() .tree url ref with id 1`] = `
+exports[`parser parse() tree url ref with id 1`] = `
 {
   "nodes": [
     {
@@ -2875,7 +2875,7 @@ exports[`parser parse() .tree url ref with id 1`] = `
 }
 `;
 
-exports[`parser parse() .tree url ref with id and style 1`] = `
+exports[`parser parse() tree url ref with id and style 1`] = `
 {
   "nodes": [
     {
@@ -2912,7 +2912,7 @@ exports[`parser parse() .tree url ref with id and style 1`] = `
 }
 `;
 
-exports[`parser parse() .tree url ref without id 1`] = `
+exports[`parser parse() tree url ref without id 1`] = `
 {
   "nodes": [
     {
@@ -2940,7 +2940,7 @@ exports[`parser parse() .tree url ref without id 1`] = `
 }
 `;
 
-exports[`parser parse() .tree url ref without id with style 1`] = `
+exports[`parser parse() tree url ref without id with style 1`] = `
 {
   "nodes": [
     {
@@ -2973,7 +2973,7 @@ exports[`parser parse() .tree url ref without id with style 1`] = `
 }
 `;
 
-exports[`parser parse() .tree valid italicized text with a newline 1`] = `
+exports[`parser parse() tree valid italicized text with a newline 1`] = `
 {
   "nodes": [
     {
