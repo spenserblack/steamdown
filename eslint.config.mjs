@@ -4,7 +4,15 @@ import globals from "globals";
 
 export default [
   { files: ["**/*.{js,mjs,cjs,ts}"] },
-  { ignores: ["babel.config.js", "jest.config.js", "scripts/*", "**/__tests__/", "**/dist/"] },
+  {
+    ignores: [
+      "babel.config.js",
+      "jest.config.js",
+      "scripts/*",
+      "**/__tests__/",
+      "**/dist/",
+    ],
+  },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   {
