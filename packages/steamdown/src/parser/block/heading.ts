@@ -64,5 +64,5 @@ export const altHeading = {
     };
 
     return [node, remainder];
-  }
+  },
 } satisfies Parser<nodes.Heading>;

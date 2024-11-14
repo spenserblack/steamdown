@@ -19,10 +19,12 @@ export const code = {
 
     const openBraces = open[1];
 
-    const close = memo.getOrCreate(openBraces, () => {
-      const closeBraces = "`".repeat(openBraces.length);
-      return new RegExp(`\\r?\\n${escapeRegExp(closeBraces)}(?:$|(?:\r?\n)+)`)
-    }).exec(text);
+    const close = memo
+      .getOrCreate(openBraces, () => {
+        const closeBraces = "`".repeat(openBraces.length);
+        return new RegExp(`\\r?\\n${escapeRegExp(closeBraces)}(?:$|(?:\r?\n)+)`);
+      })
+      .exec(text);
 
     if (!close) {
       throw new ParseError("code block must be closed");

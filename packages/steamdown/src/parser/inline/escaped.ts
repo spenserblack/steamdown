@@ -2,7 +2,20 @@ import type * as nodes from "../../nodes";
 import { ParseError } from "../errors.js";
 import type { Parser } from "../types";
 
-const escapable = new Set(["*", "_", "~", "\\", "{", "}", "!", "<", ">", "`", "[", "]"]);
+const escapable = new Set([
+  "*",
+  "_",
+  "~",
+  "\\",
+  "{",
+  "}",
+  "!",
+  "<",
+  ">",
+  "`",
+  "[",
+  "]",
+]);
 /**
  * Parser for an escaped character.
  */

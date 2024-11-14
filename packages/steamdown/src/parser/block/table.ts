@@ -18,13 +18,21 @@ type TablePart = HeadSym | AttributesSym | BodySym;
 /**
  * Parser for a table row.
  */
-function parseTableRow(text: string, part: AttributesSym): [nodes.TableAttributeRow, remainder: string];
-function parseTableRow(text: string, part: Exclude<TablePart, AttributesSym>): [nodes.TableRow, remainder: string];
-function parseTableRow(text: string, part: TablePart): [nodes.TableRow | nodes.TableAttributeRow, remainder: string] {
+function parseTableRow(
+  text: string,
+  part: AttributesSym,
+): [nodes.TableAttributeRow, remainder: string];
+function parseTableRow(
+  text: string,
+  part: Exclude<TablePart, AttributesSym>,
+): [nodes.TableRow, remainder: string];
+function parseTableRow(
+  text: string,
+  part: TablePart,
+): [nodes.TableRow | nodes.TableAttributeRow, remainder: string] {
   if (text == "" || /^\r?\n/.test(text)) {
     throw new ParseError("Empty table row");
   }
-
 
   const endLine = /$/m.exec(text)?.index;
 
@@ -50,7 +58,12 @@ function parseTableRow(text: string, part: TablePart): [nodes.TableRow | nodes.T
   rawCells.shift();
   rawCells.pop();
   const trimmedRawCells = rawCells.map((cell) => cell.trim());
-  if (part === attributes && !trimmedRawCells.every((cell) => borderedAttrRe.test(cell) || borderlessAttrRe.test(cell))) {
+  if (
+    part === attributes &&
+    !trimmedRawCells.every(
+      (cell) => borderedAttrRe.test(cell) || borderlessAttrRe.test(cell),
+    )
+  ) {
     throw new ParseError("Invalid table attributes");
   }
 

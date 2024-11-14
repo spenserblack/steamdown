@@ -39,7 +39,7 @@ export const parse = (text: string, context?: Context): nodes.Block[] => {
     nodes.push(node);
     text = remainder;
 
-    if (context && node.type === 'reference') {
+    if (context && node.type === "reference") {
       context.addLink(node.id, node.url);
     }
   }
