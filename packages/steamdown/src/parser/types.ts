@@ -1,5 +1,4 @@
 import type * as nodes from "../nodes";
-import type { Context } from "../context";
 
 /**
  * A parser for the syntax.
@@ -21,8 +20,3 @@ export interface Parser<N extends nodes.Node> {
 
 export type InlineParser = Parser<nodes.Inline>;
 export type BlockParser = Parser<nodes.Block>;
-
-export type Parsed = {
-  tree: nodes.Root;
-  context: Context;
-};
