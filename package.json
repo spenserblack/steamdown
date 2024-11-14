@@ -11,7 +11,7 @@
     "site:preview": "pnpm run --filter @steamdown/site preview"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.7",
+    "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.24.7",
     "@babel/preset-typescript": "^7.24.7",
     "@eslint/js": "^9.12.0",
