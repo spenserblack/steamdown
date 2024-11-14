@@ -1,6 +1,6 @@
 {
   "name": "@steamdown/html",
-  "version": "1.0.0",
+  "version": "1.0.0-beta.1",
   "author": "Spenser Black <spenserblack01@gmail.com>",
   "license": "MIT",
   "description": "Generate HTML from Steamdown",
