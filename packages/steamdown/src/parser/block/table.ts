@@ -79,7 +79,7 @@ function parseTableRow(text: string, part: TablePart): [nodes.TableRow | nodes.T
  * Parser for tables.
  */
 export const table = {
-  hint: (text: string) => /^\|[^\n\|]/.test(text),
+  hint: (text: string) => /^\|[^\n|]/.test(text),
   parse: (text: string): [nodes.Table, remainder: string] => {
     const headMatch = parseTableRow(text, head);
     const tHead = headMatch[0];

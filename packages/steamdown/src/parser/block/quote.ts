@@ -1,6 +1,6 @@
 import type * as nodes from "../../nodes";
 import { parse as parseBlocks } from "./parse.js";
-import { UnreachableError, ParseError } from "../errors.js";
+import { UnreachableError } from "../errors.js";
 import type { Parser } from "../types";
 
 type Author = NonNullable<nodes.Quote["author"]>;

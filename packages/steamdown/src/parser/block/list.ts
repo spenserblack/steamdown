@@ -1,7 +1,6 @@
 import type * as nodes from "../../nodes";
 import { parse as parseBlocks } from "./parse.js";
-import { UnreachableError, ParseError } from "../errors.js";
-import type { Parser } from "../types";
+import { UnreachableError } from "../errors.js";
 
 const numerical = Symbol("numerical");
 type ListType = "-" | "*" | typeof numerical;
@@ -55,9 +54,9 @@ const parseItem = (
  * Parser for a list node.
  */
 export const list = {
-  hint: (text: string) => /^(?:\-|\*|\d+\.) /.test(text),
+  hint: (text: string) => /^(?:-|\*|\d+\.) /.test(text),
   parse: (text: string): [nodes.List, remainder: string] => {
-    const match = /^(\-|\*|\d+\.) /.exec(text);
+    const match = /^(-|\*|\d+\.) /.exec(text);
 
     if (!match) {
       throw new UnreachableError(

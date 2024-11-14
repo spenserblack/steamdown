@@ -1,7 +1,6 @@
 import type * as nodes from "../../nodes";
 import type { Parser } from "../types";
-import { ParseError, UnreachableError } from "../errors";
-import { makeWrappedTextParser } from "./util.js";
+import { ParseError } from "../errors";
 import { parse } from "./parse";
 
 /**
@@ -12,7 +11,7 @@ export const bold = {
   parse: (text: string): [nodes.Bold, remainder: string] => {
     text = text.slice(2);
     let searchIndex = 0;
-    const italicsStartRe = /(?<!\\)\*[^\s\*]/g;
+    const italicsStartRe = /(?<!\\)\*[^\s*]/g;
 
     // HACK Handle nested italics (**foo *bar* baz** and **foo *bar***). We do a simple
     //      search for italics beginning and end markers, and skip over them.

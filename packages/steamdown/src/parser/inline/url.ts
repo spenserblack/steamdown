@@ -1,6 +1,5 @@
 import type * as nodes from "../../nodes";
-import { UnreachableError, ParseError } from "../errors.js";
-import escapeRegExp from "escape-string-regexp";
+import { ParseError } from "../errors.js";
 import type { Parser } from "../types";
 import { parse } from "./parse.js";
 
