@@ -1,7 +1,6 @@
 import type * as nodes from "../../nodes";
 import type { Parser } from "../types";
-import { ParseError, UnreachableError } from "../errors";
-import { makeWrappedTextParser } from "./util.js";
+import { ParseError } from "../errors";
 import { parse } from "./parse";
 
 /**

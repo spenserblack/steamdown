@@ -28,3 +28,21 @@ jobs:
         run: pnpm run -w build
       - name: Test
         run: pnpm run -w test
+
+  code-style:
+    name: Check code style
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22.x"
+          cache: pnpm
+      - run: pnpm install
+      - name: Check formatting
+        run: pnpm run -w format-check
+      - name: Lint
+        run: pnpm run -w lint

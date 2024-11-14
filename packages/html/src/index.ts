@@ -73,7 +73,8 @@ export class Renderer {
       }
       case "id-url": {
         const link = this.ctx.getLink(node.id);
-        const content = node.nodes != null ? this.renderInlineNodes(node.nodes) : htmlEscape(node.id);
+        const content =
+          node.nodes != null ? this.renderInlineNodes(node.nodes) : htmlEscape(node.id);
         return link != null ? `<a href="${link}">${content}</a>` : `[${content}]`;
       }
     }
@@ -85,12 +86,16 @@ export class Renderer {
 
   private renderList(list: nodes.List): string {
     const tag = list.ordered ? "ol" : "ul";
-    const items = list.items.map((item) => `<li>${this.renderBlocks(item.nodes)}</li>`).join("\n");
+    const items = list.items
+      .map((item) => `<li>${this.renderBlocks(item.nodes)}</li>`)
+      .join("\n");
     return `<${tag}>\n${items}\n</${tag}>`;
   }
 
   private renderTableRow(row: nodes.TableRow, cellTag: "td" | "th"): string {
-    const renderedCells = row.cells.map((cell) => `<${cellTag}>${this.renderInlineNodes(cell.nodes)}</${cellTag}>`).join("\n");
+    const renderedCells = row.cells
+      .map((cell) => `<${cellTag}>${this.renderInlineNodes(cell.nodes)}</${cellTag}>`)
+      .join("\n");
     return `<tr>\n${renderedCells}\n</tr>`;
   }
 
@@ -104,7 +109,9 @@ export class Renderer {
     }
     const openTag = `table${classes.length > 0 ? ` class="${classes.join(" ")}"` : ""}`;
     const renderedHeader = this.renderTableRow(table.head, "th");
-    const renderedBody = table.body.map((row) => this.renderTableRow(row, "td")).join("\n");
+    const renderedBody = table.body
+      .map((row) => this.renderTableRow(row, "td"))
+      .join("\n");
     return `<${openTag}>\n<thead>\n${renderedHeader}\n</thead>\n<tbody>\n${renderedBody}\n</tbody>\n</table>`;
   }
 
@@ -124,8 +131,11 @@ export class Renderer {
         return `<${tag}>${this.renderInlineNodes(block.nodes)}</${tag}>`;
       }
       case "quote": {
-        const [author,] = block.author ?? [];
-        const caption = author != null ? `<figcaption>Originally posted by <cite>${author}</cite>:</figcaption>` : "";
+        const [author] = block.author ?? [];
+        const caption =
+          author != null
+            ? `<figcaption>Originally posted by <cite>${author}</cite>:</figcaption>`
+            : "";
         return `<figure class="quote">${caption}<blockquote>${this.renderBlocks(block.nodes)}</blockquote></figure>`;
       }
       case "paragraph":

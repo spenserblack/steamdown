@@ -83,9 +83,9 @@ export interface Heading extends BaseNode {
  * Unlike most other nodes, this does *not* get rendered.
  */
 export interface Reference extends BaseNode {
-  type: "reference",
-  id: string,
-  url: string,
+  type: "reference";
+  id: string;
+  url: string;
 }
 
 /**
@@ -235,7 +235,16 @@ export type Inline =
   | Strike
   | Text
   | Escaped;
-export type Block = NoparseBlock | CodeBlock | Table | Heading | Reference | HorizontalRule | List | Quote | Paragraph;
+export type Block =
+  | NoparseBlock
+  | CodeBlock
+  | Table
+  | Heading
+  | Reference
+  | HorizontalRule
+  | List
+  | Quote
+  | Paragraph;
 /**
  * A node in the syntax tree.
  */

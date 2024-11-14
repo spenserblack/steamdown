@@ -1,6 +1,5 @@
 import type * as nodes from "../../nodes";
-import { ParseError, UnreachableError } from "../errors.js";
-import { parse as parseInline } from "../inline/index.js";
+import { ParseError } from "../errors.js";
 import type { Parser } from "../types";
 
 /**
