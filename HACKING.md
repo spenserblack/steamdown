@@ -31,5 +31,5 @@ pnpm run -w build
 ## Publishing
 
 ```shell
-pnpm publish -r
+pnpm publish --recursive --access public
 ```
