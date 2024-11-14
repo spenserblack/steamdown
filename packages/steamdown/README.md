@@ -2,6 +2,21 @@
 
 Render Markdown / a Markdown-like language to Steam's markup format.
 
+## Usage
+
+Visit [the site][site], install `@steamdown/cli`, or use the
+`@steamdown/core` library.
+
+### Library
+
+```typescript
+import { parse, render } from "@steamdown/core";
+
+let src: string;
+const [tree, context] = parse(src);
+const markup = render(tree, context);
+```
+
 ## Differences from Markdown
 
 This language should be familiar to anyone who has used Markdown, but there are some key
@@ -199,3 +214,5 @@ instead.
 
 Steam seems to render all `[code]` tags as blocks, so inline code is not supported.
 Consider using a code block instead.
+
+[site]: https://steamdown.vercel.app/
