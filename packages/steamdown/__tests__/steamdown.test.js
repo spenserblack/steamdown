@@ -4,7 +4,7 @@ const useAssets = require("./assets");
 describe("steamdown", () => {
   const assets = useAssets();
   test.each(assets)("$name", async ({ content }) => {
-    const { tree, context } = parse(await content);
+    const [tree, context] = parse(await content);
     const rendered = render(tree, context);
     expect(rendered).toMatchSnapshot();
   });
@@ -36,7 +36,7 @@ describe("steamdown", () => {
       "[i][b]bold[/b] and italics[/i]",
     ],
   ])("%s", (_name, input, expected) => {
-    const { tree, context } = parse(input);
+    const [tree, context] = parse(input);
     const rendered = render(tree, context);
     expect(rendered).toBe(expected);
   });
