@@ -16,7 +16,9 @@ jobs:
         with:
           node-version: "22.x"
           cache: pnpm
+      - name: Setup .npmrc
+        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: pnpm install
       - run: pnpm publish --recursive --access public --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

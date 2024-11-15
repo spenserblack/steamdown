@@ -115,3 +115,6 @@ dist
 # Ignore build mistakes
 **/src/*.js
 **/src/*.d.ts
+
+# Created during publish workflow
+/.npmrc
