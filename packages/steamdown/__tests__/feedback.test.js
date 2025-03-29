@@ -13,7 +13,10 @@ const feedback = [
 // -------------------------------------------------------------------------------------
 
 /** @type [title: string, input: string, expected: string][] */
-const tests = feedback.map(([title, ...test]) => [typeof title === "number" ? `Issue #${title}` : title, ...test]);
+const tests = feedback.map(([title, ...test]) => [
+  typeof title === "number" ? `Issue #${title}` : title,
+  ...test,
+]);
 
 test.each(tests)("%s", (_title, input, expected) => {
   const [tree, context] = parse(input);
