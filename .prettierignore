@@ -2,3 +2,5 @@
 dist
 coverage
 pnpm-lock.yaml
+
+/packages/steamdown/__tests__/feedback.test.js
