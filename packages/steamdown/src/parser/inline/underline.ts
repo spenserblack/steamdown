@@ -6,6 +6,6 @@ import { makeWrappedTextParser } from "./util.js";
  * Parser for an underline node.
  */
 export const underline = makeWrappedTextParser<nodes.Underline>(
-  "_",
+  "__",
   "underline",
 ) satisfies Parser<nodes.Underline>;
