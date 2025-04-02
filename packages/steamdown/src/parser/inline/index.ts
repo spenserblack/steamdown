@@ -1,5 +1,6 @@
 import { useParsers, parse, addParser } from "./parse.js";
 import { noparse } from "./noparse.js";
+import { image } from "./image.js";
 import { url } from "./url.js";
 import { spoiler } from "./spoiler.js";
 import { boldItalics } from "./bold-italics.js";
@@ -12,6 +13,7 @@ import { text } from "./text.js";
 
 [
   noparse,
+  image,
   url,
   spoiler,
   boldItalics,

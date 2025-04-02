@@ -161,6 +161,14 @@ export interface IdUrl extends BaseNode {
 export type Url = LinkUrl | IdUrl;
 
 /**
+ * An image node.
+ */
+export interface Image extends BaseNode {
+  type: "image";
+  url: Url;
+}
+
+/**
  * A spoiler node.
  */
 export interface Spoiler extends BaseNode {
@@ -226,6 +234,7 @@ export interface Escaped extends BaseNode {
 
 export type Inline =
   | NoparseSpan
+  | Image
   | Url
   | Spoiler
   | BoldItalics

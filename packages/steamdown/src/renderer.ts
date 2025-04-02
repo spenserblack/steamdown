@@ -31,6 +31,22 @@ const renderInlineNodes = (nodes: nodes.Inline[], context: Context): string =>
           return `[strike]${renderInlineNodes(node.nodes, context)}[/strike]`;
         case "noparse-span":
           return `[noparse]${node.text}[/noparse]`;
+        case "image": {
+          // NOTE Alt text is unused(?)
+          const { url } = node;
+          let link: string;
+          if (url.type === "link-url") {
+            link = url.link;
+          } else {
+            const maybeLink = context.getLink(url.id);
+            const text = url.nodes != null ? renderInlineNodes(url.nodes, context) : url.id;
+            if (maybeLink == null) {
+              return `![${text}](${url.id})`;
+            }
+            link = maybeLink
+          }
+          return `[img]${link}[/img]`;
+        }
         case "link-url":
           return `[url=${node.link}]${renderInlineNodes(node.nodes, context)}[/url]`;
         case "id-url": {

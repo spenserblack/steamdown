@@ -67,6 +67,21 @@ export class Renderer {
         return this.renderInline(this.renderInlineNodes(node.nodes), node.type);
       case "noparse-span":
         return htmlEscape(node.text).replace(/\n/g, "<br>");
+      case "image": {
+        // NOTE It might be better to not parse the nodes.
+        const { url } = node;
+        let link: string;
+        let altText: string;
+        if (url.type === "link-url") {
+          link = url.link;
+          altText = this.renderInlineNodes(url.nodes);
+        } else {
+          link = this.ctx.getLink(url.id) || "";
+          altText =
+            url.nodes != null ? this.renderInlineNodes(url.nodes) : url.id;
+        }
+        return `<img src="${link}" alt="${htmlEscape(altText)}" />`;
+      }
       case "link-url": {
         const content = this.renderInlineNodes(node.nodes);
         return `<a href="${node.link}">${content}</a>`;
