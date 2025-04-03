@@ -77,8 +77,7 @@ export class Renderer {
           altText = this.renderInlineNodes(url.nodes);
         } else {
           link = this.ctx.getLink(url.id) || "";
-          altText =
-            url.nodes != null ? this.renderInlineNodes(url.nodes) : url.id;
+          altText = url.nodes != null ? this.renderInlineNodes(url.nodes) : url.id;
         }
         return `<img src="${link}" alt="${htmlEscape(altText)}" />`;
       }

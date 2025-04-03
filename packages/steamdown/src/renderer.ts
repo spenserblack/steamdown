@@ -39,11 +39,12 @@ const renderInlineNodes = (nodes: nodes.Inline[], context: Context): string =>
             link = url.link;
           } else {
             const maybeLink = context.getLink(url.id);
-            const text = url.nodes != null ? renderInlineNodes(url.nodes, context) : url.id;
+            const text =
+              url.nodes != null ? renderInlineNodes(url.nodes, context) : url.id;
             if (maybeLink == null) {
               return `![${text}](${url.id})`;
             }
-            link = maybeLink
+            link = maybeLink;
           }
           return `[img]${link}[/img]`;
         }
