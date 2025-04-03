@@ -20,7 +20,7 @@ Because that&#39;s how Steam works.</code></pre><ol>
 <li><p>It should always be aligned.</p><ul>
 <li><p>like this.</p></li>
 </ul></li>
-</ol><figure class="quote"><figcaption>Originally posted by <cite>author</cite>:</figcaption><blockquote><p>quotes must have spaces after the &gt; <br>This is to avoid conflicts with <span class="spoiler">spoiler</span> syntax.</p></blockquote></figure><p><a href="https://example.com/inline/">urls can be like this</a><br><a href="https://example.com/ref/">or use a <em>reference</em></a></p><hr><table>
+</ol><figure class="quote"><figcaption>Originally posted by <cite>author</cite>:</figcaption><blockquote><p>quotes must have spaces after the &gt; <br>This is to avoid conflicts with <span class="spoiler">spoiler</span> syntax.</p></blockquote></figure><p><a href="https://example.com/inline/">urls can be like this</a><br><a href="https://example.com/ref/">or use a <em>reference</em></a></p><p><img src="https://example.com/image.png" alt="images, too" /></p><hr><table>
 <thead>
 <tr>
 <th>table</th>

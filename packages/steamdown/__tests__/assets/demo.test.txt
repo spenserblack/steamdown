@@ -20,10 +20,10 @@ Syntax includes:
 * *italics*
 * **bold**
 * ***bold and italics***
-* _underlines_
+* __underlines__
 * >!spoilers!<
 * ~~strike outs~~
-* *_you can mix and match BTW_*
+* *__you can mix and match BTW__*
 * {noparse spans are literal. *this won't be rendered* and Steam will show literal [i]}
 
 {{{

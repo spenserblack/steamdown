@@ -1181,6 +1181,63 @@ exports[`parser parse() tree horizontal rule 1`] = `
 }
 `;
 
+exports[`parser parse() tree image ref with id 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "type": "image",
+          "url": {
+            "id": "id",
+            "nodes": [
+              {
+                "text": "image with id",
+                "type": "text",
+              },
+            ],
+            "type": "id-url",
+          },
+        },
+      ],
+      "type": "paragraph",
+    },
+    {
+      "id": "id",
+      "type": "reference",
+      "url": "https://example.com/id.png",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() tree image with link 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "type": "image",
+          "url": {
+            "link": "https://example.com/image.png",
+            "nodes": [
+              {
+                "text": "image with link",
+                "type": "text",
+              },
+            ],
+            "type": "link-url",
+          },
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser parse() tree imbalanced strike leaning left 1`] = `
 {
   "nodes": [
@@ -2967,6 +3024,38 @@ exports[`parser parse() tree url ref without id with style 1`] = `
       "id": "*styled url*",
       "type": "reference",
       "url": "https://example.com/styled/",
+    },
+  ],
+  "type": "root",
+}
+`;
+
+exports[`parser parse() tree url with image 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "link": "https://example.com",
+          "nodes": [
+            {
+              "type": "image",
+              "url": {
+                "link": "https://example.com/image.png",
+                "nodes": [
+                  {
+                    "text": "img",
+                    "type": "text",
+                  },
+                ],
+                "type": "link-url",
+              },
+            },
+          ],
+          "type": "link-url",
+        },
+      ],
+      "type": "paragraph",
     },
   ],
   "type": "root",

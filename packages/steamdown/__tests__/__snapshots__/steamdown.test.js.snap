@@ -199,6 +199,10 @@ exports[`steamdown horizontal rule 1`] = `
 "
 `;
 
+exports[`steamdown image ref with id 1`] = `"[img]https://example.com/id.png[/img]"`;
+
+exports[`steamdown image with link 1`] = `"[img]https://example.com/image.png[/img]"`;
+
 exports[`steamdown imbalanced strike leaning left 1`] = `"~~strike~"`;
 
 exports[`steamdown imbalanced strike leaning right 1`] = `"[strike]strike[/strike]~"`;
@@ -498,6 +502,8 @@ exports[`steamdown url ref with id and style 1`] = `"[url=https://example.com/id
 exports[`steamdown url ref without id 1`] = `"[url=https://example.com/plain/]plain-url[/url]"`;
 
 exports[`steamdown url ref without id with style 1`] = `"[url=https://example.com/styled/][i]styled url[/i][/url]"`;
+
+exports[`steamdown url with image 1`] = `"[url=https://example.com][img]https://example.com/image.png[/img][/url]"`;
 
 exports[`steamdown valid italicized text with a newline 1`] = `
 "Valid [i]italicized
