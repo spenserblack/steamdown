@@ -37,10 +37,7 @@ export const url = {
     const content = extractedText[0];
     text = extractedText[1];
     // TODO Break this up into something more readable.
-    const match =
-      /^(?:(?:\(([^)\n]+)\))|\[((?:[^\]\n]|\\\])+)\])?/.exec(
-        text,
-      );
+    const match = /^(?:(?:\(([^)\n]+)\))|\[((?:[^\]\n]|\\\])+)\])?/.exec(text);
 
     if (!match) {
       throw new ParseError("invalid url");
