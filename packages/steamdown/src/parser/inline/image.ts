@@ -1,7 +1,5 @@
 import type * as nodes from "../../nodes";
-import { ParseError } from "../errors.js";
 import type { Parser } from "../types";
-import { parse } from "./parse.js";
 import { url as urlParser } from "./url.js";
 
 /**
