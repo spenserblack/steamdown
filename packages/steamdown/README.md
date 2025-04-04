@@ -44,6 +44,25 @@ the original Markdown spec. You can spoiler text by wrapping it in `>!` and `!<`
 [spoiler]This is a spoiler[/spoiler]
 ```
 
+### Underlines
+
+Markdown typically uses underscores (`_`) for emphasis, like asterisks (`*`). This
+syntax disables `_` for emphasis. Instead of treating underscores and asterisks
+similarly, this syntax treats single underscores literally, and uses double underscores
+(`__`) to support underlines.
+
+#### Example input
+
+```
+__This is underlined__
+```
+
+#### Example output
+
+```
+[u]This is underlined[/u]
+```
+
 ### Noparse
 
 Steam has the `[noparse]` tag, which causes any text inside it to be rendered as plain
