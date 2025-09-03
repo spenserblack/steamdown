@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`html render renders the demo file 1`] = `
 "<p>This is a paragraph. Breaklines<br>will be rendered.</p><p>Two breaklines will start a new paragraph.</p><h1>Header Level 1</h1><h2>Header Level 2</h2><h3>Header Level 3</h3><h1>Alternative Header 1</h1><h2>Alternative Header 2</h2><p>Syntax includes:</p><ul>

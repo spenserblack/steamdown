@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`steamdown backslashes in noparse are not escapes 1`] = `"[noparse]\\{no escape\\[/noparse]}"`;
 
