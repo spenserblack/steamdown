@@ -29,7 +29,7 @@
   "dependencies": {
     "@steamdown/core": "workspace:^",
     "@steamdown/html": "workspace:^",
-    "commander": "^14.0.0",
+    "commander": "^14.0.1",
     "get-stdin": "^9.0.0"
   }
 }
