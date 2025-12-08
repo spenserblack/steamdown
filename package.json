@@ -21,9 +21,9 @@
     "eslint": "^9.39.1",
     "globals": "^16.5.0",
     "jest": "^30.2.0",
-    "prettier": "^3.7.3",
+    "prettier": "^3.7.4",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.48.0"
+    "typescript-eslint": "^8.49.0"
   },
   "packageManager": "pnpm@10.7.1"
 }
