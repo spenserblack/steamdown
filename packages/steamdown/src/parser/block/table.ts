@@ -53,7 +53,7 @@ function parseTableRow(
   }
 
   // TODO Improve performance with lazy iteration or `.reduce`
-  const rawCells = text.slice(0, endLine).split("|");
+  const rawCells = line.split("|");
   // NOTE Beginning and ending `|` are empty strings, so we remove them.
   rawCells.shift();
   rawCells.pop();
