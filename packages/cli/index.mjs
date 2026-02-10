@@ -21,7 +21,8 @@ program
   .addOption(htmlOption)
   .argument("[file]", "File to parse (STDIN if not specified)")
   .action(async (file, options) => {
-    const content = file == null ? getStdin() : fs.readFile(file, "utf-8");
+    const content =
+      file == null ? getStdin({ allowTTY: true }) : fs.readFile(file, "utf-8");
     const [tree, context] = parse(await content);
 
     if (options.ast) {
