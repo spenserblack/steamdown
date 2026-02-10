@@ -30,6 +30,6 @@
     "@steamdown/core": "workspace:^",
     "@steamdown/html": "workspace:^",
     "commander": "^14.0.3",
-    "get-stdin": "^9.0.0"
+    "get-stdin": "^10.0.0"
   }
 }
