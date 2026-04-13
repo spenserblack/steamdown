@@ -19,11 +19,11 @@
     "@types/jest": "^30.0.0",
     "babel-jest": "^30.3.0",
     "eslint": "^10.2.0",
-    "globals": "^17.4.0",
+    "globals": "^17.5.0",
     "jest": "^30.3.0",
-    "prettier": "^3.8.1",
+    "prettier": "^3.8.2",
     "typescript": "^6.0.2",
-    "typescript-eslint": "^8.58.0"
+    "typescript-eslint": "^8.58.2"
   },
   "packageManager": "pnpm@10.7.1"
 }
