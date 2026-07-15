@@ -225,12 +225,14 @@ used.
 
 Fenced code blocks render as `[code]` blocks:
 
-    ```csharp
-    var x = 1;
-    ```
+````markdown
+```csharp
+var x = 1;
+```
+````
 
 You can put a language after the opening fence, but Steam has no syntax highlighting,
-so the language is ignored. It only makes the source Markdown easier to read.
+so the language identifier is ignored.
 
 ### Inline code (`` `code` ``)
 
