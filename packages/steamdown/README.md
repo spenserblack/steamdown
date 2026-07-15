@@ -20,6 +20,12 @@ const [tree, context] = parse(src);
 const markup = render(tree, context);
 ```
 
+## See also
+
+Here's a list of other projects that you may be interested in:
+
+- [semantic-release-steam](https://github.com/cryptiklemur/semantic-release-steam): A semantic-release plugin that publishes a Steam Workshop item via SteamCMD. Uses Steamdown!
+
 ## Things to be aware of
 
 This language should be familiar to anyone who has used Markdown, but there are some key
