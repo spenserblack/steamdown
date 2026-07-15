@@ -12,6 +12,8 @@ const feedback = [
   [291, "[![Wikipedia](https://example.com/example.jpg)](https://example.com/example.jpg)", "[url=https://example.com/example.jpg][img]https://example.com/example.jpg[/img][/url]"],
   [293, "test_underscore_test", "test_underscore_test"],
   [293, "underscore_test_", "underscore_test_"],
+  ["Fenced code block with a language tag", "```js\nconst x = 1;\n```", "[code]\nconst x = 1;\n[/code]"],
+  ["Fenced code block without a language tag still works", "```\nconst x = 1;\n```", "[code]\nconst x = 1;\n[/code]"],
 ];
 
 // -------------------------------------------------------------------------------------

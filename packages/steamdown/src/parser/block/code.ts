@@ -10,9 +10,9 @@ const memo = new Memoizer<string, RegExp>();
  * Parser for a code block node.
  */
 export const code = {
-  hint: (text: string) => /^```+\r?\n/.test(text),
+  hint: (text: string) => /^```+[^\r\n]*\r?\n/.test(text),
   parse: (text: string): [nodes.CodeBlock, remainder: string] => {
-    const open = /^(```+)\r?\n/.exec(text);
+    const open = /^(```+)[^\r\n]*\r?\n/.exec(text);
     if (!open) {
       throw new UnreachableError();
     }
