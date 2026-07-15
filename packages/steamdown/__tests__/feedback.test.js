@@ -29,3 +29,14 @@ test.each(tests)("%s", (_title, input, expected) => {
   const rendered = render(tree, context);
   expect(rendered).toBe(expected);
 });
+
+test("an unterminated fence with a long info string does not blow up (ReDoS)", () => {
+  // A run of backticks followed by non-newline chars and no closing newline is the
+  // worst case for the fence regex. The info-string class must not overlap the
+  // backtick run, or matching is quadratic. 200k chars finishes in ms when linear.
+  const input = "`".repeat(200_000) + "x".repeat(200_000);
+  const start = process.hrtime.bigint();
+  parse(input);
+  const elapsedMs = Number(process.hrtime.bigint() - start) / 1e6;
+  expect(elapsedMs).toBeLessThan(1000);
+});
