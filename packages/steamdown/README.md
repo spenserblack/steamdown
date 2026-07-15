@@ -221,6 +221,19 @@ descriptions. In other contexts, like Discussions, you may want to simply paste 
 link. Additionally, as you may have noticed from the `[img]` block, alt text is not
 used.
 
+### Code blocks
+
+Fenced code blocks render as `[code]` blocks:
+
+````markdown
+```csharp
+var x = 1;
+```
+````
+
+You can put a language after the opening fence, but Steam has no syntax highlighting,
+so the language identifier is ignored.
+
 ### Inline code (`` `code` ``)
 
 Steam seems to render all `[code]` tags as blocks, so inline code is not supported.
