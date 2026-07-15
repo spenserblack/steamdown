@@ -1,5 +1,9 @@
 # Contributing
 
+## AI/LLM-assisted contributions
+
+Please review the [AI policy](./AI_POLICY.md).
+
 ## User-provided test cases
 
 Just discovering and reporting an issue with rendering is a great contribution! These
