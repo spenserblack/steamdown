@@ -15,6 +15,9 @@
 <main>
   <h1>Steamdown</h1>
   <p>
+    <strong>I am moving the web version to my personal site!</strong> You can find it at
+    <a href="https://www.spenser.black/steamdown/">www.spenser.black/steamdown</a>.
+  <p>
     Welcome to the beta test of the new version of Steamdown! Previously, it used and
     applied overrides and extensions to
     <a href="https://marked.js.org/">Marked</a>, a JavaScript library that parses and
