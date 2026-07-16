@@ -43,3 +43,12 @@ jobs:
         run: pnpm run -w format-check
       - name: Lint
         run: pnpm run -w lint
+
+  spell-checker:
+    name: Check spelling
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: streetsidesoftware/cspell-action@v8
