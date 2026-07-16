@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "build": "pnpm run -r build",
-    "test": "jest",
+    "test": "vitest",
     "format": "prettier --write .",
     "format-check": "prettier --check .",
     "lint": "eslint",
@@ -11,19 +11,16 @@
     "site:preview": "pnpm run --filter @steamdown/site preview"
   },
   "devDependencies": {
-    "@babel/core": "^7.29.7",
-    "@babel/preset-env": "^7.29.7",
-    "@babel/preset-typescript": "^7.29.7",
     "@eslint/js": "^10.0.1",
     "@tsconfig/recommended": "^1.0.13",
     "@types/jest": "^30.0.0",
-    "babel-jest": "^30.4.1",
+    "@vitest/coverage-v8": "4.1.10",
     "eslint": "^10.5.0",
     "globals": "^17.6.0",
-    "jest": "^30.4.2",
     "prettier": "^3.8.4",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.61.0"
+    "typescript-eslint": "^8.61.0",
+    "vitest": "^4.1.10"
   },
   "packageManager": "pnpm@11.13.1"
 }

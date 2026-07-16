@@ -1,11 +1,12 @@
-const { parse, render } = require("../dist");
+import { expect, test } from "vitest";
+import { parse, render } from "../src/index";
 
 /**
  * Community-provided tests for expected behavior. Add your test cases here.
  *
  * @type [issueTitle: number | string, input: string, expected: string][]
  */
-const feedback = [
+const feedback: [string | number, string, string][] = [
   // Example
   ["Example", "*Hello, World!*", "[i]Hello, World![/i]"],
   [291, "![Wikipedia](https://example.com/example.jpg)", "[img]https://example.com/example.jpg[/img]"],

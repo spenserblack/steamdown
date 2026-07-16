@@ -1,5 +1,6 @@
-const { parse, render } = require("../dist");
-const useAssets = require("./assets");
+import { describe, expect, test } from "vitest";
+import { parse, render } from "../src/index";
+import useAssets from "./assets/index";
 
 describe("steamdown", () => {
   const assets = useAssets();

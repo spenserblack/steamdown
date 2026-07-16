@@ -1,5 +1,5 @@
-const fs = require("node:fs");
-const path = require("node:path");
+import fs from "node:fs";
+import path from "node:path";
 
 const testExt = /\.test\.txt$/;
 
@@ -25,4 +25,4 @@ const useAssets = () => {
   return assets;
 };
 
-module.exports = useAssets;
+export default useAssets;

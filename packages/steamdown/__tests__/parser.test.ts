@@ -1,5 +1,6 @@
-const { parse } = require("../dist/index");
-const useAssets = require("./assets");
+import { describe, expect, test } from "vitest";
+import { parse } from "../src/index";
+import useAssets from "./assets/index";
 
 describe("parser", () => {
   describe("parse()", () => {
