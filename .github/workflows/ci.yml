@@ -12,18 +12,15 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - "22.x"
-          - "24.x"
+          - "22"
+          - "24"
 
     steps:
       - uses: actions/checkout@v7
-      - uses: pnpm/action-setup@v6
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v7
+      - uses: pnpm/setup@v1
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: pnpm
-      - run: pnpm install
+          runtime: "node@${{ matrix.node-version }}"
+          cache: true
       - name: Build
         run: pnpm run -w build
       - name: Test
@@ -38,13 +35,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v7
-      - uses: pnpm/action-setup@v6
-      - name: Use Node.js
-        uses: actions/setup-node@v7
+      - uses: pnpm/setup@v1
         with:
-          node-version-file: .node-version
-          cache: pnpm
-      - run: pnpm install
+          cache: true
       - name: Check formatting
         run: pnpm run -w format-check
       - name: Lint
