@@ -7,9 +7,13 @@ import { url as urlParser } from "./url.js";
  */
 export const image = {
   hint: (text: string) => text.startsWith("!["),
-  parse: (text: string): [nodes.Image, remainder: string] => {
+  parse: (text: string): [nodes.Image, remainder: string] | null => {
     text = text.slice(1);
-    const [url, remainder] = urlParser.parse(text);
+    const parsed = urlParser.parse(text);
+    if (parsed == null) {
+      return null;
+    }
+    const [url, remainder] = parsed;
     const node: nodes.Image = {
       type: "image",
       url,
