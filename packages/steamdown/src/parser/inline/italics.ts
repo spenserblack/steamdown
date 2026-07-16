@@ -1,6 +1,5 @@
 import type * as nodes from "../../nodes";
 import type { Parser } from "../types";
-import { ParseError } from "../errors.js";
 import { parse } from "./parse.js";
 
 /**
@@ -8,7 +7,7 @@ import { parse } from "./parse.js";
  */
 export const italics = {
   hint: (text: string) => text.startsWith("*"),
-  parse: (text: string): [nodes.Italics, remainder: string] => {
+  parse: (text: string): [nodes.Italics, remainder: string] | null => {
     text = text.slice(1);
     let searchIndex = 0;
     const boldStartRe = /(?<!\\)\*\*/g;
@@ -35,7 +34,7 @@ export const italics = {
     endRe.lastIndex = searchIndex;
     const endMatch = endRe.exec(text);
     if (!endMatch) {
-      throw new ParseError("italics must be closed");
+      return null;
     }
 
     const innerText = text.slice(0, endMatch.index);

@@ -1,5 +1,5 @@
 import type * as nodes from "../../nodes";
-import { UnreachableError, ParseError } from "../errors.js";
+import { UnreachableError } from "../errors.js";
 import escapeRegExp from "escape-string-regexp";
 import type { Parser } from "../types";
 
@@ -8,7 +8,7 @@ import type { Parser } from "../types";
  */
 export const noparse = {
   hint: (text: string) => text.startsWith("{"),
-  parse: (text: string): [nodes.NoparseSpan, remainder: string] => {
+  parse: (text: string): [nodes.NoparseSpan, remainder: string] | null => {
     const openingMatch = /^\{+/.exec(text);
 
     if (!openingMatch) {
@@ -19,7 +19,7 @@ export const noparse = {
 
     const closingIndex = closing.exec(text)?.index;
     if (closingIndex == null) {
-      throw new ParseError("noparse span must be closed");
+      return null;
     }
 
     let innerText = text.slice(opening.length, closingIndex);

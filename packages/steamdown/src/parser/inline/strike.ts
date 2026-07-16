@@ -1,5 +1,4 @@
 import type * as nodes from "../../nodes";
-import { ParseError } from "../errors.js";
 import type { Parser } from "../types";
 import { variableLengthInlineHelper } from "./util.js";
 import { parse } from "./parse.js";
@@ -11,18 +10,15 @@ const helper = variableLengthInlineHelper("~");
  */
 export const strike = {
   hint: (text: string) => text.startsWith("~"),
-  parse: (text: string): [nodes.Strike, remainder: string] => {
+  parse: (text: string): [nodes.Strike, remainder: string] | null => {
     const result = helper(text);
-    switch (result) {
-      case "no match":
-        throw new ParseError("strike must start with ~");
-      case "not closed":
-        throw new ParseError("strike must be closed");
+    if (result == null) {
+      return null;
     }
     const { wrapper, text: innerText } = result;
     const consumedCharCount = wrapper.length + innerText.length + wrapper.length;
     if ([innerText[0], innerText[innerText.length - 1]].some((s) => /\s/.test(s))) {
-      throw new ParseError("strike cannot start or end with whitespace");
+      return null;
     }
     const nodes = parse(innerText);
 

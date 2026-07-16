@@ -1,5 +1,5 @@
 import type * as nodes from "../../nodes";
-import { ParseError, UnreachableError } from "../errors.js";
+import { UnreachableError } from "../errors.js";
 import { parse as parseInline } from "../inline/index.js";
 import type { Parser } from "../types";
 
@@ -21,17 +21,17 @@ type TablePart = HeadSym | AttributesSym | BodySym;
 function parseTableRow(
   text: string,
   part: AttributesSym,
-): [nodes.TableAttributeRow, remainder: string];
+): [nodes.TableAttributeRow, remainder: string] | null;
 function parseTableRow(
   text: string,
   part: Exclude<TablePart, AttributesSym>,
-): [nodes.TableRow, remainder: string];
+): [nodes.TableRow, remainder: string] | null;
 function parseTableRow(
   text: string,
   part: TablePart,
-): [nodes.TableRow | nodes.TableAttributeRow, remainder: string] {
+): [nodes.TableRow | nodes.TableAttributeRow, remainder: string] | null {
   if (text == "" || /^\r?\n/.test(text)) {
-    throw new ParseError("Empty table row");
+    return null;
   }
 
   const endLine = /$/m.exec(text)?.index;
@@ -42,7 +42,7 @@ function parseTableRow(
 
   let line = text.slice(0, endLine);
   if (!line.includes("|")) {
-    throw new ParseError("Invalid table row");
+    return null;
   }
   // NOTE If the user didn't add `|` to the beginning or end of the row, we add it.
   if (!line.startsWith("|")) {
@@ -64,7 +64,7 @@ function parseTableRow(
       (cell) => borderedAttrRe.test(cell) || borderlessAttrRe.test(cell),
     )
   ) {
-    throw new ParseError("Invalid table attributes");
+    return null;
   }
 
   text = text.slice(endLine);
@@ -93,26 +93,29 @@ function parseTableRow(
  */
 export const table = {
   hint: (text: string) => /^\|[^\n|]/.test(text),
-  parse: (text: string): [nodes.Table, remainder: string] => {
+  parse: (text: string): [nodes.Table, remainder: string] | null => {
     const headMatch = parseTableRow(text, head);
+    if (headMatch == null) {
+      return null;
+    }
     const tHead = headMatch[0];
     text = headMatch[1];
     const attributesMatch = parseTableRow(text, attributes);
+    if (attributesMatch == null) {
+      return null;
+    }
     const tAttributes = attributesMatch[0];
     text = attributesMatch[1];
 
     const tBody: nodes.TableRow[] = [];
     while (true) {
-      try {
-        const [row, remainder] = parseTableRow(text, body);
-        text = remainder;
-        tBody.push(row);
-      } catch (e) {
-        if (e instanceof ParseError) {
-          break;
-        }
-        throw e;
+      const parsed = parseTableRow(text, body);
+      if (parsed == null) {
+        break;
       }
+      const [row, remainder] = parsed;
+      text = remainder;
+      tBody.push(row);
     }
 
     const node: nodes.Table = {

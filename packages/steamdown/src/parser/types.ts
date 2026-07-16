@@ -15,7 +15,7 @@ export interface Parser<N extends nodes.Node> {
    * Parses the given syntax, returning the root node of the
    * syntax tree and the remaining text. Can optionally mutate context.
    */
-  parse(text: string): [node: N, remainder: string];
+  parse(text: string): [node: N, remainder: string] | null;
 }
 
 export type InlineParser = Parser<nodes.Inline>;

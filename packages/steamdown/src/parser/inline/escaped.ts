@@ -1,5 +1,4 @@
 import type * as nodes from "../../nodes";
-import { ParseError } from "../errors.js";
 import type { Parser } from "../types";
 
 const escapable = new Set([
@@ -21,10 +20,10 @@ const escapable = new Set([
  */
 export const escaped = {
   hint: (text: string) => text.startsWith("\\"),
-  parse: (text: string): [nodes.Escaped, remainder: string] => {
+  parse: (text: string): [nodes.Escaped, remainder: string] | null => {
     const nextChar = text[1];
     if (!escapable.has(nextChar)) {
-      throw new ParseError(`cannot escape ${nextChar}`);
+      return null;
     }
     const node: nodes.Escaped = {
       type: "escaped",
