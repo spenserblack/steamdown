@@ -10,7 +10,10 @@ export const firstSuccessfulParse = <N extends nodes.Node>(
 ): [N, remainder: string] | null => {
   for (const parser of parsers) {
     if (parser.hint(text)) {
-      return parser.parse(text);
+      const result = parser.parse(text);
+      if (result) {
+        return result;
+      }
     }
   }
   return null;
