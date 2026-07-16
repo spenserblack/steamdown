@@ -1,5 +1,23 @@
 version: "0.2"
 language: "en-US"
 words:
+  - blockquote
+  - blockquotes
+  - borderless
+  - breakline
+  - breaklines
+  - equalcells
+  - noborder
   - noparse
+  - olist
+  - memoizer
   - steamdown
+  - stmd
+ignorePaths:
+  # NOTE: As a list of usernames, spell-checking doesn't seem reasonable.
+  - CODEOWNERS
+  - "**/dist/**"
+  - "node_modules/**"
+  - "**/pnpm-lock.yaml"
+  - "**/pnpm-workspace.yaml"
+  - "*.snap"
