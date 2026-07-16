@@ -1,5 +1,4 @@
 import type * as nodes from "../../nodes";
-import { ParseError } from "../errors.js";
 import type { Parser } from "../types";
 
 /**
@@ -7,11 +6,11 @@ import type { Parser } from "../types";
  */
 export const reference = {
   hint: (text: string) => text.startsWith("["),
-  parse: (text: string): [nodes.Reference, remainder: string] => {
+  parse: (text: string): [nodes.Reference, remainder: string] | null => {
     const match = /^\[((?:[^\]]|\\\])+)(?<!\\)\]:\s+(.+)(?:\r?\n)*/.exec(text);
 
     if (!match) {
-      throw new ParseError("invalid reference");
+      return null;
     }
 
     const [all, id, url] = match;

@@ -1,5 +1,5 @@
 import type * as nodes from "../../nodes";
-import { ParseError, UnreachableError } from "../errors.js";
+import { UnreachableError } from "../errors.js";
 import escapeRegExp from "escape-string-regexp";
 import { parse } from "./parse.js";
 
@@ -22,23 +22,23 @@ export const makeWrappedTextParser = <N extends WrappedNode>(
   const endRegex = new RegExp(`(?<!\\\\)${escapeRegExp(endWrapper)}`);
   return {
     hint: (text: string) => text.startsWith(startWrapper),
-    parse: (text: string): [N, remainder: string] => {
+    parse: (text: string): [N, remainder: string] | null => {
       text = text.slice(startWrapper.length);
 
       const endMatch = endRegex.exec(text);
       if (!endMatch) {
-        throw new ParseError(`${type} must be closed`);
+        return null;
       }
       const innerEndIndex = endMatch.index;
 
       const innerText = text.slice(0, endMatch.index);
 
       if (innerText.length === 0) {
-        throw new ParseError(`${type} must have content`);
+        return null;
       }
 
       if ([innerText[0], innerText[innerText.length - 1]].some((s) => /\s/.test(s))) {
-        throw new ParseError(`${type} cannot start or end with whitespace`);
+        return null;
       }
 
       const remainder = text.slice(innerEndIndex + endWrapper.length);
@@ -79,7 +79,7 @@ export const variableLengthInlineHelper = (wrapperChar: string) => {
   return (text: string) => {
     const wrapperMatch = regex.exec(text);
     if (!wrapperMatch) {
-      return "no match";
+      return null;
     }
     const wrapper = wrapperMatch[0];
     const endRegex = new RegExp(`(?<!\\\\)${escapeRegExp(wrapper)}`);
@@ -87,7 +87,7 @@ export const variableLengthInlineHelper = (wrapperChar: string) => {
     const endMatch = endRegex.exec(text);
 
     if (!endMatch) {
-      return "not closed";
+      return null;
     }
 
     text = text.slice(0, endMatch.index);

@@ -1,5 +1,4 @@
 import type * as nodes from "../../nodes";
-import { ParseError } from "../errors.js";
 import type { Parser } from "../types";
 
 /**
@@ -7,11 +6,11 @@ import type { Parser } from "../types";
  */
 export const horizontalRule = {
   hint: (text: string) => ["---", "***", "___"].some((rule) => text.startsWith(rule)),
-  parse: (text: string): [nodes.HorizontalRule, remainder: string] => {
+  parse: (text: string): [nodes.HorizontalRule, remainder: string] | null => {
     const match = /^(?:---+|___+|\*\*\*+)(?:(?:\r?\n)+|$)/.exec(text);
 
     if (!match) {
-      throw new ParseError("Invalid horizontal rule");
+      return null;
     }
 
     const remainder = text.slice(match[0].length);

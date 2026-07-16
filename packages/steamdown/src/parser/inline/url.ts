@@ -1,5 +1,4 @@
 import type * as nodes from "../../nodes";
-import { ParseError } from "../errors.js";
 import type { Parser } from "../types";
 import { parse } from "./parse.js";
 
@@ -7,7 +6,7 @@ import { parse } from "./parse.js";
  * Extracts the `TEXT` from `[TEXT](LINK)` or `[TEXT][ID]`. `text` should always
  * start with `[`.
  */
-const extractText = (text: string): [text: string, remainder: string] => {
+const extractText = (text: string): [text: string, remainder: string] | null => {
   // NOTE We're assuming that the text matches the hint.
   let opened = 1;
   for (let index = 1; index < text.length; index++) {
@@ -24,7 +23,7 @@ const extractText = (text: string): [text: string, remainder: string] => {
       return [text.slice(1, index), remainder];
     }
   }
-  throw new ParseError("invalid url text");
+  return null;
 };
 
 /**
@@ -32,15 +31,18 @@ const extractText = (text: string): [text: string, remainder: string] => {
  */
 export const url = {
   hint: (text: string) => text.startsWith("["),
-  parse: (text: string): [nodes.Url, remainder: string] => {
+  parse: (text: string): [nodes.Url, remainder: string] | null => {
     const extractedText = extractText(text);
+    if (extractedText == null) {
+      return null;
+    }
     const content = extractedText[0];
     text = extractedText[1];
     // TODO Break this up into something more readable.
     const match = /^(?:(?:\(([^)\n]+)\))|\[((?:[^\]\n]|\\\])+)\])?/.exec(text);
 
     if (!match) {
-      throw new ParseError("invalid url");
+      return null;
     }
 
     const [all, link, id] = match;

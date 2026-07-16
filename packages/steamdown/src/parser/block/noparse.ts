@@ -1,5 +1,5 @@
 import type * as nodes from "../../nodes";
-import { UnreachableError, ParseError } from "../errors.js";
+import { UnreachableError } from "../errors.js";
 import type { Parser } from "../types";
 import { Memoizer } from "../util.js";
 import escapeRegExp from "escape-string-regexp";
@@ -11,7 +11,7 @@ const memo = new Memoizer<string, RegExp>();
  */
 export const noparse = {
   hint: (text: string) => /^{{{+\r?\n/.test(text),
-  parse: (text: string): [nodes.NoparseBlock, remainder: string] => {
+  parse: (text: string): [nodes.NoparseBlock, remainder: string] | null => {
     const open = /^({{{+)\r?\n/.exec(text);
     if (!open) {
       throw new UnreachableError();
@@ -27,7 +27,7 @@ export const noparse = {
       .exec(text);
 
     if (!close) {
-      throw new ParseError("noparse block must be closed");
+      return null;
     }
 
     const closeIndex = close.index;

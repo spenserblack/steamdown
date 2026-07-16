@@ -1,5 +1,4 @@
 import type * as nodes from "../../nodes";
-import { ParseError } from "../errors.js";
 import { parse as parseInline } from "../inline/index.js";
 import type { Parser } from "../types";
 
@@ -8,11 +7,11 @@ import type { Parser } from "../types";
  */
 export const heading = {
   hint: (text: string) => text.startsWith("#"),
-  parse: (text: string): [nodes.Heading, remainder: string] => {
+  parse: (text: string): [nodes.Heading, remainder: string] | null => {
     const match = /^(#{1,6})\s(.+)(?:(?:\r?\n){1,2}|$)/.exec(text);
 
     if (!match) {
-      throw new ParseError("Invalid heading");
+      return null;
     }
 
     const headingText = match[2];
@@ -45,11 +44,11 @@ export const heading = {
  */
 export const altHeading = {
   hint: (text: string) => /^.+\r?\n(?:===+|---+)/.test(text),
-  parse: (text: string): [nodes.Heading, remainder: string] => {
+  parse: (text: string): [nodes.Heading, remainder: string] | null => {
     const match = /^(.+)\r?\n(===+|---+)(?:(?:\r?\n){1,2}|$)/.exec(text);
 
     if (!match) {
-      throw new ParseError("Invalid heading");
+      return null;
     }
 
     const headingText = match[1];
