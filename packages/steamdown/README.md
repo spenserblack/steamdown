@@ -2,6 +2,7 @@
 
 [![NPM Version](https://img.shields.io/npm/v/%40steamdown%2Fcore)](https://www.npmjs.com/package/@steamdown/core)
 [![CI](https://github.com/spenserblack/steamdown/actions/workflows/ci.yml/badge.svg)](https://github.com/spenserblack/steamdown/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/spenserblack/steamdown/graph/badge.svg)](https://codecov.io/gh/spenserblack/steamdown)
 
 Render Markdown / a Markdown-like language to Steam's markup format.
 
