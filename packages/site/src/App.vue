@@ -46,6 +46,13 @@ const textareaStyle = computed(() => ({
         <i-row>
           <i-column><h1>Steamdown</h1></i-column>
         </i-row>
+        <i-row>
+          <i-column>
+            <p>
+              <strong>I am moving the web version to my personal site!</strong> You can find it at <a href="https://www.spenser.black/steamdown/">www.spenser.black/steamdown</a>.
+            </p>
+          </i-column>
+        </i-row>
       </i-container>
     </i-layout-header>
     <i-layout-content>
