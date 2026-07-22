@@ -3,6 +3,16 @@ description: File a bug report.
 labels:
   - bug
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Before you submit, please note that a failure to render some Markdown syntax is
+        *not always a bug.* Steamdown intentionally diverges from common Markdown
+        syntaxes in order to better support Steam's markup, while most Markdown syntaxes
+        are intended to render to *HTML.*
+
+        While your issue may be a bug, also consider if you should file a feature
+        request instead.
   - type: textarea
     id: reproduction
     attributes:
