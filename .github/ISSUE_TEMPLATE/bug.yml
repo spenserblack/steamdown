@@ -1,0 +1,36 @@
+name: Bug report
+description: File a bug report.
+labels:
+  - bug
+body:
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: "What did you do that triggered the bug?"
+      placeholder: "When I used this input..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+      description: "What did you expect to happen?"
+      placeholder: "It should have..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      description: "What actually happened?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Additional information
+      description: "Anything else to report?"

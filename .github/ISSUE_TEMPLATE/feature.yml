@@ -1,0 +1,25 @@
+name: Feature request
+description: Request a new feature.
+labels:
+  - feature
+body:
+  - type: dropdown
+    id: feature-type
+    attributes:
+      label: Feature type
+      description: "What type of feature request is this?"
+      multiple: true
+      options:
+        - "I have a Markdown file that renders nicely with another renderer, and I want Steamdown to support its syntax"
+        - "I want Steamdown to update its syntax to support a Steam markup feature"
+        - "Other"
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: "Describe your feature request in more detail."
+    validations:
+      required: true
