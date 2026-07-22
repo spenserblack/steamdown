@@ -1,0 +1,13 @@
+name: Chore
+description: "Request something that isn't related to the user's experience. Things like repository maintenance."
+labels:
+  - chore
+body:
+  - type: textarea
+    id: chore
+    attributes:
+      label: Description
+      description: "What should be done?"
+      placeholder: "I think you should..."
+    validations:
+      required: true
