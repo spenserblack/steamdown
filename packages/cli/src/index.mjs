@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 import { Command, Option } from "commander";
-import { parse, render } from "@steamdown/core";
+import { render } from "@steamdown/core";
 import { render as html } from "@steamdown/html";
-import getStdin from "get-stdin";
-import fs from "node:fs/promises";
+import handler from "./handler.mjs";
 
 const astOption = new Option("--ast", "Print the AST instead of rendering").conflicts(
   "html",
@@ -21,9 +20,7 @@ program
   .addOption(htmlOption)
   .argument("[file]", "File to parse (STDIN if not specified)")
   .action(async (file, options) => {
-    const content =
-      file == null ? getStdin({ allowTTY: true }) : fs.readFile(file, "utf-8");
-    const [tree, context] = parse(await content);
+    const [tree, context] = await handler(file, process.stdin);
 
     if (options.ast) {
       console.log(JSON.stringify(tree));

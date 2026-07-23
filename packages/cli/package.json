@@ -10,13 +10,13 @@
     "cli"
   ],
   "type": "module",
-  "main": "index.mjs",
+  "main": "src/index.mjs",
   "files": [
-    "index.mjs"
+    "src"
   ],
   "bin": {
-    "steamdown": "./index.mjs",
-    "stmd": "./index.mjs"
+    "steamdown": "./src/index.mjs",
+    "stmd": "./src/index.mjs"
   },
   "bugs": {
     "url": "https://github.com/spenserblack/steamdown/issues"
@@ -29,7 +29,6 @@
   "dependencies": {
     "@steamdown/core": "workspace:^",
     "@steamdown/html": "workspace:^",
-    "commander": "^15.0.0",
-    "get-stdin": "^10.0.0"
+    "commander": "^15.0.0"
   }
 }
