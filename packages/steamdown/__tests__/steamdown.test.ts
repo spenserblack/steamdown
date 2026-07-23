@@ -2,10 +2,10 @@ import { describe, expect, test } from "vitest";
 import { parse, render } from "../src/index";
 import useAssets from "./assets/index";
 
-describe("steamdown", () => {
-  const assets = useAssets();
-  test.each(assets)("$name", async ({ content }) => {
-    const [tree, context] = parse(await content);
+describe("steamdown", async () => {
+  const assets = await useAssets();
+  test.each(assets)("$name", ({ content }) => {
+    const [tree, context] = parse(content);
     const rendered = render(tree, context);
     expect(rendered).toMatchSnapshot();
   });

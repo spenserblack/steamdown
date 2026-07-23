@@ -4,10 +4,10 @@ import useAssets from "./assets/index";
 
 describe("parser", () => {
   describe("parse()", () => {
-    describe("tree", () => {
-      const assets = useAssets();
-      test.each(assets)("$name", async ({ content }) => {
-        const [tree] = parse(await content);
+    describe("tree", async () => {
+      const assets = await useAssets();
+      test.each(assets)("$name", ({ content }) => {
+        const [tree] = parse(content);
         expect(tree).toMatchSnapshot();
       });
     });
