@@ -2681,6 +2681,25 @@ exports[`parser > parse() > tree > 'two paragraphs' 1`] = `
 }
 `;
 
+exports[`parser > parse() > tree > 'unclosed code block' 1`] = `
+{
+  "nodes": [
+    {
+      "nodes": [
+        {
+          "text": "\`\`\`javascript
+const name = "World";
+console.log("Hello,", name);",
+          "type": "text",
+        },
+      ],
+      "type": "paragraph",
+    },
+  ],
+  "type": "root",
+}
+`;
+
 exports[`parser > parse() > tree > 'underlined in italicized' 1`] = `
 {
   "nodes": [
