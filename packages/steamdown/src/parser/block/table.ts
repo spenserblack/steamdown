@@ -52,7 +52,6 @@ function parseTableRow(
     line = line + "|";
   }
 
-  // TODO Improve performance with lazy iteration or `.reduce`
   const rawCells = line.split("|");
   // NOTE Beginning and ending `|` are empty strings, so we remove them.
   rawCells.shift();
