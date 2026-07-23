@@ -1130,34 +1130,31 @@ exports[`parser > parse() > tree > 'heading' 1`] = `
       "type": "heading",
     },
     {
-      "level": 4,
       "nodes": [
         {
-          "text": "Heading 4",
+          "text": "#### Heading 4",
           "type": "text",
         },
       ],
-      "type": "heading",
+      "type": "paragraph",
     },
     {
-      "level": 5,
       "nodes": [
         {
-          "text": "Heading 5",
+          "text": "##### Heading 5",
           "type": "text",
         },
       ],
-      "type": "heading",
+      "type": "paragraph",
     },
     {
-      "level": 6,
       "nodes": [
         {
-          "text": "Heading 6",
+          "text": "###### Heading 6",
           "type": "text",
         },
       ],
-      "type": "heading",
+      "type": "paragraph",
     },
   ],
   "type": "root",

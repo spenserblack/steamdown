@@ -8,7 +8,7 @@ import type { Parser } from "../types";
 export const heading = {
   hint: (text: string) => text.startsWith("#"),
   parse: (text: string): [nodes.Heading, remainder: string] | null => {
-    const match = /^(#{1,6})\s(.+)(?:(?:\r?\n){1,2}|$)/.exec(text);
+    const match = /^(#{1,3})\s(.+)(?:(?:\r?\n){1,2}|$)/.exec(text);
 
     if (!match) {
       return null;
@@ -21,7 +21,7 @@ export const heading = {
 
     const node: nodes.Heading = {
       type: "heading",
-      level: match[1].length as 1 | 2 | 3 | 4 | 5 | 6,
+      level: match[1].length as 1 | 2 | 3,
       nodes,
     };
 
