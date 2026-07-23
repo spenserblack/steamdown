@@ -1,7 +1,7 @@
 {
   "name": "@steamdown/cli",
   "version": "1.0.0-beta.2",
-  "author": "Spenser Black <spenserblack01@gmail.com>",
+  "author": "Spenser Black <me@spenser.black>",
   "license": "MIT",
   "description": "A simple wrapper around the Steamdown parser/renderer for the command line.",
   "keywords": [
