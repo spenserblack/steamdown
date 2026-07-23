@@ -16,7 +16,7 @@ describe("html", () => {
 
     test.each([
       ["escapes", "\\*visible asterisks\\*"],
-      ["image references", "![alt][id]\n\n[id]: https://example.com/image.png"]
+      ["image references", "![alt][id]\n\n[id]: https://example.com/image.png"],
     ])("%s", (_name, source) => {
       const [tree, context] = parse(source);
       const rendered = render(tree, context);

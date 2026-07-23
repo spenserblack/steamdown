@@ -6,7 +6,7 @@ describe("parser", () => {
     describe("UnreachableError", () => {
       const tests: [name: string, args: [] | [string], expected: string][] = [
         ["no args", [], "Unreachable"],
-        ["with args", ["Unexpected branch"], "Unexpected branch"]
+        ["with args", ["Unexpected branch"], "Unexpected branch"],
       ];
       test.each(tests)("%s", (_name, args, expected) => {
         const error = new UnreachableError(...args);
