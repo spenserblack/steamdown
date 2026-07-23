@@ -1,0 +1,47 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`handler > it reads from a file 1`] = `
+[
+  {
+    "nodes": [
+      {
+        "level": 1,
+        "nodes": [
+          {
+            "text": "file",
+            "type": "text",
+          },
+        ],
+        "type": "heading",
+      },
+    ],
+    "type": "root",
+  },
+  Context {
+    "links": Map {},
+  },
+]
+`;
+
+exports[`handler > it reads from stdin 1`] = `
+[
+  {
+    "nodes": [
+      {
+        "level": 1,
+        "nodes": [
+          {
+            "text": "stdin",
+            "type": "text",
+          },
+        ],
+        "type": "heading",
+      },
+    ],
+    "type": "root",
+  },
+  Context {
+    "links": Map {},
+  },
+]
+`;
