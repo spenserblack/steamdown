@@ -27,6 +27,38 @@ const extractText = (text: string): [text: string, remainder: string] | null => 
 };
 
 /**
+ * A URL type and the pattern that matches it.
+ */
+type UrlPatternTuple = [type: nodes.Url["type"], RegExp];
+const urlPatterns: UrlPatternTuple[] = [
+  ["link-url", /^\(([^)\n]+)\)/],
+  ["id-url", /^\[((?:[^\]\n]|\\\])+)\]/],
+];
+/**
+ * A URL type and the match from `RegExp.exec`.
+ */
+type UrlMatchTuple = [type: nodes.Url["type"], RegExpExecArray];
+
+/**
+ * Gets a match if it exists.
+ */
+const urlMatch = (
+  [t, pattern]: UrlPatternTuple,
+  text: string,
+): UrlMatchTuple | null => {
+  const match = pattern.exec(text);
+  return match ? [t, match] : null;
+};
+/**
+ * Gets the first regular expression match.
+ */
+const firstUrlMatch = (text: string) =>
+  urlPatterns.reduce<UrlMatchTuple | null>(
+    (match, tuple) => match ?? urlMatch(tuple, text),
+    null,
+  );
+
+/**
  * Parser for url.
  */
 export const url = {
@@ -38,27 +70,24 @@ export const url = {
     }
     const content = extractedText[0];
     text = extractedText[1];
-    // TODO Break this up into something more readable.
-    const match = /^(?:(?:\(([^)\n]+)\))|\[((?:[^\]\n]|\\\])+)\])?/.exec(text);
+    // NOTE The following `(https://example.com)` or `[id]` are optional. When neither
+    //      are found, the content in `[text]` is used as the id.
+    const [urlType, match] = firstUrlMatch(text) ?? ["id-url", [""]];
 
-    if (!match) {
-      return null;
-    }
-
-    const [all, link, id] = match;
+    const [all, linkOrId] = match;
     const remainder = text.slice(all.length);
     const nodes = parse(content);
 
     const node: nodes.Url =
-      link != null
+      urlType === "link-url"
         ? {
             type: "link-url",
-            link,
+            link: linkOrId,
             nodes,
           }
         : {
             type: "id-url",
-            id: id ?? content,
+            id: linkOrId ?? content,
             nodes,
           };
 

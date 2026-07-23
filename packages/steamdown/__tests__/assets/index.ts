@@ -3,26 +3,25 @@ import path from "node:path";
 
 const testExt = /\.test\.txt$/;
 
-// TODO Make this async so the files aren't read one by one
 const assets = fs
   .readdirSync(__dirname)
   .filter((filename) => testExt.test(filename))
-  .map((filename) => {
+  .map(async (filename) => {
     const filepath = path.join(__dirname, filename);
     const name = filename.replace(testExt, "");
     const content = fs.promises.readFile(filepath, "utf-8");
     return {
       path: filepath,
       name,
-      content,
+      content: await content,
     };
   });
 
 /**
  * Get all assets in this directory.
  */
-const useAssets = () => {
-  return assets;
+const useAssets = async () => {
+  return await Promise.all(assets);
 };
 
 export default useAssets;
