@@ -1,8 +1,6 @@
 import type { Context } from "./context";
 import type * as nodes from "./nodes";
 
-// TODO Performance can be improved by not doing map + filter + join.
-
 /**
  * Renders a block that only has text.
  */

@@ -1,8 +1,6 @@
 import type { nodes, Context } from "@steamdown/core";
 import { htmlEscape } from "escape-goat";
 
-// TODO Performance can be improved by not doing map + filter + join.
-
 /**
  * Data to be converted to an HTML tag.
  */
