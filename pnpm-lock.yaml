@@ -53,9 +53,6 @@ importers:
       commander:
         specifier: ^15.0.0
         version: 15.0.0
-      get-stdin:
-        specifier: ^10.0.0
-        version: 10.0.0
 
   packages/html:
     dependencies:
@@ -1221,10 +1218,6 @@ packages:
 
   gensequence@8.0.8:
     resolution: {integrity: sha512-omMVniXEXpdx/vKxGnPRoO2394Otlze28TyxECbFVyoSpZ9H3EO7lemjcB12OpQJzRW4e5tt/dL1rOxry6aMHg==}
-    engines: {node: '>=20'}
-
-  get-stdin@10.0.0:
-    resolution: {integrity: sha512-eWSePJ4zXFdqz+/Lyfopob4rIcoF/U2XfE8nJc7iZV6lnebWc9k7DoQQpX+2a9jc0AOvBsXvbe5YkjXl/MHbpg==}
     engines: {node: '>=20'}
 
   glob-parent@6.0.2:
@@ -2860,8 +2853,6 @@ snapshots:
     optional: true
 
   gensequence@8.0.8: {}
-
-  get-stdin@10.0.0: {}
 
   glob-parent@6.0.2:
     dependencies:

@@ -1,4 +1,4 @@
-import getStdin from "get-stdin";
+import { text } from "node:stream/consumers";
 import fs from "node:fs/promises";
 import { parse } from "@steamdown/core";
 
@@ -8,8 +8,7 @@ import { parse } from "@steamdown/core";
  * @param stdin The STDIN stream. Optional when file is a string.
  */
 const handler = async (file, stdin) => {
-  const asyncContent =
-    file == null ? getStdin({ allowTTY: true, stdin }) : fs.readFile(file, "utf-8");
+  const asyncContent = file == null ? text(stdin) : fs.readFile(file, "utf-8");
   const content = await asyncContent;
   return parse(content);
 };
