@@ -1,5 +1,9 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`html > render > escapes 1`] = `"<p>*visible asterisks*</p>"`;
+
+exports[`html > render > image references 1`] = `"<p><img src="https://example.com/image.png" alt="alt" /></p>"`;
+
 exports[`html > render > renders the demo file 1`] = `
 "<p>This is a paragraph. Breaklines<br>will be rendered.</p><p>Two breaklines will start a new paragraph.</p><h1>Header Level 1</h1><h2>Header Level 2</h2><h3>Header Level 3</h3><h1>Alternative Header 1</h1><h2>Alternative Header 2</h2><p>Syntax includes:</p><ul>
 <li><p><em>italics</em></p></li>

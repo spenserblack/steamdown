@@ -471,6 +471,12 @@ exports[`steamdown > 'two paragraphs' 1`] = `
 Bar"
 `;
 
+exports[`steamdown > 'unclosed code block' 1`] = `
+"\`\`\`javascript
+const name = "World";
+console.log("Hello,", name);"
+`;
+
 exports[`steamdown > 'underlined in italicized' 1`] = `"[i]Italicized and [u]underlined[/u][/i]"`;
 
 exports[`steamdown > 'underlined' 1`] = `"[u]Underlined text[/u]"`;
