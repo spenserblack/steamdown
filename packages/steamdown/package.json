@@ -1,6 +1,6 @@
 {
   "name": "@steamdown/core",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0",
   "author": "Spenser Black <me@spenser.black>",
   "license": "MIT",
   "description": "A Markdown-like language that renders to Steam's markup language.",
