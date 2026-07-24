@@ -99,6 +99,23 @@ const x = "This will not have JavaScript syntax highlighting in Steam.";
 ```
 ````
 
+#### Headings
+
+Headings are text preceded by one to *three* `#`, followed by a space, then text on one
+line. This differs from Markdown, where headers can go up to level six.
+
+##### Example
+
+```
+# This is a level 1 heading
+
+## This is a level 2 heading
+
+### This is a level 3 heading
+
+#### THIS IS NOT A LEVEL 4 HEADING
+```
+
 #### Images
 
 Images are identical to [CommonMark][common-mark]. However, alt text will be *ignored,*
@@ -203,6 +220,10 @@ in plain-text. Cells do not need to be aligned to be valid.
 
 ### Removed syntax
 
+#### Bold with `__`
+
+See the section above on underlines.
+
 #### Inline code
 
 Steam does not appear to support inline code. `[code]inline[/code]` will render as a
@@ -225,6 +246,126 @@ emphasize that underscores behave differently from Markdown.
 
 ```
 _This is not italicized._
+```
+
+### Interoperable syntax
+
+All syntax in this section should behave identically, or nearly identically, to popular
+Markdown parsers and formatters. If you are already familiar with Markdown, you may want
+to skip this section.
+
+#### Alternative headings
+
+Level 1 headings are defined as a line of text with three or more `=` on the next line.
+Level 2 headings replace the `=` with `-`.
+
+##### Examples
+
+```markdown
+Level 1 heading
+===============
+
+Level 2 heading
+---------------
+```
+
+#### Bold with `**`
+
+Bold text can be started and closed with `**`.
+
+##### Example
+
+```markdown
+**This is bold text.**
+```
+
+#### Italics with `*`
+
+Italicized text can be started and closed with `*`.
+
+##### Example
+
+```markdown
+*This is italicized text.*
+```
+
+#### Horizontal rules
+
+Horizontal rules are three or more `*` or `-` on their own line. For horizontal rules
+using `---`, they *must not* be directly underneath text, or else it may be either part
+of a paragraph or an alternative heading.
+
+##### Examples
+
+```markdown
+---
+
+***
+```
+
+#### Links
+
+Links are text wrapped in `[` and `]`. Links optionally have a URL immediately after,
+where the URL is wrapped in `(` and `)`. Instead of a URL, links may have a *reference*
+to a URL, where the reference's ID is wrapped in `[` and `]` immediately after the link.
+
+If the link's text is identical to the ID of a reference, the following ID can be
+omitted.
+
+A link reference is an ID wrapped in `[` and `]`, followed by a `:` and a space, then
+the link's URL.
+
+##### Examples
+
+```markdown
+[This is a link](https://example.com).
+
+[This is a link with a reference][example-id].
+
+This is also a link to example.com: [example-id].
+
+[example-id]: https://example.com
+```
+
+#### Paragraphs
+
+Paragraphs are the most basic Markdown syntax, and are blocks of text. Multiple
+paragraphs can be separated by an empty line.
+
+```markdown
+This is a paragraph. It has no special content when rendered to Steam's markup.
+
+This is another paragraph.
+```
+
+#### Ordered lists
+
+Ordered lists are defined as a number followed by a `.`, a space, then text.
+
+##### Example
+
+```markdown
+1. One
+2. Two
+3. Three
+```
+
+#### Unordered lists
+
+Unordered lists are defined as a `*` or a `-`, followed by a space, then text. `*` and
+`-` *cannot* be mixed in a single list.
+
+##### Examples
+
+```markdown
+- This is
+- a list
+
+* This is
+* a list
+
+- This is a list.
+* This is a new list, separate from the item directly above.
 ```
 
 [common-mark]: https://commonmark.org/
