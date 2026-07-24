@@ -6,6 +6,7 @@ words:
   - borderless
   - breakline
   - breaklines
+  - docmd
   - equalcells
   - noborder
   - noparse
@@ -18,6 +19,7 @@ ignorePaths:
   - CODEOWNERS
   - "coverage/**"
   - "**/dist/**"
+  - "gh-pages/**"
   - "node_modules/**"
   - "**/pnpm-lock.yaml"
   - "**/pnpm-workspace.yaml"

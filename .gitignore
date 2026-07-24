@@ -118,3 +118,6 @@ dist
 
 # Created during publish workflow
 /.npmrc
+
+# GitHub Pages built assets
+/gh-pages/

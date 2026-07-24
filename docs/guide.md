@@ -1,3 +1,7 @@
+---
+title: "Steamdown Guide"
+description: "Learn about Steamdown and its similarities and differences with Markdown."
+---
 # Steamdown Guide
 
 Steamdown has two goals which are sometimes in conflict:
