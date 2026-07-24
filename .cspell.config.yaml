@@ -16,6 +16,7 @@ words:
 ignorePaths:
   # NOTE: As a list of usernames, spell-checking doesn't seem reasonable.
   - CODEOWNERS
+  - "coverage/**"
   - "**/dist/**"
   - "node_modules/**"
   - "**/pnpm-lock.yaml"
