@@ -4,6 +4,6 @@
   "license": "MIT",
   "exports": "./src/index.ts",
   "publish": {
-    "exclude": ["__tests__"]
-  }
+    "exclude": ["__tests__"],
+  },
 }
