@@ -246,4 +246,4 @@ so the language identifier is ignored.
 Steam seems to render all `[code]` tags as blocks, so inline code is not supported.
 Consider using a code block instead.
 
-[site]: https://steamdown.vercel.app/
+[site]: https://www.spenser.black/steamdown/
