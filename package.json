@@ -3,7 +3,6 @@
   "scripts": {
     "build": "pnpm run -r build",
     "test": "vitest",
-    "docmd": "docmd",
     "check-spelling": "cspell .",
     "format": "prettier --write .",
     "format-check": "prettier --check .",
@@ -13,7 +12,6 @@
     "site:preview": "pnpm run --filter @steamdown/site preview"
   },
   "devDependencies": {
-    "@docmd/core": "^0.8.17",
     "@eslint/js": "^10.0.1",
     "@tsconfig/recommended": "^1.0.13",
     "@vitest/coverage-v8": "4.1.10",
