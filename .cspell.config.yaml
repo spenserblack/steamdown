@@ -20,6 +20,7 @@ ignorePaths:
   - "coverage/**"
   - "**/dist/**"
   - "gh-pages/**"
+  - "**/.gitignore"
   - "node_modules/**"
   - "**/pnpm-lock.yaml"
   - "**/pnpm-workspace.yaml"
