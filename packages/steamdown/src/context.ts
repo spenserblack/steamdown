@@ -4,11 +4,11 @@
 export class Context {
   private links = new Map<string, string>();
 
-  public addLink(id: string, url: string) {
+  public addLink(id: string, url: string): void {
     this.links.set(id, url);
   }
 
-  public getLink(id: string) {
+  public getLink(id: string): string | undefined {
     return this.links.get(id);
   }
 }
