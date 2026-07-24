@@ -1,0 +1,66 @@
+{
+  "title": "Steamdown Documentation",
+  "url": "https://spenserblack.github.io/steamdown/",
+  "base": "/steamdown/",
+  "src": "docs",
+  "out": "gh-pages",
+  "engine": "js",
+  "layout": {
+    "spa": false,
+    "header": {
+      "enabled": true
+    },
+    "sidebar": {
+      "collapsible": true,
+      "defaultCollapsed": false
+    },
+    "optionsMenu": {
+      "position": "sidebar-top",
+      "components": {
+        "search": true,
+        "themeSwitch": true
+      }
+    },
+    "footer": {
+      "style": "minimal"
+    }
+  },
+  "theme": {
+    "name": "default",
+    "appearance": "system",
+    "codeHighlight": false
+  },
+  "minify": true,
+  "autoTitleFromH1": true,
+  "navigation": [
+    { "title": "Documentation", "path": "/", "icon": "home" },
+    { "title": "Guide", "path": "/guide/", "icon": "book-text" },
+    {
+      "title": "Demo",
+      "path": "https://www.spenser.black/steamdown/",
+      "icon": "code",
+      "external": true
+    },
+    {
+      "title": "GitHub",
+      "path": "https://github.com/spenserblack/steamdown",
+      "icon": "github",
+      "external": true
+    }
+  ],
+  "plugins": {
+    "git": {
+      "repo": "https://github.com/spenserblack/steamdown",
+      "branch": "main",
+      "editLink": true,
+      "lastUpdated": true,
+      "commitHistory": true,
+      "maxCommits": 5
+    },
+    "okf": false,
+    "seo": {
+      "defaultDescription": "Documentation for Steamdown, an unofficial Markdown parser for Steam.",
+      "aiBots": false
+    }
+  }
+}
