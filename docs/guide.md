@@ -201,6 +201,32 @@ Standard tables:
 Note that the examples here have padded cells with equal width only to be more readable
 in plain-text. Cells do not need to be aligned to be valid.
 
+### Removed syntax
+
+#### Inline code
+
+Steam does not appear to support inline code. `[code]inline[/code]` will render as a
+block, not inline with the rest of the text. For this reason, `` `inline code` `` has
+been disabled.
+
+##### Example
+
+```
+`This is not inline code.`
+```
+
+#### Italics with `_`
+
+In [CommonMark][common-mark], italics may be opened and closed with a single `_`.
+Because Steamdown uses `__` for underlines, italics with `_` have been *disabled* to
+emphasize that underscores behave differently from Markdown.
+
+##### Example
+
+```
+_This is not italicized._
+```
+
 [common-mark]: https://commonmark.org/
 [github-flavored-markdown]: https://github.github.com/gfm/
 [steam-markup]: https://steamcommunity.com/comment/Guide/formattinghelp
