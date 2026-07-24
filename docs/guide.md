@@ -147,7 +147,7 @@ and a number.
 > This is quoted text with an author.
 (Cool Guy)
 
-> This is quoted txt with an author and a post ID. This can help readers follow a
+> This is quoted text with an author and a post ID. This can help readers follow a
 > conversation even if the quoted author changes their display name.
 (Your Friend;123)
 ```
