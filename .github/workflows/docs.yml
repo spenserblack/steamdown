@@ -3,23 +3,37 @@ on:
   push:
     branches: ["main"]
 
+    workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
-  docs:
-    name: Deploy documentation
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pages: write
-      id-token: write
+  deploy:
+    name: Deploy
     environment:
       name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: docmd-io/deploy@v1.1
-        id: build
-      - uses: actions/upload-pages-artifact@v5
+      - uses: pnpm/setup@v1
+      - name: Build
+        run: pnpm run docmd build
+      - name: Setup Pages
+        uses: actions/configure-pages@v6
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v5
         with:
-          path: ${{ steps.build.outputs.site-dir }}
-      - uses: actions/deploy-pages@v5
-        id: deploy
+          path: "gh-pages"
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
