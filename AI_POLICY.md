@@ -1,7 +1,8 @@
 # AI Policy
 
-This document neither condemns nor condones the usage of AI or LLMs but does
-provide rules that must be followed.
+This document neither condemns nor condones the usage of AI or LLMs but
+provides rules that must be followed. The purpose of these rules is to
+ensure quality and the overall health of the project.
 
 ## You should understand the changes you are submitting
 
