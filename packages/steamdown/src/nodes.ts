@@ -73,7 +73,8 @@ export interface CodeBlock extends BaseNode {
  */
 export interface Heading extends BaseNode {
   type: "heading";
-  level: 1 | 2 | 3 | 4 | 5 | 6;
+  // AI Generated: pending human review
+  level: 1 | 2 | 3;
   nodes: Inline[];
 }
 
