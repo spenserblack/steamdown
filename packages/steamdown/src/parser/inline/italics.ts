@@ -9,6 +9,9 @@ export const italics = {
   hint: (text: string) => text.startsWith("*"),
   parse: (text: string): [nodes.Italics, remainder: string] | null => {
     text = text.slice(1);
+    if (/^\s/.test(text)) {
+      return null;
+    }
     let searchIndex = 0;
     const boldStartRe = /(?<!\\)\*\*/g;
 
