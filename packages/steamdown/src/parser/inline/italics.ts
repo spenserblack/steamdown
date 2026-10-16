@@ -11,13 +11,21 @@ export const italics = {
     text = text.slice(1);
     let searchIndex = 0;
     const boldStartRe = /(?<!\\)\*\*/g;
+    const endRe = /(?<!\\|\s)\*/g;
+    let endMatch: RegExpExecArray | null;
 
     // HACK Handle nested bolds (*foo **bar** baz* and *foo **bar***). We do a simple
     //      search for bold beginning and end markers, and skip over them.
-
+    //      A bold only counts as nested if it starts before the italics' end marker.
     while (true) {
+      endRe.lastIndex = searchIndex;
+      endMatch = endRe.exec(text);
+      if (!endMatch) {
+        return null;
+      }
+      boldStartRe.lastIndex = searchIndex;
       const boldStart = boldStartRe.exec(text);
-      if (!boldStart) {
+      if (!boldStart || endMatch.index < boldStart.index) {
         break;
       }
       const boldEndRe = /(?<!\\|\s)\*\*/g;
@@ -27,13 +35,9 @@ export const italics = {
         break;
       }
       searchIndex = boldEnd.index + 2;
-      boldStartRe.lastIndex = searchIndex;
     }
 
-    const endRe = /(?<!\\|\s)\*/g;
-    endRe.lastIndex = searchIndex;
-    const endMatch = endRe.exec(text);
-    if (!endMatch) {
+    if (endMatch.index === 0) {
       return null;
     }
 
