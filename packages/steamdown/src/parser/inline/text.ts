@@ -10,9 +10,13 @@ export const text = {
     let remainder = "";
     // NOTE End on special chars to allow for parsing of other nodes, but only if that
     //      special char is not the first character.
-    const end = /[\\*_~{[]|>!/.exec(text);
+    //      A leading run of a special char that no other parser accepted is consumed
+    //      as plain text.
+    const leadingRunLength = /^([\\*_~{[]|>!)\1*/.exec(text)?.[0].length ?? 1;
+    const end = /[\\*_~{[]|>!/.exec(text.slice(leadingRunLength));
 
-    if (end && end.index > 0) {
+    if (end) {
+      end.index += leadingRunLength;
       remainder = text.slice(end.index);
       text = text.slice(0, end.index);
     }

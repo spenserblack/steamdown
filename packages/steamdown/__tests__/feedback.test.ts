@@ -15,6 +15,11 @@ const feedback: [string | number, string, string][] = [
   [293, "underscore_test_", "underscore_test_"],
   ["Fenced code block with a language tag", "```js\nconst x = 1;\n```", "[code]\nconst x = 1;\n[/code]"],
   ["Fenced code block without a language tag still works", "```\nconst x = 1;\n```", "[code]\nconst x = 1;\n[/code]"],
+  [438, "*it* or **b**", "[i]it[/i] or [b]b[/b]"],
+  [438, "**b** x *it*", "[b]b[/b] x [i]it[/i]"],
+  [438, "Should we make this *italicized* or **bold**?\nOr should we ~~delete~~ this?", "Should we make this [i]italicized[/i] or [b]bold[/b]?\nOr should we [strike]delete[/strike] this?"],
+  ["Lone double asterisk is plain text", "**", "**"],
+  ["Unmatched asterisk does not stop later formatting", "a *b ~~c~~", "a *b [strike]c[/strike]"],
 ];
 
 // -------------------------------------------------------------------------------------
