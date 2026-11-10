@@ -29,6 +29,6 @@
   "dependencies": {
     "@steamdown/core": "workspace:^",
     "@steamdown/html": "workspace:^",
-    "commander": "^15.0.0"
+    "commander": "^15.1.0"
   }
 }
