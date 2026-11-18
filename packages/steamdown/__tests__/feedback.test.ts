@@ -15,6 +15,8 @@ const feedback: [string | number, string, string][] = [
   [293, "underscore_test_", "underscore_test_"],
   ["Fenced code block with a language tag", "```js\nconst x = 1;\n```", "[code]\nconst x = 1;\n[/code]"],
   ["Fenced code block without a language tag still works", "```\nconst x = 1;\n```", "[code]\nconst x = 1;\n[/code]"],
+  ["Lone asterisk followed by double asterisk is plain text", "2 * 3 ** 4", "2 * 3 ** 4"],
+  ["Lone asterisks are plain text", "a * b * c", "a * b * c"],
 ];
 
 // -------------------------------------------------------------------------------------
