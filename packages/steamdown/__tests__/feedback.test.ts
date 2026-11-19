@@ -20,6 +20,8 @@ const feedback: [string | number, string, string][] = [
   [438, "Should we make this *italicized* or **bold**?\nOr should we ~~delete~~ this?", "Should we make this [i]italicized[/i] or [b]bold[/b]?\nOr should we [strike]delete[/strike] this?"],
   ["Lone double asterisk is plain text", "**", "**"],
   ["Unmatched asterisk does not stop later formatting", "a *b ~~c~~", "a *b [strike]c[/strike]"],
+  ["Lone asterisk followed by double asterisk is plain text", "2 * 3 ** 4", "2 * 3 ** 4"],
+  ["Lone asterisks are plain text", "a * b * c", "a * b * c"],
 ];
 
 // -------------------------------------------------------------------------------------
